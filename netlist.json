@@ -1,0 +1,52 @@
+{
+  "project": "rf4",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Microcontroller (auto-extracted)",
+      "type": "MCU",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "MCU",
+        "component_name": "Microcontroller (auto-extracted)",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Power Management (auto-extracted)",
+      "type": "PWR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "PWR",
+        "component_name": "Power Management (auto-extracted)",
+        "reference_designator": "U2"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true,
+    "llm_response": "# RF4 High-Power 2.4 GHz RF Amplifier - Logical Netlist\n\n## Netlist Summary\n\nThis document defines the complete logical connectivity for the RF4 2.4 GHz ISM band power amplifier, delivering +40 dBm (10W) output power with 40 dB gain across two stages.\n\n### Design Overview\n\n| Parameter | Value |\n|-----------|-------|\n| **Frequency Range** | 2.4 - 2.5 GHz |\n| **Output Power** | +40 dBm (10W) |\n| **Total Gain** | 40 dB |\n| **Supply Voltage** | +12V DC |\n| **Max Current** | 5A |\n| **Total Components"
+  }
+}
