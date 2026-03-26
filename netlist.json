@@ -1,0 +1,1045 @@
+{
+  "project": "rf9",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "STM32F405VGT6",
+      "type": "STM32F405VGT6",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "reference_designator": "U1",
+        "component_name": "STM32F405VGT6",
+        "part_number": "STM32F405VGT6"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "ISO5852S_Isolated_Gate_Driver",
+      "type": "ISO5852S",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "reference_designator": "U2",
+        "component_name": "ISO5852S_Isolated_Gate_Driver",
+        "part_number": "ISO5852S"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "INA282_Current_Sense_Amp_Phase_U",
+      "type": "INA282",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "reference_designator": "U3",
+        "component_name": "INA282_Current_Sense_Amp_Phase_U",
+        "part_number": "INA282"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "INA282_Current_Sense_Amp_Phase_V",
+      "type": "INA282",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "reference_designator": "U4",
+        "component_name": "INA282_Current_Sense_Amp_Phase_V",
+        "part_number": "INA282"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "INA282_Current_Sense_Amp_Phase_W",
+      "type": "INA282",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "reference_designator": "U5",
+        "component_name": "INA282_Current_Sense_Amp_Phase_W",
+        "part_number": "INA282"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "MGJ2D121505SC_Isolated_DCDC",
+      "type": "MGJ2D121505SC",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "reference_designator": "U6",
+        "component_name": "MGJ2D121505SC_Isolated_DCDC",
+        "part_number": "MGJ2D121505SC"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "AMS1117-3.3_LDO_Regulator",
+      "type": "AMS1117-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "reference_designator": "U7",
+        "component_name": "AMS1117-3.3_LDO_Regulator",
+        "part_number": "AMS1117-3.3"
+      }
+    },
+    {
+      "id": "Q1",
+      "name": "IRFS7530_High_Side_Phase_U",
+      "type": "IRFS7530TRLPBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q1",
+        "reference_designator": "Q1",
+        "component_name": "IRFS7530_High_Side_Phase_U",
+        "part_number": "IRFS7530TRLPBF"
+      }
+    },
+    {
+      "id": "Q2",
+      "name": "IRFS7530_Low_Side_Phase_U",
+      "type": "IRFS7530TRLPBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q2",
+        "reference_designator": "Q2",
+        "component_name": "IRFS7530_Low_Side_Phase_U",
+        "part_number": "IRFS7530TRLPBF"
+      }
+    },
+    {
+      "id": "Q3",
+      "name": "IRFS7530_High_Side_Phase_V",
+      "type": "IRFS7530TRLPBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q3",
+        "reference_designator": "Q3",
+        "component_name": "IRFS7530_High_Side_Phase_V",
+        "part_number": "IRFS7530TRLPBF"
+      }
+    },
+    {
+      "id": "Q4",
+      "name": "IRFS7530_Low_Side_Phase_V",
+      "type": "IRFS7530TRLPBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q4",
+        "reference_designator": "Q4",
+        "component_name": "IRFS7530_Low_Side_Phase_V",
+        "part_number": "IRFS7530TRLPBF"
+      }
+    },
+    {
+      "id": "Q5",
+      "name": "IRFS7530_High_Side_Phase_W",
+      "type": "IRFS7530TRLPBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q5",
+        "reference_designator": "Q5",
+        "component_name": "IRFS7530_High_Side_Phase_W",
+        "part_number": "IRFS7530TRLPBF"
+      }
+    },
+    {
+      "id": "Q6",
+      "name": "IRFS7530_Low_Side_Phase_W",
+      "type": "IRFS7530TRLPBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q6",
+        "reference_designator": "Q6",
+        "component_name": "IRFS7530_Low_Side_Phase_W",
+        "part_number": "IRFS7530TRLPBF"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "Shunt_Resistor_250uOhm_Phase_U",
+      "type": "WSLF2512L2000FEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "reference_designator": "R1",
+        "component_name": "Shunt_Resistor_250uOhm_Phase_U",
+        "part_number": "WSLF2512L2000FEA"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Shunt_Resistor_250uOhm_Phase_V",
+      "type": "WSLF2512L2000FEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "reference_designator": "R2",
+        "component_name": "Shunt_Resistor_250uOhm_Phase_V",
+        "part_number": "WSLF2512L2000FEA"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Shunt_Resistor_250uOhm_Phase_W",
+      "type": "WSLF2512L2000FEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "reference_designator": "R3",
+        "component_name": "Shunt_Resistor_250uOhm_Phase_W",
+        "part_number": "WSLF2512L2000FEA"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Bus_Voltage_Divider_Top",
+      "type": "CRCW1206100KJNEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "reference_designator": "R4",
+        "component_name": "Bus_Voltage_Divider_Top",
+        "part_number": "CRCW1206100KJNEA"
+      }
+    },
+    {
+      "id": "R5",
+      "name": "Bus_Voltage_Divider_Bottom",
+      "type": "CRCW12063K9JNEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R5",
+        "reference_designator": "R5",
+        "component_name": "Bus_Voltage_Divider_Bottom",
+        "part_number": "CRCW12063K9JNEA"
+      }
+    },
+    {
+      "id": "R6",
+      "name": "Throttle_Input_Protection",
+      "type": "CRCW120610KJNEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R6",
+        "reference_designator": "R6",
+        "component_name": "Throttle_Input_Protection",
+        "part_number": "CRCW120610KJNEA"
+      }
+    },
+    {
+      "id": "R7",
+      "name": "Throttle_Input_Filter",
+      "type": "CRCW120610KJNEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R7",
+        "reference_designator": "R7",
+        "component_name": "Throttle_Input_Filter",
+        "part_number": "CRCW120610KJNEA"
+      }
+    },
+    {
+      "id": "R8",
+      "name": "NTC_Thermistor_Bias",
+      "type": "NTCW25103K103T",
+      "pins": [],
+      "properties": {
+        "instance_id": "R8",
+        "reference_designator": "R8",
+        "component_name": "NTC_Thermistor_Bias",
+        "part_number": "NTCW25103K103T"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Decoupling_Cap_10uF_3V3",
+      "type": "CL21A106KQCLRNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "reference_designator": "C1",
+        "component_name": "Decoupling_Cap_10uF_3V3",
+        "part_number": "CL21A106KQCLRNC"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Decoupling_Cap_100nF_3V3",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "reference_designator": "C2",
+        "component_name": "Decoupling_Cap_100nF_3V3",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Decoupling_Cap_10uF_5V",
+      "type": "CL21A106KQCLRNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "reference_designator": "C3",
+        "component_name": "Decoupling_Cap_10uF_5V",
+        "part_number": "CL21A106KQCLRNC"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Decoupling_Cap_100nF_5V",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "reference_designator": "C4",
+        "component_name": "Decoupling_Cap_100nF_5V",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "Decoupling_Cap_100nF_VDD",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "reference_designator": "C5",
+        "component_name": "Decoupling_Cap_100nF_VDD",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "Decoupling_Cap_100nF_Analog",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "reference_designator": "C6",
+        "component_name": "Decoupling_Cap_100nF_Analog",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "C7",
+      "name": "Bus_Voltage_Filter_Cap",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C7",
+        "reference_designator": "C7",
+        "component_name": "Bus_Voltage_Filter_Cap",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "C8",
+      "name": "Throttle_Input_Cap",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C8",
+        "reference_designator": "C8",
+        "component_name": "Throttle_Input_Cap",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "C9",
+      "name": "Thermistor_Filter_Cap",
+      "type": "CL21B104KBCNNNC",
+      "pins": [],
+      "properties": {
+        "instance_id": "C9",
+        "reference_designator": "C9",
+        "component_name": "Thermistor_Filter_Cap",
+        "part_number": "CL21B104KBCNNNC"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "3_Phase_Motor_Output",
+      "type": "OSTTE060104",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "reference_designator": "J1",
+        "component_name": "3_Phase_Motor_Output",
+        "part_number": "OSTTE060104"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "Power_Input_Terminal",
+      "type": "OSTTE060302",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "reference_designator": "J2",
+        "component_name": "Power_Input_Terminal",
+        "part_number": "OSTTE060302"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "Encoder_Interface_Connector",
+      "type": "Molex-503480-0500",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "reference_designator": "J3",
+        "component_name": "Encoder_Interface_Connector",
+        "part_number": "Molex-503480-0500"
+      }
+    },
+    {
+      "id": "J4",
+      "name": "UART_Communication_Header",
+      "type": "Molex-503480-0400",
+      "pins": [],
+      "properties": {
+        "instance_id": "J4",
+        "reference_designator": "J4",
+        "component_name": "UART_Communication_Header",
+        "part_number": "Molex-503480-0400"
+      }
+    },
+    {
+      "id": "J5",
+      "name": "Throttle_Input_Terminal",
+      "type": "OSTTE060202",
+      "pins": [],
+      "properties": {
+        "instance_id": "J5",
+        "reference_designator": "J5",
+        "component_name": "Throttle_Input_Terminal",
+        "part_number": "OSTTE060202"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U1",
+      "source_pin": "PA8",
+      "target": "U2",
+      "target_pin": "IN_A",
+      "signal": "PWM_UH",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PA7",
+      "target": "U2",
+      "target_pin": "IN_B",
+      "signal": "PWM_UL",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PB14",
+      "target": "U2",
+      "target_pin": "IN_C",
+      "signal": "PWM_VH",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PB15",
+      "target": "U2",
+      "target_pin": "IN_D",
+      "signal": "PWM_VL",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PA9",
+      "target": "U2",
+      "target_pin": "IN_E",
+      "signal": "PWM_WH",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PA10",
+      "target": "U2",
+      "target_pin": "IN_F",
+      "signal": "PWM_WL",
+      "type": "digital"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_A",
+      "target": "Q1",
+      "target_pin": "GATE",
+      "signal": "GATE_UH",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_B",
+      "target": "Q2",
+      "target_pin": "GATE",
+      "signal": "GATE_UL",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_C",
+      "target": "Q3",
+      "target_pin": "GATE",
+      "signal": "GATE_VH",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_D",
+      "target": "Q4",
+      "target_pin": "GATE",
+      "signal": "GATE_VL",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_E",
+      "target": "Q5",
+      "target_pin": "GATE",
+      "signal": "GATE_WH",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_F",
+      "target": "Q6",
+      "target_pin": "GATE",
+      "signal": "GATE_WL",
+      "type": "power"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "DRAIN",
+      "target": "J1",
+      "target_pin": "1",
+      "signal": "PHASE_U_HIGH",
+      "type": "power"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "SOURCE",
+      "target": "R1",
+      "target_pin": "1",
+      "signal": "PHASE_U_LOW",
+      "type": "power"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "SOURCE",
+      "target": "Q2",
+      "target_pin": "DRAIN",
+      "signal": "PHASE_U_MID",
+      "type": "power"
+    },
+    {
+      "source": "Q3",
+      "source_pin": "DRAIN",
+      "target": "J1",
+      "target_pin": "2",
+      "signal": "PHASE_V_HIGH",
+      "type": "power"
+    },
+    {
+      "source": "Q4",
+      "source_pin": "SOURCE",
+      "target": "R2",
+      "target_pin": "1",
+      "signal": "PHASE_V_LOW",
+      "type": "power"
+    },
+    {
+      "source": "Q3",
+      "source_pin": "SOURCE",
+      "target": "Q4",
+      "target_pin": "DRAIN",
+      "signal": "PHASE_V_MID",
+      "type": "power"
+    },
+    {
+      "source": "Q5",
+      "source_pin": "DRAIN",
+      "target": "J1",
+      "target_pin": "3",
+      "signal": "PHASE_W_HIGH",
+      "type": "power"
+    },
+    {
+      "source": "Q6",
+      "source_pin": "SOURCE",
+      "target": "R3",
+      "target_pin": "1",
+      "signal": "PHASE_W_LOW",
+      "type": "power"
+    },
+    {
+      "source": "Q5",
+      "source_pin": "SOURCE",
+      "target": "Q6",
+      "target_pin": "DRAIN",
+      "signal": "PHASE_W_MID",
+      "type": "power"
+    },
+    {
+      "source": "J2",
+      "source_pin": "1",
+      "target": "Q1",
+      "target_pin": "DRAIN",
+      "signal": "DC_BUS_48V",
+      "type": "power"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "DRAIN",
+      "target": "Q3",
+      "target_pin": "DRAIN",
+      "signal": "DC_BUS_48V",
+      "type": "power"
+    },
+    {
+      "source": "Q3",
+      "source_pin": "DRAIN",
+      "target": "Q5",
+      "target_pin": "DRAIN",
+      "signal": "DC_BUS_48V",
+      "type": "power"
+    },
+    {
+      "source": "Q5",
+      "source_pin": "DRAIN",
+      "target": "R4",
+      "target_pin": "1",
+      "signal": "DC_BUS_48V",
+      "type": "power"
+    },
+    {
+      "source": "J2",
+      "source_pin": "2",
+      "target": "R1",
+      "target_pin": "2",
+      "signal": "DC_BUS_RETURN",
+      "type": "power"
+    },
+    {
+      "source": "R1",
+      "source_pin": "2",
+      "target": "R2",
+      "target_pin": "2",
+      "signal": "DC_BUS_RETURN",
+      "type": "power"
+    },
+    {
+      "source": "R2",
+      "source_pin": "2",
+      "target": "R3",
+      "target_pin": "2",
+      "signal": "DC_BUS_RETURN",
+      "type": "power"
+    },
+    {
+      "source": "R1",
+      "source_pin": "1",
+      "target": "U3",
+      "target_pin": "IN+",
+      "signal": "CURRENT_SENSE_U_P",
+      "type": "analog"
+    },
+    {
+      "source": "R1",
+      "source_pin": "2",
+      "target": "U3",
+      "target_pin": "IN-",
+      "signal": "CURRENT_SENSE_U_M",
+      "type": "analog"
+    },
+    {
+      "source": "U3",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "PC0",
+      "signal": "CURRENT_SENSE_U_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "R2",
+      "source_pin": "1",
+      "target": "U4",
+      "target_pin": "IN+",
+      "signal": "CURRENT_SENSE_V_P",
+      "type": "analog"
+    },
+    {
+      "source": "R2",
+      "source_pin": "2",
+      "target": "U4",
+      "target_pin": "IN-",
+      "signal": "CURRENT_SENSE_V_M",
+      "type": "analog"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "PC1",
+      "signal": "CURRENT_SENSE_V_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "R3",
+      "source_pin": "1",
+      "target": "U5",
+      "target_pin": "IN+",
+      "signal": "CURRENT_SENSE_W_P",
+      "type": "analog"
+    },
+    {
+      "source": "R3",
+      "source_pin": "2",
+      "target": "U5",
+      "target_pin": "IN-",
+      "signal": "CURRENT_SENSE_W_M",
+      "type": "analog"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "PC2",
+      "signal": "CURRENT_SENSE_W_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "R4",
+      "source_pin": "2",
+      "target": "R5",
+      "target_pin": "1",
+      "signal": "VOLTAGE_SENSE_DIV",
+      "type": "analog"
+    },
+    {
+      "source": "R5",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "PC3",
+      "signal": "VOLTAGE_SENSE_ADC",
+      "type": "analog"
+    },
+    {
+      "source": "J3",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "PA0",
+      "signal": "ENCODER_A",
+      "type": "digital"
+    },
+    {
+      "source": "J3",
+      "source_pin": "3",
+      "target": "U1",
+      "target_pin": "PA1",
+      "signal": "ENCODER_B",
+      "type": "digital"
+    },
+    {
+      "source": "J3",
+      "source_pin": "4",
+      "target": "U1",
+      "target_pin": "PB0",
+      "signal": "ENCODER_INDEX",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PA9",
+      "target": "J4",
+      "target_pin": "1",
+      "signal": "UART_TX",
+      "type": "digital"
+    },
+    {
+      "source": "U1",
+      "source_pin": "PA10",
+      "target": "J4",
+      "target_pin": "2",
+      "signal": "UART_RX",
+      "type": "digital"
+    },
+    {
+      "source": "J5",
+      "source_pin": "1",
+      "target": "R6",
+      "target_pin": "1",
+      "signal": "THROTTLE_IN",
+      "type": "analog"
+    },
+    {
+      "source": "R6",
+      "source_pin": "2",
+      "target": "R7",
+      "target_pin": "1",
+      "signal": "THROTTLE_FILTERED",
+      "type": "analog"
+    },
+    {
+      "source": "R7",
+      "source_pin": "1",
+      "target": "C8",
+      "target_pin": "1",
+      "signal": "THROTTLE_FILTERED",
+      "type": "analog"
+    },
+    {
+      "source": "R7",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "PA2",
+      "signal": "THROTTLE_ADC",
+      "type": "analog"
+    },
+    {
+      "source": "R8",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "PC4",
+      "signal": "THERMISTOR_SENSE",
+      "type": "analog"
+    },
+    {
+      "source": "R8",
+      "source_pin": "2",
+      "target": "C9",
+      "target_pin": "1",
+      "signal": "THERMISTOR_FILTER",
+      "type": "analog"
+    },
+    {
+      "source": "U2",
+      "source_pin": "FLT",
+      "target": "U1",
+      "target_pin": "PE5",
+      "signal": "FAULT_n",
+      "type": "digital"
+    },
+    {
+      "source": "U2",
+      "source_pin": "RDY",
+      "target": "U1",
+      "target_pin": "PE6",
+      "signal": "READY",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT1",
+      "target": "U2",
+      "target_pin": "VDD",
+      "signal": "VDD_5V_ISO",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT2",
+      "target": "U2",
+      "target_pin": "VDD2",
+      "signal": "VDD_15V_ISO",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U1",
+      "target_pin": "VDD",
+      "signal": "VDD_5V",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U3",
+      "target_pin": "V+",
+      "signal": "VDD_5V",
+      "type": "power"
+    },
+    {
+      "source": "U3",
+      "source_pin": "V+",
+      "target": "U4",
+      "target_pin": "V+",
+      "signal": "VDD_5V",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "V+",
+      "target": "U5",
+      "target_pin": "V+",
+      "signal": "VDD_5V",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "ADJ",
+      "target": "U1",
+      "target_pin": "VDDA",
+      "signal": "VDD_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VDDA",
+      "target": "C1",
+      "target_pin": "1",
+      "signal": "VDD_3V3",
+      "type": "power"
+    },
+    {
+      "source": "C1",
+      "source_pin": "1",
+      "target": "C2",
+      "target_pin": "1",
+      "signal": "VDD_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "U4",
+      "target_pin": "GND",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "U5",
+      "target_pin": "GND",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "R5",
+      "target_pin": "2",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "R5",
+      "source_pin": "2",
+      "target": "C7",
+      "target_pin": "2",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "C7",
+      "source_pin": "2",
+      "target": "C8",
+      "target_pin": "2",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "C8",
+      "source_pin": "2",
+      "target": "C9",
+      "target_pin": "2",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "C9",
+      "source_pin": "2",
+      "target": "J3",
+      "target_pin": "5",
+      "signal": "AGND",
+      "type": "ground"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VSS",
+      "target": "C2",
+      "target_pin": "2",
+      "signal": "DGND",
+      "type": "ground"
+    },
+    {
+      "source": "C2",
+      "source_pin": "2",
+      "target": "C4",
+      "target_pin": "2",
+      "signal": "DGND",
+      "type": "ground"
+    },
+    {
+      "source": "C4",
+      "source_pin": "2",
+      "target": "C6",
+      "target_pin": "2",
+      "signal": "DGND",
+      "type": "ground"
+    },
+    {
+      "source": "C6",
+      "source_pin": "2",
+      "target": "J4",
+      "target_pin": "4",
+      "signal": "DGND",
+      "type": "ground"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "SOURCE",
+      "target": "Q4",
+      "target_pin": "SOURCE",
+      "signal": "PGND",
+      "type": "ground"
+    },
+    {
+      "source": "Q4",
+      "source_pin": "SOURCE",
+      "target": "Q6",
+      "target_pin": "SOURCE",
+      "signal": "PGND",
+      "type": "ground"
+    },
+    {
+      "source": "Q6",
+      "source_pin": "SOURCE",
+      "target": "U2",
+      "target_pin": "GND2",
+      "signal": "PGND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND1",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "ISO_GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U6",
+      "target_pin": "GND",
+      "signal": "ISO_GND",
+      "type": "ground"
+    }
+  ],
+  "metadata": {}
+}
