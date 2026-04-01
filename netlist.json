@@ -1,0 +1,693 @@
+{
+  "project": "rf78",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "J1",
+      "name": "RF Input Connector",
+      "type": "SMA-EDGE-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "SMA-EDGE-50",
+        "component_name": "RF Input Connector",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "RM1",
+      "name": "Input Matching Network",
+      "type": "MATCH-NET-50-2.4G",
+      "pins": [],
+      "properties": {
+        "instance_id": "RM1",
+        "part_number": "MATCH-NET-50-2.4G",
+        "component_name": "Input Matching Network",
+        "reference_designator": "RM1"
+      }
+    },
+    {
+      "id": "U1",
+      "name": "RF Driver Amplifier",
+      "type": "MGA-43016",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "MGA-43016",
+        "component_name": "RF Driver Amplifier",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "RM2",
+      "name": "Interstage Matching Network",
+      "type": "MATCH-NET-INTER-2.4G",
+      "pins": [],
+      "properties": {
+        "instance_id": "RM2",
+        "part_number": "MATCH-NET-INTER-2.4G",
+        "component_name": "Interstage Matching Network",
+        "reference_designator": "RM2"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "GaN Final Power Amplifier",
+      "type": "CGRM2812",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "CGRM2812",
+        "component_name": "GaN Final Power Amplifier",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "Directional Coupler",
+      "type": "ACB4-50-4000+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "ACB4-50-4000+",
+        "component_name": "Directional Coupler",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "RM3",
+      "name": "Output Matching Network",
+      "type": "MATCH-NET-OUT-2.4G-LPF",
+      "pins": [],
+      "properties": {
+        "instance_id": "RM3",
+        "part_number": "MATCH-NET-OUT-2.4G-LPF",
+        "component_name": "Output Matching Network",
+        "reference_designator": "RM3"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "RF Output Connector",
+      "type": "SMA-EDGE-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "part_number": "SMA-EDGE-50",
+        "component_name": "RF Output Connector",
+        "reference_designator": "J2"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "RF Power Detector (Forward)",
+      "type": "AD8318",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "AD8318",
+        "component_name": "RF Power Detector (Forward)",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "RF Power Detector (Reverse)",
+      "type": "AD8318",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "AD8318",
+        "component_name": "RF Power Detector (Reverse)",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Temperature Sensor",
+      "type": "TMP235",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "TMP235",
+        "component_name": "Temperature Sensor",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "Dual Comparator",
+      "type": "LM393",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "LM393",
+        "component_name": "Dual Comparator",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "Bias Sequencer Timer",
+      "type": "LM555",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "part_number": "LM555",
+        "component_name": "Bias Sequencer Timer",
+        "reference_designator": "U8"
+      }
+    },
+    {
+      "id": "Q1",
+      "name": "Driver Bias MOSFET",
+      "type": "BSS138",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q1",
+        "part_number": "BSS138",
+        "component_name": "Driver Bias MOSFET",
+        "reference_designator": "Q1"
+      }
+    },
+    {
+      "id": "Q2",
+      "name": "PA Enable MOSFET",
+      "type": "BSS138",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q2",
+        "part_number": "BSS138",
+        "component_name": "PA Enable MOSFET",
+        "reference_designator": "Q2"
+      }
+    },
+    {
+      "id": "Q3",
+      "name": "28V PA Power Switch",
+      "type": "IRLML6401",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q3",
+        "part_number": "IRLML6401",
+        "component_name": "28V PA Power Switch",
+        "reference_designator": "Q3"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "DC Supply Input",
+      "type": "TB-2PIN-5.08",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "part_number": "TB-2PIN-5.08",
+        "component_name": "DC Supply Input",
+        "reference_designator": "J3"
+      }
+    },
+    {
+      "id": "J4",
+      "name": "Control Interface",
+      "type": "HDR-1X3-2.54",
+      "pins": [],
+      "properties": {
+        "instance_id": "J4",
+        "part_number": "HDR-1X3-2.54",
+        "component_name": "Control Interface",
+        "reference_designator": "J4"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "Gate Resistor - Driver",
+      "type": "ERA-3AEB1001V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "part_number": "ERA-3AEB1001V",
+        "component_name": "Gate Resistor - Driver",
+        "reference_designator": "R1"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Gate Resistor - PA",
+      "type": "ERA-3AEB1001V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "part_number": "ERA-3AEB1001V",
+        "component_name": "Gate Resistor - PA",
+        "reference_designator": "R2"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Timing Resistor - Sequencer",
+      "type": "ERA-3AEB2202V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "part_number": "ERA-3AEB2202V",
+        "component_name": "Timing Resistor - Sequencer",
+        "reference_designator": "R3"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Decoupling - Driver 5V",
+      "type": "GRM32ER71H106KA88L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "part_number": "GRM32ER71H106KA88L",
+        "component_name": "Decoupling - Driver 5V",
+        "reference_designator": "C1"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Decoupling - PA Gate",
+      "type": "GRM32ER71H106KA88L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "part_number": "GRM32ER71H106KA88L",
+        "component_name": "Decoupling - PA Gate",
+        "reference_designator": "C2"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Decoupling - Detector 5V",
+      "type": "GRM32ER71H106KA88L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "part_number": "GRM32ER71H106KA88L",
+        "component_name": "Decoupling - Detector 5V",
+        "reference_designator": "C3"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Bulk Capacitor - 28V",
+      "type": "C3216X7R1H105K",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "part_number": "C3216X7R1H105K",
+        "component_name": "Bulk Capacitor - 28V",
+        "reference_designator": "C4"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "SIG",
+      "target": "RM1",
+      "target_pin": "IN",
+      "signal": "RF_IN",
+      "type": "RF"
+    },
+    {
+      "source": "RM1",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "RF_IN",
+      "signal": "RF_DRV_IN",
+      "type": "RF"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RF_OUT",
+      "target": "RM2",
+      "target_pin": "IN",
+      "signal": "RF_DRV_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "RM2",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "GATE",
+      "signal": "RF_PA_IN",
+      "type": "RF"
+    },
+    {
+      "source": "U2",
+      "source_pin": "DRAIN",
+      "target": "U3",
+      "target_pin": "IN",
+      "signal": "RF_PA_OUT",
+      "type": "RF_POWER"
+    },
+    {
+      "source": "U3",
+      "source_pin": "FWD",
+      "target": "U4",
+      "target_pin": "RF_IN",
+      "signal": "RF_FWD_CPL",
+      "type": "RF_COUPLED"
+    },
+    {
+      "source": "U3",
+      "source_pin": "REV",
+      "target": "U5",
+      "target_pin": "RF_IN",
+      "signal": "RF_REV_CPL",
+      "type": "RF_COUPLED"
+    },
+    {
+      "source": "U3",
+      "source_pin": "OUT",
+      "target": "RM3",
+      "target_pin": "IN",
+      "signal": "RF_OUT_MAIN",
+      "type": "RF_POWER"
+    },
+    {
+      "source": "RM3",
+      "source_pin": "OUT",
+      "target": "J2",
+      "target_pin": "SIG",
+      "signal": "RF_FINAL_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VOUT",
+      "target": "U7",
+      "target_pin": "IN_A+",
+      "signal": "V_FWD_DET",
+      "type": "ANALOG"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VOUT",
+      "target": "U7",
+      "target_pin": "IN_B+",
+      "signal": "V_REV_DET",
+      "type": "ANALOG"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT",
+      "target": "U7",
+      "target_pin": "IN_C+",
+      "signal": "V_TEMP",
+      "type": "ANALOG"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT_A",
+      "target": "U8",
+      "target_pin": "RST",
+      "signal": "FAULT_FLAG",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "J4",
+      "source_pin": "PIN1",
+      "target": "U8",
+      "target_pin": "TRIG",
+      "signal": "TX_ENABLE",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "Q1",
+      "target_pin": "GATE",
+      "signal": "DRV_ENABLE",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "DISCH",
+      "target": "Q2",
+      "target_pin": "GATE",
+      "signal": "PA_ENABLE_5V",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "DRAIN",
+      "target": "U1",
+      "target_pin": "ENABLE",
+      "signal": "DRV_BIAS",
+      "type": "POWER"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "DRAIN",
+      "target": "Q3",
+      "target_pin": "GATE",
+      "signal": "PA_SWITCH_CTRL",
+      "type": "POWER"
+    },
+    {
+      "source": "Q3",
+      "source_pin": "DRAIN",
+      "target": "U2",
+      "target_pin": "DRAIN",
+      "signal": "VCC_28V_PA",
+      "type": "POWER"
+    },
+    {
+      "source": "P5V",
+      "source_pin": "SOURCE",
+      "target": "U1",
+      "target_pin": "VDD",
+      "signal": "VCC_5V",
+      "type": "POWER"
+    },
+    {
+      "source": "P5V",
+      "source_pin": "SOURCE",
+      "target": "U4",
+      "target_pin": "VPOS",
+      "signal": "VCC_5V",
+      "type": "POWER"
+    },
+    {
+      "source": "P5V",
+      "source_pin": "SOURCE",
+      "target": "U5",
+      "target_pin": "VPOS",
+      "signal": "VCC_5V",
+      "type": "POWER"
+    },
+    {
+      "source": "P5V",
+      "source_pin": "SOURCE",
+      "target": "U8",
+      "target_pin": "VCC",
+      "signal": "VCC_5V",
+      "type": "POWER"
+    },
+    {
+      "source": "P5V",
+      "source_pin": "SOURCE",
+      "target": "C1",
+      "target_pin": "PIN1",
+      "signal": "VCC_5V",
+      "type": "POWER"
+    },
+    {
+      "source": "P5V",
+      "source_pin": "SOURCE",
+      "target": "C3",
+      "target_pin": "PIN1",
+      "signal": "VCC_5V",
+      "type": "POWER"
+    },
+    {
+      "source": "P33V",
+      "source_pin": "SOURCE",
+      "target": "U6",
+      "target_pin": "VDD",
+      "signal": "VCC_3V3",
+      "type": "POWER"
+    },
+    {
+      "source": "P33V",
+      "source_pin": "SOURCE",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "VCC_3V3",
+      "type": "POWER"
+    },
+    {
+      "source": "J3",
+      "source_pin": "PIN1",
+      "target": "Q3",
+      "target_pin": "SOURCE",
+      "signal": "VCC_28V_MAIN",
+      "type": "POWER"
+    },
+    {
+      "source": "J3",
+      "source_pin": "PIN1",
+      "target": "C4",
+      "target_pin": "PIN1",
+      "signal": "VCC_28V_MAIN",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U2",
+      "source_pin": "SOURCE",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U6",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GND",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "J3",
+      "source_pin": "PIN2",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C1",
+      "source_pin": "PIN2",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C2",
+      "source_pin": "PIN2",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C3",
+      "source_pin": "PIN2",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C4",
+      "source_pin": "PIN2",
+      "target": "GND",
+      "target_pin": "PLANES",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "GATE",
+      "target": "R1",
+      "target_pin": "PIN1",
+      "signal": "GATE_R1",
+      "type": "SIGNAL"
+    },
+    {
+      "source": "R1",
+      "source_pin": "PIN2",
+      "target": "DRV_ENABLE",
+      "target_pin": "NET",
+      "signal": "GATE_R1",
+      "type": "SIGNAL"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "GATE",
+      "target": "R2",
+      "target_pin": "PIN1",
+      "signal": "GATE_R2",
+      "type": "SIGNAL"
+    },
+    {
+      "source": "R2",
+      "source_pin": "PIN2",
+      "target": "PA_ENABLE_5V",
+      "target_pin": "NET",
+      "signal": "GATE_R2",
+      "type": "SIGNAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "THR",
+      "target": "R3",
+      "target_pin": "PIN1",
+      "signal": "TIMING_R3",
+      "type": "SIGNAL"
+    },
+    {
+      "source": "R3",
+      "source_pin": "PIN2",
+      "target": "DISCH",
+      "target_pin": "NET",
+      "signal": "TIMING_R3",
+      "type": "SIGNAL"
+    }
+  ],
+  "metadata": {}
+}
