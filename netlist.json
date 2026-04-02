@@ -1,0 +1,52 @@
+{
+  "project": "rfff",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Microcontroller (auto-extracted)",
+      "type": "MCU",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "MCU",
+        "component_name": "Microcontroller (auto-extracted)",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Power Management (auto-extracted)",
+      "type": "PWR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "PWR",
+        "component_name": "Power Management (auto-extracted)",
+        "reference_designator": "U2"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true,
+    "llm_response": "# Netlist Generation: rfff - 2.4 GHz GaN RF Power Amplifier\n\n## Design Summary\n\nThis netlist implements a 28V GaN-based RF power amplifier delivering 40 dBm (10W) CW output power at 2.4 GHz with 30 dB gain. The design uses the QPA9424 fully integrated PA module with internal matching, supported by pi-filter EMI suppression on the supply, TVS overvoltage protection, and proper decoupling.\n\n### Component Count Summary\n- **Total Components:** 22\n- **Active Components:** 1 (U1 - QPA9424 PA Module)\n-"
+  }
+}
