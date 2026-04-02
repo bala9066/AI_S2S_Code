@@ -1,0 +1,52 @@
+{
+  "project": "fug",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Microcontroller (auto-extracted)",
+      "type": "MCU",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "MCU",
+        "component_name": "Microcontroller (auto-extracted)",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Power Management (auto-extracted)",
+      "type": "PWR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "PWR",
+        "component_name": "Power Management (auto-extracted)",
+        "reference_designator": "U2"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true,
+    "llm_response": "I'll generate a complete logical netlist for the fug 10kW 3-phase BLDC motor controller. This will include all the major power stage components, gate drivers, sensing circuitry, and MCU with proper connectivity."
+  }
+}
