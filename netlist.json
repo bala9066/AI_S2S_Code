@@ -1,0 +1,705 @@
+{
+  "project": "rffff",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "J1",
+      "name": "AC_INPUT",
+      "type": "IEC320_C14_INLET",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "reference_designator": "J1",
+        "component_name": "AC_INPUT",
+        "part_number": "IEC320_C14_INLET"
+      }
+    },
+    {
+      "id": "U1",
+      "name": "ACDC_CONVERTER",
+      "type": "CUS200M12",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "reference_designator": "U1",
+        "component_name": "ACDC_CONVERTER",
+        "part_number": "CUS200M12"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "BUCK_FPGA_CORE",
+      "type": "TPS543C20RVFT",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "reference_designator": "U2",
+        "component_name": "BUCK_FPGA_CORE",
+        "part_number": "TPS543C20RVFT"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "BUCK_VCCBRAM",
+      "type": "TPS62913",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "reference_designator": "U3",
+        "component_name": "BUCK_VCCBRAM",
+        "part_number": "TPS62913"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "BUCK_VCCAUX",
+      "type": "TPS62913",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "reference_designator": "U4",
+        "component_name": "BUCK_VCCAUX",
+        "part_number": "TPS62913"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "BUCK_IO_3V3",
+      "type": "TPS62913",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "reference_designator": "U5",
+        "component_name": "BUCK_IO_3V3",
+        "part_number": "TPS62913"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "BUCK_RF_5V",
+      "type": "LT8650S",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "reference_designator": "U6",
+        "component_name": "BUCK_RF_5V",
+        "part_number": "LT8650S"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "BUCK_INV_M5V",
+      "type": "LT8650S_INV",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "reference_designator": "U7",
+        "component_name": "BUCK_INV_M5V",
+        "part_number": "LT8650S_INV"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "ARTIX7_FPGA",
+      "type": "XC7A100T-2FGG484I",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "reference_designator": "U8",
+        "component_name": "ARTIX7_FPGA",
+        "part_number": "XC7A100T-2FGG484I"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "HSDAC",
+      "type": "AD9144EBZ",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "reference_designator": "U9",
+        "component_name": "HSDAC",
+        "part_number": "AD9144EBZ"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "VCO_LO",
+      "type": "HMC733LP4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "reference_designator": "U10",
+        "component_name": "VCO_LO",
+        "part_number": "HMC733LP4"
+      }
+    },
+    {
+      "id": "U11",
+      "name": "LO_AMP",
+      "type": "HMC481LP3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U11",
+        "reference_designator": "U11",
+        "component_name": "LO_AMP",
+        "part_number": "HMC481LP3"
+      }
+    },
+    {
+      "id": "U12",
+      "name": "IQ_MIXER",
+      "type": "HMC519LP4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U12",
+        "reference_designator": "U12",
+        "component_name": "IQ_MIXER",
+        "part_number": "HMC519LP4"
+      }
+    },
+    {
+      "id": "U13",
+      "name": "WIDEBAND_PA",
+      "type": "HMC1099LP5E",
+      "pins": [],
+      "properties": {
+        "instance_id": "U13",
+        "reference_designator": "U13",
+        "component_name": "WIDEBAND_PA",
+        "part_number": "HMC1099LP5E"
+      }
+    },
+    {
+      "id": "U14",
+      "name": "OSC_125MHz",
+      "type": "ASV-125-000-000",
+      "pins": [],
+      "properties": {
+        "instance_id": "U14",
+        "reference_designator": "U14",
+        "component_name": "OSC_125MHz",
+        "part_number": "ASV-125-000-000"
+      }
+    },
+    {
+      "id": "U15",
+      "name": "CLK_BUF",
+      "type": "ADCLK914BCPZ",
+      "pins": [],
+      "properties": {
+        "instance_id": "U15",
+        "reference_designator": "U15",
+        "component_name": "CLK_BUF",
+        "part_number": "ADCLK914BCPZ"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "RF_OUTPUT",
+      "type": "2.92mm_CONNECTOR",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "reference_designator": "J2",
+        "component_name": "RF_OUTPUT",
+        "part_number": "2.92mm_CONNECTOR"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "FPGA_CONFIG",
+      "type": "USB_JTAG",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "reference_designator": "J3",
+        "component_name": "FPGA_CONFIG",
+        "part_number": "USB_JTAG"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "BULK_CAP_12V",
+      "type": "EKZE500ELL100MJ45S",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "reference_designator": "C1",
+        "component_name": "BULK_CAP_12V",
+        "part_number": "EKZE500ELL100MJ45S"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "PGD_1V0",
+      "type": "10KOHM_0603",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "reference_designator": "R1",
+        "component_name": "PGD_1V0",
+        "part_number": "10KOHM_0603"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "PGD_1V2",
+      "type": "10KOHM_0603",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "reference_designator": "R2",
+        "component_name": "PGD_1V2",
+        "part_number": "10KOHM_0603"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "PGD_1V8",
+      "type": "10KOHM_0603",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "reference_designator": "R3",
+        "component_name": "PGD_1V8",
+        "part_number": "10KOHM_0603"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "L",
+      "target": "U1",
+      "target_pin": "AC_L",
+      "signal": "AC_HOT",
+      "type": "POWER"
+    },
+    {
+      "source": "J1",
+      "source_pin": "N",
+      "target": "U1",
+      "target_pin": "AC_N",
+      "signal": "AC_NEUTRAL",
+      "type": "POWER"
+    },
+    {
+      "source": "J1",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "AC_GND",
+      "signal": "AC_GROUND",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT+",
+      "target": "U2",
+      "target_pin": "VIN",
+      "signal": "VIN_12V",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT+",
+      "target": "U3",
+      "target_pin": "VIN",
+      "signal": "VIN_12V",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT+",
+      "target": "U4",
+      "target_pin": "VIN",
+      "signal": "VIN_12V",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT+",
+      "target": "U5",
+      "target_pin": "VIN",
+      "signal": "VIN_12V",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT+",
+      "target": "U6",
+      "target_pin": "VIN",
+      "signal": "VIN_12V",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT+",
+      "target": "U7",
+      "target_pin": "VIN",
+      "signal": "VIN_12V",
+      "type": "POWER"
+    },
+    {
+      "source": "C1",
+      "source_pin": "POS",
+      "target": "U2",
+      "target_pin": "VIN",
+      "signal": "VIN_12V_STAB",
+      "type": "POWER"
+    },
+    {
+      "source": "C1",
+      "source_pin": "POS",
+      "target": "U3",
+      "target_pin": "VIN",
+      "signal": "VIN_12V_STAB",
+      "type": "POWER"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT-",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT-",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT-",
+      "target": "U4",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT-",
+      "target": "U5",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT-",
+      "target": "U6",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "VOUT-",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C1",
+      "source_pin": "NEG",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "PGND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U2",
+      "source_pin": "VOUT",
+      "target": "U8",
+      "target_pin": "VCCINT",
+      "signal": "VCCINT_1V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U2",
+      "source_pin": "VOUT_FB",
+      "target": "U2",
+      "target_pin": "FB",
+      "signal": "VCCINT_1V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U3",
+      "source_pin": "VOUT",
+      "target": "U8",
+      "target_pin": "VCCBRAM",
+      "signal": "VCCBRAM_1V2",
+      "type": "POWER"
+    },
+    {
+      "source": "U3",
+      "source_pin": "VOUT_FB",
+      "target": "U3",
+      "target_pin": "FB",
+      "signal": "VCCBRAM_1V2",
+      "type": "POWER"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VOUT",
+      "target": "U8",
+      "target_pin": "VCCAUX",
+      "signal": "VCCAUX_1V8",
+      "type": "POWER"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VOUT_FB",
+      "target": "U4",
+      "target_pin": "FB",
+      "signal": "VCCAUX_1V8",
+      "type": "POWER"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VOUT",
+      "target": "U8",
+      "target_pin": "VCCO_34",
+      "signal": "VCCO_3V3",
+      "type": "POWER"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VOUT",
+      "target": "U8",
+      "target_pin": "VCCO_35",
+      "signal": "VCCO_3V3",
+      "type": "POWER"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VOUT_FB",
+      "target": "U5",
+      "target_pin": "FB",
+      "signal": "VCCO_3V3",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "AVDD1",
+      "signal": "AVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "AVDD2",
+      "signal": "AVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "AVDD3",
+      "signal": "AVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "AVSS1",
+      "signal": "AVEE_M5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "AVSS2",
+      "signal": "AVEE_M5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "AVSS3",
+      "signal": "AVEE_M5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U10",
+      "target_pin": "VCC",
+      "signal": "RFVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U11",
+      "target_pin": "VCC",
+      "signal": "RFVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U12",
+      "target_pin": "VCC",
+      "signal": "RFVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT",
+      "target": "U13",
+      "target_pin": "VGG",
+      "signal": "PAVCC_5V0",
+      "type": "POWER"
+    },
+    {
+      "source": "U14",
+      "source_pin": "OUT",
+      "target": "U15",
+      "target_pin": "IN_A",
+      "signal": "CLK_125M_RAW",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U14",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "CCLK",
+      "signal": "CLK_125M_RAW",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U15",
+      "source_pin": "OUT_0",
+      "target": "U8",
+      "target_pin": "GTP_0_CLK",
+      "signal": "REF_CLK_125M",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U15",
+      "source_pin": "OUT_1",
+      "target": "U9",
+      "target_pin": "DCI_CLK",
+      "signal": "DAC_CLK_125M",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GTX_TX0_P",
+      "target": "U9",
+      "target_pin": "D0_P",
+      "signal": "JESD_TXP_0",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GTX_TX0_N",
+      "target": "U9",
+      "target_pin": "D0_N",
+      "signal": "JESD_TXN_0",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GTX_TX1_P",
+      "target": "U9",
+      "target_pin": "D1_P",
+      "signal": "JESD_TXP_1",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GTX_TX1_N",
+      "target": "U9",
+      "target_pin": "D1_N",
+      "signal": "JESD_TXN_1",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "IO_L1N",
+      "target": "U9",
+      "target_pin": "SYNC_N",
+      "signal": "JESD_SYNC_N",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "J3",
+      "source_pin": "TMS",
+      "target": "U8",
+      "target_pin": "TMS",
+      "signal": "JTAG_TMS",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "J3",
+      "source_pin": "TCK",
+      "target": "U8",
+      "target_pin": "TCK",
+      "signal": "JTAG_TCK",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "J3",
+      "source_pin": "TDI",
+      "target": "U8",
+      "target_pin": "TDI",
+      "signal": "JTAG_TDI",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "TDO",
+      "target": "J3",
+      "target_pin": "TDO",
+      "signal": "JTAG_TDO",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U10",
+      "source_pin": "RF_OUT",
+      "target": "U11",
+      "target_pin": "RF_IN",
+      "signal": "LO_VCO_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "U8",
+      "source_pin": "IO_L5P",
+      "target": "U10",
+      "target_pin": "VTUNE",
+      "signal": "LO_VTUNE",
+      "type": "ANALOG"
+    },
+    {
+      "source": "U11",
+      "source_pin": "RF_OUT",
+      "target": "U12",
+      "target_pin": "LO_IN",
+      "signal": "LO_AMP_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "U9",
+      "source_pin": "",
+      "target": "",
+      "target_pin": "",
+      "signal": "DAC_I_P",
+      "type": "wire"
+    }
+  ],
+  "metadata": {}
+}
