@@ -1,0 +1,2749 @@
+{
+  "project": "fjxm",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Primary PWM Controller",
+      "type": "UCC28951A",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "reference_designator": "U1",
+        "component_name": "Primary PWM Controller",
+        "part_number": "UCC28951A"
+      }
+    },
+    {
+      "id": "Q1",
+      "name": "Primary SiC MOSFET",
+      "type": "C3M0065090D",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q1",
+        "reference_designator": "Q1",
+        "component_name": "Primary SiC MOSFET",
+        "part_number": "C3M0065090D"
+      }
+    },
+    {
+      "id": "Q2",
+      "name": "Primary Clamp MOSFET",
+      "type": "C3M0065090D",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q2",
+        "reference_designator": "Q2",
+        "component_name": "Primary Clamp MOSFET",
+        "part_number": "C3M0065090D"
+      }
+    },
+    {
+      "id": "Q3",
+      "name": "12V Sync Rectifier",
+      "type": "IRF7749L2PBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q3",
+        "reference_designator": "Q3",
+        "component_name": "12V Sync Rectifier",
+        "part_number": "IRF7749L2PBF"
+      }
+    },
+    {
+      "id": "Q4",
+      "name": "5V Sync Rectifier",
+      "type": "IRF7749L2PBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q4",
+        "reference_designator": "Q4",
+        "component_name": "5V Sync Rectifier",
+        "part_number": "IRF7749L2PBF"
+      }
+    },
+    {
+      "id": "Q5",
+      "name": "3.3V Sync Rectifier",
+      "type": "IRF7749L2PBF",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q5",
+        "reference_designator": "Q5",
+        "component_name": "3.3V Sync Rectifier",
+        "part_number": "IRF7749L2PBF"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "12V Linear Regulator",
+      "type": "LT3086",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "reference_designator": "U2",
+        "component_name": "12V Linear Regulator",
+        "part_number": "LT3086"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "5V Linear Regulator 1",
+      "type": "LT3045-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "reference_designator": "U3",
+        "component_name": "5V Linear Regulator 1",
+        "part_number": "LT3045-50"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "5V Linear Regulator 2",
+      "type": "LT3045-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "reference_designator": "U4",
+        "component_name": "5V Linear Regulator 2",
+        "part_number": "LT3045-50"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "5V Linear Regulator 3",
+      "type": "LT3045-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "reference_designator": "U5",
+        "component_name": "5V Linear Regulator 3",
+        "part_number": "LT3045-50"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "5V Linear Regulator 4",
+      "type": "LT3045-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "reference_designator": "U6",
+        "component_name": "5V Linear Regulator 4",
+        "part_number": "LT3045-50"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "3.3V Linear Regulator 1",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "reference_designator": "U7",
+        "component_name": "3.3V Linear Regulator 1",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "3.3V Linear Regulator 2",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "reference_designator": "U8",
+        "component_name": "3.3V Linear Regulator 2",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "3.3V Linear Regulator 3",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "reference_designator": "U9",
+        "component_name": "3.3V Linear Regulator 3",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "3.3V Linear Regulator 4",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "reference_designator": "U10",
+        "component_name": "3.3V Linear Regulator 4",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U11",
+      "name": "3.3V Linear Regulator 5",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U11",
+        "reference_designator": "U11",
+        "component_name": "3.3V Linear Regulator 5",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U12",
+      "name": "3.3V Linear Regulator 6",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U12",
+        "reference_designator": "U12",
+        "component_name": "3.3V Linear Regulator 6",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U13",
+      "name": "3.3V Linear Regulator 7",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U13",
+        "reference_designator": "U13",
+        "component_name": "3.3V Linear Regulator 7",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U14",
+      "name": "3.3V Linear Regulator 8",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U14",
+        "reference_designator": "U14",
+        "component_name": "3.3V Linear Regulator 8",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U15",
+      "name": "3.3V Linear Regulator 9",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U15",
+        "reference_designator": "U15",
+        "component_name": "3.3V Linear Regulator 9",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U16",
+      "name": "3.3V Linear Regulator 10",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U16",
+        "reference_designator": "U16",
+        "component_name": "3.3V Linear Regulator 10",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U17",
+      "name": "3.3V Linear Regulator 11",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U17",
+        "reference_designator": "U17",
+        "component_name": "3.3V Linear Regulator 11",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U18",
+      "name": "3.3V Linear Regulator 12",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U18",
+        "reference_designator": "U18",
+        "component_name": "3.3V Linear Regulator 12",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U19",
+      "name": "3.3V Linear Regulator 13",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U19",
+        "reference_designator": "U19",
+        "component_name": "3.3V Linear Regulator 13",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U20",
+      "name": "3.3V Linear Regulator 14",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U20",
+        "reference_designator": "U20",
+        "component_name": "3.3V Linear Regulator 14",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U21",
+      "name": "3.3V Linear Regulator 15",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U21",
+        "reference_designator": "U21",
+        "component_name": "3.3V Linear Regulator 15",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U22",
+      "name": "3.3V Linear Regulator 16",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U22",
+        "reference_designator": "U22",
+        "component_name": "3.3V Linear Regulator 16",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U23",
+      "name": "3.3V Linear Regulator 17",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U23",
+        "reference_designator": "U23",
+        "component_name": "3.3V Linear Regulator 17",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U24",
+      "name": "3.3V Linear Regulator 18",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U24",
+        "reference_designator": "U24",
+        "component_name": "3.3V Linear Regulator 18",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U25",
+      "name": "3.3V Linear Regulator 19",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U25",
+        "reference_designator": "U25",
+        "component_name": "3.3V Linear Regulator 19",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U26",
+      "name": "3.3V Linear Regulator 20",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U26",
+        "reference_designator": "U26",
+        "component_name": "3.3V Linear Regulator 20",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U27",
+      "name": "3.3V Linear Regulator 21",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U27",
+        "reference_designator": "U27",
+        "component_name": "3.3V Linear Regulator 21",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U28",
+      "name": "3.3V Linear Regulator 22",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U28",
+        "reference_designator": "U28",
+        "component_name": "3.3V Linear Regulator 22",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U29",
+      "name": "3.3V Linear Regulator 23",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U29",
+        "reference_designator": "U29",
+        "component_name": "3.3V Linear Regulator 23",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U30",
+      "name": "3.3V Linear Regulator 24",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U30",
+        "reference_designator": "U30",
+        "component_name": "3.3V Linear Regulator 24",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U31",
+      "name": "3.3V Linear Regulator 25",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U31",
+        "reference_designator": "U31",
+        "component_name": "3.3V Linear Regulator 25",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U32",
+      "name": "3.3V Linear Regulator 26",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U32",
+        "reference_designator": "U32",
+        "component_name": "3.3V Linear Regulator 26",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U33",
+      "name": "3.3V Linear Regulator 27",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U33",
+        "reference_designator": "U33",
+        "component_name": "3.3V Linear Regulator 27",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U34",
+      "name": "3.3V Linear Regulator 28",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U34",
+        "reference_designator": "U34",
+        "component_name": "3.3V Linear Regulator 28",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U35",
+      "name": "3.3V Linear Regulator 29",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U35",
+        "reference_designator": "U35",
+        "component_name": "3.3V Linear Regulator 29",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "U36",
+      "name": "3.3V Linear Regulator 30",
+      "type": "LT3042-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U36",
+        "reference_designator": "U36",
+        "component_name": "3.3V Linear Regulator 30",
+        "part_number": "LT3042-3.3"
+      }
+    },
+    {
+      "id": "T1",
+      "name": "Main Power Transformer",
+      "type": "CUSTOM_FTX1",
+      "pins": [],
+      "properties": {
+        "instance_id": "T1",
+        "reference_designator": "T1",
+        "component_name": "Main Power Transformer",
+        "part_number": "CUSTOM_FTX1"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "Input Connector",
+      "type": "TE_292303-2",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "reference_designator": "J1",
+        "component_name": "Input Connector",
+        "part_number": "TE_292303-2"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "Output Connector",
+      "type": "TE_292303-2",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "reference_designator": "J2",
+        "component_name": "Output Connector",
+        "part_number": "TE_292303-2"
+      }
+    },
+    {
+      "id": "D1",
+      "name": "Reverse Polarity TVS",
+      "type": "SMBJ60CA",
+      "pins": [],
+      "properties": {
+        "instance_id": "D1",
+        "reference_designator": "D1",
+        "component_name": "Reverse Polarity TVS",
+        "part_number": "SMBJ60CA"
+      }
+    },
+    {
+      "id": "D2",
+      "name": "Transient TVS",
+      "type": "SMBJ78CA",
+      "pins": [],
+      "properties": {
+        "instance_id": "D2",
+        "reference_designator": "D2",
+        "component_name": "Transient TVS",
+        "part_number": "SMBJ78CA"
+      }
+    },
+    {
+      "id": "F1",
+      "name": "Input Fuse",
+      "type": "BEL_FUSE_0668Z",
+      "pins": [],
+      "properties": {
+        "instance_id": "F1",
+        "reference_designator": "F1",
+        "component_name": "Input Fuse",
+        "part_number": "BEL_FUSE_0668Z"
+      }
+    },
+    {
+      "id": "D3",
+      "name": "Input Rectifier",
+      "type": "STPS3045CW",
+      "pins": [],
+      "properties": {
+        "instance_id": "D3",
+        "reference_designator": "D3",
+        "component_name": "Input Rectifier",
+        "part_number": "STPS3045CW"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Input Bulk Capacitor",
+      "type": "EPCOS_B43501",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "reference_designator": "C1",
+        "component_name": "Input Bulk Capacitor",
+        "part_number": "EPCOS_B43501"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Input Ceramic 1",
+      "type": "1210_10uF_100V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "reference_designator": "C2",
+        "component_name": "Input Ceramic 1",
+        "part_number": "1210_10uF_100V"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Input Ceramic 2",
+      "type": "1210_10uF_100V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "reference_designator": "C3",
+        "component_name": "Input Ceramic 2",
+        "part_number": "1210_10uF_100V"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "UVLO Resistor 1",
+      "type": "0805_100k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "reference_designator": "R1",
+        "component_name": "UVLO Resistor 1",
+        "part_number": "0805_100k"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "UVLO Resistor 2",
+      "type": "0805_15k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "reference_designator": "R2",
+        "component_name": "UVLO Resistor 2",
+        "part_number": "0805_15k"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Gate Resistor",
+      "type": "0805_10R",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "reference_designator": "R3",
+        "component_name": "Gate Resistor",
+        "part_number": "0805_10R"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Clamp Gate Resistor",
+      "type": "0805_10R",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "reference_designator": "R4",
+        "component_name": "Clamp Gate Resistor",
+        "part_number": "0805_10R"
+      }
+    },
+    {
+      "id": "R5",
+      "name": "Current Sense Resistor",
+      "type": "WSL2512_0.005",
+      "pins": [],
+      "properties": {
+        "instance_id": "R5",
+        "reference_designator": "R5",
+        "component_name": "Current Sense Resistor",
+        "part_number": "WSL2512_0.005"
+      }
+    },
+    {
+      "id": "R6",
+      "name": "Feedback Resistor 1",
+      "type": "0805_10k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R6",
+        "reference_designator": "R6",
+        "component_name": "Feedback Resistor 1",
+        "part_number": "0805_10k"
+      }
+    },
+    {
+      "id": "R7",
+      "name": "Feedback Resistor 2",
+      "type": "0805_2k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R7",
+        "reference_designator": "R7",
+        "component_name": "Feedback Resistor 2",
+        "part_number": "0805_2k"
+      }
+    },
+    {
+      "id": "R8",
+      "name": "Sync Resistor",
+      "type": "0805_100k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R8",
+        "reference_designator": "R8",
+        "component_name": "Sync Resistor",
+        "part_number": "0805_100k"
+      }
+    },
+    {
+      "id": "R9",
+      "name": "Soft Start Cap",
+      "type": "0805_100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "R9",
+        "reference_designator": "R9",
+        "component_name": "Soft Start Cap",
+        "part_number": "0805_100nF"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "VDD Decoupling",
+      "type": "0805_1uF_50V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "reference_designator": "C4",
+        "component_name": "VDD Decoupling",
+        "part_number": "0805_1uF_50V"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "VDD Decoupling 2",
+      "type": "0805_100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "reference_designator": "C5",
+        "component_name": "VDD Decoupling 2",
+        "part_number": "0805_100nF"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "RT Resistor",
+      "type": "0805_24k",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "reference_designator": "C6",
+        "component_name": "RT Resistor",
+        "part_number": "0805_24k"
+      }
+    },
+    {
+      "id": "C7",
+      "name": "VREF Decoupling",
+      "type": "0805_100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C7",
+        "reference_designator": "C7",
+        "component_name": "VREF Decoupling",
+        "part_number": "0805_100nF"
+      }
+    },
+    {
+      "id": "C8",
+      "name": "Bootstrap Cap",
+      "type": "0805_100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C8",
+        "reference_designator": "C8",
+        "component_name": "Bootstrap Cap",
+        "part_number": "0805_100nF"
+      }
+    },
+    {
+      "id": "C9",
+      "name": "12V Output Bulk",
+      "type": "820uF_16V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C9",
+        "reference_designator": "C9",
+        "component_name": "12V Output Bulk",
+        "part_number": "820uF_16V"
+      }
+    },
+    {
+      "id": "C10",
+      "name": "12V Output Ceramic",
+      "type": "1210_47uF_25V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C10",
+        "reference_designator": "C10",
+        "component_name": "12V Output Ceramic",
+        "part_number": "1210_47uF_25V"
+      }
+    },
+    {
+      "id": "C11",
+      "name": "5V Output Bulk",
+      "type": "560uF_10V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C11",
+        "reference_designator": "C11",
+        "component_name": "5V Output Bulk",
+        "part_number": "560uF_10V"
+      }
+    },
+    {
+      "id": "C12",
+      "name": "5V Output Ceramic",
+      "type": "1210_47uF_10V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C12",
+        "reference_designator": "C12",
+        "component_name": "5V Output Ceramic",
+        "part_number": "1210_47uF_10V"
+      }
+    },
+    {
+      "id": "C13",
+      "name": "3.3V Output Bulk",
+      "type": "470uF_6.3V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C13",
+        "reference_designator": "C13",
+        "component_name": "3.3V Output Bulk",
+        "part_number": "470uF_6.3V"
+      }
+    },
+    {
+      "id": "C14",
+      "name": "3.3V Output Ceramic",
+      "type": "1210_47uF_6.3V",
+      "pins": [],
+      "properties": {
+        "instance_id": "C14",
+        "reference_designator": "C14",
+        "component_name": "3.3V Output Ceramic",
+        "part_number": "1210_47uF_6.3V"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "12V Set Resistor",
+      "type": "1206_10k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R10",
+        "reference_designator": "R10",
+        "component_name": "12V Set Resistor",
+        "part_number": "1206_10k"
+      }
+    },
+    {
+      "id": "C15",
+      "name": "12V Set Cap",
+      "type": "0805_10nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C15",
+        "reference_designator": "C15",
+        "component_name": "12V Set Cap",
+        "part_number": "0805_10nF"
+      }
+    },
+    {
+      "id": "R11",
+      "name": "5V Set Resistor",
+      "type": "1206_4.99k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R11",
+        "reference_designator": "R11",
+        "component_name": "5V Set Resistor",
+        "part_number": "1206_4.99k"
+      }
+    },
+    {
+      "id": "C16",
+      "name": "5V Set Cap",
+      "type": "0805_10nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C16",
+        "reference_designator": "C16",
+        "component_name": "5V Set Cap",
+        "part_number": "0805_10nF"
+      }
+    },
+    {
+      "id": "R12",
+      "name": "3.3V Set Resistor",
+      "type": "1206_3.3k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R12",
+        "reference_designator": "R12",
+        "component_name": "3.3V Set Resistor",
+        "part_number": "1206_3.3k"
+      }
+    },
+    {
+      "id": "C17",
+      "name": "3.3V Set Cap",
+      "type": "0805_10nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C17",
+        "reference_designator": "C17",
+        "component_name": "3.3V Set Cap",
+        "part_number": "0805_10nF"
+      }
+    },
+    {
+      "id": "D4",
+      "name": "12V OVP Crowbar",
+      "type": "P6KE15A",
+      "pins": [],
+      "properties": {
+        "instance_id": "D4",
+        "reference_designator": "D4",
+        "component_name": "12V OVP Crowbar",
+        "part_number": "P6KE15A"
+      }
+    },
+    {
+      "id": "D5",
+      "name": "5V OVP Crowbar",
+      "type": "P6KE6.8A",
+      "pins": [],
+      "properties": {
+        "instance_id": "D5",
+        "reference_designator": "D5",
+        "component_name": "5V OVP Crowbar",
+        "part_number": "P6KE6.8A"
+      }
+    },
+    {
+      "id": "D6",
+      "name": "3.3V OVP Crowbar",
+      "type": "P6KE4.3A",
+      "pins": [],
+      "properties": {
+        "instance_id": "D6",
+        "reference_designator": "D6",
+        "component_name": "3.3V OVP Crowbar",
+        "part_number": "P6KE4.3A"
+      }
+    },
+    {
+      "id": "D7",
+      "name": "12V Sense Diode",
+      "type": "1N4148W",
+      "pins": [],
+      "properties": {
+        "instance_id": "D7",
+        "reference_designator": "D7",
+        "component_name": "12V Sense Diode",
+        "part_number": "1N4148W"
+      }
+    },
+    {
+      "id": "D8",
+      "name": "12V Sense Diode 2",
+      "type": "1N4148W",
+      "pins": [],
+      "properties": {
+        "instance_id": "D8",
+        "reference_designator": "D8",
+        "component_name": "12V Sense Diode 2",
+        "part_number": "1N4148W"
+      }
+    },
+    {
+      "id": "D9",
+      "name": "5V Sense Diode",
+      "type": "1N4148W",
+      "pins": [],
+      "properties": {
+        "instance_id": "D9",
+        "reference_designator": "D9",
+        "component_name": "5V Sense Diode",
+        "part_number": "1N4148W"
+      }
+    },
+    {
+      "id": "D10",
+      "name": "3.3V Sense Diode",
+      "type": "1N4148W",
+      "pins": [],
+      "properties": {
+        "instance_id": "D10",
+        "reference_designator": "D10",
+        "component_name": "3.3V Sense Diode",
+        "part_number": "1N4148W"
+      }
+    },
+    {
+      "id": "U37",
+      "name": "HV Supervisory",
+      "type": "MAX6396HA39",
+      "pins": [],
+      "properties": {
+        "instance_id": "U37",
+        "reference_designator": "U37",
+        "component_name": "HV Supervisory",
+        "part_number": "MAX6396HA39"
+      }
+    },
+    {
+      "id": "R13",
+      "name": "UVLO Hysteresis",
+      "type": "0805_100k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R13",
+        "reference_designator": "R13",
+        "component_name": "UVLO Hysteresis",
+        "part_number": "0805_100k"
+      }
+    },
+    {
+      "id": "R14",
+      "name": "Enable Pullup",
+      "type": "0805_10k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R14",
+        "reference_designator": "R14",
+        "component_name": "Enable Pullup",
+        "part_number": "0805_10k"
+      }
+    },
+    {
+      "id": "R15",
+      "name": "Power Good Pullup",
+      "type": "0805_4.7k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R15",
+        "reference_designator": "R15",
+        "component_name": "Power Good Pullup",
+        "part_number": "0805_4.7k"
+      }
+    },
+    {
+      "id": "LED1",
+      "name": "PG Status LED",
+      "type": "SMGA_0603_GRN",
+      "pins": [],
+      "properties": {
+        "instance_id": "LED1",
+        "reference_designator": "LED1",
+        "component_name": "PG Status LED",
+        "part_number": "SMGA_0603_GRN"
+      }
+    },
+    {
+      "id": "R16",
+      "name": "LED Resistor",
+      "type": "0805_1k",
+      "pins": [],
+      "properties": {
+        "instance_id": "R16",
+        "reference_designator": "R16",
+        "component_name": "LED Resistor",
+        "part_number": "0805_1k"
+      }
+    },
+    {
+      "id": "C18",
+      "name": "Common Mode Choke Cap",
+      "type": "1210_100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C18",
+        "reference_designator": "C18",
+        "component_name": "Common Mode Choke Cap",
+        "part_number": "1210_100nF"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "1",
+      "target": "F1",
+      "target_pin": "1",
+      "signal": "INPUT_BUS+",
+      "type": "power"
+    },
+    {
+      "source": "F1",
+      "source_pin": "2",
+      "target": "D3",
+      "target_pin": "1",
+      "signal": "F1_TO_D3",
+      "type": "power"
+    },
+    {
+      "source": "D3",
+      "source_pin": "2",
+      "target": "C1",
+      "target_pin": "1",
+      "signal": "INPUT_PROTECTED+",
+      "type": "power"
+    },
+    {
+      "source": "D3",
+      "source_pin": "2",
+      "target": "C2",
+      "target_pin": "1",
+      "signal": "INPUT_PROTECTED+",
+      "type": "power"
+    },
+    {
+      "source": "D3",
+      "source_pin": "2",
+      "target": "C3",
+      "target_pin": "1",
+      "signal": "INPUT_PROTECTED+",
+      "type": "power"
+    },
+    {
+      "source": "D3",
+      "source_pin": "2",
+      "target": "T1",
+      "target_pin": "PRI_1",
+      "signal": "INPUT_PROTECTED+",
+      "type": "power"
+    },
+    {
+      "source": "D3",
+      "source_pin": "2",
+      "target": "Q1",
+      "target_pin": "Drain",
+      "signal": "INPUT_PROTECTED+",
+      "type": "power"
+    },
+    {
+      "source": "D3",
+      "source_pin": "2",
+      "target": "U37",
+      "target_pin": "VIN",
+      "signal": "INPUT_PROTECTED+",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "D1",
+      "target_pin": "1",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "C1",
+      "target_pin": "2",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "C2",
+      "target_pin": "2",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "C3",
+      "target_pin": "2",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "T1",
+      "target_pin": "PRI_2",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "U37",
+      "target_pin": "GND",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "R2",
+      "target_pin": "2",
+      "signal": "INPUT_BUS-",
+      "type": "power"
+    },
+    {
+      "source": "INPUT_PROTECTED+",
+      "source_pin": "NODE",
+      "target": "R1",
+      "target_pin": "1",
+      "signal": "UVLO_SENSE",
+      "type": "analog"
+    },
+    {
+      "source": "R1",
+      "source_pin": "2",
+      "target": "R2",
+      "target_pin": "1",
+      "signal": "UVLO_DIV",
+      "type": "analog"
+    },
+    {
+      "source": "R1",
+      "source_pin": "2",
+      "target": "U37",
+      "target_pin": "UVLO",
+      "signal": "UVLO_FB",
+      "type": "analog"
+    },
+    {
+      "source": "INPUT_PROTECTED+",
+      "source_pin": "NODE",
+      "target": "U37",
+      "target_pin": "SNS",
+      "signal": "HV_SNS",
+      "type": "analog"
+    },
+    {
+      "source": "R14",
+      "source_pin": "1",
+      "target": "U37",
+      "target_pin": "EN",
+      "signal": "ENABLE",
+      "type": "digital"
+    },
+    {
+      "source": "R14",
+      "source_pin": "2",
+      "target": "U37",
+      "target_pin": "VCC",
+      "signal": "ENABLE_PULLUP",
+      "type": "power"
+    },
+    {
+      "source": "R14",
+      "source_pin": "1",
+      "target": "J1",
+      "target_pin": "3",
+      "signal": "ENABLE_EXT",
+      "type": "digital"
+    },
+    {
+      "source": "U37",
+      "source_pin": "PGOOD",
+      "target": "R15",
+      "target_pin": "1",
+      "signal": "PWR_GOOD",
+      "type": "digital"
+    },
+    {
+      "source": "R15",
+      "source_pin": "2",
+      "target": "U37",
+      "target_pin": "VCC",
+      "signal": "PG_PULLUP",
+      "type": "power"
+    },
+    {
+      "source": "R15",
+      "source_pin": "1",
+      "target": "R16",
+      "target_pin": "1",
+      "signal": "PG_LED",
+      "type": "digital"
+    },
+    {
+      "source": "R16",
+      "source_pin": "2",
+      "target": "LED1",
+      "target_pin": "A",
+      "signal": "PG_LED_DRIVE",
+      "type": "digital"
+    },
+    {
+      "source": "LED1",
+      "source_pin": "C",
+      "target": "U37",
+      "target_pin": "GND",
+      "signal": "LED_CATHODE",
+      "type": "power"
+    },
+    {
+      "source": "U37",
+      "source_pin": "VCC",
+      "target": "U1",
+      "target_pin": "VDD",
+      "signal": "VCC_5V",
+      "type": "power"
+    },
+    {
+      "source": "U37",
+      "source_pin": "VCC",
+      "target": "C4",
+      "target_pin": "1",
+      "signal": "VCC_5V",
+      "type": "power"
+    },
+    {
+      "source": "U37",
+      "source_pin": "VCC",
+      "target": "C5",
+      "target_pin": "1",
+      "signal": "VCC_5V",
+      "type": "power"
+    },
+    {
+      "source": "U37",
+      "source_pin": "VCC",
+      "target": "C7",
+      "target_pin": "1",
+      "signal": "VCC_5V",
+      "type": "power"
+    },
+    {
+      "source": "U37",
+      "source_pin": "VCC",
+      "target": "R8",
+      "target_pin": "2",
+      "signal": "VCC_5V",
+      "type": "power"
+    },
+    {
+      "source": "C4",
+      "source_pin": "2",
+      "target": "C5",
+      "target_pin": "2",
+      "signal": "VCC_GND",
+      "type": "power"
+    },
+    {
+      "source": "C5",
+      "source_pin": "2",
+      "target": "C7",
+      "target_pin": "2",
+      "signal": "VCC_GND",
+      "type": "power"
+    },
+    {
+      "source": "C7",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "VCC_GND",
+      "type": "power"
+    },
+    {
+      "source": "C7",
+      "source_pin": "2",
+      "target": "R5",
+      "target_pin": "2",
+      "signal": "VCC_GND",
+      "type": "power"
+    },
+    {
+      "source": "C7",
+      "source_pin": "2",
+      "target": "R7",
+      "target_pin": "2",
+      "signal": "VCC_GND",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RT",
+      "target": "C6",
+      "target_pin": "1",
+      "signal": "RT_FREQ",
+      "type": "analog"
+    },
+    {
+      "source": "C6",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "RT_FREQ",
+      "type": "analog"
+    },
+    {
+      "source": "U1",
+      "source_pin": "SS",
+      "target": "R9",
+      "target_pin": "1",
+      "signal": "SS_SOFT",
+      "type": "analog"
+    },
+    {
+      "source": "R9",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "SS_SOFT",
+      "type": "analog"
+    },
+    {
+      "source": "U1",
+      "source_pin": "FB",
+      "target": "R6",
+      "target_pin": "2",
+      "signal": "FB_IN",
+      "type": "analog"
+    },
+    {
+      "source": "R6",
+      "source_pin": "2",
+      "target": "R7",
+      "target_pin": "1",
+      "signal": "FB_IN",
+      "type": "analog"
+    },
+    {
+      "source": "R6",
+      "source_pin": "1",
+      "target": "OUTPUT_12V",
+      "target_pin": "SENSE",
+      "signal": "FB_DIV",
+      "type": "analog"
+    },
+    {
+      "source": "R5",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "ISNS+",
+      "signal": "ISENSE+",
+      "type": "analog"
+    },
+    {
+      "source": "R5",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "ISNS-",
+      "signal": "ISENSE-",
+      "type": "analog"
+    },
+    {
+      "source": "U1",
+      "source_pin": "HO",
+      "target": "R3",
+      "target_pin": "1",
+      "signal": "DRIVE_MAIN",
+      "type": "power"
+    },
+    {
+      "source": "R3",
+      "source_pin": "2",
+      "target": "Q1",
+      "target_pin": "Gate",
+      "signal": "DRIVE_MAIN",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "AC",
+      "target": "R4",
+      "target_pin": "1",
+      "signal": "DRIVE_CLAMP",
+      "type": "power"
+    },
+    {
+      "source": "R4",
+      "source_pin": "2",
+      "target": "Q2",
+      "target_pin": "Gate",
+      "signal": "DRIVE_CLAMP",
+      "type": "power"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "Source",
+      "target": "T1",
+      "target_pin": "PRI_3",
+      "signal": "SW_PRI",
+      "type": "power"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "Drain",
+      "target": "Q2",
+      "target_pin": "Drain",
+      "signal": "CLAMP_NODE",
+      "type": "power"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "Source",
+      "target": "U1",
+      "target_pin": "SW",
+      "signal": "CLAMP_RET",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "HB",
+      "target": "C8",
+      "target_pin": "1",
+      "signal": "BOOTSTRAP",
+      "type": "power"
+    },
+    {
+      "source": "C8",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "BOOT",
+      "signal": "BOOTSTRAP",
+      "type": "power"
+    },
+    {
+      "source": "C8",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "SW",
+      "signal": "SW_BOOT",
+      "type": "power"
+    },
+    {
+      "source": "T1",
+      "source_pin": "SEC1_1",
+      "target": "Q3",
+      "target_pin": "Drain",
+      "signal": "SEC_12V",
+      "type": "power"
+    },
+    {
+      "source": "T1",
+      "source_pin": "SEC1_2",
+      "target": "Q3",
+      "target_pin": "Source",
+      "signal": "SEC_12V_CTR",
+      "type": "power"
+    },
+    {
+      "source": "Q3",
+      "source_pin": "Source",
+      "target": "Q3",
+      "target_pin": "GND",
+      "signal": "SEC_12V_CTR",
+      "type": "power"
+    },
+    {
+      "source": "T1",
+      "source_pin": "SEC2_1",
+      "target": "Q4",
+      "target_pin": "Drain",
+      "signal": "SEC_5V",
+      "type": "power"
+    },
+    {
+      "source": "T1",
+      "source_pin": "SEC2_2",
+      "target": "Q4",
+      "target_pin": "Source",
+      "signal": "SEC_5V_CTR",
+      "type": "power"
+    },
+    {
+      "source": "Q4",
+      "source_pin": "Source",
+      "target": "Q4",
+      "target_pin": "GND",
+      "signal": "SEC_5V_CTR",
+      "type": "power"
+    },
+    {
+      "source": "T1",
+      "source_pin": "SEC3_1",
+      "target": "Q5",
+      "target_pin": "Drain",
+      "signal": "SEC_3V3",
+      "type": "power"
+    },
+    {
+      "source": "T1",
+      "source_pin": "SEC3_2",
+      "target": "Q5",
+      "target_pin": "Source",
+      "signal": "SEC_3V3_CTR",
+      "type": "power"
+    },
+    {
+      "source": "Q5",
+      "source_pin": "Source",
+      "target": "Q5",
+      "target_pin": "GND",
+      "signal": "SEC_3V3_CTR",
+      "type": "power"
+    },
+    {
+      "source": "Q3",
+      "source_pin": "Source",
+      "target": "C9",
+      "target_pin": "1",
+      "signal": "RECT_12V",
+      "type": "power"
+    },
+    {
+      "source": "C9",
+      "source_pin": "1",
+      "target": "C10",
+      "target_pin": "1",
+      "signal": "RECT_12V",
+      "type": "power"
+    },
+    {
+      "source": "C10",
+      "source_pin": "1",
+      "target": "U2",
+      "target_pin": "IN",
+      "signal": "RECT_12V",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "IN",
+      "target": "D4",
+      "target_pin": "1",
+      "signal": "RECT_12V",
+      "type": "power"
+    },
+    {
+      "source": "C9",
+      "source_pin": "2",
+      "target": "C10",
+      "target_pin": "2",
+      "signal": "RECT_12V_GND",
+      "type": "power"
+    },
+    {
+      "source": "C10",
+      "source_pin": "2",
+      "target": "Q3",
+      "target_pin": "GND",
+      "signal": "RECT_12V_GND",
+      "type": "power"
+    },
+    {
+      "source": "Q4",
+      "source_pin": "Source",
+      "target": "C11",
+      "target_pin": "1",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "C11",
+      "source_pin": "1",
+      "target": "C12",
+      "target_pin": "1",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "C12",
+      "source_pin": "1",
+      "target": "U3",
+      "target_pin": "IN",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U3",
+      "source_pin": "IN",
+      "target": "U4",
+      "target_pin": "IN",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "IN",
+      "target": "U5",
+      "target_pin": "IN",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "IN",
+      "target": "U6",
+      "target_pin": "IN",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "IN",
+      "target": "D5",
+      "target_pin": "1",
+      "signal": "RECT_5V",
+      "type": "power"
+    },
+    {
+      "source": "C11",
+      "source_pin": "2",
+      "target": "C12",
+      "target_pin": "2",
+      "signal": "RECT_5V_GND",
+      "type": "power"
+    },
+    {
+      "source": "C12",
+      "source_pin": "2",
+      "target": "Q4",
+      "target_pin": "GND",
+      "signal": "RECT_5V_GND",
+      "type": "power"
+    },
+    {
+      "source": "Q5",
+      "source_pin": "Source",
+      "target": "C13",
+      "target_pin": "1",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "C13",
+      "source_pin": "1",
+      "target": "C14",
+      "target_pin": "1",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "C14",
+      "source_pin": "1",
+      "target": "U7",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "IN",
+      "target": "U8",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "IN",
+      "target": "U9",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "IN",
+      "target": "U10",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "IN",
+      "target": "U11",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "IN",
+      "target": "U12",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U12",
+      "source_pin": "IN",
+      "target": "U13",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U13",
+      "source_pin": "IN",
+      "target": "U14",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U14",
+      "source_pin": "IN",
+      "target": "U15",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U15",
+      "source_pin": "IN",
+      "target": "U16",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U16",
+      "source_pin": "IN",
+      "target": "U17",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U17",
+      "source_pin": "IN",
+      "target": "U18",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U18",
+      "source_pin": "IN",
+      "target": "U19",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U19",
+      "source_pin": "IN",
+      "target": "U20",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U20",
+      "source_pin": "IN",
+      "target": "U21",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U21",
+      "source_pin": "IN",
+      "target": "U22",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U22",
+      "source_pin": "IN",
+      "target": "U23",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U23",
+      "source_pin": "IN",
+      "target": "U24",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U24",
+      "source_pin": "IN",
+      "target": "U25",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U25",
+      "source_pin": "IN",
+      "target": "U26",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U26",
+      "source_pin": "IN",
+      "target": "U27",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U27",
+      "source_pin": "IN",
+      "target": "U28",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U28",
+      "source_pin": "IN",
+      "target": "U29",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U29",
+      "source_pin": "IN",
+      "target": "U30",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U30",
+      "source_pin": "IN",
+      "target": "U31",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U31",
+      "source_pin": "IN",
+      "target": "U32",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U32",
+      "source_pin": "IN",
+      "target": "U33",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U33",
+      "source_pin": "IN",
+      "target": "U34",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U34",
+      "source_pin": "IN",
+      "target": "U35",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U35",
+      "source_pin": "IN",
+      "target": "U36",
+      "target_pin": "IN",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U36",
+      "source_pin": "IN",
+      "target": "D6",
+      "target_pin": "1",
+      "signal": "RECT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "C13",
+      "source_pin": "2",
+      "target": "C14",
+      "target_pin": "2",
+      "signal": "RECT_3V3_GND",
+      "type": "power"
+    },
+    {
+      "source": "C14",
+      "source_pin": "2",
+      "target": "Q5",
+      "target_pin": "GND",
+      "signal": "RECT_3V3_GND",
+      "type": "power"
+    },
+    {
+      "source": "U2",
+      "source_pin": "SET",
+      "target": "R10",
+      "target_pin": "1",
+      "signal": "SET_12V",
+      "type": "analog"
+    },
+    {
+      "source": "R10",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "SET_12V",
+      "type": "analog"
+    },
+    {
+      "source": "U2",
+      "source_pin": "SET",
+      "target": "C15",
+      "target_pin": "1",
+      "signal": "SET_12V_CAP",
+      "type": "analog"
+    },
+    {
+      "source": "C15",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "SET_12V_CAP",
+      "type": "analog"
+    },
+    {
+      "source": "U3",
+      "source_pin": "SET",
+      "target": "R11",
+      "target_pin": "1",
+      "signal": "SET_5V",
+      "type": "analog"
+    },
+    {
+      "source": "R11",
+      "source_pin": "1",
+      "target": "U4",
+      "target_pin": "SET",
+      "signal": "SET_5V",
+      "type": "analog"
+    },
+    {
+      "source": "U4",
+      "source_pin": "SET",
+      "target": "U5",
+      "target_pin": "SET",
+      "signal": "SET_5V",
+      "type": "analog"
+    },
+    {
+      "source": "U5",
+      "source_pin": "SET",
+      "target": "U6",
+      "target_pin": "SET",
+      "signal": "SET_5V",
+      "type": "analog"
+    },
+    {
+      "source": "U6",
+      "source_pin": "SET",
+      "target": "R11",
+      "target_pin": "2",
+      "signal": "SET_5V",
+      "type": "analog"
+    },
+    {
+      "source": "U3",
+      "source_pin": "SET",
+      "target": "C16",
+      "target_pin": "1",
+      "signal": "SET_5V_CAP",
+      "type": "analog"
+    },
+    {
+      "source": "C16",
+      "source_pin": "2",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "SET_5V_CAP",
+      "type": "analog"
+    },
+    {
+      "source": "U7",
+      "source_pin": "SET",
+      "target": "R12",
+      "target_pin": "1",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U7",
+      "source_pin": "SET",
+      "target": "U8",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U8",
+      "source_pin": "SET",
+      "target": "U9",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U9",
+      "source_pin": "SET",
+      "target": "U10",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U10",
+      "source_pin": "SET",
+      "target": "U11",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U11",
+      "source_pin": "SET",
+      "target": "U12",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U12",
+      "source_pin": "SET",
+      "target": "U13",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U13",
+      "source_pin": "SET",
+      "target": "U14",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U14",
+      "source_pin": "SET",
+      "target": "U15",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U15",
+      "source_pin": "SET",
+      "target": "U16",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U16",
+      "source_pin": "SET",
+      "target": "U17",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U17",
+      "source_pin": "SET",
+      "target": "U18",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U18",
+      "source_pin": "SET",
+      "target": "U19",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U19",
+      "source_pin": "SET",
+      "target": "U20",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U20",
+      "source_pin": "SET",
+      "target": "U21",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U21",
+      "source_pin": "SET",
+      "target": "U22",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U22",
+      "source_pin": "SET",
+      "target": "U23",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U23",
+      "source_pin": "SET",
+      "target": "U24",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U24",
+      "source_pin": "SET",
+      "target": "U25",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U25",
+      "source_pin": "SET",
+      "target": "U26",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U26",
+      "source_pin": "SET",
+      "target": "U27",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U27",
+      "source_pin": "SET",
+      "target": "U28",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U28",
+      "source_pin": "SET",
+      "target": "U29",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U29",
+      "source_pin": "SET",
+      "target": "U30",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U30",
+      "source_pin": "SET",
+      "target": "U31",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U31",
+      "source_pin": "SET",
+      "target": "U32",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U32",
+      "source_pin": "SET",
+      "target": "U33",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U33",
+      "source_pin": "SET",
+      "target": "U34",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U34",
+      "source_pin": "SET",
+      "target": "U35",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U35",
+      "source_pin": "SET",
+      "target": "U36",
+      "target_pin": "SET",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U36",
+      "source_pin": "SET",
+      "target": "R12",
+      "target_pin": "2",
+      "signal": "SET_3V3",
+      "type": "analog"
+    },
+    {
+      "source": "U7",
+      "source_pin": "SET",
+      "target": "C17",
+      "target_pin": "1",
+      "signal": "SET_3V3_CAP",
+      "type": "analog"
+    },
+    {
+      "source": "C17",
+      "source_pin": "2",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "SET_3V3_CAP",
+      "type": "analog"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "C9",
+      "target_pin": "3",
+      "signal": "OUTPUT_12V",
+      "type": "power"
+    },
+    {
+      "source": "C9",
+      "source_pin": "3",
+      "target": "C10",
+      "target_pin": "3",
+      "signal": "OUTPUT_12V",
+      "type": "power"
+    },
+    {
+      "source": "C10",
+      "source_pin": "3",
+      "target": "D7",
+      "target_pin": "A",
+      "signal": "OUTPUT_12V",
+      "type": "power"
+    },
+    {
+      "source": "D7",
+      "source_pin": "C",
+      "target": "D8",
+      "target_pin": "A",
+      "signal": "OUTPUT_12V",
+      "type": "power"
+    },
+    {
+      "source": "D8",
+      "source_pin": "C",
+      "target": "D4",
+      "target_pin": "2",
+      "signal": "OUTPUT_12V",
+      "type": "power"
+    },
+    {
+      "source": "D8",
+      "source_pin": "A",
+      "target": "J2",
+      "target_pin": "1",
+      "signal": "OUTPUT_12V_SENSE",
+      "type": "power"
+    },
+    {
+      "source": "J2",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "OUTPUT_12V_RTN",
+      "type": "power"
+    },
+    {
+      "source": "U3",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_5V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT",
+      "target": "D9",
+      "target_pin": "A",
+      "signal": "OUTPUT_5V",
+      "type": "power"
+    },
+    {
+      "source": "D9",
+      "source_pin": "C",
+      "target": "D5",
+      "target_pin": "2",
+      "signal": "OUTPUT_5V",
+      "type": "power"
+    },
+    {
+      "source": "D5",
+      "source_pin": "2",
+      "target": "J2",
+      "target_pin": "3",
+      "signal": "OUTPUT_5V",
+      "type": "power"
+    },
+    {
+      "source": "J2",
+      "source_pin": "4",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "OUTPUT_5V_RTN",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U9",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "OUT",
+      "target": "U10",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U11",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U12",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U12",
+      "source_pin": "OUT",
+      "target": "U13",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U13",
+      "source_pin": "OUT",
+      "target": "U14",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U14",
+      "source_pin": "OUT",
+      "target": "U15",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U15",
+      "source_pin": "OUT",
+      "target": "U16",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U16",
+      "source_pin": "OUT",
+      "target": "U17",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U17",
+      "source_pin": "OUT",
+      "target": "U18",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U18",
+      "source_pin": "OUT",
+      "target": "U19",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U19",
+      "source_pin": "OUT",
+      "target": "U20",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U20",
+      "source_pin": "OUT",
+      "target": "U21",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U21",
+      "source_pin": "OUT",
+      "target": "U22",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U22",
+      "source_pin": "OUT",
+      "target": "U23",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U23",
+      "source_pin": "OUT",
+      "target": "U24",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U24",
+      "source_pin": "OUT",
+      "target": "U25",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U25",
+      "source_pin": "OUT",
+      "target": "U26",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U26",
+      "source_pin": "OUT",
+      "target": "U27",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U27",
+      "source_pin": "OUT",
+      "target": "U28",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U28",
+      "source_pin": "OUT",
+      "target": "U29",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U29",
+      "source_pin": "OUT",
+      "target": "U30",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U30",
+      "source_pin": "OUT",
+      "target": "U31",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U31",
+      "source_pin": "OUT",
+      "target": "U32",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U32",
+      "source_pin": "OUT",
+      "target": "U33",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U33",
+      "source_pin": "OUT",
+      "target": "U34",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U34",
+      "source_pin": "OUT",
+      "target": "U35",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U35",
+      "source_pin": "OUT",
+      "target": "U36",
+      "target_pin": "OUT",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "U36",
+      "source_pin": "OUT",
+      "target": "D10",
+      "target_pin": "A",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "D10",
+      "source_pin": "C",
+      "target": "D6",
+      "target_pin": "2",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "D6",
+      "source_pin": "2",
+      "target": "J2",
+      "target_pin": "5",
+      "signal": "OUTPUT_3V3",
+      "type": "power"
+    },
+    {
+      "source": "J2",
+      "source_pin": "6",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "OUTPUT_3V3_RTN",
+      "type": "power"
+    }
+  ],
+  "metadata": {}
+}

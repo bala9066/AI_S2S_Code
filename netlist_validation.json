@@ -1,0 +1,31 @@
+{
+  "total_nodes": 93,
+  "total_edges": 133,
+  "isolated_nodes": [
+    "D2",
+    "R13",
+    "C18"
+  ],
+  "cycles": [
+    [
+      "Q3"
+    ],
+    [
+      "Q4"
+    ],
+    [
+      "Q5"
+    ],
+    [
+      "LED1",
+      "U37",
+      "R15",
+      "R16"
+    ],
+    [
+      "R15",
+      "U37"
+    ]
+  ],
+  "is_connected": false
+}
