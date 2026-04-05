@@ -1,0 +1,889 @@
+{
+  "project": "hkgg",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "GVA-123+",
+      "type": "GVA-123+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "reference_designator": "U1",
+        "component_name": "GVA-123+",
+        "part_number": "GVA-123+"
+      }
+    },
+    {
+      "id": "Q1",
+      "name": "MRF1511G",
+      "type": "MRF1511G",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q1",
+        "reference_designator": "Q1",
+        "component_name": "MRF1511G",
+        "part_number": "MRF1511G"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "MAX1167",
+      "type": "MAX1167",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "reference_designator": "U2",
+        "component_name": "MAX1167",
+        "part_number": "MAX1167"
+      }
+    },
+    {
+      "id": "Q2",
+      "name": "IRLML6402",
+      "type": "IRLML6402",
+      "pins": [],
+      "properties": {
+        "instance_id": "Q2",
+        "reference_designator": "Q2",
+        "component_name": "IRLML6402",
+        "part_number": "IRLML6402"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "SMA_Female_Connector",
+      "type": "SMA-F-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "reference_designator": "J1",
+        "component_name": "SMA_Female_Connector",
+        "part_number": "SMA-F-50"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "SMA_Female_Connector",
+      "type": "SMA-F-50",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "reference_designator": "J2",
+        "component_name": "SMA_Female_Connector",
+        "part_number": "SMA-F-50"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "DC_Power_Terminal",
+      "type": "TERMINAL-2POS",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "reference_designator": "J3",
+        "component_name": "DC_Power_Terminal",
+        "part_number": "TERMINAL-2POS"
+      }
+    },
+    {
+      "id": "T1",
+      "name": "RF_Transformer_1:1",
+      "type": "TC1-1-13M+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T1",
+        "reference_designator": "T1",
+        "component_name": "RF_Transformer_1:1",
+        "part_number": "TC1-1-13M+"
+      }
+    },
+    {
+      "id": "T2",
+      "name": "RF_Transformer_4:1",
+      "type": "TC4-1W-150+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T2",
+        "reference_designator": "T2",
+        "component_name": "RF_Transformer_4:1",
+        "part_number": "TC4-1W-150+"
+      }
+    },
+    {
+      "id": "T3",
+      "name": "RF_Transformer_1:4",
+      "type": "TC1-4-150+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T3",
+        "reference_designator": "T3",
+        "component_name": "RF_Transformer_1:4",
+        "part_number": "TC1-4-150+"
+      }
+    },
+    {
+      "id": "L1",
+      "name": "RF_Choke_Inductor",
+      "type": "100nH_2A",
+      "pins": [],
+      "properties": {
+        "instance_id": "L1",
+        "reference_designator": "L1",
+        "component_name": "RF_Choke_Inductor",
+        "part_number": "100nH_2A"
+      }
+    },
+    {
+      "id": "L2",
+      "name": "Gate_Choke_Inductor",
+      "type": "1uH_100mA",
+      "pins": [],
+      "properties": {
+        "instance_id": "L2",
+        "reference_designator": "L2",
+        "component_name": "Gate_Choke_Inductor",
+        "part_number": "1uH_100mA"
+      }
+    },
+    {
+      "id": "L3",
+      "name": "Drain_RFC",
+      "type": "22nH_5A",
+      "pins": [],
+      "properties": {
+        "instance_id": "L3",
+        "reference_designator": "L3",
+        "component_name": "Drain_RFC",
+        "part_number": "22nH_5A"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "Gate_Resistor",
+      "type": "4.7_1W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "reference_designator": "R1",
+        "component_name": "Gate_Resistor",
+        "part_number": "4.7_1W"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Gate_Safety_Resistor",
+      "type": "10_0.25W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "reference_designator": "R2",
+        "component_name": "Gate_Safety_Resistor",
+        "part_number": "10_0.25W"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Pull_Down_Resistor",
+      "type": "10k_0.25W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "reference_designator": "R3",
+        "component_name": "Pull_Down_Resistor",
+        "part_number": "10k_0.25W"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Enable_Pullup_Resistor",
+      "type": "10k_0.25W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "reference_designator": "R4",
+        "component_name": "Enable_Pullup_Resistor",
+        "part_number": "10k_0.25W"
+      }
+    },
+    {
+      "id": "R5",
+      "name": "I2C_Pullup_Resistor",
+      "type": "4.7k_0.25W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R5",
+        "reference_designator": "R5",
+        "component_name": "I2C_Pullup_Resistor",
+        "part_number": "4.7k_0.25W"
+      }
+    },
+    {
+      "id": "R6",
+      "name": "I2C_Pullup_Resistor",
+      "type": "4.7k_0.25W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R6",
+        "reference_designator": "R6",
+        "component_name": "I2C_Pullup_Resistor",
+        "part_number": "4.7k_0.25W"
+      }
+    },
+    {
+      "id": "R7",
+      "name": "DAC_Adjust_Resistor",
+      "type": "10k_0.25W",
+      "pins": [],
+      "properties": {
+        "instance_id": "R7",
+        "reference_designator": "R7",
+        "component_name": "DAC_Adjust_Resistor",
+        "part_number": "10k_0.25W"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Input_DC_Block",
+      "type": "100pF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "reference_designator": "C1",
+        "component_name": "Input_DC_Block",
+        "part_number": "100pF_Ceramic"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Driver_Decoupling",
+      "type": "0.1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "reference_designator": "C2",
+        "component_name": "Driver_Decoupling",
+        "part_number": "0.1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Driver_Decoupling_HF",
+      "type": "1000pF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "reference_designator": "C3",
+        "component_name": "Driver_Decoupling_HF",
+        "part_number": "1000pF_Ceramic"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Interstage_DC_Block",
+      "type": "470pF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "reference_designator": "C4",
+        "component_name": "Interstage_DC_Block",
+        "part_number": "470pF_Ceramic"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "Gate_Decoupling",
+      "type": "0.1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "reference_designator": "C5",
+        "component_name": "Gate_Decoupling",
+        "part_number": "0.1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "Drain_Decoupling_Bulk",
+      "type": "10uF_Tantalum",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "reference_designator": "C6",
+        "component_name": "Drain_Decoupling_Bulk",
+        "part_number": "10uF_Tantalum"
+      }
+    },
+    {
+      "id": "C7",
+      "name": "Drain_Decoupling_MF",
+      "type": "1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C7",
+        "reference_designator": "C7",
+        "component_name": "Drain_Decoupling_MF",
+        "part_number": "1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C8",
+      "name": "Drain_Decoupling_HF",
+      "type": "0.1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C8",
+        "reference_designator": "C8",
+        "component_name": "Drain_Decoupling_HF",
+        "part_number": "0.1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C9",
+      "name": "Output_DC_Block",
+      "type": "470pF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C9",
+        "reference_designator": "C9",
+        "component_name": "Output_DC_Block",
+        "part_number": "470pF_Ceramic"
+      }
+    },
+    {
+      "id": "C10",
+      "name": "Input_Capacitor",
+      "type": "1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C10",
+        "reference_designator": "C10",
+        "component_name": "Input_Capacitor",
+        "part_number": "1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C11",
+      "name": "Logic_Decoupling",
+      "type": "0.1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C11",
+        "reference_designator": "C11",
+        "component_name": "Logic_Decoupling",
+        "part_number": "0.1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C12",
+      "name": "Input_Decoupling",
+      "type": "10uF_Tantalum",
+      "pins": [],
+      "properties": {
+        "instance_id": "C12",
+        "reference_designator": "C12",
+        "component_name": "Input_Decoupling",
+        "part_number": "10uF_Tantalum"
+      }
+    },
+    {
+      "id": "C13",
+      "name": "Input_Decoupling_MF",
+      "type": "0.1uF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C13",
+        "reference_designator": "C13",
+        "component_name": "Input_Decoupling_MF",
+        "part_number": "0.1uF_Ceramic"
+      }
+    },
+    {
+      "id": "C14",
+      "name": "Input_Decoupling_HF",
+      "type": "1000pF_Ceramic",
+      "pins": [],
+      "properties": {
+        "instance_id": "C14",
+        "reference_designator": "C14",
+        "component_name": "Input_Decoupling_HF",
+        "part_number": "1000pF_Ceramic"
+      }
+    },
+    {
+      "id": "D1",
+      "name": "Schottky_Diode",
+      "type": "SS34",
+      "pins": [],
+      "properties": {
+        "instance_id": "D1",
+        "reference_designator": "D1",
+        "component_name": "Schottky_Diode",
+        "part_number": "SS34"
+      }
+    },
+    {
+      "id": "F1",
+      "name": "PTC_Fuse",
+      "type": "3.5A_Hold",
+      "pins": [],
+      "properties": {
+        "instance_id": "F1",
+        "reference_designator": "F1",
+        "component_name": "PTC_Fuse",
+        "part_number": "3.5A_Hold"
+      }
+    },
+    {
+      "id": "TP1",
+      "name": "Test_Point",
+      "type": "TP-1.5MM",
+      "pins": [],
+      "properties": {
+        "instance_id": "TP1",
+        "reference_designator": "TP1",
+        "component_name": "Test_Point",
+        "part_number": "TP-1.5MM"
+      }
+    },
+    {
+      "id": "TP2",
+      "name": "Test_Point",
+      "type": "TP-1.5MM",
+      "pins": [],
+      "properties": {
+        "instance_id": "TP2",
+        "reference_designator": "TP2",
+        "component_name": "Test_Point",
+        "part_number": "TP-1.5MM"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "1",
+      "target": "C1",
+      "target_pin": "1",
+      "signal": "RF_IN",
+      "type": "RF"
+    },
+    {
+      "source": "C1",
+      "source_pin": "2",
+      "target": "T1",
+      "target_pin": "1",
+      "signal": "RF_IN_BLK",
+      "type": "RF"
+    },
+    {
+      "source": "T1",
+      "source_pin": "3",
+      "target": "U1",
+      "target_pin": "1",
+      "signal": "RF_DRIVER_IN",
+      "type": "RF"
+    },
+    {
+      "source": "U1",
+      "source_pin": "3",
+      "target": "T2",
+      "target_pin": "1",
+      "signal": "RF_DRIVER_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "T2",
+      "source_pin": "3",
+      "target": "C4",
+      "target_pin": "1",
+      "signal": "RF_PA_IN_LOW",
+      "type": "RF"
+    },
+    {
+      "source": "C4",
+      "source_pin": "2",
+      "target": "Q1",
+      "target_pin": "GATE",
+      "signal": "RF_PA_IN",
+      "type": "RF"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "DRAIN",
+      "target": "T3",
+      "target_pin": "1",
+      "signal": "RF_PA_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "T3",
+      "source_pin": "3",
+      "target": "C9",
+      "target_pin": "1",
+      "signal": "RF_OUT_LOW",
+      "type": "RF"
+    },
+    {
+      "source": "C9",
+      "source_pin": "2",
+      "target": "J2",
+      "target_pin": "1",
+      "signal": "RF_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "J3",
+      "source_pin": "1",
+      "target": "F1",
+      "target_pin": "1",
+      "signal": "DC_RAW",
+      "type": "POWER"
+    },
+    {
+      "source": "F1",
+      "source_pin": "2",
+      "target": "D1",
+      "target_pin": "1",
+      "signal": "DC_FUSED",
+      "type": "POWER"
+    },
+    {
+      "source": "D1",
+      "source_pin": "2",
+      "target": "C12",
+      "target_pin": "1",
+      "signal": "+12V_MAIN",
+      "type": "POWER"
+    },
+    {
+      "source": "C13",
+      "source_pin": "1",
+      "target": "L1",
+      "target_pin": "1",
+      "signal": "+12V_DRIVER",
+      "type": "POWER"
+    },
+    {
+      "source": "L1",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "2",
+      "signal": "DRV_VDD",
+      "type": "POWER"
+    },
+    {
+      "source": "L1",
+      "source_pin": "2",
+      "target": "L3",
+      "target_pin": "1",
+      "signal": "+12V_DRAIN",
+      "type": "POWER"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "Q1",
+      "target_pin": "DRAIN",
+      "signal": "PA_DRAIN",
+      "type": "POWER"
+    },
+    {
+      "source": "D1",
+      "source_pin": "2",
+      "target": "Q2",
+      "target_pin": "2",
+      "signal": "+12V_LOGIC",
+      "type": "POWER"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "2",
+      "target": "C10",
+      "target_pin": "1",
+      "signal": "DAC_VDD",
+      "type": "POWER"
+    },
+    {
+      "source": "C10",
+      "source_pin": "1",
+      "target": "U2",
+      "target_pin": "4",
+      "signal": "+3.3V_REF",
+      "type": "POWER"
+    },
+    {
+      "source": "Q2",
+      "source_pin": "1",
+      "target": "L2",
+      "target_pin": "1",
+      "signal": "BIAS_SW",
+      "type": "POWER"
+    },
+    {
+      "source": "L2",
+      "source_pin": "2",
+      "target": "R2",
+      "target_pin": "1",
+      "signal": "GATE_BIAS_RAW",
+      "type": "POWER"
+    },
+    {
+      "source": "R2",
+      "source_pin": "2",
+      "target": "R1",
+      "target_pin": "1",
+      "signal": "GATE_BIAS",
+      "type": "POWER"
+    },
+    {
+      "source": "R1",
+      "source_pin": "2",
+      "target": "Q1",
+      "target_pin": "GATE",
+      "signal": "PA_GATE",
+      "type": "BIAS"
+    },
+    {
+      "source": "U2",
+      "source_pin": "1",
+      "target": "R7",
+      "target_pin": "1",
+      "signal": "DAC_OUT",
+      "type": "ANALOG"
+    },
+    {
+      "source": "R7",
+      "source_pin": "2",
+      "target": "Q2",
+      "target_pin": "3",
+      "signal": "BIAS_SET",
+      "type": "ANALOG"
+    },
+    {
+      "source": "TP1",
+      "source_pin": "1",
+      "target": "R4",
+      "target_pin": "1",
+      "signal": "ENABLE",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "R4",
+      "source_pin": "2",
+      "target": "Q2",
+      "target_pin": "3",
+      "signal": "ENABLE_CTRL",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "TP2",
+      "source_pin": "1",
+      "target": "U2",
+      "target_pin": "3",
+      "signal": "I2C_SDA",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "TP2",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "2",
+      "signal": "I2C_SCL",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "J3",
+      "source_pin": "2",
+      "target": "D1",
+      "target_pin": "3",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "D1",
+      "source_pin": "3",
+      "target": "C12",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C12",
+      "source_pin": "2",
+      "target": "C13",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C13",
+      "source_pin": "2",
+      "target": "C14",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C14",
+      "source_pin": "2",
+      "target": "C2",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C2",
+      "source_pin": "2",
+      "target": "C3",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C3",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "4",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "4",
+      "target": "T1",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "T1",
+      "source_pin": "2",
+      "target": "T2",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "T2",
+      "source_pin": "2",
+      "target": "T3",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "T3",
+      "source_pin": "2",
+      "target": "Q1",
+      "target_pin": "SOURCE",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "Q1",
+      "source_pin": "SOURCE",
+      "target": "C5",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C5",
+      "source_pin": "2",
+      "target": "C6",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C6",
+      "source_pin": "2",
+      "target": "C7",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C7",
+      "source_pin": "2",
+      "target": "C8",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C8",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U2",
+      "source_pin": "2",
+      "target": "C11",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C11",
+      "source_pin": "2",
+      "target": "C10",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "C10",
+      "source_pin": "2",
+      "target": "R3",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "R3",
+      "source_pin": "2",
+      "target": "R5",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "R5",
+      "source_pin": "2",
+      "target": "R6",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "R5",
+      "source_pin": "1",
+      "target": "U2",
+      "target_pin": "3",
+      "signal": "I2C_SDA_PU",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "R6",
+      "source_pin": "1",
+      "target": "U2",
+      "target_pin": "2",
+      "signal": "I2C_SCL_PU",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "R1",
+      "source_pin": "2",
+      "target": "R3",
+      "target_pin": "1",
+      "signal": "GATE_SAFETY",
+      "type": "BIAS"
+    }
+  ],
+  "metadata": {}
+}
