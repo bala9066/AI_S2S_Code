@@ -1,0 +1,30 @@
+{
+  "total_nodes": 53,
+  "total_edges": 99,
+  "isolated_nodes": [],
+  "cycles": [
+    [
+      "U1"
+    ],
+    [
+      "U2"
+    ],
+    [
+      "U4"
+    ],
+    [
+      "U6"
+    ],
+    [
+      "C14",
+      "C15",
+      "C16",
+      "U5",
+      "U6",
+      "U7",
+      "U4",
+      "C13"
+    ]
+  ],
+  "is_connected": true
+}
