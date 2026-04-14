@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>1280</width><height>800</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>rx module — Hardware Pipeline v2</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="centralLayout">
+    <property name="spacing"><number>0</number></property>
+    <property name="leftMargin"><number>0</number></property>
+    <property name="topMargin"><number>0</number></property>
+    <property name="rightMargin"><number>0</number></property>
+    <property name="bottomMargin"><number>0</number></property>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex"><number>0</number></property>
+      <property name="documentMode"><bool>true</bool></property>
+      <widget class="DashboardPanel" name="dashboardPage">
+       <attribute name="title"><string>Dashboard</string></attribute>
+      </widget>
+      <widget class="ControlPanel" name="controlPage">
+       <attribute name="title"><string>Control</string></attribute>
+      </widget>
+      <widget class="LogPanel" name="logPage">
+       <attribute name="title"><string>Log</string></attribute>
+      </widget>
+      <widget class="SettingsPanel" name="settingsPage">
+       <attribute name="title"><string>Settings</string></attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect><x>0</x><y>0</y><width>1280</width><height>21</height></rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title"><string>File</string></property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title"><string>Help</string></property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text"><string>Quit</string></property>
+   <property name="shortcut"><string>Ctrl+Q</string></property>
+  </action>
+  <action name="actionAbout">
+   <property name="text"><string>About</string></property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DashboardPanel</class>
+   <extends>QWidget</extends>
+   <header>DashboardPanel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ControlPanel</class>
+   <extends>QWidget</extends>
+   <header>ControlPanel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>LogPanel</class>
+   <extends>QWidget</extends>
+   <header>LogPanel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SettingsPanel</class>
+   <extends>QWidget</extends>
+   <header>SettingsPanel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
