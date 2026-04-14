@@ -1,0 +1,371 @@
+# Logical Netlist
+## TX Module
+
+## Block Diagram
+
+```mermaid
+graph TB
+    U1[GMMT2021-215 (GMMT2021-215)]
+    U2[GVA-123+ (GVA-123+)]
+    U3[HMC698LP4 (HMC698LP4)]
+    U4[LTC7004 (LTC7004)]
+    U5[LT3080 (LT3080)]
+    U6[LT8631 (LT8631)]
+    U7[LTC2442 (LTC2442)]
+    J1[SMP_CONNECTOR (SMP-J-P-H-ST-EM1)]
+    J2[SMP_CONNECTOR (SMP-J-P-H-ST-EM1)]
+    J3[POWER_CONNECTOR (Molex_39-28-1043)]
+    J4[CONTROL_HEADER (Samtec_TSW-104-07-G-D)]
+    J5[TEST_PORT (PCB_EDGE_LAUNCH)]
+    J6[TEST_PORT (PCB_EDGE_LAUNCH)]
+    L1[RF_INDUCTOR (0603CS-12N)]
+    L2[RF_INDUCTOR (0603CS-8N2)]
+    L3[RF_INDUCTOR (0402CS-3N9)]
+    L4[RF_INDUCTOR (0402CS-2N7)]
+    L5[RF_INDUCTOR (1008LS-271)]
+    L6[RF_INDUCTOR (1008LS-151)]
+    C1[RF_CAPACITOR (ATC100A101)]
+    C2[RF_CAPACITOR (ATC100A100)]
+    C3[RF_CAPACITOR (ATC100A470)]
+    C4[RF_CAPACITOR (ATC100A331)]
+    C5[RF_CAPACITOR (ATC100A680)]
+    C6[RF_CAPACITOR (ATC100A220)]
+    C7[RF_CAPACITOR (ATC100A101)]
+    C8[RF_CAPACITOR (ATC100A470)]
+    C9[DECOUPLING_CAP (GRM188R60J226MEA0D)]
+    C10[DECOUPLING_CAP (GRM188R60J226MEA0D)]
+    C11[DECOUPLING_CAP (GRM188R60J226MEA0D)]
+    C12[DECOUPLING_CAP (GRM21BR60J106ME15L)]
+    C13[DECOUPLING_CAP (GRM21BR60J106ME15L)]
+    C14[DECOUPLING_CAP (GRM32ER60J226ME20L)]
+    C15[DECOUPLING_CAP (GRM32ER60J226ME20L)]
+    C16[DECOUPLING_CAP (UPW1H471MHD)]
+    C17[DECOUPLING_CAP (UPW1H471MHD)]
+    C18[FILTER_CAP (UPW1H221MHD1TO)]
+    C19[FILTER_CAP (UPW1H101MHD1TO)]
+    R1[RF_RESISTOR (ERA-6AEB202V)]
+    R2[RF_RESISTOR (ERA-6AEB202V)]
+    R3[TERMINATION (ERA-6AEB513V)]
+    R4[TERMINATION (ERA-6AEB513V)]
+    R5[GATE_RESISTOR (WSL2512R1000FEA)]
+    R6[GATE_RESISTOR (WSL2512R1000FEA)]
+    R7[PULL_DOWN (CRCW040210K0FKED)]
+    R8[PULL_DOWN (CRCW040210K0FKED)]
+    R9[BIAS_RESISTOR (CRCW08051K00FKEA)]
+    R10[BIAS_RESISTOR (CRCW08051K00FKEA)]
+    R11[SET_RESISTOR (CRCW25121K00FKEG)]
+    R12[FEEDBACK_RES (ERA-6AEB103V)]
+    R13[SENSE_RESISTOR (WSL2512002FEA)]
+    R14[CURRENT_SENSE (WSL25120100FEA)]
+    R15[TERMINATION (ERA-6AEB1002V)]
+    R16[PULL_UP (CRCW040210K0FKED)]
+    T1[RF_TRANSFORMER (TCM1-63+WRAP)]
+    T2[RF_BALUN (JD102B-LC-G)]
+    D1[RF_DETECTOR (AD8318ACPZ)]
+    D2[SCHOTTKY (RB751V40T1G)]
+    D3[TVS_DIODE (SMBJ30A)]
+    F1[PTC_FUSE (BEL_FUSE_0ZCG0150BF2B)]
+    FB1[FERRITE_BEAD (BLM18PG471SN1D)]
+    FB2[FERRITE_BEAD (BLM18PG471SN1D)]
+    FB3[FERRITE_BEAD (BLM18PG471SN1D)]
+    Q1[MOSFET_PCH (IRF9540NPBF)]
+    Q2[MOSFET_NCH (IRF540NPBF)]
+    TP1[TEST_POINT (TP_KEYSTONE_5001)]
+    J1 -->|RF_IN| C1
+    C1 -->|RF_IN_MATCH| L1
+    L1 -->|RF_IN_MATCH| U2
+    U2 -->|DRIVER_OUT| T1
+    T1 -->|DRIVER_BALANCED| U3
+    T1 -->|DRIVER_BALANCED_N| U3
+    U3 -->|VGA_OUT| C2
+    U3 -->|VGA_OUT_N| R1
+    C2 -->|PA_IN_MATCH| L2
+    L2 -->|PA_IN_MATCH| U1
+    U1 -->|PA_OUT| C3
+    C3 -->|PA_OUT_MATCH| L3
+    L3 -->|PA_OUT_MATCH| T2
+    T2 -->|RF_OUT_FILTERED| C4
+    C4 -->|RF_OUT_FINAL| J2
+    C4 -->|RF_OUT_FINAL| J6
+    C4 -->|RF_OUT_FINAL| D1
+    U3 -->|VGA_CTRL| J4
+    U3 -->|VGA_VREF| R9
+    R9 -->|VGA_VREF| U5
+    U2 -->|DRIVER_VG1| R9
+    U2 -->|DRIVER_VG2| R10
+    R9 -->|DRIVER_VG1_ADJ| U5
+    R10 -->|DRIVER_VG2_ADJ| U5
+    U1 -->|PA_VG| R11
+    R11 -->|PA_VG_ADJ| U5
+    U2 -->|DRIVER_VD| L5
+    L5 -->|DRAINER_VD| Q1
+    Q1 -->|DRIVER_VD| FB1
+    J3 -->|28V_MAIN| F1
+    F1 -->|28V_FUSED| D3
+    D3 -->|28V_FUSED| C19
+    C19 -->|28V_FILTERED| Q1
+    Q1 -->|28V_FILTERED| U6
+    Q1 -->|28V_PA| L6
+    L6 -->|28V_PA_FILTERED| C16
+    C16 -->|28V_PA_FILTERED| U1
+    U6 -->|5V_REG| L4
+    L4 -->|5V_REG| C17
+    C17 -->|5V_REG| U4
+    U4 -->|5V_REG| D1
+    U4 -->|VGA_VDD| U3
+    U3 -->|VGA_VDD| C9
+    U4 -->|DRIVER_VDD| U2
+    U2 -->|DRIVER_VDD| C10
+    U5 -->|BIAS_5V| U5
+    U5 -->|BIAS_5V| C14
+    J4 -->|TX_ENABLE| R16
+    R16 -->|TX_ENABLE_PULLUP| U5
+    R16 -->|TX_ENABLE_FILTERED| FB2
+    FB2 -->|TX_ENABLE_GATE| U4
+    U4 -->|GATE_DRIVER_OUT| R5
+    R5 -->|GATE_DRIVER_OUT| Q1
+    U4 -->|GATE_PA_DRIVE| R6
+    R6 -->|GATE_PA_DRIVE| Q2
+    D1 -->|DETECTOR_VOUT| R15
+    R15 -->|DETECTOR_VOUT| U7
+    U7 -->|ADC_REF| R12
+    R12 -->|ADC_REF| U5
+    R13 -->|CURRENT_SENSE| U7
+    R13 -->|CURRENT_SENSE| Q1
+    U7 -->|ADC_SCLK| J4
+    U7 -->|ADC_MOSI| J4
+    U7 -->|ADC_MISO| J4
+    U7 -->|ADC_CS| J4
+    Q1 -->|GATE_PULLDOWN| R7
+    R7 -->|GATE_PULLDOWN| GND
+    Q2 -->|GATE2_PULLDOWN| R8
+    R8 -->|GATE2_PULLDOWN| GND
+    U3 -->|VGA_SUPPLY| FB3
+    FB3 -->|VGA_SUPPLY_FILTERED| C8
+    J5 -->|INPUT_TEST| C1
+    R11 -->|TP_BIAS| TP1
+```
+
+## Component Instances
+
+| Ref | Part Number | Component |
+|---|---|---|
+| U1 | GMMT2021-215 | GMMT2021-215 |
+| U2 | GVA-123+ | GVA-123+ |
+| U3 | HMC698LP4 | HMC698LP4 |
+| U4 | LTC7004 | LTC7004 |
+| U5 | LT3080 | LT3080 |
+| U6 | LT8631 | LT8631 |
+| U7 | LTC2442 | LTC2442 |
+| J1 | SMP-J-P-H-ST-EM1 | SMP_CONNECTOR |
+| J2 | SMP-J-P-H-ST-EM1 | SMP_CONNECTOR |
+| J3 | Molex_39-28-1043 | POWER_CONNECTOR |
+| J4 | Samtec_TSW-104-07-G-D | CONTROL_HEADER |
+| J5 | PCB_EDGE_LAUNCH | TEST_PORT |
+| J6 | PCB_EDGE_LAUNCH | TEST_PORT |
+| L1 | 0603CS-12N | RF_INDUCTOR |
+| L2 | 0603CS-8N2 | RF_INDUCTOR |
+| L3 | 0402CS-3N9 | RF_INDUCTOR |
+| L4 | 0402CS-2N7 | RF_INDUCTOR |
+| L5 | 1008LS-271 | RF_INDUCTOR |
+| L6 | 1008LS-151 | RF_INDUCTOR |
+| C1 | ATC100A101 | RF_CAPACITOR |
+| C2 | ATC100A100 | RF_CAPACITOR |
+| C3 | ATC100A470 | RF_CAPACITOR |
+| C4 | ATC100A331 | RF_CAPACITOR |
+| C5 | ATC100A680 | RF_CAPACITOR |
+| C6 | ATC100A220 | RF_CAPACITOR |
+| C7 | ATC100A101 | RF_CAPACITOR |
+| C8 | ATC100A470 | RF_CAPACITOR |
+| C9 | GRM188R60J226MEA0D | DECOUPLING_CAP |
+| C10 | GRM188R60J226MEA0D | DECOUPLING_CAP |
+| C11 | GRM188R60J226MEA0D | DECOUPLING_CAP |
+| C12 | GRM21BR60J106ME15L | DECOUPLING_CAP |
+| C13 | GRM21BR60J106ME15L | DECOUPLING_CAP |
+| C14 | GRM32ER60J226ME20L | DECOUPLING_CAP |
+| C15 | GRM32ER60J226ME20L | DECOUPLING_CAP |
+| C16 | UPW1H471MHD | DECOUPLING_CAP |
+| C17 | UPW1H471MHD | DECOUPLING_CAP |
+| C18 | UPW1H221MHD1TO | FILTER_CAP |
+| C19 | UPW1H101MHD1TO | FILTER_CAP |
+| R1 | ERA-6AEB202V | RF_RESISTOR |
+| R2 | ERA-6AEB202V | RF_RESISTOR |
+| R3 | ERA-6AEB513V | TERMINATION |
+| R4 | ERA-6AEB513V | TERMINATION |
+| R5 | WSL2512R1000FEA | GATE_RESISTOR |
+| R6 | WSL2512R1000FEA | GATE_RESISTOR |
+| R7 | CRCW040210K0FKED | PULL_DOWN |
+| R8 | CRCW040210K0FKED | PULL_DOWN |
+| R9 | CRCW08051K00FKEA | BIAS_RESISTOR |
+| R10 | CRCW08051K00FKEA | BIAS_RESISTOR |
+| R11 | CRCW25121K00FKEG | SET_RESISTOR |
+| R12 | ERA-6AEB103V | FEEDBACK_RES |
+| R13 | WSL2512002FEA | SENSE_RESISTOR |
+| R14 | WSL25120100FEA | CURRENT_SENSE |
+| R15 | ERA-6AEB1002V | TERMINATION |
+| R16 | CRCW040210K0FKED | PULL_UP |
+| T1 | TCM1-63+WRAP | RF_TRANSFORMER |
+| T2 | JD102B-LC-G | RF_BALUN |
+| D1 | AD8318ACPZ | RF_DETECTOR |
+| D2 | RB751V40T1G | SCHOTTKY |
+| D3 | SMBJ30A | TVS_DIODE |
+| F1 | BEL_FUSE_0ZCG0150BF2B | PTC_FUSE |
+| FB1 | BLM18PG471SN1D | FERRITE_BEAD |
+| FB2 | BLM18PG471SN1D | FERRITE_BEAD |
+| FB3 | BLM18PG471SN1D | FERRITE_BEAD |
+| Q1 | IRF9540NPBF | MOSFET_PCH |
+| Q2 | IRF540NPBF | MOSFET_NCH |
+| TP1 | TP_KEYSTONE_5001 | TEST_POINT |
+
+## Pin-to-Pin Connections
+
+| Net | From | Pin | To | Pin | Type |
+|---|---|---|---|---|---|
+| RF_IN | J1 | 1 | C1 | 1 | RF |
+| RF_IN_MATCH | C1 | 2 | L1 | 1 | RF |
+| RF_IN_MATCH | L1 | 2 | U2 | RF_IN | RF |
+| DRIVER_OUT | U2 | RF_OUT | T1 | PRI_1 | RF |
+| DRIVER_BALANCED | T1 | SEC_1 | U3 | RF_IN_P | RF |
+| DRIVER_BALANCED_N | T1 | SEC_2 | U3 | RF_IN_N | RF |
+| VGA_OUT | U3 | RF_OUT_P | C2 | 1 | RF |
+| VGA_OUT_N | U3 | RF_OUT_N | R1 | 1 | RF |
+| PA_IN_MATCH | C2 | 2 | L2 | 1 | RF |
+| PA_IN_MATCH | L2 | 2 | U1 | RF_IN | RF |
+| PA_OUT | U1 | RF_OUT | C3 | 1 | RF |
+| PA_OUT_MATCH | C3 | 2 | L3 | 1 | RF |
+| PA_OUT_MATCH | L3 | 2 | T2 | IN | RF |
+| RF_OUT_FILTERED | T2 | OUT | C4 | 1 | RF |
+| RF_OUT_FINAL | C4 | 2 | J2 | 1 | RF |
+| RF_OUT_FINAL | C4 | 2 | J6 | 1 | RF |
+| RF_OUT_FINAL | C4 | 2 | D1 | IN | RF |
+| VGA_CTRL | U3 | V_CTRL | J4 | 1 | ANALOG |
+| VGA_VREF | U3 | VREF | R9 | 1 | ANALOG |
+| VGA_VREF | R9 | 2 | U5 | OUT | ANALOG |
+| DRIVER_VG1 | U2 | VG1 | R9 | 1 | ANALOG |
+| DRIVER_VG2 | U2 | VG2 | R10 | 1 | ANALOG |
+| DRIVER_VG1_ADJ | R9 | 2 | U5 | OUT | ANALOG |
+| DRIVER_VG2_ADJ | R10 | 2 | U5 | OUT | ANALOG |
+| PA_VG | U1 | VG | R11 | 1 | ANALOG |
+| PA_VG_ADJ | R11 | 2 | U5 | OUT | ANALOG |
+| DRIVER_VD | U2 | VD | L5 | 1 | POWER |
+| DRAINER_VD | L5 | 2 | Q1 | DRAIN | POWER |
+| DRIVER_VD | Q1 | SOURCE | FB1 | 1 | POWER |
+| 28V_MAIN | J3 | 1 | F1 | 1 | POWER |
+| 28V_FUSED | F1 | 2 | D3 | 1 | POWER |
+| 28V_FUSED | D3 | 2 | C19 | 1 | POWER |
+| 28V_FILTERED | C19 | 2 | Q1 | SOURCE | POWER |
+| 28V_FILTERED | Q1 | SOURCE | U6 | VIN | POWER |
+| 28V_PA | Q1 | DRAIN | L6 | 1 | POWER |
+| 28V_PA_FILTERED | L6 | 2 | C16 | 1 | POWER |
+| 28V_PA_FILTERED | C16 | 1 | U1 | VDD | POWER |
+| 5V_REG | U6 | SW | L4 | 1 | POWER |
+| 5V_REG | L4 | 2 | C17 | 1 | POWER |
+| 5V_REG | C17 | 1 | U4 | VDD | POWER |
+| 5V_REG | U4 | VDD | D1 | VDD | POWER |
+| VGA_VDD | U4 | VOUT | U3 | VDD | POWER |
+| VGA_VDD | U3 | VDD | C9 | 1 | POWER |
+| DRIVER_VDD | U4 | VOUT | U2 | VDD | POWER |
+| DRIVER_VDD | U2 | VDD | C10 | 1 | POWER |
+| BIAS_5V | U5 | OUT | U5 | SET | POWER |
+| BIAS_5V | U5 | OUT | C14 | 1 | POWER |
+| TX_ENABLE | J4 | 2 | R16 | 1 | DIGITAL |
+| TX_ENABLE_PULLUP | R16 | 2 | U5 | OUT | DIGITAL |
+| TX_ENABLE_FILTERED | R16 | 1 | FB2 | 1 | DIGITAL |
+| TX_ENABLE_GATE | FB2 | 2 | U4 | IN | DIGITAL |
+| GATE_DRIVER_OUT | U4 | GATE | R5 | 1 | POWER |
+| GATE_DRIVER_OUT | R5 | 2 | Q1 | GATE | POWER |
+| GATE_PA_DRIVE | U4 | GATE | R6 | 1 | POWER |
+| GATE_PA_DRIVE | R6 | 2 | Q2 | GATE | POWER |
+| DETECTOR_VOUT | D1 | VOUT | R15 | 1 | ANALOG |
+| DETECTOR_VOUT | R15 | 2 | U7 | AIN+ | ANALOG |
+| ADC_REF | U7 | REF | R12 | 1 | ANALOG |
+| ADC_REF | R12 | 2 | U5 | OUT | ANALOG |
+| CURRENT_SENSE | R13 | 1 | U7 | AIN- | ANALOG |
+| CURRENT_SENSE | R13 | 2 | Q1 | SOURCE | ANALOG |
+| ADC_SCLK | U7 | SCLK | J4 | 3 | DIGITAL |
+| ADC_MOSI | U7 | DIN | J4 | 4 | DIGITAL |
+| ADC_MISO | U7 | DOUT | J4 | 5 | DIGITAL |
+| ADC_CS | U7 | CS | J4 | 6 | DIGITAL |
+| GATE_PULLDOWN | Q1 | GATE | R7 | 1 | POWER |
+| GATE_PULLDOWN | R7 | 2 | GND | 0 | POWER |
+| GATE2_PULLDOWN | Q2 | GATE | R8 | 1 | POWER |
+| GATE2_PULLDOWN | R8 | 2 | GND | 0 | POWER |
+| VGA_SUPPLY | U3 | VDD | FB3 | 1 | POWER |
+| VGA_SUPPLY_FILTERED | FB3 | 2 | C8 | 1 | POWER |
+| INPUT_TEST | J5 | 1 | C1 | 1 | RF |
+| TP_BIAS | R11 | 2 | TP1 | 1 | ANALOG |
+
+## Net Connection List
+
+| Net Name | Reference Designator - Pin No. |
+|----------|-------------------------------|
+| 28V_FILTERED | C19 - 2,  Q1 - SOURCE,  U6 - VIN |
+| 28V_FUSED | F1 - 2,  D3 - 1,  D3 - 2,  C19 - 1 |
+| 28V_MAIN | J3 - 1,  F1 - 1 |
+| 28V_PA | Q1 - DRAIN,  L6 - 1 |
+| 28V_PA_FILTERED | L6 - 2,  C16 - 1,  U1 - VDD |
+| 5V_REG | U6 - SW,  L4 - 1,  L4 - 2,  C17 - 1,  U4 - VDD,  D1 - VDD |
+| ADC_CS | U7 - CS,  J4 - 6 |
+| ADC_MISO | U7 - DOUT,  J4 - 5 |
+| ADC_MOSI | U7 - DIN,  J4 - 4 |
+| ADC_REF | U7 - REF,  R12 - 1,  R12 - 2,  U5 - OUT |
+| ADC_SCLK | U7 - SCLK,  J4 - 3 |
+| BIAS_5V | U5 - OUT,  U5 - SET,  C14 - 1 |
+| CURRENT_SENSE | R13 - 1,  U7 - AIN-,  R13 - 2,  Q1 - SOURCE |
+| DETECTOR_VOUT | D1 - VOUT,  R15 - 1,  R15 - 2,  U7 - AIN+ |
+| DRAINER_VD | L5 - 2,  Q1 - DRAIN |
+| DRIVER_BALANCED | T1 - SEC_1,  U3 - RF_IN_P |
+| DRIVER_BALANCED_N | T1 - SEC_2,  U3 - RF_IN_N |
+| DRIVER_OUT | U2 - RF_OUT,  T1 - PRI_1 |
+| DRIVER_VD | U2 - VD,  L5 - 1,  Q1 - SOURCE,  FB1 - 1 |
+| DRIVER_VDD | U4 - VOUT,  U2 - VDD,  C10 - 1 |
+| DRIVER_VG1 | U2 - VG1,  R9 - 1 |
+| DRIVER_VG1_ADJ | R9 - 2,  U5 - OUT |
+| DRIVER_VG2 | U2 - VG2,  R10 - 1 |
+| DRIVER_VG2_ADJ | R10 - 2,  U5 - OUT |
+| GATE2_PULLDOWN | Q2 - GATE,  R8 - 1,  R8 - 2,  GND - 0 |
+| GATE_DRIVER_OUT | U4 - GATE,  R5 - 1,  R5 - 2,  Q1 - GATE |
+| GATE_PA_DRIVE | U4 - GATE,  R6 - 1,  R6 - 2,  Q2 - GATE |
+| GATE_PULLDOWN | Q1 - GATE,  R7 - 1,  R7 - 2,  GND - 0 |
+| INPUT_TEST | J5 - 1,  C1 - 1 |
+| PA_IN_MATCH | C2 - 2,  L2 - 1,  L2 - 2,  U1 - RF_IN |
+| PA_OUT | U1 - RF_OUT,  C3 - 1 |
+| PA_OUT_MATCH | C3 - 2,  L3 - 1,  L3 - 2,  T2 - IN |
+| PA_VG | U1 - VG,  R11 - 1 |
+| PA_VG_ADJ | R11 - 2,  U5 - OUT |
+| RF_IN | J1 - 1,  C1 - 1 |
+| RF_IN_MATCH | C1 - 2,  L1 - 1,  L1 - 2,  U2 - RF_IN |
+| RF_OUT_FILTERED | T2 - OUT,  C4 - 1 |
+| RF_OUT_FINAL | C4 - 2,  J2 - 1,  J6 - 1,  D1 - IN |
+| TP_BIAS | R11 - 2,  TP1 - 1 |
+| TX_ENABLE | J4 - 2,  R16 - 1 |
+| TX_ENABLE_FILTERED | R16 - 1,  FB2 - 1 |
+| TX_ENABLE_GATE | FB2 - 2,  U4 - IN |
+| TX_ENABLE_PULLUP | R16 - 2,  U5 - OUT |
+| VGA_CTRL | U3 - V_CTRL,  J4 - 1 |
+| VGA_OUT | U3 - RF_OUT_P,  C2 - 1 |
+| VGA_OUT_N | U3 - RF_OUT_N,  R1 - 1 |
+| VGA_SUPPLY | U3 - VDD,  FB3 - 1 |
+| VGA_SUPPLY_FILTERED | FB3 - 2,  C8 - 1 |
+| VGA_VDD | U4 - VOUT,  U3 - VDD,  C9 - 1 |
+| VGA_VREF | U3 - VREF,  R9 - 1,  R9 - 2,  U5 - OUT |
+
+## Validation Notes
+
+- WARNING: Driver amplifier (GVA-123+) operates at +5V but final PA requires +28V - ensure level translation and proper sequencing
+- WARNING: GaN PA requires negative 3V gate bias - verify U5 (LT3080) can generate negative voltage or add inverting regulator
+- INFO: Multiple RF matching networks (L1/L2/L3) require EM simulation and optimization for 5-18GHz bandwidth
+- INFO: Gate drive for Q1 (28V P-FET) - ensure U4 can drive 28V gate or add level shifter
+- WARNING: Thermal management critical - 10W output at 25% PAE = 30W dissipation, requires thermal vias and heatsink
+- INFO: RF transformer T1 and balun T2 require careful selection for 5-18GHz operation
+- INFO: Return loss requirement (>13dB) requires EM simulation of all matching networks
+- WARNING: Power sequencing required - enable TX control before applying +28V to prevent surge damage
+- INFO: Consider adding temperature sensor near PA for thermal monitoring and protection
+- INFO: Decoupling capacitors C9-C13 should be placed very close to IC power pins
+- WARNING: High current paths (Q1 to U1) require wide traces and possibly copper pours
+- INFO: RF layout critical - use controlled impedance, keep traces short, use ground plane
+- INFO: Consider adding EMI filter on 28V input for MIL-STD-461 compliance
+- WARNING: ADC reference should be filtered and stable for accurate power measurements
+- INFO: TVS diode D3 should be rated for appropriate surge protection
+- WARNING: Gate resistors R5/R6 values may need tuning for optimal FET switching
+- INFO: Ferrite beads FB1-FB3 help reduce noise but verify self-resonant frequency
