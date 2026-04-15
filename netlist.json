@@ -1,0 +1,1357 @@
+{
+  "project": "kh",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Wideband_LNA",
+      "type": "HMC1119LP4DE",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "reference_designator": "U1",
+        "component_name": "Wideband_LNA",
+        "part_number": "HMC1119LP4DE"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Digital_VGA",
+      "type": "HMC698LP4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "reference_designator": "U2",
+        "component_name": "Digital_VGA",
+        "part_number": "HMC698LP4"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "RF_Mixer",
+      "type": "HMC1051LP4BE",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "reference_designator": "U3",
+        "component_name": "RF_Mixer",
+        "part_number": "HMC1051LP4BE"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "IF_Amplifier",
+      "type": "ADL5541",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "reference_designator": "U4",
+        "component_name": "IF_Amplifier",
+        "part_number": "ADL5541"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "High_Speed_ADC",
+      "type": "ADC12DJ5200RF",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "reference_designator": "U5",
+        "component_name": "High_Speed_ADC",
+        "part_number": "ADC12DJ5200RF"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Clock_Generator",
+      "type": "LMK04828BKNQ",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "reference_designator": "U6",
+        "component_name": "Clock_Generator",
+        "part_number": "LMK04828BKNQ"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "Power_Controller",
+      "type": "LTC2975",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "reference_designator": "U7",
+        "component_name": "Power_Controller",
+        "part_number": "LTC2975"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "5V_DCDC_Buck",
+      "type": "LTM4644IY",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "reference_designator": "U8",
+        "component_name": "5V_DCDC_Buck",
+        "part_number": "LTM4644IY"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "3V3_DCDC_Buck",
+      "type": "LTM4644IY",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "reference_designator": "U9",
+        "component_name": "3V3_DCDC_Buck",
+        "part_number": "LTM4644IY"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "1V8_DCDC_Buck",
+      "type": "LTM4625",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "reference_designator": "U10",
+        "component_name": "1V8_DCDC_Buck",
+        "part_number": "LTM4625"
+      }
+    },
+    {
+      "id": "U11",
+      "name": "1V2_DCDC_Buck",
+      "type": "LTM4625",
+      "pins": [],
+      "properties": {
+        "instance_id": "U11",
+        "reference_designator": "U11",
+        "component_name": "1V2_DCDC_Buck",
+        "part_number": "LTM4625"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "RF_Input_Connector",
+      "type": "SMA-J-P-H-ST-EM1",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "reference_designator": "J1",
+        "component_name": "RF_Input_Connector",
+        "part_number": "SMA-J-P-H-ST-EM1"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "LO_Input_Connector",
+      "type": "SMA-J-P-H-ST-EM1",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "reference_designator": "J2",
+        "component_name": "LO_Input_Connector",
+        "part_number": "SMA-J-P-H-ST-EM1"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "Digital_Output_Connector",
+      "type": "SAMTEC_ERF8-140-01",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "reference_designator": "J3",
+        "component_name": "Digital_Output_Connector",
+        "part_number": "SAMTEC_ERF8-140-01"
+      }
+    },
+    {
+      "id": "J4",
+      "name": "Power_Input_Connector",
+      "type": "Molex_5034801200",
+      "pins": [],
+      "properties": {
+        "instance_id": "J4",
+        "reference_designator": "J4",
+        "component_name": "Power_Input_Connector",
+        "part_number": "Molex_5034801200"
+      }
+    },
+    {
+      "id": "T1",
+      "name": "RF_Balun_10to15GHz",
+      "type": "EQL-U1-300+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T1",
+        "reference_designator": "T1",
+        "component_name": "RF_Balun_10to15GHz",
+        "part_number": "EQL-U1-300+"
+      }
+    },
+    {
+      "id": "T2",
+      "name": "LO_Balun_6to26GHz",
+      "type": "BALH-0006SMG",
+      "pins": [],
+      "properties": {
+        "instance_id": "T2",
+        "reference_designator": "T2",
+        "component_name": "LO_Balun_6to26GHz",
+        "part_number": "BALH-0006SMG"
+      }
+    },
+    {
+      "id": "T3",
+      "name": "IF_Balun_DCto6GHz",
+      "type": "TCM1-63AX+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T3",
+        "reference_designator": "T3",
+        "component_name": "IF_Balun_DCto6GHz",
+        "part_number": "TCM1-63AX+"
+      }
+    },
+    {
+      "id": "F1",
+      "name": "RF_Bandpass_Filter",
+      "type": "BP10S15G-01A",
+      "pins": [],
+      "properties": {
+        "instance_id": "F1",
+        "reference_designator": "F1",
+        "component_name": "RF_Bandpass_Filter",
+        "part_number": "BP10S15G-01A"
+      }
+    },
+    {
+      "id": "F2",
+      "name": "IF_Antialias_Filter",
+      "type": "LFCN-6000+",
+      "pins": [],
+      "properties": {
+        "instance_id": "F2",
+        "reference_designator": "F2",
+        "component_name": "IF_Antialias_Filter",
+        "part_number": "LFCN-6000+"
+      }
+    },
+    {
+      "id": "L1",
+      "name": "RF_Chip_Bead",
+      "type": "BLM15HB121SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L1",
+        "reference_designator": "L1",
+        "component_name": "RF_Chip_Bead",
+        "part_number": "BLM15HB121SN1D"
+      }
+    },
+    {
+      "id": "L2",
+      "name": "RF_Chip_Bead",
+      "type": "BLM15HB121SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L2",
+        "reference_designator": "L2",
+        "component_name": "RF_Chip_Bead",
+        "part_number": "BLM15HB121SN1D"
+      }
+    },
+    {
+      "id": "L3",
+      "name": "Power_Chip_Bead",
+      "type": "BLM18PG471SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L3",
+        "reference_designator": "L3",
+        "component_name": "Power_Chip_Bead",
+        "part_number": "BLM18PG471SN1D"
+      }
+    },
+    {
+      "id": "L4",
+      "name": "Power_Chip_Bead",
+      "type": "BLM18PG471SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L4",
+        "reference_designator": "L4",
+        "component_name": "Power_Chip_Bead",
+        "part_number": "BLM18PG471SN1D"
+      }
+    },
+    {
+      "id": "L5",
+      "name": "Power_Chip_Bead",
+      "type": "BLM18PG471SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L5",
+        "reference_designator": "L5",
+        "component_name": "Power_Chip_Bead",
+        "part_number": "BLM18PG471SN1D"
+      }
+    },
+    {
+      "id": "L6",
+      "name": "Power_Chip_Bead",
+      "type": "BLM18PG471SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L6",
+        "reference_designator": "L6",
+        "component_name": "Power_Chip_Bead",
+        "part_number": "BLM18PG471SN1D"
+      }
+    },
+    {
+      "id": "L7",
+      "name": "Power_Chip_Bead",
+      "type": "BLM18PG471SN1D",
+      "pins": [],
+      "properties": {
+        "instance_id": "L7",
+        "reference_designator": "L7",
+        "component_name": "Power_Chip_Bead",
+        "part_number": "BLM18PG471SN1D"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "RF_Input_Coupling_Cap",
+      "type": "GQM2195C2E100JB12D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "reference_designator": "C1",
+        "component_name": "RF_Input_Coupling_Cap",
+        "part_number": "GQM2195C2E100JB12D"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "RF_Coupling_Cap",
+      "type": "GQM2195C2E100JB12D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "reference_designator": "C2",
+        "component_name": "RF_Coupling_Cap",
+        "part_number": "GQM2195C2E100JB12D"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "RF_Coupling_Cap",
+      "type": "GQM2195C2E100JB12D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "reference_designator": "C3",
+        "component_name": "RF_Coupling_Cap",
+        "part_number": "GQM2195C2E100JB12D"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "RF_Coupling_Cap",
+      "type": "GQM2195C2E100JB12D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "reference_designator": "C4",
+        "component_name": "RF_Coupling_Cap",
+        "part_number": "GQM2195C2E100JB12D"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "IF_Coupling_Cap",
+      "type": "GQM2195C2E270JB12D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "reference_designator": "C5",
+        "component_name": "IF_Coupling_Cap",
+        "part_number": "GQM2195C2E270JB12D"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "IF_Coupling_Cap",
+      "type": "GQM2195C2E270JB12D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "reference_designator": "C6",
+        "component_name": "IF_Coupling_Cap",
+        "part_number": "GQM2195C2E270JB12D"
+      }
+    },
+    {
+      "id": "C10",
+      "name": "Decoupling_Cap_100pF",
+      "type": "GJM1555C1H101JB01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C10",
+        "reference_designator": "C10",
+        "component_name": "Decoupling_Cap_100pF",
+        "part_number": "GJM1555C1H101JB01D"
+      }
+    },
+    {
+      "id": "C11",
+      "name": "Decoupling_Cap_100pF",
+      "type": "GJM1555C1H101JB01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C11",
+        "reference_designator": "C11",
+        "component_name": "Decoupling_Cap_100pF",
+        "part_number": "GJM1555C1H101JB01D"
+      }
+    },
+    {
+      "id": "C12",
+      "name": "Decoupling_Cap_100pF",
+      "type": "GJM1555C1H101JB01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C12",
+        "reference_designator": "C12",
+        "component_name": "Decoupling_Cap_100pF",
+        "part_number": "GJM1555C1H101JB01D"
+      }
+    },
+    {
+      "id": "C13",
+      "name": "Decoupling_Cap_100pF",
+      "type": "GJM1555C1H101JB01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C13",
+        "reference_designator": "C13",
+        "component_name": "Decoupling_Cap_100pF",
+        "part_number": "GJM1555C1H101JB01D"
+      }
+    },
+    {
+      "id": "C14",
+      "name": "Decoupling_Cap_100pF",
+      "type": "GJM1555C1H101JB01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C14",
+        "reference_designator": "C14",
+        "component_name": "Decoupling_Cap_100pF",
+        "part_number": "GJM1555C1H101JB01D"
+      }
+    },
+    {
+      "id": "C15",
+      "name": "Decoupling_Cap_100pF",
+      "type": "GJM1555C1H101JB01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C15",
+        "reference_designator": "C15",
+        "component_name": "Decoupling_Cap_100pF",
+        "part_number": "GJM1555C1H101JB01D"
+      }
+    },
+    {
+      "id": "C20",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C20",
+        "reference_designator": "C20",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C21",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C21",
+        "reference_designator": "C21",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C22",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C22",
+        "reference_designator": "C22",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C23",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C23",
+        "reference_designator": "C23",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C24",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C24",
+        "reference_designator": "C24",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C25",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C25",
+        "reference_designator": "C25",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C26",
+      "name": "Bulk_Cap_10uF",
+      "type": "GRM32ER71C106KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C26",
+        "reference_designator": "C26",
+        "component_name": "Bulk_Cap_10uF",
+        "part_number": "GRM32ER71C106KE15L"
+      }
+    },
+    {
+      "id": "C30",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C30",
+        "reference_designator": "C30",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "C31",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C31",
+        "reference_designator": "C31",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "C32",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C32",
+        "reference_designator": "C32",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "C33",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C33",
+        "reference_designator": "C33",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "C34",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C34",
+        "reference_designator": "C34",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "C35",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C35",
+        "reference_designator": "C35",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "C36",
+      "name": "Decoupling_Cap_0u01F",
+      "type": "GRM155R71H103KA01D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C36",
+        "reference_designator": "C36",
+        "component_name": "Decoupling_Cap_0u01F",
+        "part_number": "GRM155R71H103KA01D"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "RF_Input_Termination",
+      "type": "ERA-3AEB502V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "reference_designator": "R1",
+        "component_name": "RF_Input_Termination",
+        "part_number": "ERA-3AEB502V"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "IF_Gain_Resistor",
+      "type": "ERA-3AEB301V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "reference_designator": "R2",
+        "component_name": "IF_Gain_Resistor",
+        "part_number": "ERA-3AEB301V"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "ADC_Input_Termination",
+      "type": "ERA-3AEB100V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "reference_designator": "R3",
+        "component_name": "ADC_Input_Termination",
+        "part_number": "ERA-3AEB100V"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "ADC_Input_Termination",
+      "type": "ERA-3AEB100V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "reference_designator": "R4",
+        "component_name": "ADC_Input_Termination",
+        "part_number": "ERA-3AEB100V"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "SPI_Pullup",
+      "type": "ERA-3AEB103V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R10",
+        "reference_designator": "R10",
+        "component_name": "SPI_Pullup",
+        "part_number": "ERA-3AEB103V"
+      }
+    },
+    {
+      "id": "R11",
+      "name": "SPI_Pullup",
+      "type": "ERA-3AEB103V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R11",
+        "reference_designator": "R11",
+        "component_name": "SPI_Pullup",
+        "part_number": "ERA-3AEB103V"
+      }
+    },
+    {
+      "id": "R12",
+      "name": "SPI_Pullup",
+      "type": "ERA-3AEB103V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R12",
+        "reference_designator": "R12",
+        "component_name": "SPI_Pullup",
+        "part_number": "ERA-3AEB103V"
+      }
+    },
+    {
+      "id": "R13",
+      "name": "Reset_Pullup",
+      "type": "ERA-3AEB103V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R13",
+        "reference_designator": "R13",
+        "component_name": "Reset_Pullup",
+        "part_number": "ERA-3AEB103V"
+      }
+    },
+    {
+      "id": "R14",
+      "name": "I2C_Pullup",
+      "type": "ERA-3AEB103V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R14",
+        "reference_designator": "R14",
+        "component_name": "I2C_Pullup",
+        "part_number": "ERA-3AEB103V"
+      }
+    },
+    {
+      "id": "R15",
+      "name": "I2C_Pullup",
+      "type": "ERA-3AEB103V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R15",
+        "reference_designator": "R15",
+        "component_name": "I2C_Pullup",
+        "part_number": "ERA-3AEB103V"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "SIG",
+      "target": "C1",
+      "target_pin": "1",
+      "signal": "RF_IN_PATH",
+      "type": "rf"
+    },
+    {
+      "source": "C1",
+      "source_pin": "2",
+      "target": "F1",
+      "target_pin": "IN",
+      "signal": "RF_IN_PATH",
+      "type": "rf"
+    },
+    {
+      "source": "F1",
+      "source_pin": "OUT",
+      "target": "T1",
+      "target_pin": "1",
+      "signal": "RF_FILTERED",
+      "type": "rf"
+    },
+    {
+      "source": "T1",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "RFIN_P",
+      "signal": "RF_BALUN_P",
+      "type": "rf"
+    },
+    {
+      "source": "T1",
+      "source_pin": "3",
+      "target": "U1",
+      "target_pin": "RFIN_N",
+      "signal": "RF_BALUN_N",
+      "type": "rf"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RFOUT_P",
+      "target": "C2",
+      "target_pin": "1",
+      "signal": "LNA_OUT_P",
+      "type": "rf"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RFOUT_N",
+      "target": "C3",
+      "target_pin": "1",
+      "signal": "LNA_OUT_N",
+      "type": "rf"
+    },
+    {
+      "source": "C2",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "IN_P",
+      "signal": "VGA_IN_P",
+      "type": "rf"
+    },
+    {
+      "source": "C3",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "IN_N",
+      "signal": "VGA_IN_N",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_P",
+      "target": "C4",
+      "target_pin": "1",
+      "signal": "VGA_OUT_P",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT_N",
+      "target": "U3",
+      "target_pin": "RF_P",
+      "signal": "VGA_OUT_N",
+      "type": "rf"
+    },
+    {
+      "source": "U3",
+      "source_pin": "IF_P",
+      "target": "T3",
+      "target_pin": "1",
+      "signal": "MIXER_IF_P",
+      "type": "if"
+    },
+    {
+      "source": "U3",
+      "source_pin": "IF_N",
+      "target": "T3",
+      "target_pin": "3",
+      "signal": "MIXER_IF_N",
+      "type": "if"
+    },
+    {
+      "source": "T3",
+      "source_pin": "2",
+      "target": "F2",
+      "target_pin": "IN",
+      "signal": "IF_SINGLE_ENDED",
+      "type": "if"
+    },
+    {
+      "source": "F2",
+      "source_pin": "OUT",
+      "target": "C5",
+      "target_pin": "1",
+      "signal": "IF_FILTERED",
+      "type": "if"
+    },
+    {
+      "source": "C5",
+      "source_pin": "2",
+      "target": "U4",
+      "target_pin": "IN",
+      "signal": "IF_AMP_IN",
+      "type": "if"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT",
+      "target": "C6",
+      "target_pin": "1",
+      "signal": "IF_AMP_OUT",
+      "type": "if"
+    },
+    {
+      "source": "C6",
+      "source_pin": "2",
+      "target": "U5",
+      "target_pin": "AIN_P",
+      "signal": "ADC_IN_P",
+      "type": "analog"
+    },
+    {
+      "source": "R3",
+      "source_pin": "1",
+      "target": "U5",
+      "target_pin": "AIN_N",
+      "signal": "ADC_IN_N",
+      "type": "analog"
+    },
+    {
+      "source": "J2",
+      "source_pin": "SIG",
+      "target": "T2",
+      "target_pin": "1",
+      "signal": "LO_IN_PATH",
+      "type": "rf"
+    },
+    {
+      "source": "T2",
+      "source_pin": "2",
+      "target": "U3",
+      "target_pin": "LO_P",
+      "signal": "LO_BALUN_P",
+      "type": "rf"
+    },
+    {
+      "source": "T2",
+      "source_pin": "3",
+      "target": "U3",
+      "target_pin": "LO_N",
+      "signal": "LO_BALUN_N",
+      "type": "rf"
+    },
+    {
+      "source": "U6",
+      "source_pin": "CLKOUT0_P",
+      "target": "U5",
+      "target_pin": "CLKIN_P",
+      "signal": "CLK_ADC_P",
+      "type": "clock"
+    },
+    {
+      "source": "U6",
+      "source_pin": "CLKOUT0_N",
+      "target": "U5",
+      "target_pin": "CLKIN_N",
+      "signal": "CLK_ADC_N",
+      "type": "clock"
+    },
+    {
+      "source": "U6",
+      "source_pin": "SYNC_P",
+      "target": "U5",
+      "target_pin": "SYNC_P",
+      "signal": "SYSREF_P",
+      "type": "clock"
+    },
+    {
+      "source": "U6",
+      "source_pin": "SYNC_N",
+      "target": "U5",
+      "target_pin": "SYNC_N",
+      "signal": "SYSREF_N",
+      "type": "clock"
+    },
+    {
+      "source": "U5",
+      "source_pin": "CXP",
+      "target": "J3",
+      "target_pin": "JESD_CKP",
+      "signal": "JESD204B_CKP",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "CXN",
+      "target": "J3",
+      "target_pin": "JESD_CKN",
+      "signal": "JESD204B_CKN",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D0P",
+      "target": "J3",
+      "target_pin": "JESD_D0P",
+      "signal": "JESD204B_D0_P",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D0N",
+      "target": "J3",
+      "target_pin": "JESD_D0N",
+      "signal": "JESD204B_D0_N",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D1P",
+      "target": "J3",
+      "target_pin": "JESD_D1P",
+      "signal": "JESD204B_D1_P",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D1N",
+      "target": "J3",
+      "target_pin": "JESD_D1N",
+      "signal": "JESD204B_D1_N",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D2P",
+      "target": "J3",
+      "target_pin": "JESD_D2P",
+      "signal": "JESD204B_D2_P",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D2N",
+      "target": "J3",
+      "target_pin": "JESD_D2N",
+      "signal": "JESD204B_D2_N",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D3P",
+      "target": "J3",
+      "target_pin": "JESD_D3P",
+      "signal": "JESD204B_D3_P",
+      "type": "digital"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D3N",
+      "target": "J3",
+      "target_pin": "JESD_D3N",
+      "signal": "JESD204B_D3_N",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO1",
+      "target": "U2",
+      "target_pin": "SCLK",
+      "signal": "SPI_SCLK",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO1",
+      "target": "U5",
+      "target_pin": "SCLK",
+      "signal": "SPI_SCLK",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO2",
+      "target": "U2",
+      "target_pin": "SDIO",
+      "signal": "SPI_SDIO",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO2",
+      "target": "U5",
+      "target_pin": "SDIO",
+      "signal": "SPI_SDIO",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO3",
+      "target": "U2",
+      "target_pin": "CSN",
+      "signal": "SPI_CSN_VGA",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO4",
+      "target": "U5",
+      "target_pin": "CSN",
+      "signal": "SPI_CSN_ADC",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO5",
+      "target": "U6",
+      "target_pin": "SCL",
+      "signal": "I2C_SCL",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GPIO6",
+      "target": "U6",
+      "target_pin": "SDA",
+      "signal": "I2C_SDA",
+      "type": "digital"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT1",
+      "target": "L3",
+      "target_pin": "1",
+      "signal": "5V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "L1",
+      "target_pin": "1",
+      "signal": "5V_LNA",
+      "type": "power"
+    },
+    {
+      "source": "L1",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "5V_LNA_FILTERED",
+      "type": "power"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "L2",
+      "target_pin": "1",
+      "signal": "5V_VGA",
+      "type": "power"
+    },
+    {
+      "source": "L2",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "5V_VGA_FILTERED",
+      "type": "power"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "5V_MIXER",
+      "type": "power"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "5V_IF_AMP",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT2",
+      "target": "L4",
+      "target_pin": "1",
+      "signal": "3V3_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "L4",
+      "source_pin": "2",
+      "target": "U6",
+      "target_pin": "VCC_IO",
+      "signal": "3V3_CLK",
+      "type": "power"
+    },
+    {
+      "source": "L4",
+      "source_pin": "2",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "3V3_PWR_CTRL",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "VOUT",
+      "target": "L5",
+      "target_pin": "1",
+      "signal": "1V8_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "L5",
+      "source_pin": "2",
+      "target": "U5",
+      "target_pin": "VCC",
+      "signal": "1V8_ADC_CORE",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "VOUT",
+      "target": "L6",
+      "target_pin": "1",
+      "signal": "1V2_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "L6",
+      "source_pin": "2",
+      "target": "U5",
+      "target_pin": "VCC_IO",
+      "signal": "1V2_ADC_IO",
+      "type": "power"
+    },
+    {
+      "source": "J4",
+      "source_pin": "1",
+      "target": "L7",
+      "target_pin": "1",
+      "signal": "VIN_12V",
+      "type": "power"
+    },
+    {
+      "source": "L7",
+      "source_pin": "2",
+      "target": "U8",
+      "target_pin": "VIN",
+      "signal": "VIN_FILTERED",
+      "type": "power"
+    },
+    {
+      "source": "L7",
+      "source_pin": "2",
+      "target": "U9",
+      "target_pin": "VIN",
+      "signal": "VIN_FILTERED",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "U4",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "U5",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "J4",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "C20",
+      "target_pin": "1",
+      "signal": "5V_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "C20",
+      "source_pin": "1",
+      "target": "C10",
+      "target_pin": "1",
+      "signal": "5V_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "L4",
+      "source_pin": "2",
+      "target": "C21",
+      "target_pin": "1",
+      "signal": "3V3_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "C21",
+      "source_pin": "1",
+      "target": "C11",
+      "target_pin": "1",
+      "signal": "3V3_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "L5",
+      "source_pin": "2",
+      "target": "C22",
+      "target_pin": "1",
+      "signal": "1V8_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "C22",
+      "source_pin": "1",
+      "target": "C12",
+      "target_pin": "1",
+      "signal": "1V8_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "L6",
+      "source_pin": "2",
+      "target": "C23",
+      "target_pin": "1",
+      "signal": "1V2_DECOUPLE",
+      "type": "power"
+    },
+    {
+      "source": "C23",
+      "source_pin": "1",
+      "target": "C13",
+      "target_pin": "1",
+      "signal": "1V2_DECOUPLE",
+      "type": "power"
+    }
+  ],
+  "metadata": {}
+}
