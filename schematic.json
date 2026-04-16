@@ -1,0 +1,207 @@
+{
+  "sheets": [
+    {
+      "id": "pwr",
+      "title": "Power Distribution",
+      "components": [
+        {
+          "ref": "U2",
+          "type": "ic",
+          "value": "PWR",
+          "part_number": "PWR",
+          "x": 4,
+          "y": 4,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "OUT",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "GND_pwr",
+          "type": "ground",
+          "value": "GND",
+          "x": 15,
+          "y": 10,
+          "rot": 0
+        },
+        {
+          "ref": "PWR_pwr_1",
+          "type": "vcc",
+          "value": "3V3",
+          "x": 4,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "PWR_pwr_2",
+          "type": "vcc",
+          "value": "5V",
+          "x": 10,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "PWR_pwr_3",
+          "type": "vcc",
+          "value": "VCC",
+          "x": 16,
+          "y": 1,
+          "rot": 0
+        }
+      ],
+      "nets": [
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U1",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "GND"
+            },
+            {
+              "ref": "U1",
+              "pin": "GND"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dig",
+      "title": "MCU / Digital Core",
+      "components": [
+        {
+          "ref": "U1",
+          "type": "ic",
+          "value": "MCU",
+          "part_number": "MCU",
+          "x": 4,
+          "y": 4,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "C_BYP1",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 9,
+          "y": 4,
+          "rot": 90
+        },
+        {
+          "ref": "GND_dig",
+          "type": "ground",
+          "value": "GND",
+          "x": 15,
+          "y": 10,
+          "rot": 0
+        },
+        {
+          "ref": "PWR_dig_1",
+          "type": "vcc",
+          "value": "3V3",
+          "x": 4,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "PWR_dig_2",
+          "type": "vcc",
+          "value": "5V",
+          "x": 10,
+          "y": 1,
+          "rot": 0
+        }
+      ],
+      "nets": [
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U1",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "GND"
+            },
+            {
+              "ref": "U1",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "BYPASS_U1_VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U1",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C_BYP1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C_BYP1",
+              "pin": "2"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auto_synthesized": true
+}
