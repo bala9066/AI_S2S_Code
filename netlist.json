@@ -1,0 +1,1661 @@
+{
+  "project": "ehg",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "J1",
+      "name": "RF_INPUT_CONNECTOR",
+      "type": "SMA-J-pth-50ohm",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "reference_designator": "J1",
+        "component_name": "RF_INPUT_CONNECTOR",
+        "part_number": "SMA-J-pth-50ohm"
+      }
+    },
+    {
+      "id": "U1",
+      "name": "WIDEBAND_LNA",
+      "type": "HMC8141",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "reference_designator": "U1",
+        "component_name": "WIDEBAND_LNA",
+        "part_number": "HMC8141"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "RF_VGA",
+      "type": "HMC698LP4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "reference_designator": "U2",
+        "component_name": "RF_VGA",
+        "part_number": "HMC698LP4"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "WIDEBAND_MIXER",
+      "type": "HMC-CMS19",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "reference_designator": "U3",
+        "component_name": "WIDEBAND_MIXER",
+        "part_number": "HMC-CMS19"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "IF_AMPLIFIER",
+      "type": "HMC5805",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "reference_designator": "U4",
+        "component_name": "IF_AMPLIFIER",
+        "part_number": "HMC5805"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "HIGH_SPEED_ADC",
+      "type": "EV10AQ190A",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "reference_designator": "U5",
+        "component_name": "HIGH_SPEED_ADC",
+        "part_number": "EV10AQ190A"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "LVDS_OUTPUT_CONNECTOR",
+      "type": "SAMTEC-ASV-120-01-L-D",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "reference_designator": "J2",
+        "component_name": "LVDS_OUTPUT_CONNECTOR",
+        "part_number": "SAMTEC-ASV-120-01-L-D"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "DC_DC_CONVERTER",
+      "type": "PKM4716TCD15",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "reference_designator": "U6",
+        "component_name": "DC_DC_CONVERTER",
+        "part_number": "PKM4716TCD15"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "LDO_5V",
+      "type": "LT1086-5",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "reference_designator": "U7",
+        "component_name": "LDO_5V",
+        "part_number": "LT1086-5"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "LDO_3V3",
+      "type": "LT1086-3.3",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "reference_designator": "U8",
+        "component_name": "LDO_3V3",
+        "part_number": "LT1086-3.3"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "VOLTAGE_REF",
+      "type": "LT6656-2.5",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "reference_designator": "U9",
+        "component_name": "VOLTAGE_REF",
+        "part_number": "LT6656-2.5"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "CLK_GENERATOR",
+      "type": "Si5345B-D",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "reference_designator": "U10",
+        "component_name": "CLK_GENERATOR",
+        "part_number": "Si5345B-D"
+      }
+    },
+    {
+      "id": "U11",
+      "name": "CLK_BUFFER",
+      "type": "ADCLK914",
+      "pins": [],
+      "properties": {
+        "instance_id": "U11",
+        "reference_designator": "U11",
+        "component_name": "CLK_BUFFER",
+        "part_number": "ADCLK914"
+      }
+    },
+    {
+      "id": "U12",
+      "name": "MCU_CONTROLLER",
+      "type": "STM32F407VGT6",
+      "pins": [],
+      "properties": {
+        "instance_id": "U12",
+        "reference_designator": "U12",
+        "component_name": "MCU_CONTROLLER",
+        "part_number": "STM32F407VGT6"
+      }
+    },
+    {
+      "id": "U13",
+      "name": "EEPROM",
+      "type": "M24M02-DR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U13",
+        "reference_designator": "U13",
+        "component_name": "EEPROM",
+        "part_number": "M24M02-DR"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "POWER_INPUT",
+      "type": "MOTORTERM-5.08-2",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "reference_designator": "J3",
+        "component_name": "POWER_INPUT",
+        "part_number": "MOTORTERM-5.08-2"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "reference_designator": "C1",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "reference_designator": "C2",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "reference_designator": "C3",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "reference_designator": "C4",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "reference_designator": "C5",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H106KA73L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "reference_designator": "C6",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H106KA73L"
+      }
+    },
+    {
+      "id": "C7",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C7",
+        "reference_designator": "C7",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C8",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C8",
+        "reference_designator": "C8",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C9",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H476ME15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C9",
+        "reference_designator": "C9",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H476ME15L"
+      }
+    },
+    {
+      "id": "C10",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C10",
+        "reference_designator": "C10",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C11",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C11",
+        "reference_designator": "C11",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C12",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C12",
+        "reference_designator": "C12",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C13",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C13",
+        "reference_designator": "C13",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C14",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C14",
+        "reference_designator": "C14",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C15",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H106KA73L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C15",
+        "reference_designator": "C15",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H106KA73L"
+      }
+    },
+    {
+      "id": "C16",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C16",
+        "reference_designator": "C16",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C17",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H476ME15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C17",
+        "reference_designator": "C17",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H476ME15L"
+      }
+    },
+    {
+      "id": "C18",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C18",
+        "reference_designator": "C18",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H226KE15L"
+      }
+    },
+    {
+      "id": "C19",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H106KA73L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C19",
+        "reference_designator": "C19",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H106KA73L"
+      }
+    },
+    {
+      "id": "C20",
+      "name": "CAPACITOR",
+      "type": "GRM32ER71H106KA73L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C20",
+        "reference_designator": "C20",
+        "component_name": "CAPACITOR",
+        "part_number": "GRM32ER71H106KA73L"
+      }
+    },
+    {
+      "id": "L1",
+      "name": "INDUCTOR",
+      "type": "LQG31PN4N7M00L",
+      "pins": [],
+      "properties": {
+        "instance_id": "L1",
+        "reference_designator": "L1",
+        "component_name": "INDUCTOR",
+        "part_number": "LQG31PN4N7M00L"
+      }
+    },
+    {
+      "id": "L2",
+      "name": "INDUCTOR",
+      "type": "LQG31PN4N7M00L",
+      "pins": [],
+      "properties": {
+        "instance_id": "L2",
+        "reference_designator": "L2",
+        "component_name": "INDUCTOR",
+        "part_number": "LQG31PN4N7M00L"
+      }
+    },
+    {
+      "id": "L3",
+      "name": "INDUCTOR",
+      "type": "LQG31PN4N7M00L",
+      "pins": [],
+      "properties": {
+        "instance_id": "L3",
+        "reference_designator": "L3",
+        "component_name": "INDUCTOR",
+        "part_number": "LQG31PN4N7M00L"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "reference_designator": "R1",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "reference_designator": "R2",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "RESISTOR",
+      "type": "CRCW06034K70FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "reference_designator": "R3",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06034K70FKEA"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "reference_designator": "R4",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R5",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R5",
+        "reference_designator": "R5",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R6",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R6",
+        "reference_designator": "R6",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R7",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R7",
+        "reference_designator": "R7",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R8",
+      "name": "RESISTOR",
+      "type": "CRCW06034K70FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R8",
+        "reference_designator": "R8",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06034K70FKEA"
+      }
+    },
+    {
+      "id": "R9",
+      "name": "RESISTOR",
+      "type": "CRCW06031K00FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R9",
+        "reference_designator": "R9",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06031K00FKEA"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "RESISTOR",
+      "type": "CRCW06031K00FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R10",
+        "reference_designator": "R10",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06031K00FKEA"
+      }
+    },
+    {
+      "id": "R11",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R11",
+        "reference_designator": "R11",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R12",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R12",
+        "reference_designator": "R12",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R13",
+      "name": "RESISTOR",
+      "type": "CRCW060310K0FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R13",
+        "reference_designator": "R13",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW060310K0FKEA"
+      }
+    },
+    {
+      "id": "R14",
+      "name": "RESISTOR",
+      "type": "CRCW06031K00FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R14",
+        "reference_designator": "R14",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06031K00FKEA"
+      }
+    },
+    {
+      "id": "R15",
+      "name": "RESISTOR",
+      "type": "CRCW06034K70FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R15",
+        "reference_designator": "R15",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06034K70FKEA"
+      }
+    },
+    {
+      "id": "R16",
+      "name": "RESISTOR",
+      "type": "CRCW06031K00FKEA",
+      "pins": [],
+      "properties": {
+        "instance_id": "R16",
+        "reference_designator": "R16",
+        "component_name": "RESISTOR",
+        "part_number": "CRCW06031K00FKEA"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "RF_IN",
+      "signal": "RF_IN",
+      "type": "RF"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RF_OUT",
+      "target": "U2",
+      "target_pin": "RF_IN",
+      "signal": "RF_LNA_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "U2",
+      "source_pin": "RF_OUT",
+      "target": "U3",
+      "target_pin": "RF_IN",
+      "signal": "RF_VGA_OUT",
+      "type": "RF"
+    },
+    {
+      "source": "U3",
+      "source_pin": "IF_OUT",
+      "target": "U4",
+      "target_pin": "IN",
+      "signal": "IF_MIXER_OUT",
+      "type": "IF"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "AIN_P",
+      "signal": "IF_AMP_OUT",
+      "type": "IF"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT_N",
+      "target": "U5",
+      "target_pin": "AIN_N",
+      "signal": "IF_AMP_OUT_N",
+      "type": "IF"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D0_P",
+      "target": "J2",
+      "target_pin": "A1",
+      "signal": "LVDS_D0_P",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D0_N",
+      "target": "J2",
+      "target_pin": "A2",
+      "signal": "LVDS_D0_N",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D1_P",
+      "target": "J2",
+      "target_pin": "A3",
+      "signal": "LVDS_D1_P",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D1_N",
+      "target": "J2",
+      "target_pin": "A4",
+      "signal": "LVDS_D1_N",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D2_P",
+      "target": "J2",
+      "target_pin": "A5",
+      "signal": "LVDS_D2_P",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D2_N",
+      "target": "J2",
+      "target_pin": "A6",
+      "signal": "LVDS_D2_N",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D3_P",
+      "target": "J2",
+      "target_pin": "A7",
+      "signal": "LVDS_D3_P",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "D3_N",
+      "target": "J2",
+      "target_pin": "A8",
+      "signal": "LVDS_D3_N",
+      "type": "LVDS"
+    },
+    {
+      "source": "U5",
+      "source_pin": "DCLK_P",
+      "target": "J2",
+      "target_pin": "A9",
+      "signal": "LVDS_DCLK_P",
+      "type": "LVDS_CLOCK"
+    },
+    {
+      "source": "U5",
+      "source_pin": "DCLK_N",
+      "target": "J2",
+      "target_pin": "A10",
+      "signal": "LVDS_DCLK_N",
+      "type": "LVDS_CLOCK"
+    },
+    {
+      "source": "U11",
+      "source_pin": "Q_P",
+      "target": "U5",
+      "target_pin": "CLK_P",
+      "signal": "CLK_ADC_P",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U11",
+      "source_pin": "Q_N",
+      "target": "U5",
+      "target_pin": "CLK_N",
+      "signal": "CLK_ADC_N",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT0_P",
+      "target": "U11",
+      "target_pin": "D_P",
+      "signal": "CLK_BUF_IN",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT0_N",
+      "target": "U11",
+      "target_pin": "D_N",
+      "signal": "CLK_BUF_IN_N",
+      "type": "CLOCK"
+    },
+    {
+      "source": "J3",
+      "source_pin": "1",
+      "target": "U6",
+      "target_pin": "VIN+",
+      "signal": "VCC_28V",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT+",
+      "target": "U7",
+      "target_pin": "IN",
+      "signal": "VCC_15V",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC_5V_RF",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC_5V_RF",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC_5V_RF",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC_5V_RF",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "VDD",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U10",
+      "target_pin": "VDD",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U11",
+      "target_pin": "VCC",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U12",
+      "target_pin": "VDD",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U13",
+      "target_pin": "VCC",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "U9",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "VREF",
+      "signal": "VREF_2V5",
+      "type": "ANALOG"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PA5",
+      "target": "U2",
+      "target_pin": "SCLK",
+      "signal": "SPI_SCK",
+      "type": "SPI"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PA7",
+      "target": "U2",
+      "target_pin": "SDI",
+      "signal": "SPI_MOSI",
+      "type": "SPI"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PA6",
+      "target": "U2",
+      "target_pin": "SDO",
+      "signal": "SPI_MISO",
+      "type": "SPI"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PA4",
+      "target": "U2",
+      "target_pin": "CS",
+      "signal": "VGA_CS",
+      "type": "SPI_CS"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB6",
+      "target": "U10",
+      "target_pin": "SCL",
+      "signal": "I2C_SCL",
+      "type": "I2C"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB6",
+      "target": "U13",
+      "target_pin": "SCL",
+      "signal": "I2C_SCL",
+      "type": "I2C"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB7",
+      "target": "U10",
+      "target_pin": "SDA",
+      "signal": "I2C_SDA",
+      "type": "I2C"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB7",
+      "target": "U13",
+      "target_pin": "SDA",
+      "signal": "I2C_SDA",
+      "type": "I2C"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PC12",
+      "target": "U5",
+      "target_pin": "SDIO",
+      "signal": "ADC_SDIO",
+      "type": "SPI"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PC11",
+      "target": "U5",
+      "target_pin": "CS_N",
+      "signal": "ADC_CS_N",
+      "type": "SPI_CS"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PC10",
+      "target": "U5",
+      "target_pin": "SCK",
+      "signal": "ADC_SCK",
+      "type": "SPI"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PC9",
+      "target": "U5",
+      "target_pin": "RESET_N",
+      "signal": "ADC_RST_N",
+      "type": "RESET"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB0",
+      "target": "U2",
+      "target_pin": "ENABLE",
+      "signal": "AGC_ENABLE",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB1",
+      "target": "U5",
+      "target_pin": "OE_N",
+      "signal": "ADC_OE_N",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB5",
+      "target": "R14",
+      "target_pin": "1",
+      "signal": "LED_STATUS",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "R14",
+      "source_pin": "2",
+      "target": "R15",
+      "target_pin": "2",
+      "signal": "LED_ANODE",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "C1",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "C2",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "C3",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "C4",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "C5",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "C6",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "C7",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "C8",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "C9",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VIN-",
+      "target": "J3",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT-",
+      "target": "C10",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "C11",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "C12",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GND",
+      "target": "C13",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GND",
+      "target": "C14",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U9",
+      "source_pin": "GND",
+      "target": "C15",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U10",
+      "source_pin": "GND",
+      "target": "C16",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U11",
+      "source_pin": "GND",
+      "target": "C17",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U12",
+      "source_pin": "VSS",
+      "target": "C18",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U12",
+      "source_pin": "VSS",
+      "target": "C19",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U13",
+      "source_pin": "GND",
+      "target": "C20",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "R15",
+      "source_pin": "1",
+      "target": "J2",
+      "target_pin": "B12",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "C2",
+      "target_pin": "1",
+      "signal": "5V_RF_LNA",
+      "type": "POWER"
+    },
+    {
+      "source": "C2",
+      "source_pin": "1",
+      "target": "L1",
+      "target_pin": "1",
+      "signal": "5V_RF_LNA",
+      "type": "POWER"
+    },
+    {
+      "source": "L1",
+      "source_pin": "2",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "5V_RF_LNA_FILT",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "C3",
+      "target_pin": "1",
+      "signal": "5V_RF_VGA",
+      "type": "POWER"
+    },
+    {
+      "source": "C3",
+      "source_pin": "1",
+      "target": "L2",
+      "target_pin": "1",
+      "signal": "5V_RF_VGA",
+      "type": "POWER"
+    },
+    {
+      "source": "L2",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "5V_RF_VGA_FILT",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "C5",
+      "target_pin": "1",
+      "signal": "5V_RF_MIX",
+      "type": "POWER"
+    },
+    {
+      "source": "C5",
+      "source_pin": "1",
+      "target": "L3",
+      "target_pin": "1",
+      "signal": "5V_RF_MIX",
+      "type": "POWER"
+    },
+    {
+      "source": "L3",
+      "source_pin": "2",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "5V_RF_MIX_FILT",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "C6",
+      "target_pin": "1",
+      "signal": "5V_RF_IF",
+      "type": "POWER"
+    },
+    {
+      "source": "C6",
+      "source_pin": "1",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "5V_RF_IF",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "C7",
+      "target_pin": "1",
+      "signal": "3V3_ADC",
+      "type": "POWER"
+    },
+    {
+      "source": "C7",
+      "source_pin": "1",
+      "target": "C8",
+      "target_pin": "1",
+      "signal": "3V3_ADC",
+      "type": "POWER"
+    },
+    {
+      "source": "C8",
+      "source_pin": "1",
+      "target": "C9",
+      "target_pin": "1",
+      "signal": "3V3_ADC",
+      "type": "POWER"
+    },
+    {
+      "source": "C9",
+      "source_pin": "1",
+      "target": "U5",
+      "target_pin": "VDD",
+      "signal": "3V3_ADC_CORE",
+      "type": "POWER"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT+",
+      "target": "C10",
+      "target_pin": "1",
+      "signal": "15V_DCDC",
+      "type": "POWER"
+    },
+    {
+      "source": "C10",
+      "source_pin": "1",
+      "target": "R1",
+      "target_pin": "2",
+      "signal": "15V_DCDC",
+      "type": "POWER"
+    },
+    {
+      "source": "R1",
+      "source_pin": "1",
+      "target": "U12",
+      "target_pin": "PB9",
+      "signal": "EN_DCDC",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VOUT+",
+      "target": "U7",
+      "target_pin": "IN",
+      "signal": "5V_LDO_IN",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "IN",
+      "signal": "3V3_LDO_IN",
+      "type": "POWER"
+    },
+    {
+      "source": "U9",
+      "source_pin": "OUT",
+      "target": "C15",
+      "target_pin": "1",
+      "signal": "2V5_REF",
+      "type": "POWER"
+    },
+    {
+      "source": "C15",
+      "source_pin": "1",
+      "target": "R2",
+      "target_pin": "2",
+      "signal": "2V5_REF",
+      "type": "POWER"
+    },
+    {
+      "source": "R2",
+      "source_pin": "1",
+      "target": "U5",
+      "target_pin": "VREF",
+      "signal": "VREF_ADC",
+      "type": "ANALOG"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "C16",
+      "target_pin": "1",
+      "signal": "3V3_CLK",
+      "type": "POWER"
+    },
+    {
+      "source": "C16",
+      "source_pin": "1",
+      "target": "U10",
+      "target_pin": "VDD",
+      "signal": "3V3_CLK",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "C17",
+      "target_pin": "1",
+      "signal": "3V3_CLK_BUF",
+      "type": "POWER"
+    },
+    {
+      "source": "C17",
+      "source_pin": "1",
+      "target": "U11",
+      "target_pin": "VCC",
+      "signal": "3V3_CLK_BUF",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "C18",
+      "target_pin": "1",
+      "signal": "3V3_MCU",
+      "type": "POWER"
+    },
+    {
+      "source": "C18",
+      "source_pin": "1",
+      "target": "C19",
+      "target_pin": "1",
+      "signal": "3V3_MCU",
+      "type": "POWER"
+    },
+    {
+      "source": "C19",
+      "source_pin": "1",
+      "target": "U12",
+      "target_pin": "VDD",
+      "signal": "3V3_MCU_CORE",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "C20",
+      "target_pin": "1",
+      "signal": "3V3_EEPROM",
+      "type": "POWER"
+    },
+    {
+      "source": "C20",
+      "source_pin": "1",
+      "target": "U13",
+      "target_pin": "VCC",
+      "signal": "3V3_EEPROM",
+      "type": "POWER"
+    },
+    {
+      "source": "R3",
+      "source_pin": "2",
+      "target": "U12",
+      "target_pin": "BOOT0",
+      "signal": "MCU_BOOT0",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "R3",
+      "source_pin": "1",
+      "target": "R4",
+      "target_pin": "2",
+      "signal": "MCU_BOOT0_GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "R4",
+      "source_pin": "BOOT0",
+      "target": "U12",
+      "target_pin": "",
+      "signal": "BOOT_PULLDN",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U12",
+      "source_pin": "NRST",
+      "target": "R5",
+      "target_pin": "2",
+      "signal": "MCU_NRST",
+      "type": "RESET"
+    },
+    {
+      "source": "R5",
+      "source_pin": "1",
+      "target": "U8",
+      "target_pin": "OUT",
+      "signal": "MCU_NRST_PULLUP",
+      "type": "POWER"
+    },
+    {
+      "source": "U12",
+      "source_pin": "NRST",
+      "target": "C11",
+      "target_pin": "1",
+      "signal": "MCU_NRST_C",
+      "type": "RESET"
+    },
+    {
+      "source": "R6",
+      "source_pin": "2",
+      "target": "U12",
+      "target_pin": "PB6",
+      "signal": "I2C_SCL_PULLUP",
+      "type": "I2C"
+    },
+    {
+      "source": "R6",
+      "source_pin": "1",
+      "target": "U8",
+      "target_pin": "OUT",
+      "signal": "I2C_SCL_PU_VDD",
+      "type": "POWER"
+    },
+    {
+      "source": "R7",
+      "source_pin": "2",
+      "target": "U12",
+      "target_pin": "PB7",
+      "signal": "I2C_SDA_PULLUP",
+      "type": "I2C"
+    },
+    {
+      "source": "R7",
+      "source_pin": "1",
+      "target": "U8",
+      "target_pin": "OUT",
+      "signal": "I2C_SDA_PU_VDD",
+      "type": "POWER"
+    },
+    {
+      "source": "U10",
+      "source_pin": "CLKIN",
+      "target": "R8",
+      "target_pin": "2",
+      "signal": "CLK_CLKIN",
+      "type": "CLOCK"
+    },
+    {
+      "source": "R8",
+      "source_pin": "1",
+      "target": "J2",
+      "target_pin": "B11",
+      "signal": "CLK_REF_IN",
+      "type": "CLOCK"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB8",
+      "target": "U11",
+      "target_pin": "OE",
+      "signal": "CLK_OE",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U12",
+      "source_pin": "PB4",
+      "target": "U13",
+      "target_pin": "WC",
+      "signal": "EEPROM_WP",
+      "type": "DIGITAL"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "R9",
+      "target_pin": "1",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "R9",
+      "source_pin": "2",
+      "target": "R10",
+      "target_pin": "2",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "R10",
+      "source_pin": "1",
+      "target": "R11",
+      "target_pin": "2",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "R11",
+      "source_pin": "1",
+      "target": "R12",
+      "target_pin": "2",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "R12",
+      "source_pin": "1",
+      "target": "R13",
+      "target_pin": "2",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    },
+    {
+      "source": "R13",
+      "source_pin": "1",
+      "target": "R16",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "GROUND"
+    },
+    {
+      "source": "R16",
+      "source_pin": "1",
+      "target": "R15",
+      "target_pin": "2",
+      "signal": "VCC_3V3_DIG",
+      "type": "POWER"
+    }
+  ],
+  "metadata": {}
+}
