@@ -1,0 +1,115 @@
+{
+  "sheets": [
+    {
+      "id": "sheet1",
+      "title": "Schematic (auto-generated)",
+      "components": [
+        {
+          "ref": "U1",
+          "type": "ic",
+          "value": "MCU",
+          "part_number": "MCU",
+          "x": 4,
+          "y": 6,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "U2",
+          "type": "ic",
+          "value": "PWR",
+          "part_number": "PWR",
+          "x": 13,
+          "y": 6,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "OUT",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "GND1",
+          "type": "ground",
+          "value": "GND",
+          "x": 15,
+          "y": 15,
+          "rot": 0
+        },
+        {
+          "ref": "PWR1",
+          "type": "vcc",
+          "value": "3V3",
+          "x": 4,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "PWR2",
+          "type": "vcc",
+          "value": "5V",
+          "x": 10,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "PWR3",
+          "type": "vcc",
+          "value": "VCC",
+          "x": 16,
+          "y": 1,
+          "rot": 0
+        }
+      ],
+      "nets": [
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U1",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "GND"
+            },
+            {
+              "ref": "U1",
+              "pin": "GND"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auto_synthesized": true
+}
