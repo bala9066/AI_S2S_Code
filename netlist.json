@@ -1,0 +1,1169 @@
+{
+  "project": "rx receiver",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Wideband LNA",
+      "type": "HMC6180LP4E",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "HMC6180LP4E",
+        "component_name": "Wideband LNA",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "IQ Demodulator Mixer",
+      "type": "HMC519LC4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "HMC519LC4",
+        "component_name": "IQ Demodulator Mixer",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "Wideband IQ Mixer",
+      "type": "MIXIQ-1030",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "MIXIQ-1030",
+        "component_name": "Wideband IQ Mixer",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "PLL Synthesizer with VCO",
+      "type": "LMX2594RHAR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "LMX2594RHAR",
+        "component_name": "PLL Synthesizer with VCO",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "Dual ADC 250 MSPS",
+      "type": "AD9680BCPZ-250",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "AD9680BCPZ-250",
+        "component_name": "Dual ADC 250 MSPS",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "MCU Controller",
+      "type": "STM32F407VGT6",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "STM32F407VGT6",
+        "component_name": "MCU Controller",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "RF Input SMA Connector",
+      "type": "SMA-50-0-0-13",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "SMA-50-0-0-13",
+        "component_name": "RF Input SMA Connector",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "12V LDO Regulator",
+      "type": "LM2941-12",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "LM2941-12",
+        "component_name": "12V LDO Regulator",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "5V Buck Converter",
+      "type": "TPS54332",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "part_number": "TPS54332",
+        "component_name": "5V Buck Converter",
+        "reference_designator": "U8"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "3.3V Buck Converter",
+      "type": "TPS62130",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "part_number": "TPS62130",
+        "component_name": "3.3V Buck Converter",
+        "reference_designator": "U9"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "3.3V Voltage Supervisor",
+      "type": "MIC9430-44YM",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "part_number": "MIC9430-44YM",
+        "component_name": "3.3V Voltage Supervisor",
+        "reference_designator": "U10"
+      }
+    },
+    {
+      "id": "L1",
+      "name": "RF Choke Inductor 15nH",
+      "type": "ELJ-FA1N5KF2",
+      "pins": [],
+      "properties": {
+        "instance_id": "L1",
+        "part_number": "ELJ-FA1N5KF2",
+        "component_name": "RF Choke Inductor 15nH",
+        "reference_designator": "L1"
+      }
+    },
+    {
+      "id": "L2",
+      "name": "RF Choke Inductor 15nH",
+      "type": "ELJ-FA1N5KF2",
+      "pins": [],
+      "properties": {
+        "instance_id": "L2",
+        "part_number": "ELJ-FA1N5KF2",
+        "component_name": "RF Choke Inductor 15nH",
+        "reference_designator": "L2"
+      }
+    },
+    {
+      "id": "L3",
+      "name": "Power Inductor 4.7uH",
+      "type": "74404014470",
+      "pins": [],
+      "properties": {
+        "instance_id": "L3",
+        "part_number": "74404014470",
+        "component_name": "Power Inductor 4.7uH",
+        "reference_designator": "L3"
+      }
+    },
+    {
+      "id": "L4",
+      "name": "Power Inductor 4.7uH",
+      "type": "74404014470",
+      "pins": [],
+      "properties": {
+        "instance_id": "L4",
+        "part_number": "74404014470",
+        "component_name": "Power Inductor 4.7uH",
+        "reference_designator": "L4"
+      }
+    },
+    {
+      "id": "T1",
+      "name": "RF Transformer 1:1 Balun",
+      "type": "TC1-1-13M+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T1",
+        "part_number": "TC1-1-13M+",
+        "component_name": "RF Transformer 1:1 Balun",
+        "reference_designator": "T1"
+      }
+    },
+    {
+      "id": "T2",
+      "name": "RF Transformer 1:1 Balun",
+      "type": "TC1-1-13M+",
+      "pins": [],
+      "properties": {
+        "instance_id": "T2",
+        "part_number": "TC1-1-13M+",
+        "component_name": "RF Transformer 1:1 Balun",
+        "reference_designator": "T2"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "Resistor 100k 1%",
+      "type": "CRCW0402100KFKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "part_number": "CRCW0402100KFKED",
+        "component_name": "Resistor 100k 1%",
+        "reference_designator": "R1"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Resistor 100k 1%",
+      "type": "CRCW0402100KFKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "part_number": "CRCW0402100KFKED",
+        "component_name": "Resistor 100k 1%",
+        "reference_designator": "R2"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Resistor 4.7k 1%",
+      "type": "CRCW04024K70FKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "part_number": "CRCW04024K70FKED",
+        "component_name": "Resistor 4.7k 1%",
+        "reference_designator": "R3"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Resistor 4.7k 1%",
+      "type": "CRCW04024K70FKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "part_number": "CRCW04024K70FKED",
+        "component_name": "Resistor 4.7k 1%",
+        "reference_designator": "R4"
+      }
+    },
+    {
+      "id": "R5",
+      "name": "Resistor 4.7k 1%",
+      "type": "CRCW04024K70FKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R5",
+        "part_number": "CRCW04024K70FKED",
+        "component_name": "Resistor 4.7k 1%",
+        "reference_designator": "R5"
+      }
+    },
+    {
+      "id": "R6",
+      "name": "Resistor 4.99k 0.1%",
+      "type": "ERA-2AEB499X",
+      "pins": [],
+      "properties": {
+        "instance_id": "R6",
+        "part_number": "ERA-2AEB499X",
+        "component_name": "Resistor 4.99k 0.1%",
+        "reference_designator": "R6"
+      }
+    },
+    {
+      "id": "R7",
+      "name": "Resistor 4.99k 0.1%",
+      "type": "ERA-2AEB499X",
+      "pins": [],
+      "properties": {
+        "instance_id": "R7",
+        "part_number": "ERA-2AEB499X",
+        "component_name": "Resistor 4.99k 0.1%",
+        "reference_designator": "R7"
+      }
+    },
+    {
+      "id": "R8",
+      "name": "Resistor 100k 1%",
+      "type": "CRCW0402100KFKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R8",
+        "part_number": "CRCW0402100KFKED",
+        "component_name": "Resistor 100k 1%",
+        "reference_designator": "R8"
+      }
+    },
+    {
+      "id": "R9",
+      "name": "Resistor 100k 1%",
+      "type": "CRCW0402100KFKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R9",
+        "part_number": "CRCW0402100KFKED",
+        "component_name": "Resistor 100k 1%",
+        "reference_designator": "R9"
+      }
+    },
+    {
+      "id": "R10",
+      "name": "Resistor 4.7k 1%",
+      "type": "CRCW04024K70FKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R10",
+        "part_number": "CRCW04024K70FKED",
+        "component_name": "Resistor 4.7k 1%",
+        "reference_designator": "R10"
+      }
+    },
+    {
+      "id": "R11",
+      "name": "Resistor 100k 1%",
+      "type": "CRCW0402100KFKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R11",
+        "part_number": "CRCW0402100KFKED",
+        "component_name": "Resistor 100k 1%",
+        "reference_designator": "R11"
+      }
+    },
+    {
+      "id": "R12",
+      "name": "Resistor 100k 1%",
+      "type": "CRCW0402100KFKED",
+      "pins": [],
+      "properties": {
+        "instance_id": "R12",
+        "part_number": "CRCW0402100KFKED",
+        "component_name": "Resistor 100k 1%",
+        "reference_designator": "R12"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C1"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C2"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C3"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C4"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C5"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C6"
+      }
+    },
+    {
+      "id": "C7",
+      "name": "Capacitor 4.7uF 6.3V",
+      "type": "GRT155R61H475ME13D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C7",
+        "part_number": "GRT155R61H475ME13D",
+        "component_name": "Capacitor 4.7uF 6.3V",
+        "reference_designator": "C7"
+      }
+    },
+    {
+      "id": "C8",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C8",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C8"
+      }
+    },
+    {
+      "id": "C9",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C9",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C9"
+      }
+    },
+    {
+      "id": "C10",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C10",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C10"
+      }
+    },
+    {
+      "id": "C11",
+      "name": "Capacitor 4.7uF 6.3V",
+      "type": "GRT155R61H475ME13D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C11",
+        "part_number": "GRT155R61H475ME13D",
+        "component_name": "Capacitor 4.7uF 6.3V",
+        "reference_designator": "C11"
+      }
+    },
+    {
+      "id": "C12",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C12",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C12"
+      }
+    },
+    {
+      "id": "C13",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C13",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C13"
+      }
+    },
+    {
+      "id": "C14",
+      "name": "Capacitor 1.0uF 10V",
+      "type": "GRT155R61H105KE13D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C14",
+        "part_number": "GRT155R61H105KE13D",
+        "component_name": "Capacitor 1.0uF 10V",
+        "reference_designator": "C14"
+      }
+    },
+    {
+      "id": "C15",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C15",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C15"
+      }
+    },
+    {
+      "id": "C16",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C16",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C16"
+      }
+    },
+    {
+      "id": "C17",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C17",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C17"
+      }
+    },
+    {
+      "id": "C18",
+      "name": "Capacitor 4.7uF 16V",
+      "type": "CL21A475KOCNNNE",
+      "pins": [],
+      "properties": {
+        "instance_id": "C18",
+        "part_number": "CL21A475KOCNNNE",
+        "component_name": "Capacitor 4.7uF 16V",
+        "reference_designator": "C18"
+      }
+    },
+    {
+      "id": "C19",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C19",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C19"
+      }
+    },
+    {
+      "id": "C20",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C20",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C20"
+      }
+    },
+    {
+      "id": "C21",
+      "name": "Capacitor 22uF 50V",
+      "type": "GRM32ER71H226KE15L",
+      "pins": [],
+      "properties": {
+        "instance_id": "C21",
+        "part_number": "GRM32ER71H226KE15L",
+        "component_name": "Capacitor 22uF 50V",
+        "reference_designator": "C21"
+      }
+    },
+    {
+      "id": "C22",
+      "name": "Capacitor 4.7uF 16V",
+      "type": "CL21A475KOCNNNE",
+      "pins": [],
+      "properties": {
+        "instance_id": "C22",
+        "part_number": "CL21A475KOCNNNE",
+        "component_name": "Capacitor 4.7uF 16V",
+        "reference_designator": "C22"
+      }
+    },
+    {
+      "id": "C23",
+      "name": "Capacitor 4.7uF 16V",
+      "type": "CL21A475KOCNNNE",
+      "pins": [],
+      "properties": {
+        "instance_id": "C23",
+        "part_number": "CL21A475KOCNNNE",
+        "component_name": "Capacitor 4.7uF 16V",
+        "reference_designator": "C23"
+      }
+    },
+    {
+      "id": "C24",
+      "name": "Capacitor 0.1uF 50V",
+      "type": "0402B104K500CT",
+      "pins": [],
+      "properties": {
+        "instance_id": "C24",
+        "part_number": "0402B104K500CT",
+        "component_name": "Capacitor 0.1uF 50V",
+        "reference_designator": "C24"
+      }
+    },
+    {
+      "id": "C25",
+      "name": "Capacitor 4.7uF 16V",
+      "type": "CL21A475KOCNNNE",
+      "pins": [],
+      "properties": {
+        "instance_id": "C25",
+        "part_number": "CL21A475KOCNNNE",
+        "component_name": "Capacitor 4.7uF 16V",
+        "reference_designator": "C25"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "1",
+      "signal": "RF_IN_5_18GHZ",
+      "type": "rf"
+    },
+    {
+      "source": "U1",
+      "source_pin": "2",
+      "target": "U2",
+      "target_pin": "1",
+      "signal": "RF_PATH_LNA_TO_MIXER1",
+      "type": "rf"
+    },
+    {
+      "source": "U1",
+      "source_pin": "2",
+      "target": "U3",
+      "target_pin": "1",
+      "signal": "RF_PATH_LNA_TO_MIXER2",
+      "type": "rf"
+    },
+    {
+      "source": "U4",
+      "source_pin": "RFOUT_A",
+      "target": "U2",
+      "target_pin": "5",
+      "signal": "LO_OUT_PLL_TO_MIX1",
+      "type": "rf"
+    },
+    {
+      "source": "U4",
+      "source_pin": "RFOUT_B",
+      "target": "U3",
+      "target_pin": "5",
+      "signal": "LO_OUT_PLL_TO_MIX2",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "2",
+      "target": "T1",
+      "target_pin": "1",
+      "signal": "I_OUT_M1_P",
+      "type": "analog"
+    },
+    {
+      "source": "U2",
+      "source_pin": "3",
+      "target": "T1",
+      "target_pin": "2",
+      "signal": "I_OUT_M1_N",
+      "type": "analog"
+    },
+    {
+      "source": "U2",
+      "source_pin": "4",
+      "target": "T2",
+      "target_pin": "1",
+      "signal": "Q_OUT_M1_P",
+      "type": "analog"
+    },
+    {
+      "source": "U2",
+      "source_pin": "6",
+      "target": "T2",
+      "target_pin": "2",
+      "signal": "Q_OUT_M1_N",
+      "type": "analog"
+    },
+    {
+      "source": "U5",
+      "source_pin": "DCO+",
+      "target": "U6",
+      "target_pin": "PA8",
+      "signal": "ADC_DCO_P",
+      "type": "clock"
+    },
+    {
+      "source": "U5",
+      "source_pin": "DCO-",
+      "target": "U6",
+      "target_pin": "PA9",
+      "signal": "ADC_DCO_N",
+      "type": "clock"
+    },
+    {
+      "source": "U5",
+      "source_pin": "FR+",
+      "target": "U6",
+      "target_pin": "PA10",
+      "signal": "ADC_FR_P",
+      "type": "clock"
+    },
+    {
+      "source": "U5",
+      "source_pin": "FR-",
+      "target": "U6",
+      "target_pin": "PA11",
+      "signal": "ADC_FR_N",
+      "type": "clock"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PB13",
+      "target": "U4",
+      "target_pin": "SCLK",
+      "signal": "SPI_SCLK",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PB13",
+      "target": "U5",
+      "target_pin": "SCLK",
+      "signal": "SPI_SCLK",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PB15",
+      "target": "U4",
+      "target_pin": "SDIO",
+      "signal": "SPI_SDIO",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PB15",
+      "target": "U5",
+      "target_pin": "SDIO",
+      "signal": "SPI_SDIO",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PB12",
+      "target": "U4",
+      "target_pin": "CS_N",
+      "signal": "PLL_CS_N",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PD7",
+      "target": "U5",
+      "target_pin": "CS_N",
+      "signal": "ADC_CS_N",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PE0",
+      "target": "U4",
+      "target_pin": "CE",
+      "signal": "PLL_CE",
+      "type": "digital"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "U7",
+      "target_pin": "IN",
+      "signal": "12V_IN",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "VIN",
+      "signal": "12V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "VIN",
+      "signal": "5V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "U1",
+      "target_pin": "3",
+      "signal": "5V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "U2",
+      "target_pin": "7",
+      "signal": "5V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "3.3V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "U5",
+      "target_pin": "VDD",
+      "signal": "3.3V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "U6",
+      "target_pin": "VDD",
+      "signal": "3.3V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "U10",
+      "target_pin": "VDD",
+      "signal": "3.3V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "R6",
+      "target_pin": "1",
+      "signal": "3.3V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "R7",
+      "target_pin": "1",
+      "signal": "3.3V_REG_OUT",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "4",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "8",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "U3",
+      "target_pin": "2",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "U5",
+      "target_pin": "VSS",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VSS",
+      "target": "U6",
+      "target_pin": "VSS",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VSS",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "U8",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GND",
+      "target": "U9",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U9",
+      "source_pin": "GND",
+      "target": "U10",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U10",
+      "source_pin": "RST",
+      "target": "U4",
+      "target_pin": "RESET",
+      "signal": "3.3V_REF_OUT",
+      "type": "digital"
+    },
+    {
+      "source": "U10",
+      "source_pin": "RST",
+      "target": "U5",
+      "target_pin": "RESET",
+      "signal": "3.3V_REF_OUT",
+      "type": "digital"
+    },
+    {
+      "source": "U10",
+      "source_pin": "RST",
+      "target": "U6",
+      "target_pin": "NRST",
+      "signal": "3.3V_REF_OUT",
+      "type": "digital"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VCC_CORE",
+      "target": "C7",
+      "target_pin": "1",
+      "signal": "VDD_PLL_FILTER",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VCC_CORE",
+      "target": "C8",
+      "target_pin": "1",
+      "signal": "VDD_PLL_FILTER",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VCC_CORE",
+      "target": "C9",
+      "target_pin": "1",
+      "signal": "VDD_PLL_FILTER",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VCC_CORE",
+      "target": "L3",
+      "target_pin": "1",
+      "signal": "VDD_PLL_FILTER",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VCC_CORE",
+      "target": "C10",
+      "target_pin": "1",
+      "signal": "VDD_PLL_FILTER",
+      "type": "power"
+    },
+    {
+      "source": "U4",
+      "source_pin": "VCC_CORE",
+      "target": "C11",
+      "target_pin": "1",
+      "signal": "VDD_PLL_FILTER",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VDD",
+      "target": "C12",
+      "target_pin": "1",
+      "signal": "VDD_ADC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VDD",
+      "target": "C13",
+      "target_pin": "1",
+      "signal": "VDD_ADC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VDD",
+      "target": "C14",
+      "target_pin": "1",
+      "signal": "VDD_ADC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "VDD",
+      "target": "L4",
+      "target_pin": "1",
+      "signal": "VDD_ADC",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VDD",
+      "target": "C15",
+      "target_pin": "1",
+      "signal": "VDD_MCU",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VDD",
+      "target": "C16",
+      "target_pin": "1",
+      "signal": "VDD_MCU",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "VDD",
+      "target": "C17",
+      "target_pin": "1",
+      "signal": "VDD_MCU",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "C19",
+      "target_pin": "1",
+      "signal": "VDD_5V_REG",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "C20",
+      "target_pin": "1",
+      "signal": "VDD_5V_REG",
+      "type": "power"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "C18",
+      "target_pin": "1",
+      "signal": "VDD_12V_REG",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "C22",
+      "target_pin": "1",
+      "signal": "VDD_3.3V_REG",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "C23",
+      "target_pin": "1",
+      "signal": "VDD_3.3V_REG",
+      "type": "power"
+    },
+    {
+      "source": "U9",
+      "source_pin": "VOUT",
+      "target": "C24",
+      "target_pin": "1",
+      "signal": "VDD_3.3V_REG",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "C21",
+      "target_pin": "1",
+      "signal": "VDD_INPUT",
+      "type": "power"
+    },
+    {
+      "source": "J1",
+      "source_pin": "2",
+      "target": "C25",
+      "target_pin": "1",
+      "signal": "VDD_INPUT",
+      "type": "power"
+    }
+  ],
+  "metadata": {}
+}
