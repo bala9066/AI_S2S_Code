@@ -1,0 +1,30 @@
+{
+  "total_nodes": 67,
+  "total_edges": 111,
+  "isolated_nodes": [
+    "T3",
+    "L5",
+    "R1",
+    "R4",
+    "R11",
+    "R12"
+  ],
+  "cycles": [
+    [
+      "U1"
+    ],
+    [
+      "U3"
+    ],
+    [
+      "U5"
+    ],
+    [
+      "U6"
+    ],
+    [
+      "D2"
+    ]
+  ],
+  "is_connected": false
+}
