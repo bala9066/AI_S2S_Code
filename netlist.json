@@ -1,0 +1,259 @@
+{
+  "project": "receiver",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Wideband LNA / Variable Gain Amplifier",
+      "type": "HMC698LP4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "HMC698LP4",
+        "component_name": "Wideband LNA / Variable Gain Amplifier",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Mixer - Wideband I/Q Downconverter",
+      "type": "HMC1048LP4E",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "HMC1048LP4E",
+        "component_name": "Mixer - Wideband I/Q Downconverter",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "Y1",
+      "name": "Local Oscillator Synthesizer",
+      "type": "ADF5355",
+      "pins": [],
+      "properties": {
+        "instance_id": "Y1",
+        "part_number": "ADF5355",
+        "component_name": "Local Oscillator Synthesizer",
+        "reference_designator": "Y1"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "ADC - Dual I/Q Digitizer",
+      "type": "ADC12DJ3200",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "ADC12DJ3200",
+        "component_name": "ADC - Dual I/Q Digitizer",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "FPGA - Digital Signal Processing",
+      "type": "XCZU3EG-SFVA784",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "XCZU3EG-SFVA784",
+        "component_name": "FPGA - Digital Signal Processing",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "RF Input Connector",
+      "type": "149-0901-801",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "149-0901-801",
+        "component_name": "RF Input Connector",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "DC-DC Converter - +12V Rail",
+      "type": "LTM4644",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "LTM4644",
+        "component_name": "DC-DC Converter - +12V Rail",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Negative Rail Generator - -5V",
+      "type": "LT1054",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "LT1054",
+        "component_name": "Negative Rail Generator - -5V",
+        "reference_designator": "U6"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "Y1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "Y1",
+      "source_pin": "GND",
+      "target": "Y1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "U4",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "J1",
+      "source_pin": "GND",
+      "target": "J1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "U5",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "GND",
+      "target": "U6",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "J1",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "IN",
+      "signal": "RF_J1_U1",
+      "type": "rf"
+    },
+    {
+      "source": "U1",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "IN",
+      "signal": "RF_U1_U2",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "IN",
+      "signal": "IF_U2_U3",
+      "type": "if"
+    },
+    {
+      "source": "U3",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "IN",
+      "signal": "digital_U3_U4",
+      "type": "digital"
+    },
+    {
+      "source": "Y1",
+      "source_pin": "RF_OUT",
+      "target": "U2",
+      "target_pin": "LO",
+      "signal": "LO_Y1_U2",
+      "type": "clock"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true
+  }
+}

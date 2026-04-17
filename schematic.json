@@ -1,0 +1,508 @@
+{
+  "sheets": [
+    {
+      "id": "sheet1",
+      "title": "Schematic (auto-generated)",
+      "components": [
+        {
+          "ref": "U1",
+          "type": "ic",
+          "value": "HMC698LP4",
+          "part_number": "HMC698LP4",
+          "x": 4,
+          "y": 6,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "IN",
+              "num": "3",
+              "side": "right"
+            },
+            {
+              "name": "OUT",
+              "num": "4",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "U2",
+          "type": "ic",
+          "value": "HMC1048LP4E",
+          "part_number": "HMC1048LP4E",
+          "x": 12,
+          "y": 6,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "IN",
+              "num": "3",
+              "side": "right"
+            },
+            {
+              "name": "OUT",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "LO",
+              "num": "5",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "Y1",
+          "type": "ic",
+          "value": "ADF5355",
+          "part_number": "ADF5355",
+          "x": 20,
+          "y": 6,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT",
+              "num": "3",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "U3",
+          "type": "ic",
+          "value": "ADC12DJ3200",
+          "part_number": "ADC12DJ3200",
+          "x": 4,
+          "y": 14,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "IN",
+              "num": "3",
+              "side": "right"
+            },
+            {
+              "name": "OUT",
+              "num": "4",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "U4",
+          "type": "ic",
+          "value": "XCZU3EG-SFVA784",
+          "part_number": "XCZU3EG-SFVA784",
+          "x": 12,
+          "y": 14,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            },
+            {
+              "name": "IN",
+              "num": "3",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "J1",
+          "type": "ic",
+          "value": "149-0901-801",
+          "part_number": "149-0901-801",
+          "x": 20,
+          "y": 14,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "GND",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "OUT",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "U5",
+          "type": "ic",
+          "value": "LTM4644",
+          "part_number": "LTM4644",
+          "x": 4,
+          "y": 22,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "OUT",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "U6",
+          "type": "ic",
+          "value": "LT1054",
+          "part_number": "LT1054",
+          "x": 12,
+          "y": 22,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "VCC",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "right"
+            }
+          ]
+        },
+        {
+          "ref": "GND1",
+          "type": "ground",
+          "value": "GND",
+          "x": 15,
+          "y": 18,
+          "rot": 0
+        },
+        {
+          "ref": "PWR1",
+          "type": "vcc",
+          "value": "VCC",
+          "x": 4,
+          "y": 1,
+          "rot": 0
+        }
+      ],
+      "nets": [
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U1",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U2",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "OUT"
+            },
+            {
+              "ref": "Y1",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U3",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U4",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U6",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U1",
+              "pin": "GND"
+            },
+            {
+              "ref": "U1",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "GND"
+            },
+            {
+              "ref": "U2",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "GND"
+            },
+            {
+              "ref": "Y1",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "GND"
+            },
+            {
+              "ref": "U3",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "GND"
+            },
+            {
+              "ref": "U4",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "J1",
+              "pin": "GND"
+            },
+            {
+              "ref": "J1",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "GND"
+            },
+            {
+              "ref": "U5",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U6",
+              "pin": "GND"
+            },
+            {
+              "ref": "U6",
+              "pin": "GND"
+            }
+          ]
+        },
+        {
+          "name": "RF_J1_U1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "J1",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U1",
+              "pin": "IN"
+            }
+          ]
+        },
+        {
+          "name": "RF_U1_U2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U1",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U2",
+              "pin": "IN"
+            }
+          ]
+        },
+        {
+          "name": "IF_U2_U3",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U3",
+              "pin": "IN"
+            }
+          ]
+        },
+        {
+          "name": "digital_U3_U4",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U4",
+              "pin": "IN"
+            }
+          ]
+        },
+        {
+          "name": "LO_Y1_U2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT"
+            },
+            {
+              "ref": "U2",
+              "pin": "LO"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auto_synthesized": true
+}
