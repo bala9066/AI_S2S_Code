@@ -1,6 +1,6 @@
 {
-  "total_nodes": 8,
-  "total_edges": 19,
+  "total_nodes": 10,
+  "total_edges": 25,
   "isolated_nodes": [],
   "cycles": [
     [
@@ -10,13 +10,13 @@
       "U2"
     ],
     [
-      "Y1"
-    ],
-    [
       "U3"
     ],
     [
       "U4"
+    ],
+    [
+      "U5"
     ]
   ],
   "is_connected": true

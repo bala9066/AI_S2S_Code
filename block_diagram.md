@@ -3,18 +3,35 @@
 
 ```mermaid
 flowchart TD
-    RF_IN[RF Input 5-18 GHz] -->|2.4mm connector| LNA[LNA / VGA]
-    LNA -->|40-60 dB gain| BPF[Bandpass Filter]
-    BPF -->|Image rejection| MIXER[Mixer Downconverter]
-    MIXER -->|IF output| IF_AMP[IF Amplifier]
-    IF_AMP -->|Gain stage| IF_FILTER[IF Filter]
-    IF_FILTER -->|Anti-alias| ADC[ADC I/Q]
-    ADC -->|Digital data| FPGA[FPGA / DSP]
-    FPGA -->|I/Q data out| OUTPUT[Digital Output Interface]
-    LO[LO Synthesizer] -->|Clock| MIXER
-    LO -->|Sample clock| ADC
-    PSU[Power Supply Unit] -->|DC rails| LNA
-    PSU -->|DC rails| MIXER
-    PSU -->|DC rails| ADC
-    PSU -->|DC rails| FPGA
+    RF_IN[RF Input SMA 50Ω]
+    LIM[RF Limiter]
+    LNA[Wideband LNA]
+    VGA[Variable Gain Amp]
+    MIX[Mixer Downconverter]
+    LO[LO Synthesizer]
+    IF_AMP[IF Amplifier]
+    AF[Anti Alias Filter]
+    ADC[IQ ADC]
+    FPGA[Digital Signal Proc]
+    CTRL[MCU Controller]
+    PWR[Power Supply]
+    IQ_OUT[IQ Data Output]
+    
+    RF_IN -->|RF 5-18GHz| LIM
+    LIM -->|Protected RF| LNA
+    LNA -->|Amplified RF| VGA
+    VGA -->|Gain Controlled RF| MIX
+    LO -->|LO Signal| MIX
+    MIX -->|IF I/Q| IF_AMP
+    IF_AMP -->|Filtered IF| AF
+    AF -->|Analog I/Q| ADC
+    ADC -->|Digital I/Q| FPGA
+    FPGA --> IQ_OUT
+    CTRL -->|SPI Control| VGA
+    CTRL -->|SPI Control| LO
+    CTRL -->|SPI Control| ADC
+    PWR -->|+12V| LNA
+    PWR -->|+12V| MIX
+    PWR -->|+12V| ADC
+    PWR -->|+12V| CTRL
 ```

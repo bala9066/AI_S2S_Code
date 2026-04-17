@@ -14,7 +14,7 @@
    <!-- Header label -->
    <item>
     <widget class="QLabel" name="headerLabel">
-     <property name="text"><string>receiver &mdash; Live Dashboard</string></property>
+     <property name="text"><string>receiver &amp;mdash; Live Dashboard</string></property>
      <property name="styleSheet">
       <string>color:#00c6a7; font-size:15px; font-weight:bold;</string>
      </property>

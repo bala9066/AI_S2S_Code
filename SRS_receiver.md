@@ -3,170 +3,163 @@
 ## Document Control
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
-| 1.0 | 17 April 2026 | Senior Architect | Initial Release for Wideband RF Receiver Project |
+| 1.0 | 17 April 2026 | System Architect | Initial Release |
 
 ---
 
 # 1. Introduction
 
 ## 1.1 Purpose
-This Software Requirements Specification (SRS) document defines the system and software requirements for the firmware embedded within the **Wideband RF Receiver (Project: Receiver)**. This firmware executes on the **XCZU3EG-SFVA784** Zynq UltraScale+ MPSoC.
+This Software Requirements Specification (SRS) defines the comprehensive software requirements for the **receiver** project firmware. This firmware executes on the embedded STM32F407VGT6 Microcontroller Unit (MCU) and the Xilinx Zynq UltraScale+ FPGA (XCZU15EG).
 
 The purpose of this document is to:
-1.  Specify the software behavior required to control the RF signal chain (LNA, Mixer, LO).
-2.  Define the communication protocol for host interaction via UART.
-3.  Detail the data acquisition requirements from the ADC12DJ3200.
-4.  Establish a baseline for software validation and traceability to the Hardware Requirements Specification (HRS) and Glue Logic Requirements (GLR).
+*   Specify the functional behavior of the firmware controlling the RF Front End (LNA, VGA, Mixer).
+*   Define the communication protocols between the MCU, FPGA, and external Host PC.
+*   Establish performance constraints for data processing (JESD204B) and control loops (AGC, AFC).
+*   Serve as the baseline for software design, implementation, and verification (V&V).
 
 ## 1.2 Scope
-The software scope encompasses the bare-metal/RTOS firmware running on the ARM Cortex-R5 cores within the Zynq MPSoC.
-**Inclusions:**
-*   Drivers for SPI peripherals (HMC698LP4 VGA, ADF5355 Synthesizer).
-*   Drivers for I2C peripherals (LTM4644 Power Supply).
-*   UART command parser and register access handler.
-*   JESD204B/DDR interface initialization and data buffering logic.
-*   System monitoring (Temperature, Voltage).
-**Exclusions:**
-*   Host PC application software.
-*   High-level signal processing algorithms (demodulation, DSP) executed on the host or external FPGA fabric IP.
+This specification covers the embedded software stack known as **Receiver Firmware v1.0**.
+*   **MCU Firmware:** Manages power-up sequencing, SPI control of RFICs (ADF5356, HMC698LP4), non-volatile memory (EEPROM) access, and UART-to-Host communication.
+*   **Firmware Scope:** Includes the Hardware Abstraction Layer (HAL), device drivers, and control logic. It explicitly excludes the high-level GUI running on the Host PC and the RTL logic for the JESD204B IP core (licensed IP).
+*   **Interfaces:** The software interfaces with the RF hardware via SPI and GPIO, and with the outside world via UART and Ethernet (indirectly via FPGA).
 
 ## 1.3 Definitions, Acronyms, and Abbreviations
 
 | Term | Definition |
 | :--- | :--- |
-| **ADC** | Analog-to-Digital Converter (TI ADC12DJ3200). |
-| **AGC** | Automatic Gain Control. |
+| **ADC** | Analog-to-Digital Converter (AD9208). |
+| **AFC** | Automatic Frequency Control. Algorithm to tune the LO for optimal reception. |
+| **AGC** | Automatic Gain Control. Algorithm to maintain optimal signal level into the ADC. |
 | **API** | Application Programming Interface. |
-| **ASIL** | Automotive Safety Integrity Level. |
-| **BIST** | Built-In Self-Test. |
 | **BOM** | Bill of Materials. |
-| **BRAM** | Block RAM (FPGA on-chip memory). |
-| **BSP** | Board Support Package. |
+| **BRAM** | Block RAM (FPGA internal memory). |
 | **CPLD** | Complex Programmable Logic Device. |
-| **CPU** | Central Processing Unit. |
+| **CRC** | Cyclic Redundancy Check. |
+| **CW** | Continuous Wave. |
 | **DAC** | Digital-to-Analog Converter. |
-| **DDR** | Double Data Rate (SDRAM interface). |
+| **DCD** | Data Carrier Detect. |
 | **DMA** | Direct Memory Access. |
 | **EMC** | Electromagnetic Compatibility. |
-| **ESD** | Electrostatic Discharge. |
-| **FCC** | Federal Communications Commission. |
-| **FIFO** | First-In-First-Out data buffer. |
-| **FIR** | Finite Impulse Response (Filter type). |
+| **FFT** | Fast Fourier Transform. |
+| **FIFO** | First In, First Out buffer. |
 | **FPGA** | Field-Programmable Gate Array. |
 | **FSM** | Finite State Machine. |
-| **GBE** | Gigabit Ethernet. |
-| **GLR** | Glue Logic Requirements (Input document P6). |
+| **GLR** | Glue Logic Requirements. |
 | **GPIO** | General Purpose Input/Output. |
 | **HAL** | Hardware Abstraction Layer. |
-| **HRS** | Hardware Requirements Specification (Input document P2). |
-| **I2C** | Inter-Integrated Circuit (Serial Interface). |
-| **IC** | Integrated Circuit. |
+| **HRS** | Hardware Requirements Specification. |
+| **I2C** | Inter-Integrated Circuit (Serial bus). |
 | **IF** | Intermediate Frequency. |
 | **IIP3** | Input Third-order Intercept Point. |
-| **IP** | Intellectual Property (Core). |
+| **IRQ** | Interrupt Request. |
 | **ISR** | Interrupt Service Routine. |
-| **JTAG** | Joint Test Action Group (Debug interface). |
-| **JESD** | JEDEC Standard for Serial Data Converter Interface. |
-| **LED** | Light Emitting Diode. |
-| **LNA** | Low Noise Amplifier. |
+| **JESD** | JESD204B High-speed data interface standard. |
 | **LO** | Local Oscillator. |
-| **LUT** | Look-Up Table. |
-| **LVTTL** | Low Voltage Transistor-Transistor Logic. |
-| **LVDS** | Low Voltage Differential Signaling. |
-| **MAC** | Media Access Control. |
-| **MCU** | Microcontroller Unit. |
-| **MIMO** | Multiple Input Multiple Output. |
-| **MISRA** | Motor Industry Software Reliability Association (C Coding Standard). |
-| **MSPS** | Mega Samples Per Second. |
+| **LNA** | Low Noise Amplifier. |
+| **LVDS** | Low-Voltage Differential Signaling. |
+| **MCU** | Microcontroller Unit (STM32F407). |
+| **MHz** | Megahertz. |
+| **MIPS** | Million Instructions Per Second. |
+| **MISO** | Master In Slave Out (SPI line). |
+| **MOSI** | Master Out Slave In (SPI line). |
 | **NF** | Noise Figure. |
-| **NVM** | Non-Volatile Memory (Flash/EEPROM). |
+| **NVM** | Non-Volatile Memory. |
 | **PCB** | Printed Circuit Board. |
 | **PLL** | Phase-Locked Loop. |
-| **POST** | Power-On Self-Test. |
-| **PS** | Processing System (ARM in Zynq). |
-| **QFN** | Quad Flat No-leads package. |
-| **RAM** | Random Access Memory. |
-| **RF** | Radio Frequency. |
-| **ROM** | Read-Only Memory. |
-| **RTOS** | Real-Time Operating System. |
-| **RX** | Receiver. |
-| **SNR** | Signal-to-Noise Ratio. |
+| **POST** | Power-On Self Test. |
+| **PS** | Processing System (ARM core in Zynq). |
+| **RTL** | Register Transfer Logic. |
+| **RX** | Receive. |
+| **SMA** | SubMiniature version A (RF connector). |
 | **SPI** | Serial Peripheral Interface. |
-| **SRAM** | Static Random Access Memory. |
 | **SRS** | Software Requirements Specification. |
-| **StRS** | Stakeholder Requirements Specification. |
 | **SyRS** | System Requirements Specification. |
-| **TRP** | Transmit/Receive Pulse. |
 | **UART** | Universal Asynchronous Receiver-Transmitter. |
-| **VCO** | Voltage-Controlled Oscillator. |
-| **VGA** | Variable Gain Amplifier. |
+| **VGA** | Variable Gain Amplifier (HMC698LP4). |
+| **WDT** | Watchdog Timer. |
 
 ## 1.4 References
-1.  IEEE Std 830-1998: Recommended Practice for Software Requirements Specifications.
-2.  ISO/IEC/IEEE 29148:2018: Systems and software engineering — Life cycle processes — Requirements engineering.
-3.  **HRS-REV-001**: Hardware Requirements Specification for Project: Receiver (2023-10-27).
-4.  **GLR-0V01**: Glue Logic Requirements for Project: Receiver (17.04.2026).
-5.  MISRA-C:2012: Guidelines for the use of the C language in critical systems.
-6.  **XCZU3EG Datasheet**: Zynq UltraScale+ MPSoC Data Sheet (DS925).
-7.  **ADC12DJ3200 Datasheet**: 12-Bit, 3.2 GSPS, Dual ADC (Texas Instruments).
-8.  **ADF5355 Datasheet**: Wideband Synthesizer with Integrated VCO (Analog Devices).
-9.  **HMC698LP4 Datasheet**: GaAs MMIC PHEMT Wideband Variable Gain Amplifier (Analog Devices).
-10. **LTM4644 Datasheet**: Quad 4A DC-DC Converter (Analog Devices).
+1.  **IEEE 830-1998:** Recommended Practice for Software Requirements Specifications.
+2.  **ISO/IEC/IEEE 29148:2018:** Systems and Software Engineering — Life Cycle Processes — Requirements Engineering.
+3.  **STMicroelectronics:** **STM32F407VGT6 Datasheet** (DocID13587).
+4.  **Analog Devices:** **ADF5356 Datasheet** (Wideband Synthesizer with Integrated VCO).
+5.  **Analog Devices:** **AD9208 Datasheet** (Dual, 14-Bit, 1 GSPS ADC).
+6.  **Hittite/Qorvo:** **HMC698LP4 Datasheet** (Digital VGA).
+7.  **Xilinx:** **UG1085** (Zynq UltraScale+ MPSoC Register Reference).
+8.  **Project:** **Hardware Requirements Specification (HRS)** (P2).
+9.  **Project:** **Glue Logic Requirements (GLR)** (P6).
+10. **MISRA C:2012:** Guidelines for the Use of the C Language in Critical Systems.
 
 ## 1.5 Overview
 The remainder of this document is organized as follows:
-*   **Section 2 (Overall Description):** Describes the system context, product functions, user characteristics, and constraints.
-*   **Section 3 (Specific Requirements):** Contains the detailed software requirements, including external interfaces and 75+ functional requirements (REQ-SW-xxx).
-*   **Section 4 (Verification and Validation):** Defines the testing strategy for unit, integration, and system levels.
-*   **Section 5 (Requirements Traceability Matrix):** Maps software requirements to hardware sources.
-*   **Appendices:** Contains error codes, register maps, and architectural diagrams.
+*   **Section 2 (Overall Description):** Describes the product perspective, context, and high-level functions.
+*   **Section 3 (Specific Requirements):** Details the external interfaces, functional requirements (REQ-SW-xxx), performance constraints, and design constraints.
+*   **Section 4 (Verification):** Defines the V&V strategy.
+*   **Section 5 (Traceability):** Maps software requirements to hardware sources.
+*   **Appendices:** Contains register maps, protocol definitions, and diagrams.
 
 ---
 
 # 2. Overall Description
 
 ## 2.1 Product Perspective
-The Receiver Firmware is an embedded real-time system operating on the Processing System (PS) of the Xilinx Zynq UltraScale+ FPGA. It acts as the bridge between a host control computer (via UART) and the high-speed analog/digital subsystem.
 
-**System Context:**
+### System Context Diagram
 ```mermaid
 graph TD
-    Host[Host PC/Controller] -->|UART Commands| FW[Receiver Firmware]
-    FW -->|SPI Config| RF_IC1[HMC698LP4 VGA]
-    FW -->|SPI Config| RF_IC2[ADF5355 LO]
-    FW -->|I2C Monitor| PWR[LTM4644 PMIC]
-    FW -->|CTRL Signals| ADC[ADC12DJ3200]
-    ADC -->|JESD204B/LVDS| FPGA_PL[PL Logic]
-    FPGA_PL -->|DMA| FW
-    FW -->|Status Bytes| Host
+    Host[Host PC / User] -- "UART/USB Cmds" --> MCU[STM32F407 MCU Firmware]
+    Host -- "Ethernet/IP" --> FPGA[Zynq UltraScale+ FPGA]
+    
+    subgraph "Receiver Hardware"
+        MCU -- "SPI Control" --> RFIC[RF Front End]
+        MCU -- "I2C Config" --> PMIC[Power Monitor / Temp]
+        MCU -- "SPI Config" --> LO[ADF5356 LO Synth]
+        MCU -- "GPIO/SPI" --> VGA[HMC698LP4 VGA]
+        
+        FPGA -- "JESD204B" --> ADC[AD9208 ADC]
+        FPGA -- "Clocks" --> LO
+        FPGA -- "Data Capture" --> ADC
+    end
+    
+    RFIC --> SMA[RFIN 5-18 GHz]
 ```
 
+### Software Stack
+1.  **Application Layer:** Command parsing, State Machine (IDLE, RX, CALIBRATE), Diagnostics.
+2.  **Middleware:** SPI Drivers, I2C Drivers, UART Protocol Handler, CRC Libraries.
+3.  **HAL:** STM32 HAL / LL Drivers.
+4.  **RTOS:** FreeRTOS (Priority-based scheduling).
+5.  **Hardware:** STM32F407, Peripherals (SPI, I2C, UART, Timers).
+
 ## 2.2 Product Functions
-The firmware performs the following major functions:
-1.  **System Initialization:** Configures clocks, PLLs, and peripheral GPIOs.
-2.  **Hardware Abstraction (HAL):** Provides low-level drivers for UART, SPI, I2C, and GPIO.
-3.  **RF Control:** Sets LO frequency (ADF5355) and Gain (HMC698LP4) based on host commands.
-4.  **Power Management:** Monitors voltage/current via I2C and manages power sequencing.
-5.  **Data Acquisition:** Manages the ADC interface and data buffer readiness.
-6.  **Host Communication:** Implements the UART Register Protocol (Read/Write).
-7.  **Fault Management:** Watchdog servicing, temperature monitoring, and error logging.
+1.  **System Initialization:** Power-up sequencing, FPGA configuration loading, peripheral bring-up.
+2.  **Frequency Tuning:** Programming the ADF5356 PLL via SPI.
+3.  **Gain Control:** Setting the HMC698LP4 VGA attenuation via SPI.
+4.  **Data Capture:** Coordinating with FPGA to receive I/Q samples via JESD204B (conceptual control).
+5.  **Temperature Monitoring:** Reading on-board sensors via I2C.
+6.  **Power Monitoring:** Reading voltage/current via LT2991 via I2C.
+7.  **Fault Management:** Watchdog handling, Over-temperature shutdown.
+8.  **Communication:** UART Packet parsing (Read/Write Registers).
+9.  **Calibration:** Storing/Retrieving calibration tables from EEPROM.
+10. **LED Indication:** Status updates (Power, Lock, Error).
 
 ## 2.3 User Characteristics
-*   **Firmware Engineers:** Develop and maintain the code using the SRS and HAL documentation.
-*   **Test Engineers:** Validate performance using RF test equipment and the UART interface.
-*   **System Integrators:** Integrate the receiver module into larger radar or comms systems.
+*   **Firmware Engineers:** Develop, debug, and maintain the code using IAR/GCC.
+*   **Test Engineers:** Use UART commands and Python scripts to automate RF testing.
+*   **Integrators:** Install the receiver into a larger system, requiring knowledge of the UART protocol.
 
 ## 2.4 Constraints
-*   **Standards Compliance:** Code must comply with MISRA-C:2012.
-*   **Environment:** Industrial temperature range (-40°C to +85°C).
-*   **Performance:** RF configuration must complete within 1ms (REQ-HW-012).
-*   **Resources:** 256KB On-Chip Memory (OCM), 1GB DDR4 available. Code footprint must fit in allocated Flash.
-*   **Toolchain:** Xilinx Vitis/Vivado 2023.2 or later.
+1.  **MISRA-C:2012:** All C code shall comply with MISRA-C:2012 standards.
+2.  **Real-Time:** SPI transactions must complete within 1ms to avoid timing violations with the AGC loop.
+3.  **Memory:** MCU Flash usage < 80%; RAM usage < 60% (Available 192KB SRAM).
+4.  **Power:** The MCU supports low-power modes but system latency requirements dictate Run mode usage.
+5.  **Environment:** Operates in 0°C to +50°C ambient.
 
 ## 2.5 Assumptions and Dependencies
-*   The Hardware assumes the +12V rail is stable and within ±5% tolerance before software starts.
-*   The FPGA bitstream is loaded prior to software execution (or by FSBL).
-*   The UART Host operates at 115200 baud, 8N1.
+1.  **Clock Stability:** The 125 MHz oscillator is stable within 50ppm.
+2.  **FPGA Ready:** The FPGA asserts the `FPGA_DONE` signal before the MCU attempts JESD204B link setup.
+3.  **Power Rails:** The +12V input is regulated to +5V/+6V by the LTM4644 before the MCU exits reset.
 
 ---
 
@@ -176,553 +169,290 @@ The firmware performs the following major functions:
 
 ### 3.1.1 Hardware Interfaces
 
-#### 3.1.1.1 UART Interface (Host Command)
-The primary control interface uses UART.
-```c
-typedef struct {
-    volatile uint32_t CTRL;     // 0xFF00: Control Register
-    volatile uint32_t STATUS;   // 0xFF04: Status Register
-    volatile uint32_t TX_FIFO;  // 0xFF08: TX FIFO
-    volatile uint32_t RX_FIFO;  // 0xFF0C: RX FIFO
-    volatile uint32_t BAUD_GEN; // 0xFF10: Baud Rate Generator
-} UART_RegMap_t;
+#### 3.1.1.1 SPI Interface (RF Control)
+The MCU acts as the SPI Master. The RFICs (ADF5356, HMC698LP4) act as Slaves.
+**Parameters:**
+*   **Clock (SCK):** Max 10 MHz.
+*   **Mode:** Mode 0 (CPOL=0, CPHA=0).
+*   **Frame Size:** 8-bit / 32-bit configurable.
+*   **CS Management:** GPIO controlled (Chip Select per device).
 
-// API
-int32_t UART_Init(uint32_t baud_rate);
-int32_t UART_ReadByte(uint8_t *data);
-int32_t UART_WriteByte(uint8_t data);
+**Driver API:**
+```c
+/**
+ * @brief Initializes the SPI peripheral for RF control.
+ * @param hspi Pointer to SPI handle
+ * @retval 0 on success, -1 on failure
+ */
+int32_t RF_SPI_Init(SPI_HandleTypeDef *hspi);
+
+/**
+ * @brief Writes a register to the ADF5356 Synthesizer.
+ * @param reg_addr The 6-bit register address (0-63).
+ * @param data The 32-bit data payload.
+ * @return 0 if ACK received/valid, -1 on timeout.
+ */
+int32_t ADF5356_WriteReg(uint8_t reg_addr, uint32_t data);
+
+/**
+ * @brief Sets the gain of the HMC698LP4 VGA.
+ * @param gain_db Desired gain in dB (Range: -11.75 to +19.25).
+ * @return 0 on success, -1 if parameter out of range.
+ */
+int32_t VGA_SetGain(float gain_db);
 ```
 
-#### 3.1.1.2 SPI Interface (RF Control)
-SPI Master interface for ADF5355 and HMC698LP4.
+#### 3.1.1.2 I2C Interface (Sensors/EEPROM)
+**Parameters:**
+*   **Clock:** 100 kHz (Standard) / 400 kHz (Fast).
+*   **Addressing:** 7-bit addressing.
+*   **Devices:** CAT24C256 (EEPROM), NCT75 (Temp), LT2991 (Power).
+
+**Driver API:**
 ```c
-typedef struct {
-    volatile uint32_t CTRL;     // Control: CPOL, CPHA, LSB/MSB
-    volatile uint32_t STATUS;   // TX/RX Empty flags
-    volatile uint32_t TX_DATA;  // 32-bit write
-    volatile uint32_t RX_DATA;  // 32-bit read
-    volatile uint32_t SS;       // Slave Select mask
-} SPI_RegMap_t;
+/**
+ * @brief Reads temperature from NCT75 sensor.
+ * @param temp_c Pointer to store temperature in Celsius.
+ * @return 0 on success, error code on failure.
+ */
+int32_t Sensor_ReadTemp(float *temp_c);
 
-// API
-int32_t RF_Init(void);
-int32_t RF_SetLO_Frequency(uint64_t freq_hz);
-int32_t RF_SetGain(int8_t gain_db);
-```
-
-#### 3.1.1.3 I2C Interface (Power Monitor)
-I2C Master for LTM4644 PMBus commands.
-```c
-typedef struct {
-    volatile uint32_t CTRL;     // Enable, 7/10 bit addr
-    volatile uint32_t STATUS;   // ACK, Bus Busy
-    volatile uint32_t DATA;     // Byte to write
-    volatile uint32_t CMD;      // Command/Address
-} I2C_RegMap_t;
-
-// API
-int32_t PWR_ReadVoltage(uint8_t rail_idx, float *volts);
-int32_t PWR_ReadCurrent(uint8_t rail_idx, float *amps);
+/**
+ * @brief Writes calibration data to EEPROM.
+ * @param addr Memory offset (0-32767).
+ * @param data Pointer to data buffer.
+ * @param len Length of data.
+ * @return 0 on success, -1 on write failure.
+ */
+int32_t NVM_WriteCalib(uint16_t addr, uint8_t *data, uint16_t len);
 ```
 
 ### 3.1.2 Software Interfaces
-*   **Xilinx Standalone BSP:** Provides drivers for UART, SPI, I2C, GIC (Interrupt Controller).
-*   **Xilinx SCUFW:** System Controller Unit Firmware for MIO configuration.
+
+#### 3.1.2.1 FPGA Control Interface (Memory Mapped)
+The MCU accesses FPGA registers via a parallel bus or SPI-to-Bridge (implemented as SPI in this spec for simplicity, consistent with GLR).
+**Register Map Definition:**
+```c
+typedef struct {
+    volatile uint32_t CTRL;      // 0x00: Global Control
+    volatile uint32_t STATUS;    // 0x04: Status Flags
+    volatile uint32_t ADC_CFG;   // 0x08: ADC Test Patterns
+    volatile uint32_t FFT_ADDR;  // 0x0C: FFT Output Pointer
+    volatile uint32_t GPIO_DIR;  // 0x10: GPIO Direction
+    volatile uint32_t GPIO_DATA; // 0x14: GPIO Data
+} FPGA_RegMap_t;
+```
 
 ### 3.1.3 Communication Interfaces
-**UART Protocol Frame Formats:**
+
+**UART Frame Format (Host <-> MCU)**
+All communication is Big-Endian (MSB first).
 
 | Command | CMD byte | Frame Structure | Response |
 |---------|----------|-----------------|----------|
-| Single Write | 0x57 ('W') | [0x57][ADDR_H][ADDR_L][DATA_H][DATA_L] | [0x06] ACK |
-| Single Read  | 0x52 ('R') | [0x52][ADDR_H\|0x80][ADDR_L] | [DATA_H][DATA_L] |
-| Bulk Write   | 0x42 ('B') | [0x42][ADDR_H][ADDR_L][N][D0_H][D0_L]... | [0x06] ACK |
-| Bulk Read    | 0x62 ('b') | [0x62][ADDR_H\|0x80][ADDR_L][N] | [D0_H][D0_L]... |
-| Error NAK    | 0x15 | Sent by receiver on invalid command/address | — |
+| Single Write | 0x57 ('W') | `[0x57][ADDR_H][ADDR_L][DATA_H][DATA_L]` | `[0x06] ACK` |
+| Single Read  | 0x52 ('R') | `[0x52][ADDR_H\|0x80][ADDR_L]` | `[DATA_H][DATA_L]` |
+| Bulk Write   | 0x42 ('B') | `[0x42][ADDR_H][ADDR_L][N][D0_H][D0_L]...[Dn_H][Dn_L]` | `[0x06] ACK` |
+| Bulk Read    | 0x62 ('b') | `[0x62][ADDR_H\|0x80][ADDR_L][N]` | `[D0_H][D0_L]...[Dn_H][Dn_L]` |
+| Error NAK    | 0x15 | Sent by Firmware on invalid command/address | — |
 
-*   **Address Map:** 16-bit (0x0000–0xFFFF). Read addresses have bit15 set.
-*   **Limits:** Max bulk count N = 64 registers.
-*   **Timing:** Inter-byte timeout = 50ms.
-
----
+*   **Addressing:** 16-bit Address space.
+*   **Bulk Count N:** Max 64 registers.
+*   **Timeout:** Host must wait < 10ms for response; Firmware resets parser after 50ms gap.
+*   **Delimiters:** None (Binary Protocol).
 
 ## 3.2 Functional Requirements
 
-### 3.2.1 System Initialization (REQ-SW-001 to REQ-SW-010)
-**REQ-SW-001:** The software SHALL perform a Power-On Self-Test (POST) within 500ms of reset de-assertion.
-*   **Source:** HRS §3.1
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-002:** The software SHALL verify the FPGA Board ID register matches the expected value `0xREC5` during POST.
-*   **Source:** GLR §6
-*   **Priority:** M
-*   **Verification:** I
-
-**REQ-SW-003:** The software SHALL configure the UART baud rate to 115200 bps, 8 data bits, no parity, 1 stop bit during initialization.
-*   **Source:** GLR §4
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-004:** The software SHALL initialize the SPI Master interfaces for the ADF5355 and HMC698LP4 with a clock frequency of 10 MHz max.
-*   **Source:** GLR §4.2
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-005:** The software SHALL enable the Watchdog Timer (WDT) with a 1-second timeout during the init sequence.
-*   **Source:** HRS §3.2
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-006:** The software SHALL initialize the I2C controller to 100 kHz standard speed to communicate with the LTM4644.
-*   **Source:** GLR §4.2
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-007:** The software SHALL read the temperature sensor value and log it to the internal status register on startup.
-*   **Source:** HRS §3.4
-*   **Priority:** M
-*   **Verification:** D
-
-**REQ-SW-008:** The software SHALL configure the MIO GPIO pins to drive the Status LED to a steady ON state upon successful init.
-*   **Source:** GLR §7
-*   **Priority:** D
-*   **Verification:** D
-
-**REQ-SW-009:** The software SHALL initialize the PLL to generate a 500 MHz system clock for the PL (Programmable Logic) side.
-*   **Source:** GLR §5
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-010:** The software SHALL clear all internal status registers and error flags before entering the main loop.
-*   **Source:** General Safety
-*   **Priority:** M
-*   **Verification:** I
-
-### 3.2.2 UART Communication Driver (REQ-SW-011 to REQ-SW-020)
-**REQ-SW-011:** The UART driver SHALL implement the Single Write command (0x57) as defined in 3.1.3.
-*   **Source:** GLR §8
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-012:** The UART driver SHALL implement the Single Read command (0x52) returning the contents of the requested address.
-*   **Source:** GLR §8
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-013:** The UART driver SHALL verify the Checksum/CRC of incoming packets (if enabled in config).
-*   **Source:** HRS §3.6
-*   **Priority:** O
-*   **Verification:** T
-
-**REQ-SW-014:** The UART driver SHALL respond to an invalid command byte with a NAK (0x15) within 100 microseconds.
-*   **Source:** GLR §8
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-015:** The UART driver SHALL support bulk write operations of up to 64 registers in a single transaction.
-*   **Source:** GLR §8
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-016:** The UART driver SHALL service the Receive FIFO interrupt every 10ms to prevent data overrun.
-*   **Source:** Latency Req
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-017:** The UART driver SHALL discard bytes received if the inter-byte gap exceeds 50ms.
-*   **Source:** GLR §8
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-018:** The software SHALL provide a register map location (0x0001) that returns the Firmware Version Number.
-*   **Source:** GLR §6
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-019:** The software SHALL provide a register map location (0x0002) that returns the Hardware Revision ID.
-*   **Source:** GLR §6
-*   **Priority:** M
-*   **Verification:** I
-
-**REQ-SW-020:** The UART driver SHALL mask write attempts to Read-Only (RO) registers without generating an error.
-*   **Source:** Robustness
-*   **Priority:** D
-*   **Verification:** T
-
-### 3.2.3 RF Control - SPI Drivers (REQ-SW-021 to REQ-SW-030)
-**REQ-SW-021:** The software SHALL calculate the ADF5355 register values for a given target frequency using the integer-N or fractional-N formula.
-*   **Source:** HRS §3.2 (REQ-HW-001)
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-022:** The software SHALL write the ADF5355 configuration registers via SPI within 1ms of receiving the frequency change command.
-*   **Source:** HRS §3.2 (REQ-HW-012)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-023:** The software SHALL poll the ADF5355 MUXOUT pin (via GPIO) to verify PLL lock (Digital Lock Detect = High) before asserting RF Ready status.
-*   **Source:** HRS §3.2 (REQ-HW-013)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-024:** The software SHALL control the HMC698LP4 gain by writing a 6-bit code to the SPI register corresponding to the desired dB attenuation.
-*   **Source:** HRS §3.2 (REQ-HW-003)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-025:** The software SHALL support a gain range of 0 to 16dB in 1dB steps for the HMC698LP4.
-*   **Source:** HMC698LP4 Datasheet
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-026:** The software SHALL map the Host "Gain Index" register (0x0010) directly to the HMC698LP4 SPI write.
-*   **Source:** GLR §6
-*   **Priority:** M
-*   **Verification:** I
-
-**REQ-SW-027:** The software SHALL assert the RF_Enable signal only after LO lock is confirmed.
-*   **Source:** Safety Constraint
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-028:** The software SHALL verify that the requested frequency is within the 5.0 GHz to 18.0 GHz range before programming the ADF5355.
-*   **Source:** HRS §3.2 (REQ-HW-001)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-029:** The software SHALL store the last 10 frequency/gain settings in non-volatile (NVM) backup.
-*   **Source:** Usability
-*   **Priority:** O
-*   **Verification:** D
-
-**REQ-SW-030:** The software SHALL update the "Current Frequency" register (0x0011) with the actual frequency value (in Hz) after successful lock.
-*   **Source:** GLR §6
-*   **Priority:** M
-*   **Verification:** T
-
-### 3.2.4 Power Management (REQ-SW-031 to REQ-SW-040)
-**REQ-SW-031:** The software SHALL read the output voltage of the +12V, +5V, +3.3V, and -5V rails via I2C every 500ms.
-*   **Source:** HRS §3.2
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-032:** The software SHALL trigger a "Power Fault" flag if any rail deviates by >5% from nominal.
-*   **Source:** HRS §3.2 (REQ-HW-009)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-033:** The software SHALL disable the RF Output drive via GPIO if a Power Fault is detected.
-*   **Source:** Safety Constraint
-*   **Priority:** M
-*   **Verification:** D
-
-**REQ-SW-034:** The software SHALL implement a delayed power-up sequence: +3.3V -> +1.0V FPGA Core -> +5V RF.
-*   **Source:** LTM4644 Datasheet
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-035:** The software SHALL report the total system current (sum of all rails) in register 0x0020.
-*   **Source:** GLR §6
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-036:** The software SHALL support an "Emergency Shutdown" command (UART 0xFF) that immediately gates all LTM4644 outputs.
-*   **Source:** Safety
-*   **Priority:** M
-*   **Verification:** D
-
-**REQ-SW-037:** The software SHALL log the timestamp of any power fault event to the internal fault log.
-*   **Source:** Diagnostics
-*   **Priority:** D
-*   **Verification:** I
-
-**REQ-SW-038:** The software SHALL utilize the PMBus PAGE command to address individual outputs of the LTM4644.
-*   **Source:** LTM4644 Datasheet
-*   **Priority:** M
-*   **Verification:** I
-
-**REQ-SW-039:** The software SHALL verify that the -5V rail is below -4.5V before enabling the Bias_Tee supply.
-*   **Source:** Hardware Constraint
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-040:** The software SHALL clear the Power Fault flag only if the reset condition is cleared and voltages are stable.
-*   **Source:** State Machine Logic
-*   **Priority:** M
-*   **Verification:** A
-
-### 3.2.5 ADC Interface (REQ-SW-041 to REQ-SW-050)
-**REQ-SW-041:** The software SHALL initialize the ADC12DJ3200 via SPI to DDR LVDS mode, 500 MSPS.
-*   **Source:** HRS §3.2 (REQ-HW-006)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-042:** The software SHALL configure the JESD204B Subclass to match the FPGA receiver IP core.
-*   **Source:** GLR §5
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-043:** The software SHALL monitor the ADC Sync~ signal status via GPIO.
-*   **Source:** ADC12DJ3200 Datasheet
-*   **Priority:** M
-*   **Verification:** I
-
-**REQ-SW-044:** The software SHALL not modify RF gain or frequency during an active ADC data capture burst.
-*   **Source:** Data Integrity
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-045:** The software SHALL expose a "Data Ready" bit in the Status Register indicating valid FIFO data.
-*   **Source:** GLR §6
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-046:** The software SHALL implement a test pattern generator check (ramp or 1A1B) for the ADC link during POST.
-*   **Source:** Diagnostics
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-047:** The software SHALL allow the host to override the decimation filter settings via register 0x0030.
-*   **Source:** Configurability
-*   **Priority:** O
-*   **Verification:** I
-
-**REQ-SW-048:** The software SHALL reset the ADC data FIFO on a link error (disparity error).
-*   **Source:** Robustness
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-049:** The software SHALL log the number of ADC overflow events in register 0x0031.
-*   **Source:** Diagnostics
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-050:** The software SHALL ensure the ADC clock is stable before enabling the JESD204B lane.
-*   **Source:** GLR §5
-*   **Priority:** M
-*   **Verification:** A
-
-### 3.2.6 Watchdog and Diagnostics (REQ-SW-051 to REQ-SW-060)
-**REQ-SW-051:** The software SHALL service the Watchdog Timer (kick the dog) every 500ms in the main loop.
-*   **Source:** Safety Requirement
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-052:** The software SHALL utilize a dedicated hardware timer for the WDT, not a software counter.
-*   **Source:** Safety Requirement
-*   **Priority:** M
-*   **Verification:** I
-
-**REQ-SW-053:** The software SHALL increment an "Uptime Counter" (seconds) in register 0x0040.
-*   **Source:** GLR §6
-*   **Priority:** D
-*   **Verification:** D
-
-**REQ-SW-054:** The software SHALL calculate a CRC-16 checksum of the internal firmware flash memory on boot.
-*   **Source:** Diagnostics
-*   **Priority:** D
-*   **Verification:** I
-
-**REQ-SW-055:** The software SHALL assert a "System Health" bit in the status register if POST fails.
-*   **Source:** Diagnostics
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-056:** The software SHALL implement a loopback mode where UART Rx is internally tied to UART Tx for testing.
-*   **Source:** Diagnostics
-*   **Priority:** D
-*   **Verification:** D
-
-**REQ-SW-057:** The software SHALL log the last 5 Watchdog Resets to NVM.
-*   **Source:** Reliability
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-058:** The software SHALL allow the Watchdog to be disabled via a One-Time Programmable (OTP) fuse for factory debug only.
-*   **Source:** Manufacturing
-*   **Priority:** O
-*   **Verification:** I
-
-**REQ-SW-059:** The software SHALL generate a heartbeat pulse on a GPIO LED every 1 second.
-*   **Source:** HRS §3.1
-*   **Priority:** D
-*   **Verification:** D
-
-**REQ-SW-060:** The software SHALL halt the CPU and trigger an interrupt if a Memory Protection Unit (MPU) fault occurs.
-*   **Source:** Safety
-*   **Priority:** M
-*   **Verification:** T
-
-### 3.2.7 Environmental Monitoring (REQ-SW-061 to REQ-SW-070)
-**REQ-SW-061:** The software SHALL read the on-board temperature sensor every 2 seconds.
-*   **Source:** HRS §3.4
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-062:** The software SHALL assert an "Overtemp Warning" if the temperature exceeds +80°C.
-*   **Source:** HRS §3.4
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-063:** The software SHALL shut down the RF chain and enter low-power state if temperature exceeds +85°C.
-*   **Source:** HRS §3.4 (REQ-HW-007)
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-064:** The software SHALL apply hysteresis to the temperature trip point (reset warning at 75°C).
-*   **Source:** Control Theory
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-065:** The software SHALL report the temperature in 0.5°C resolution via register 0x0050.
-*   **Source:** GLR §6
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-066:** The software SHALL monitor the FPGA core voltage (1.0V) for undervoltage using the Xilinx ADC.
-*   **Source:** Reliability
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-067:** The software SHALL reduce the RF Gain to minimum if the system is in Overtemp state.
-*   **Source:** Derating
-*   **Priority:** M
-*   **Verification:** A
-
-**REQ-SW-068:** The software SHALL expose a "Max Temperature" register (0x0051) logging the highest temp since boot.
-*   **Source:** Field Data
-*   **Priority:** O
-*   **Verification:** I
-
-**REQ-SW-069:** The software SHALL measure the internal VCCINT and VCCAUX rails via the SYSMON ADC.
-*   **Source:** Xilinx Requirement
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-070:** The software SHALL generate a critical alarm if VCCINT drops below 0.95V.
-*   **Source:** Stability
-*   **Priority:** M
-*   **Verification:** T
-
-### 3.2.8 Calibration and Configuration (REQ-SW-071 to REQ-SW-075)
-**REQ-SW-071:** The software SHALL store default calibration constants in the QSPI Flash memory.
-*   **Source:** Production
-*   **Priority:** D
-*   **Verification:** I
-
-**REQ-SW-072:** The software SHALL allow the host to write calibration data to the Flash via a specific UART command (0xC0).
-*   **Source:** Manufacturing
-*   **Priority:** O
-*   **Verification:** T
-
-**REQ-SW-073:** The software SHALL verify the Flash sector is erased before writing new calibration data.
-*   **Source:** Robustness
-*   **Priority:** M
-*   **Verification:** T
-
-**REQ-SW-074:** The software SHALL load calibration data into SRAM on power-up to flatten the gain response.
-*   **Source:** HRS §3.2 (REQ-HW-003)
-*   **Priority:** D
-*   **Verification:** T
-
-**REQ-SW-075:** The software SHALL provide a "Factory Reset" command (0xFE) that restores default EEPROM/Flash values.
-*   **Source:** Usability
-*   **Priority:** D
-*   **Verification:** D
+### 3.2.1 System Initialization (REQ-SW-001 to REQ-SW-015)
+
+| ID | Requirement Statement | Source | Priority | Verification |
+|----|-----------------------|--------|----------|---------------|
+| REQ-SW-001 | The software SHALL complete the Power-On Self-Test (POST) within 500ms of +12V power application. | HRS §2.2 | M | T |
+| REQ-SW-002 | The software SHALL verify the Board ID (read from EEPROM @ 0x0000) matches 0xA50A on startup; if mismatch, the system SHALL halt and assert ERROR_LED. | HRS §2 | M | T |
+| REQ-SW-003 | The software SHALL configure the ADF5356 LO frequency to 11.5 GHz (default) within 100ms of initialization completion. | HRS §3.1.3 | M | T |
+| REQ-SW-004 | The software SHALL poll the ADF5356 MUXOUT pin for "Digital Lock" and assert a "LOCKED" status flag in Register 0x0001 once acquired. | GLR §4 | M | T |
+| REQ-SW-005 | The software SHALL initialize the UART peripheral to 3,000,000 baud (8N1) on startup. | GLR §5 | M | I |
+| REQ-SW-006 | The software SHALL load Gain Calibration coefficients from EEPROM (offset 0x0100) into RAM. | HRS §3.1 | D | I |
+| REQ-SW-007 | The software SHALL configure the Watchdog Timer (WDT) to 1000ms and service it every 500ms in the main loop. | HRS §3.4 | M | T |
+| REQ-SW-008 | The software SHALL initialize the LT2991 power monitor IC to scan all 4 rails every second. | HRS §3.3 | M | T |
+| REQ-SW-009 | The software SHALL set the HMC698LP4 VGA gain to 0dB (mid-range) on startup. | HRS §3.1 | M | T |
+| REQ-SW-010 | The software SHALL configure the JESD204B subclass via the FPGA SPI bridge to Subclass 1 (SYSREF enabled). | GLR §5 | M | I |
+| REQ-SW-011 | The software SHALL enable the +5V and +6V DC-DC converters via GPIO enable pins in a specific sequence: +5V first, then +6V after 10ms delay. | HRS §2.3 | M | T |
+| REQ-SW-012 | The software SHALL read the FPGA temperature sensor (XADC) and ensure it is below 60°C before enabling the RF Front End. | HRS §3.3 | M | A |
+| REQ-SW-013 | The software SHALL initialize the I2C bus to 400kHz (Fast Mode) for sensor polling. | HRS §3.1 | D | I |
+| REQ-SW-014 | The software SHALL verify external reference clock (125 MHz) presence via the FPGA Status Register before attempting PLL lock. | GLR §5 | M | T |
+| REQ-SW-015 | The software SHALL log the firmware version string (v1.0.0) to the UART console upon successful boot. | HRS §1 | M | I |
+
+### 3.2.2 UART Communication Driver (REQ-SW-016 to REQ-SW-025)
+
+| ID | Requirement Statement | Source | Priority | Verification |
+|----|-----------------------|--------|----------|---------------|
+| REQ-SW-016 | The UART driver SHALL support the Single Write command (0x57) to write to any 16-bit register address defined in the memory map. | GLR §7 | M | T |
+| REQ-SW-017 | The UART driver SHALL support the Single Read command (0x52) and return the 16-bit contents of the requested register. | GLR §7 | M | T |
+| REQ-SW-018 | The UART driver SHALL support the Bulk Read command (0x62) to return up to 64 consecutive 16-bit words in one transaction. | GLR §7 | M | T |
+| REQ-SW-019 | The UART driver SHALL respond to an invalid command byte with a NAK (0x15) within 200 microseconds. | GLR §7 | M | T |
+| REQ-SW-020 | The UART driver SHALL verify the checksum (if enabled in config) of the incoming packet; if incorrect, it SHALL ignore the packet. | GLR §7 | D | T |
+| REQ-SW-021 | The software SHALL map Register Address 0x0010 to the Frequency Setting (MHz) of the LO. | GLR §7 | M | I |
+| REQ-SW-022 | The software SHALL map Register Address 0x0020 to the Gain Setting (dB) of the VGA. | GLR §7 | M | I |
+| REQ-SW-023 | The UART driver SHALL use a circular DMA buffer of 512 bytes for RX data to prevent overruns at 3Mbps. | HRS §3.3 | D | A |
+| REQ-SW-024 | The software SHALL echo the received ASCII characters in "Debug Mode" for terminal visibility. | GLR §7 | O | T |
+| REQ-SW-025 | The UART ISR SHALL clear the Overrun Error (ORE) flag automatically to prevent lockup. | GLR §7 | M | I |
+
+### 3.2.3 RF Control & Monitoring (REQ-SW-026 to REQ-SW-040)
+
+| ID | Requirement Statement | Source | Priority | Verification |
+|----|-----------------------|--------|----------|---------------|
+| REQ-SW-026 | The software SHALL calculate the ADF5356 INT, FRAC, and MOD registers based on a desired RF Input Frequency equation. | HRS §3.1.3 | M | A |
+| REQ-SW-027 | The software SHALL write the ADF5356 registers in the specific order required by the datasheet (Reg 0 -> Reg 1... -> Function Latch). | ADF5356 DS | M | I |
+| REQ-SW-028 | The software SHALL support frequency tuning steps of no greater than 1 MHz across the 5-18 GHz band. | HRS §3.1.3 | M | T |
+| REQ-SW-029 | The software SHALL implement a 32-bit integer accumulator for Fractional tuning to minimize phase noise. | ADF5356 DS | M | I |
+| REQ-SW-030 | The software SHALL read the HMC698LP4 temperature sensor via SPI every 10 seconds and log it to the internal status array. | HRS §3.3 | M | T |
+| REQ-SW-031 | The software SHALL calculate the VGA gain setting required to achieve a target ADC Full Scale Voltage (e.g., -1dBFS). | HRS §3.1 | D | A |
+| REQ-SW-032 | The software SHALL execute the AGC loop only when the ADC Over-range flag is NOT asserted. | HRS §3.1 | M | T |
+| REQ-SW-033 | The software SHALL provide a manual override mode where AGC is disabled and gain is set via UART command. | HRS §3.1 | O | T |
+| REQ-SW-034 | The software SHALL read the RSSI value from the detector (if present) and store it in Register 0x0030. | HRS §3.1 | D | T |
+| REQ-SW-035 | The software SHALL assert the RF_ENABLE pin only when the PLL is locked and the FPGA is ready. | HRS §3.1 | M | T |
+| REQ-SW-036 | The software SHALL implement a frequency sweep function that increments the LO by 10 MHz, waits for lock, and measures power. | HRS §3.1 | O | D |
+| REQ-SW-037 | The software SHALL update the Display (if local) or Status Register with current Frequency, Gain, and Temperature. | HRS §1 | M | D |
+| REQ-SW-038 | The software SHALL check the ADC JESD204B Link Status (FPGA Register) every 1 second. | GLR §5 | M | T |
+| REQ-SW-039 | The software SHALL clear the "PLL Lost Lock" interrupt flag only after re-initializing the PLL sequence. | GLR §4 | M | T |
+| REQ-SW-040 | The software SHALL limit the maximum RF Input time to 5 minutes if input power exceeds +30 dBm (based on flag from external limiter). | HRS §3.2.3 | M | T |
+
+### 3.2.4 Data Handling & FPGA Interface (REQ-SW-041 to REQ-SW-050)
+
+| ID | Requirement Statement | Source | Priority | Verification |
+|----|-----------------------|--------|----------|---------------|
+| REQ-SW-041 | The software SHALL configure the FPGA to output 16-bit I and 16-bit Q samples. | HRS §3.2.1 | M | I |
+| REQ-SW-042 | The software SHALL assert the FPGA_RESET signal for 10ms during system boot. | GLR §5 | M | T |
+| REQ-SW-043 | The software SHALL read the ADC Test Pattern count (via FPGA Register) to verify data integrity. | AD9208 DS | M | T |
+| REQ-SW-044 | The software SHALL implement a DMA transfer to capture I/Q samples from the FPGA FIFO into MCU memory for analysis. | HRS §3.2.1 | D | I |
+| REQ-SW-045 | The software SHALL check the K28.5 comma character alignment in the JESD204B lane status register. | GLR §5 | M | I |
+| REQ-SW-046 | The software SHALL be capable of stopping the DMA capture and closing the file gracefully upon a Stop Command. | HRS §3.2.1 | M | T |
+| REQ-SW-047 | The software SHALL not modify the FPGA JESD204B Lane Rate configuration while the link is active. | AD9208 DS | M | I |
+| REQ-SW-048 | The software SHALL map Register 0x0040 to the ADC Sample Rate Control (Divisor). | GLR §7 | M | T |
+| REQ-SW-049 | The software SHALL verify the FPGA Bitstream ID matches the expected PCB revision. | HRS §2 | M | T |
+| REQ-SW-050 | The software SHALL handle the FPGA "Buffer Full" interrupt by pausing data acquisition and setting an overflow flag. | GLR §5 | M | T |
+
+### 3.2.5 Power Management & Diagnostics (REQ-SW-051 to REQ-SW-065)
+
+| ID | Requirement Statement | Source | Priority | Verification |
+|----|-----------------------|--------|----------|---------------|
+| REQ-SW-051 | The software SHALL monitor the +12V input rail via the LT2991 and flag an undervoltage fault if < 10.8V. | HRS §3.3 | M | T |
+| REQ-SW-052 | The software SHALL monitor the +12V input rail and flag an overvoltage fault if > 13.2V. | HRS §3.3 | M | T |
+| REQ-SW-053 | The software SHALL read the die temperature of the STM32F407 via the internal sensor. | STM32 DS | M | T |
+| REQ-SW-054 | The software SHALL enter a "Throttle" mode (reduce max gain) if the PA temperature (read via I2C) exceeds +80°C. | HRS §3.3 | D | T |
+| REQ-SW-055 | The software SHALL maintain a fault log in EEPROM with a timestamp (seconds since boot) and error code. | HRS §3.4 | M | T |
+| REQ-SW-056 | The fault log SHALL be circular and overwrite the oldest entry once full (Max 50 entries). | HRS §3.4 | M | I |
+| REQ-SW-057 | The software SHALL assert the FAULT_GPIO pin high upon detection of any Critical Failure (Overtemp, Overvoltage, PLL Unlock). | GLR §5 | M | T |
+| REQ-SW-058 | The software SHALL disable the RF Output path immediately upon Critical Failure detection. | HRS §3.1 | M | T |
+| REQ-SW-059 | The software SHALL measure the current consumption of the +5V and +6V rails and report them in Registers 0x0051 and 0x0052. | HRS §3.3 | M | T |
+| REQ-SW-060 | The software SHALL perform a periodic memory checksum (CRC-16) of the firmware flash space every hour. | HRS §3.4 | D | A |
+| REQ-SW-061 | The software SHALL track the uptime in seconds and store it in a 32-bit register (wrapping at 2^32). | HRS §3.4 | M | I |
+| REQ-SW-062 | The software SHALL support a "Factory Reset" command that erases the EEPROM calibration sector. | HRS §3.1 | O | T |
+| REQ-SW-063 | The software SHALL blink the Status LED at 2Hz during normal operation and 10Hz during firmware update mode. | HRS §1 | M | D |
+| REQ-SW-064 | The software SHALL report the Serial Number (read from EEPROM @ 0x0010) in Register 0x0000. | HRS §2 | M | I |
+| REQ-SW-065 | The software SHALL log the last 10 UART commands received to assist in debugging. | HRS §3.4 | O | I |
+
+### 3.2.6 Calibration & Configuration (REQ-SW-066 to REQ-SW-075)
+
+| ID | Requirement Statement | Source | Priority | Verification |
+|----|-----------------------|--------|----------|---------------|
+| REQ-SW-066 | The software SHALL store the VGA Flatness Table (16 entries) in EEPROM to correct gain ripples. | HRS §3.2 | D | T |
+| REQ-SW-067 | The software SHALL apply the VGA Flatness correction whenever the frequency changes by more than 500 MHz. | HRS §3.2 | D | T |
+| REQ-SW-068 | The software SHALL allow the host to read/write the calibration table via Bulk Read/Write UART commands. | GLR §7 | M | T |
+| REQ-SW-069 | The software SHALL calculate a CRC-32 checksum of the calibration data on boot and validate it against a stored magic number. | HRS §3.4 | M | T |
+| REQ-SW-070 | The software SHALL load default hard-coded calibration values if EEPROM CRC is invalid. | HRS §3.4 | M | T |
+| REQ-SW-071 | The software SHALL support a "Calibration Mode" where the gain is manually stepped and values recorded. | HRS §3.1 | O | D |
+| REQ-SW-072 | The software SHALL store the I/Q Offset Correction values (DC bias) in EEPROM. | HRS §3.2 | D | T |
+| REQ-SW-073 | The software SHALL write the I/Q Offset Correction values to the FPGA digital down-converter upon initialization. | GLR §5 | M | T |
+| REQ-SW-074 | The software SHALL support saving the current configuration (Freq, Gain) as a "Boot Preset". | HRS §3.1 | O | T |
+| REQ-SW-075 | The software SHALL verify that all external I2C devices acknowledge their addresses during POST. | HRS §3.1 | M | T |
 
 ## 3.3 Performance Requirements
-**REQ-PERF-001:** The software SHALL respond to a UART Single Read command within 2ms.
-*   **Verification:** T
-
-**REQ-PERF-002:** The software SHALL complete the frequency tuning sequence (SPI Write + Lock Detect) within 5ms.
-*   **Source:** HRS §3.2 (REQ-HW-012)
-*   **Verification:** T
-
-**REQ-PERF-003:** The software SHALL not block the main loop for more than 100ms during any SPI transaction.
-*   **Verification:** A
-
-**REQ-PERF-004:** The software SHALL maintain a WDT servicing accuracy of ±10%.
-*   **Verification:** T
-
-**REQ-PERF-005:** The software SHALL boot and enter the Ready state within 1 second of power application.
-*   **Source:** HRS §3.2
-*   **Verification:** T
-
-**REQ-PERF-006:** The SPI clock frequency SHALL be set to 10 MHz (Safe operating freq for ADF5355).
-*   **Source:** Datasheet Constraints
-*   **Verification:** I
-
-**REQ-PERF-007:** The UART interrupt latency SHALL not exceed 50 microseconds.
-*   **Verification:** A
-
-**REQ-PERF-008:** The software SHALL consume no more than 50% of the ARM Cortex-R5 CPU capacity when idle.
-*   **Verification:** A
-
-**REQ-PERF-009:** The software SHALL update the ADC Data FIFO pointer every 1ms.
-*   **Verification:** A
-
-**REQ-PERF-010:** The software SHALL complete I2C Power Monitor transactions within 10ms total for all 4 rails.
-*   **Verification:** T
+| ID | Requirement Statement | Verification |
+|----|-----------------------|---------------|
+| REQ-PERF-001 | The frequency tuning speed (change LO from 5 GHz to 18 GHz) SHALL be ≤ 10 ms. | T |
+| REQ-PERF-002 | The AGC loop response time SHALL be ≤ 5 ms for a 10 dB step change in input power. | T |
+| REQ-PERF-003 | The UART command latency (Host-to-Action) SHALL be ≤ 2 ms for single register writes. | T |
+| REQ-PERF-004 | The SPI clock speed for ADC configuration SHALL be ≥ 10 MHz. | I |
+| REQ-PERF-005 | The Boot-to-Operational time SHALL be ≤ 2.0 seconds. | T |
+| REQ-PERF-006 | The Watchdog Timer SHALL reset the MCU if the main loop stalls for > 1000 ms. | T |
+| REQ-PERF-007 | The I2C transaction for reading temperature SHALL complete within 2 ms. | A |
+| REQ-PERF-008 | The firmware SHALL consume ≤ 5% of CPU utilization when idle (waiting for commands). | A |
+| REQ-PERF-009 | The context switch time of the RTOS SHALL be ≤ 10 microseconds. | A |
+| REQ-PERF-010 | The firmware SHALL support a continuous data capture duration of ≥ 60 minutes without data loss. | T |
 
 ## 3.4 Design Constraints
-*   **DC-001:** The code SHALL be written in C99 standard. (M)
-*   **DC-002:** Dynamic memory allocation (malloc/free) SHALL NOT be used. (M)
-*   **DC-003:** The code SHALL comply with MISRA-C:2012 mandatory rules. (M)
-*   **DC-004:** All ISRs SHALL be as short as possible (data only, no processing). (M)
-*   **DC-005:** Direct register access SHALL be used for critical GPIO toggling. (M)
-*   **DC-006:** Floating point operations SHALL be minimized in interrupt contexts. (D)
+1.  **MISRA-C:** All code shall adhere to MISRA-C:2012 mandatory rules.
+2.  **Compiler:** IAR EWARM or ARM GCC (GNU Tools for STM32).
+3.  **Static Analysis:** Code must pass PC-Lint Plus with zero errors.
+4.  **Float Usage:** Floating point operations shall be minimized in ISRs; Fixed-point math preferred for AGC.
+5.  **Dynamic Memory:** `malloc` and `free` are strictly prohibited.
+6.  **Interrupt Nesting:** Max interrupt nesting level is 2.
+7.  **Stack Size:** Main Stack Size configured to 4KB; Interrupt Stack to 2KB.
 
 ## 3.5 Software System Attributes
-### 3.5.1 Reliability
-MTBF target: 10,000 hours. Watchdog recovery mandatory. Automatic retry for SPI comms fails.
 
-### 3.5.2 Availability
-System uptime > 99.9%. Reboot time < 1s.
+### 3.5.1 Reliability
+*   **Availability:** 99.9% uptime (excluding maintenance).
+*   **MTBF:** > 10,000 hours.
+*   **Recovery:** Automatic Watchdog reset on deadlock.
+
+### 3.5.2 Maintainability
+*   **Modularity:** RF control, UART, and diagnostics shall be in separate C files.
+*   **Comments:** All functions shall have Doxygen headers.
 
 ### 3.5.3 Security
-UART commands do not implement authentication (Physical security required). Firmware update via JTAG only (no remote OTA).
+*   Write access to Calibration EEPROM shall be protected by a "Unlock Sequence" (Write 0xAA, 0x55 to specific registers).
+*   Firmware updates via UART (Bootloader) shall utilize a CRC-32 check before flashing.
 
-### 3.5.4 Maintainability
-Modular HAL design. Doxygen comments mandatory for all public APIs.
+### 3.5.4 Portability
+*   Hardware abstraction via `STM32F4xx_HAL_Driver`.
+*   Pin definitions in a separate `board_hw_def.h` file.
 
 ---
 
 # 4. Verification and Validation
 
 ## 4.1 Unit Test Requirements
-*   **UT-001:** Verify SPI Write/Read loopback with logic analyzer.
-*   **UT-002:** Verify I2C ACK/NACK handling for PMBus.
-*   **UT-003:** Verify CRC calculation for command packets.
+*   **ADF5356 Driver:** Mock SPI interface; verify correct register calculation for 5 test frequencies.
+*   **UART Parser:** Send sequences of valid and invalid frames; verify ACK/NAK responses.
+*   **CRC Module:** Test vectors from ISO 3309.
+*   **EEPROM Driver:** Write/Read verify across address boundaries.
 
 ## 4.2 Integration Test Requirements
-*   **IT-001:** Host PC sends Single Write to ADF5355 freq register; Measure LO output with Spectrum Analyzer.
-*   **IT-002:** Host PC sends Gain command; Measure Gain change with VNA.
-*   **IT-003:** Disconnect 12V Power; Verify fault flag and safe shutdown.
+*   **MCU <-> FPGA:** Verify register read/write latency.
+*   **MCU <-> RFIC:** Verify PLL lock at band edges (5 GHz, 18 GHz).
+*   **Full Chain:** Inject CW tone at 10 GHz, tune LO, verify ADC sees signal via SPI status.
 
 ## 4.3 System Test Requirements
-*   **ST-001:** 24-hour soak test at max temperature (+85°C).
-*   **ST-002:** Frequency sweep 5-18 GHz in 10 MHz steps; verify lock at every step.
-*   **ST-003:** UART Fuzzing (Invalid commands) to ensure robustness.
+*   **Thermal:** Operate at +50°C ambient for 24 hours (-soak test).
+*   **EMC:** Verify no emission violations during high-speed SPI bursts.
+*   **Endurance:** Cycle relays/gain settings 100,000 times.
 
 ---
 
 # 5. Requirements Traceability Matrix
 
-| REQ-SW-xxx | Description | Source (REQ-HW/GLR) | Priority | Verification |
-|-----------|-------------|---------------------|----------|-------------|
-| REQ-SW-001 | POST within 500ms | HRS §3.1 | M | T |
-| REQ-SW-002 | Board ID Check | GLR §6 | M | I |
-| REQ-SW-003 | UART Init 115200 | GLR §4 | M | T |
-| REQ-SW-011 | UART Single Write | GLR §8 | M | T |
-| REQ-SW-012 | UART Single Read | GLR §8 | M | T |
-| REQ-SW-021 | ADF5355 Calc Freq | HRS §3.2 | M | A |
-| REQ-SW-022 | Freq Set within 1ms | HRS §3.2 (REQ-HW-012) | M | T |
-| REQ-SW-024 | HMC698LP4 Gain Ctrl | HRS §3.2 (REQ-HW-003) | M | T |
-| REQ-SW-031 | Monitor Power Rails | HRS §3.2 | M | T |
-| REQ-SW-041 | ADC Init 500MSPS | HRS §3.2 (REQ-HW-006) | M | T |
-| REQ-SW-061 | Read Temp Sensor | HRS §3.4 | M | T |
-| REQ-SW-063 | Overtemp Shutdown | HRS §3.4 (REQ-HW-007) | M | T |
+| REQ-SW-xxx | Description | Traces To (REQ-HW-xxx / GLR Section) |
+|-----------|-------------|--------------------------------------|
+| REQ-SW-001 | POST < 500ms | HRS §2.2 |
+| REQ-SW-003 | LO Freq 11.5GHz Default | HRS §3.1.3 |
+| REQ-SW-004 | PLL Lock Detection | GLR §4 (ADF5356) |
+| REQ-SW-007 | WDT 1000ms | HRS §3.4 |
+| REQ-SW-009 | VGA 0dB Default | HRS §3.1 (Gain Control) |
+| REQ-SW-011 | Power Sequencing | HRS §2.3 (Power Supply) |
+| REQ-SW-016 | UART Single Write | GLR §7 (Protocol) |
+| REQ-SW-017 | UART Single Read | GLR §7 (Protocol) |
+| REQ-SW-019 | UART NAK Error | GLR §7 (Protocol) |
+| REQ-SW-026 | ADF5356 Calc | HRS §3.1.3 (LO Synth) |
+| REQ-SW-028 | Freq Step 1MHz | HRS §3.1.3 |
+| REQ-SW-031 | AGC Target | HRS §3.2.1 (Signal Proc) |
+| REQ-SW-040 | Input Power Limit | HRS §3.2.3 (Max Input) |
+| REQ-SW-041 | I/Q 16-bit | HRS §3.2.1 (ADC) |
+| REQ-SW-051 | Input UV Fault | HRS §3.3 (Power) |
+| REQ-SW-066 | Cal Table EEPROM | HRS §3.2 (Perf) |
+| ... | ... | ... |
 
 ---
 
@@ -731,78 +461,127 @@ Modular HAL design. Doxygen comments mandatory for all public APIs.
 ## Appendix A — Error Codes
 ```c
 typedef enum {
-    ERR_OK           = 0x00,
-    ERR_TIMEOUT      = 0x01,
-    ERR_SPI_COMM     = 0x02,
-    ERR_I2C_COMM     = 0x03,
-    ERR_CHECKSUM     = 0x04,
-    ERR_INVALID_ADDR = 0x05,
-    ERR_PLL_UNLOCK   = 0x06,
-    ERR_OVERTEMP     = 0x07,
-    ERR_POWER_FAULT  = 0x08,
-    ERR_ADC_LINK     = 0x09,
-    ERR_WATCHDOG     = 0x0A,
+    ERR_OK           = 0x00, // No Error
+    ERR_TIMEOUT      = 0x01, // SPI/UART Timeout
+    ERR_COMM         = 0x02, // CRC/Checksum Fail
+    ERR_CHECKSUM     = 0x03, // EEPROM Data Corrupt
+    ERR_PARAM        = 0x04, // Invalid Parameter
+    ERR_NOT_INIT     = 0x05, // Driver not initialized
+    ERR_RESOURCE     = 0x06, // Resource busy
+    ERR_HARDWARE     = 0x07, // HW Fault (OV, UV)
+    ERR_OVERFLOW     = 0x08, // FIFO Overflow
+    ERR_UNDERFLOW    = 0x09, // FIFO Underflow
+    ERR_FLASH_WRITE  = 0x0A, // Flash Write Fail
+    ERR_FLASH_ERASE  = 0x0B, // Flash Erase Fail
+    ERR_EEPROM       = 0x0C, // EEPROM Fail
+    ERR_PLL          = 0x0D, // PLL Unlock
+    ERR_TEMP_ALERT   = 0x0E, // Overtemp
+    ERR_VOLT_FAULT   = 0x0F, // Voltage Fault
+    ERR_LOOPBACK     = 0x10, // Internal Loopback Fail
+    ERR_POST_FAIL    = 0x11, // Boot Self-test Fail
+    ERR_WATCHDOG     = 0x12, // WDT Reset occurred
+    ERR_ADDR_RANGE   = 0x13, // Register address invalid
 } ErrorCode_t;
 ```
 
-## Appendix B — Register Map Summary (Memory Mapped)
-FPGA Base Address: `0x4000_0000`
-
-| Offset | Register Name | Access | Reset | Description |
-|--------|---------------|--------|-------|-------------|
-| 0x0000 | REG_FW_VER | R | 0x0100 | Firmware Version (1.0) |
-| 0x0001 | REG_HW_ID | R | 0xREC5 | Hardware ID |
-| 0x0002 | REG_STATUS | R | 0x00 | Status Flags (Bit 0: Lock, Bit 1: Fault) |
-| 0x0010 | REG_GAIN | R/W | 0x00 | VGA Gain Setting (0-16dB) |
-| 0x0011 | REG_FREQ_LO | R/W | 0x00 | LO Frequency (Hz) |
-| 0x0020 | REG_IOUT | R | - | Total Current (mA) |
-| 0x0040 | REG_UPTIME | R | 0x00 | Seconds since boot |
-| 0x0050 | REG_TEMP | R | - | Board Temp (0.5C res) |
-| 0x0100 | UART_CTRL | W | - | UART Control Register |
-| 0x0104 | UART_STATUS | R | - | UART Status |
+## Appendix B — Register Map Summary
+| Base Address | Block | Offset | Register Name | Width | R/W | Reset Value | Description |
+|-------------|-------|--------|--------------|-------|-----|-------------|-------------|
+| 0x0000 | SYS | 0x00 | BOARD_ID | 16 | R | 0xA50A | Board Identifier |
+| 0x0000 | SYS | 0x01 | FIRMWARE_VER | 16 | R | 0x0100 | Firmware v1.0 |
+| 0x0000 | SYS | 0x02 | STATUS | 16 | R | 0x0000 | Bitmask: PLL_Lock, Fault |
+| 0x0000 | SYS | 0x03 | COMMAND | 16 | W | 0x0000 | Cmd: Reset, Self-Test |
+| 0x0010 | RF | 0x10 | LO_FREQ_MHZ | 32 | W | 11500 | LO Frequency in MHz |
+| 0x0010 | RF | 0x14 | VGA_GAIN_DB | 16 | W | 0x0000 | VGA Gain (Signed int) |
+| 0x0020 | ADC | 0x20 | ADC_SAMPLE_RATE | 32 | W | 200000000 | ADC Sample Rate (Hz) |
+| 0x0020 | ADC | 0x24 | ADC_STATUS | 16 | R | - | Bitmask: JJOL, Overrange |
+| 0x0030 | SENS | 0x30 | TEMP_DEGC | 16 | R | - | Temperature (0.1°C units) |
+| 0x0030 | SENS | 0x31 | VIN_MV | 16 | R | - | Input Voltage mV |
 
 ## Appendix C — Mermaid Diagrams
 
-### UART Protocol Sequence
+### System Initialization Sequence
 ```mermaid
 sequenceDiagram
-    participant HOST
-    participant FW
-    participant SPI
-    participant RF
-    HOST->>FW: 0x57 (Write) Addr: 0x0011 Data: 6.0GHz
-    FW->>FW: Validate Address
-    FW->>FW: Calc ADF5355 Regs
-    FW->>SPI: Transaction
-    SPI->>RF: ADF5355 Write
-    RF-->>SPI: OK
-    FW-->>HOST: ACK (0x06)
-    FW->>FW: Poll Lock GPIO
-    RF-->>FW: Locked High
-    Note over FW: Update Status Reg
+    participant PWR as Power Supply
+    participant MCU as STM32 Firmware
+    participant FPGA as Zynq FPGA
+    participant RF as ADF5356 PLL
+    
+    PWR->>MCU: +12V Applied
+    MCU->>MCU: Internal Reset
+    MCU->>FPGA: Assert FPGA_Reset
+    MCU->>MCU: Init Peripherals (SPI, I2C)
+    MCU->>FPGA: De-assert FPGA_Reset
+    FPGA-->>MCU: FPGA_DONE Asserted
+    MCU->>RF: Write Default Freq (11.5 GHz)
+    RF-->>MCU: MUXOUT = Digital Lock
+    MCU->>MCU: Enable RF Path
+    MCU->>MCU: Enter Main Loop
 ```
 
-### Initialization State Machine
+### UART Protocol Interaction
+```mermaid
+sequenceDiagram
+    participant HOST as Host PC
+    participant FW as Firmware
+    participant HW as RF Hardware
+    
+    HOST->>FW: [0x57][0x00][0x14][0x00][0x0A] (Set Gain 10dB)
+    FW->>FW: Parse Packet
+    FW->>HW: SPI Write to VGA
+    HW-->>FW: SPI ACK
+    FW-->>HOST: [0x06] (ACK)
+    
+    Note over HOST,HW: 10ms Later
+    
+    HOST->>FW: [0x52][0x80][0x31] (Read Temp)
+    FW->>HW: I2C Read Temp Sensor
+    HW-->>FW: Temp Value (25.5 C)
+    FW-->>HOST: [0x00][0xFF] (255 = 25.5C)
+```
+
+### AGC State Machine
 ```mermaid
 stateDiagram-v2
-    [*] --> RESET
-    RESET --> INIT_PLL
-    INIT_PLL --> INIT_PERIPH
-    INIT_PERIPH --> POST
-    POST --> READY: Pass
-    POST --> FAULT: Fail
-    READY --> RUNNING
-    RUNNING --> FAULT: Error Detected
-    FAULT --> [*]
+    [*] --> IDLE: Power Up
+    IDLE --> TRACKING: RF Enable
+    TRACKING --> TRACKING: Measure ADC Level
+    TRACKING --> ADJUST_GAIN: Level > Threshold
+    ADJUST_GAIN --> TRACKING: Update VGA
+    TRACKING --> FAULT: Level > Max Critical
+    FAULT --> [*]: Shutdown
 ```
 
-### Main Loop Architecture
+### Software Module Architecture
 ```mermaid
 graph TD
-    START[Start] --> INIT[Hardware Init]
-    INIT --> LOOP{Main Loop}
-    LOOP --> CHECK_WDT[Check WDT]
-    CHECK_WDT --> UART_CMD[Handle UART Cmds]
-    UART_CMD --> UPDATE_STATUS[Update Status Flags]
-    UPDATE_STATUS --> LOOP
+    APP[Application Layer] --> DRV[Driver Layer]
+    APP --> HAL[Hardware Abstraction Layer]
+    DRV --> SPI[SPI Driver]
+    DRV --> UART[UART Driver]
+    DRV --> I2C[I2C Driver]
+    DRV --> NVM[EEPROM Driver]
+    HAL --> RTOS[FreeRTOS]
+    
+    SPI --> RFIC[ADF5356 / HMC698]
+    I2C --> SENS[NCT75 / LT2991]
+    UART --> HOST[Host PC]
 ```
+
+### Interrupt Priority Map
+```mermaid
+graph LR
+    A[ETH DMA] -->|Priority 5| Cpu[ARM Cortex M4]
+    B[UART RX] -->|Priority 6| Cpu
+    C[TIM AGC] -->|Priority 7| Cpu
+    D[GPIO Fault] -->|Priority 9| Cpu
+```
+
+## Appendix D — Acronyms and Glossary
+*See Section 1.3.*
+
+## Appendix E — Document Revision History
+| Rev | Date | Author | Description |
+|-----|------|--------|-------------|
+| 1.0 | 17 April 2026 | System Architect | Initial Release |

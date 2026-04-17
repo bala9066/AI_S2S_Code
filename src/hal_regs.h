@@ -14,8 +14,29 @@
  * 16-bit UART address: bit15=R/W#, bits[11:8]=BASE, bits[7:0]=OFFSET
  * ================================================================ */
 
+/** @brief  (access: RW, 32-bit) */
+#define REG_OR                             (0x8000U)
+
+/** @brief  (access: RW, 32-bit) */
+#define REG_ADDRESS                        (0x0010U)
+
+/** @brief  (access: RW, 32-bit) */
+#define REG_ADDRESS                        (0x0020U)
+
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X54                       (0x54U)
+#define REG_REG_0X1F                       (0x1fU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X48                       (0x48U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X50                       (0x50U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_0X55                           (0xaaU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0XA5                       (0xa5U)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X0000                     (0x0000U)
@@ -75,25 +96,28 @@
 #define REG_REG_0XA5A5                     (0xa5a5U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0XA5A5                     (0xa5a5U)
-
-/** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X01                       (0x01U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0001                     (0x0001U)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X02                       (0x02U)
 
 /** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X0001                     (0x0001U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X07D0                     (0x07d0U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X0040                     (0x0040U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X00000000                 (0x00000000U)
+
+/** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X03                       (0x03U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X04                       (0x04U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X05                       (0x05U)
+#define REG_REG_0X001F                     (0x001fU)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X57                       (0x57U)
@@ -102,79 +126,58 @@
 #define REG_REG_0X06                       (0x06U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X52                       (0x52U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X42                       (0x42U)
-
-/** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X15                       (0x15U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_CONTROL                        (0xff00U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_STATUS                         (0xff04U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_TX                             (0xff08U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_RX                             (0xff0cU)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_BAUD                           (0xff10U)
+#define REG_REG_0X52                       (0x52U)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X80                       (0x80U)
 
 /** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X42                       (0x42U)
+
+/** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X62                       (0x62U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0XFFFF                     (0xffffU)
+#define REG_STATUS                         (0x04U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0002                     (0x0002U)
+#define REG_ADC                            (0x08U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0010                     (0x0010U)
+#define REG_FFT                            (0x0cU)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0011                     (0x0011U)
+#define REG_GPIO                           (0x10U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0020                     (0x0020U)
+#define REG_GPIO                           (0x14U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0XFF                       (0xffU)
+#define REG_ON                             (0xa50aU)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X0030                     (0x0030U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0031                     (0x0031U)
+#define REG_AND                            (0x0051U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0040                     (0x0040U)
+#define REG_REG_0X0052                     (0x0052U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0050                     (0x0050U)
+#define REG_REG_0XAA                       (0xaaU)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0051                     (0x0051U)
+#define REG_TO                             (0x55U)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0XC0                       (0xc0U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_REG_0XFE                       (0xfeU)
+#define REG_REG_0X05                       (0x05U)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X07                       (0x07U)
-
-/** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X08                       (0x08U)
 
 /** @brief  (access: RW, 8-bit) */
 #define REG_REG_0X09                       (0x09U)
@@ -183,10 +186,49 @@
 #define REG_REG_0X0A                       (0x0aU)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG__0000                          (0x4000U)
+#define REG_REG_0X0B                       (0x0bU)
 
 /** @brief  (access: RW, 8-bit) */
-#define REG_REG_0X0104                     (0x0104U)
+#define REG_REG_0X0C                       (0x0cU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X0D                       (0x0dU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X0E                       (0x0eU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X0F                       (0x0fU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X11                       (0x11U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X12                       (0x12U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X13                       (0x13U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0XA50A                     (0xa50aU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X20                       (0x20U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X24                       (0x24U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X30                       (0x30U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X31                       (0x31U)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0X0A                       (0x0aU)
+
+/** @brief  (access: RW, 8-bit) */
+#define REG_REG_0XFF                       (0xffU)
 
 /* Common bit-field masks */
 #define BIT(n)          (1U << (n))

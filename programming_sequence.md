@@ -5,26 +5,26 @@
 
 | # | Phase | Register | Address | Value | Condition | Rationale |
 |---|-------|----------|---------|-------|-----------|-----------|
-| 1 | Power-On Reset & Self-Check | `SCRATCHPAD` | `0x0003` | `0x55AA` | Read back 0x55AA within 10ms | RAM integrity check - write known pattern and verify readback to confirm UART/mem interface functional |
-| 2 | Power-On Reset & Self-Check | `BOARD_ID` | `0x0000` | `READ` | Value == 0x5245 (expected 'RE') | Verify correct FPGA image loaded and hardware identification matches receiver board type |
-| 3 | Power-On Reset & Self-Check | `HEALTH_STATUS` | `0x030F` | `READ` | VOLT_OK=1, poll up to 100ms | Wait for all power supply rails to stabilize within tolerance before proceeding with initialization |
-| 4 | Power-On Reset & Self-Check | `SCRATCHPAD` | `0x0003` | `0x0000` | Read back 0x0000 | Clear test pattern and verify register resets correctly, completing basic self-check sequence |
-| 5 | PLL & Clock Init | `PLL_CTRL` | `0x0400` | `0x02` | Wait 1us after write | Assert PLL reset to ensure clean startup - set RESET=1, ENABLE=0 |
-| 6 | PLL & Clock Init | `PLL_N_DIV` | `0x0402` | `0x0032` | None | Configure N=50 divider for 500MHz VCO (10MHz reference x 50) |
-| 7 | PLL & Clock Init | `PLL_R_DIV` | `0x0403` | `0x0001` | None | Configure R=1 reference divider for direct 10MHz input |
-| 8 | PLL & Clock Init | `PLL_CTRL` | `0x0400` | `0x01` | Poll PLL_STATUS[0]=1 up to 50ms | Enable PLL and wait for LOCKED indication before using generated clocks |
-| 9 | PLL & Clock Init | `CLK_ENABLE` | `0x0410` | `0x3F` | None | Enable all clock outputs (ADC, DSP, IF, RF, AUX, REF) to power up receiver subsystems |
-| 10 | Communication Init | `UART_BAUD_DIV` | `0x0100` | `0x0068` | None | Configure UART for 115200 baud (100MHz / (16 * 104) = 115200 baud) |
-| 11 | Communication Init | `UART_CTRL` | `0x0101` | `0x03` | None | Enable UART with standard 8N1 frame format (ENABLE=1, FRAME_FORMAT=0x3) |
-| 12 | Peripheral Enable | `ADC_CTRL` | `0x0200` | `0x11` | None | Enable ADC auto-scan mode for continuous supply monitoring (CONTINUOUS=1, AUTO_SCAN_EN=1) |
-| 13 | Application Init | `TEMP_ALERT_HIGH` | `0x0308` | `0x0190` | None | Set over-temperature alert threshold to 100°C (400 * 0.25°C) for thermal protection |
-| 14 | Application Init | `TEMP_ALERT_LOW` | `0x0309` | `0xFF9C` | None | Set under-temperature alert threshold to -25°C (-100 * 0.25°C) for cold-start protection |
-| 15 | Application Init | `EEPROM_CTRL` | `0x0500` | `0x08` | Poll BUSY=0 | Write unlock sequence (UNLOCK=0x8) to enable EEPROM access for calibration data read |
-| 16 | Application Init | `RX_CTRL` | `0x0A00` | `0x0F` | Wait 5ms for LNA/Mixer startup | Enable receiver front-end (RX_ENABLE, LNA, MIXER) with medium gain mode for signal acquisition |
-| 17 | Application Init | `RX_GAIN` | `0x0A02` | `0x8080` | None | Set RF and IF gain to mid-scale (128) for initial signal detection |
-| 18 | Application Init | `RX_STATUS` | `0x0A01` | `READ` | Check AGC_LOCKED=1, FREQ_LOCKED=1 | Verify receiver has stabilized - AGC converged and frequency synthesizer locked before normal operation |
-| 19 | Configuration Load | `FLASH_CTRL` | `0x0600` | `0x01` | Poll READY=1 | Ensure flash interface is ready and read-enabled for configuration data access |
-| 20 | GPIO Init | `GPIO_DIR` | `0x0800` | `0x000F` | None | Configure GPIO[3:0] as outputs (LEDs, enable signals) and GPIO[15:4] as inputs |
+| 1 | Power-On Reset & Self-Check | `SCRATCHPAD` | `0x0003` | `0xA5A5` | Read back and verify value matches | RAM/health check: Write known pattern and read back to verify register interface integrity |
+| 2 | Power-On Reset & Self-Check | `BOARD_ID` | `0x0000` | `0x0000` | Verify return value equals 0x5245 ('RE') | Board identification: Confirm correct FPGA image is loaded for receiver board |
+| 3 | Power-On Reset & Self-Check | `HEALTH_STATUS` | `0x030F` | `0x0000` | Poll until VOLT_OK (bit1) = 1 and RF_POWER_OK (bit3) = 1 | Power supply stabilization: Wait for all DC-DC converter rails to be within tolerance before enabling RF circuitry |
+| 4 | Power-On Reset & Self-Check | `TEMP_LOCAL` | `0x0300` | `0x0000` | Read temperature, verify within -40°C to +85°C range | FPGA temperature check: Ensure die temperature is within operating range before proceeding |
+| 5 | PLL & Clock Init | `PLL_CTRL` | `0x0400` | `0x02` | Wait 1us for reset to complete | PLL reset: Assert reset bit to ensure PLL starts from known state |
+| 6 | PLL & Clock Init | `PLL_N_DIV` | `0x0402` | `0x0040` | None | Configure PLL N divider: Set to 64 for nominal LO frequency planning |
+| 7 | PLL & Clock Init | `PLL_R_DIV` | `0x0403` | `0x0001` | None | Configure PLL R divider: Set to 1 for reference clock division |
+| 8 | PLL & Clock Init | `PLL_CTRL` | `0x0400` | `0x01` | Poll PLL_STATUS (0x0401) bit0 (LOCKED) until =1 | Enable PLL and wait for lock: ADF5356 LO synthesizer must lock before RF operation |
+| 9 | PLL & Clock Init | `CLK_ENABLE` | `0x0410` | `0x83` | None | Enable clock distribution: ADC clock (bit0), LO interface clock (bit1), FPGA system clock (bit7) |
+| 10 | PLL & Clock Init | `LO_CTRL` | `0x0422` | `0x00` | Poll STATUS until LO output stable | Enable LO output: Unmute and enable LO synthesizer output (bit0=enable, bit7=unmute) |
+| 11 | Peripheral Enable | `RF_CTRL` | `0x0803` | `0x0F` | Wait 100us for amplifiers to stabilize | Enable RF front-end chain: LNA, VGA, Mixer, and IF Amplifier in signal path order |
+| 12 | Peripheral Enable | `ADC_IF_CTRL` | `0x0805` | `0x01` | Poll ADC_STATUS_IF (0x0806) bit0 (ADC_READY) until =1 | Enable AD9208 ADC: Power up and initialize dual-channel IQ ADC |
+| 13 | Communication Init | `UART_BAUD_DIV` | `0x0100` | `0x0034` | None | Configure UART baud rate: Set divisor for 115200 baud @ 50MHz system clock |
+| 14 | Communication Init | `UART_CTRL` | `0x0101` | `0x01` | None | Enable UART: Set enable bit for control interface communication |
+| 15 | Application Init | `TEMP_ALERT_HIGH` | `0x0308` | `0x0190` | None | Arm temperature alerts: Set over-temperature threshold to 100°C |
+| 16 | Application Init | `TEMP_ALERT_LOW` | `0x0309` | `0xFF9C` | None | Arm under-temperature alerts: Set threshold to -25°C for cold start detection |
+| 17 | Application Init | `IRQ_MASK` | `0x0900` | `0x87` | None | Configure interrupt masks: Enable PLL loss, temp alert, and ADC overflow interrupts |
+| 18 | Application Init | `VGA_GAIN` | `0x0804` | `0x7F` | None | Set initial VGA gain: Mid-scale gain code for nominal RF input level handling |
+| 19 | Application Init | `EEPROM_CTRL` | `0x0500` | `0x00` | Poll BUSY bit7 until =0 | Verify EEPROM ready: Ensure non-volatile storage is idle before calibration data access |
+| 20 | Application Init | `CALIB_CTRL` | `0x0A00` | `0x03` | Poll CALIB_STATUS (0x0A01) bit0 (CALIB_DONE) until =1 | Start auto-calibration: Trigger DC offset, gain, and IQ phase calibration sequence for receive path |
 
 ---
 
@@ -32,120 +32,120 @@
 
 ### Step 1 — Power-On Reset & Self-Check
 - **Register:** `SCRATCHPAD` at `0x0003`
-- **Write value:** `0x55AA`
-- **Wait/Poll:** Read back 0x55AA within 10ms
-- **Rationale:** RAM integrity check - write known pattern and verify readback to confirm UART/mem interface functional
+- **Write value:** `0xA5A5`
+- **Wait/Poll:** Read back and verify value matches
+- **Rationale:** RAM/health check: Write known pattern and read back to verify register interface integrity
 
 ### Step 2 — Power-On Reset & Self-Check
 - **Register:** `BOARD_ID` at `0x0000`
-- **Write value:** `READ`
-- **Wait/Poll:** Value == 0x5245 (expected 'RE')
-- **Rationale:** Verify correct FPGA image loaded and hardware identification matches receiver board type
+- **Write value:** `0x0000`
+- **Wait/Poll:** Verify return value equals 0x5245 ('RE')
+- **Rationale:** Board identification: Confirm correct FPGA image is loaded for receiver board
 
 ### Step 3 — Power-On Reset & Self-Check
 - **Register:** `HEALTH_STATUS` at `0x030F`
-- **Write value:** `READ`
-- **Wait/Poll:** VOLT_OK=1, poll up to 100ms
-- **Rationale:** Wait for all power supply rails to stabilize within tolerance before proceeding with initialization
+- **Write value:** `0x0000`
+- **Wait/Poll:** Poll until VOLT_OK (bit1) = 1 and RF_POWER_OK (bit3) = 1
+- **Rationale:** Power supply stabilization: Wait for all DC-DC converter rails to be within tolerance before enabling RF circuitry
 
 ### Step 4 — Power-On Reset & Self-Check
-- **Register:** `SCRATCHPAD` at `0x0003`
+- **Register:** `TEMP_LOCAL` at `0x0300`
 - **Write value:** `0x0000`
-- **Wait/Poll:** Read back 0x0000
-- **Rationale:** Clear test pattern and verify register resets correctly, completing basic self-check sequence
+- **Wait/Poll:** Read temperature, verify within -40°C to +85°C range
+- **Rationale:** FPGA temperature check: Ensure die temperature is within operating range before proceeding
 
 ### Step 5 — PLL & Clock Init
 - **Register:** `PLL_CTRL` at `0x0400`
 - **Write value:** `0x02`
-- **Wait/Poll:** Wait 1us after write
-- **Rationale:** Assert PLL reset to ensure clean startup - set RESET=1, ENABLE=0
+- **Wait/Poll:** Wait 1us for reset to complete
+- **Rationale:** PLL reset: Assert reset bit to ensure PLL starts from known state
 
 ### Step 6 — PLL & Clock Init
 - **Register:** `PLL_N_DIV` at `0x0402`
-- **Write value:** `0x0032`
+- **Write value:** `0x0040`
 - **Wait/Poll:** None
-- **Rationale:** Configure N=50 divider for 500MHz VCO (10MHz reference x 50)
+- **Rationale:** Configure PLL N divider: Set to 64 for nominal LO frequency planning
 
 ### Step 7 — PLL & Clock Init
 - **Register:** `PLL_R_DIV` at `0x0403`
 - **Write value:** `0x0001`
 - **Wait/Poll:** None
-- **Rationale:** Configure R=1 reference divider for direct 10MHz input
+- **Rationale:** Configure PLL R divider: Set to 1 for reference clock division
 
 ### Step 8 — PLL & Clock Init
 - **Register:** `PLL_CTRL` at `0x0400`
 - **Write value:** `0x01`
-- **Wait/Poll:** Poll PLL_STATUS[0]=1 up to 50ms
-- **Rationale:** Enable PLL and wait for LOCKED indication before using generated clocks
+- **Wait/Poll:** Poll PLL_STATUS (0x0401) bit0 (LOCKED) until =1
+- **Rationale:** Enable PLL and wait for lock: ADF5356 LO synthesizer must lock before RF operation
 
 ### Step 9 — PLL & Clock Init
 - **Register:** `CLK_ENABLE` at `0x0410`
-- **Write value:** `0x3F`
+- **Write value:** `0x83`
 - **Wait/Poll:** None
-- **Rationale:** Enable all clock outputs (ADC, DSP, IF, RF, AUX, REF) to power up receiver subsystems
+- **Rationale:** Enable clock distribution: ADC clock (bit0), LO interface clock (bit1), FPGA system clock (bit7)
 
-### Step 10 — Communication Init
-- **Register:** `UART_BAUD_DIV` at `0x0100`
-- **Write value:** `0x0068`
-- **Wait/Poll:** None
-- **Rationale:** Configure UART for 115200 baud (100MHz / (16 * 104) = 115200 baud)
+### Step 10 — PLL & Clock Init
+- **Register:** `LO_CTRL` at `0x0422`
+- **Write value:** `0x00`
+- **Wait/Poll:** Poll STATUS until LO output stable
+- **Rationale:** Enable LO output: Unmute and enable LO synthesizer output (bit0=enable, bit7=unmute)
 
-### Step 11 — Communication Init
-- **Register:** `UART_CTRL` at `0x0101`
-- **Write value:** `0x03`
-- **Wait/Poll:** None
-- **Rationale:** Enable UART with standard 8N1 frame format (ENABLE=1, FRAME_FORMAT=0x3)
+### Step 11 — Peripheral Enable
+- **Register:** `RF_CTRL` at `0x0803`
+- **Write value:** `0x0F`
+- **Wait/Poll:** Wait 100us for amplifiers to stabilize
+- **Rationale:** Enable RF front-end chain: LNA, VGA, Mixer, and IF Amplifier in signal path order
 
 ### Step 12 — Peripheral Enable
-- **Register:** `ADC_CTRL` at `0x0200`
-- **Write value:** `0x11`
-- **Wait/Poll:** None
-- **Rationale:** Enable ADC auto-scan mode for continuous supply monitoring (CONTINUOUS=1, AUTO_SCAN_EN=1)
+- **Register:** `ADC_IF_CTRL` at `0x0805`
+- **Write value:** `0x01`
+- **Wait/Poll:** Poll ADC_STATUS_IF (0x0806) bit0 (ADC_READY) until =1
+- **Rationale:** Enable AD9208 ADC: Power up and initialize dual-channel IQ ADC
 
-### Step 13 — Application Init
+### Step 13 — Communication Init
+- **Register:** `UART_BAUD_DIV` at `0x0100`
+- **Write value:** `0x0034`
+- **Wait/Poll:** None
+- **Rationale:** Configure UART baud rate: Set divisor for 115200 baud @ 50MHz system clock
+
+### Step 14 — Communication Init
+- **Register:** `UART_CTRL` at `0x0101`
+- **Write value:** `0x01`
+- **Wait/Poll:** None
+- **Rationale:** Enable UART: Set enable bit for control interface communication
+
+### Step 15 — Application Init
 - **Register:** `TEMP_ALERT_HIGH` at `0x0308`
 - **Write value:** `0x0190`
 - **Wait/Poll:** None
-- **Rationale:** Set over-temperature alert threshold to 100°C (400 * 0.25°C) for thermal protection
+- **Rationale:** Arm temperature alerts: Set over-temperature threshold to 100°C
 
-### Step 14 — Application Init
+### Step 16 — Application Init
 - **Register:** `TEMP_ALERT_LOW` at `0x0309`
 - **Write value:** `0xFF9C`
 - **Wait/Poll:** None
-- **Rationale:** Set under-temperature alert threshold to -25°C (-100 * 0.25°C) for cold-start protection
-
-### Step 15 — Application Init
-- **Register:** `EEPROM_CTRL` at `0x0500`
-- **Write value:** `0x08`
-- **Wait/Poll:** Poll BUSY=0
-- **Rationale:** Write unlock sequence (UNLOCK=0x8) to enable EEPROM access for calibration data read
-
-### Step 16 — Application Init
-- **Register:** `RX_CTRL` at `0x0A00`
-- **Write value:** `0x0F`
-- **Wait/Poll:** Wait 5ms for LNA/Mixer startup
-- **Rationale:** Enable receiver front-end (RX_ENABLE, LNA, MIXER) with medium gain mode for signal acquisition
+- **Rationale:** Arm under-temperature alerts: Set threshold to -25°C for cold start detection
 
 ### Step 17 — Application Init
-- **Register:** `RX_GAIN` at `0x0A02`
-- **Write value:** `0x8080`
+- **Register:** `IRQ_MASK` at `0x0900`
+- **Write value:** `0x87`
 - **Wait/Poll:** None
-- **Rationale:** Set RF and IF gain to mid-scale (128) for initial signal detection
+- **Rationale:** Configure interrupt masks: Enable PLL loss, temp alert, and ADC overflow interrupts
 
 ### Step 18 — Application Init
-- **Register:** `RX_STATUS` at `0x0A01`
-- **Write value:** `READ`
-- **Wait/Poll:** Check AGC_LOCKED=1, FREQ_LOCKED=1
-- **Rationale:** Verify receiver has stabilized - AGC converged and frequency synthesizer locked before normal operation
-
-### Step 19 — Configuration Load
-- **Register:** `FLASH_CTRL` at `0x0600`
-- **Write value:** `0x01`
-- **Wait/Poll:** Poll READY=1
-- **Rationale:** Ensure flash interface is ready and read-enabled for configuration data access
-
-### Step 20 — GPIO Init
-- **Register:** `GPIO_DIR` at `0x0800`
-- **Write value:** `0x000F`
+- **Register:** `VGA_GAIN` at `0x0804`
+- **Write value:** `0x7F`
 - **Wait/Poll:** None
-- **Rationale:** Configure GPIO[3:0] as outputs (LEDs, enable signals) and GPIO[15:4] as inputs
+- **Rationale:** Set initial VGA gain: Mid-scale gain code for nominal RF input level handling
+
+### Step 19 — Application Init
+- **Register:** `EEPROM_CTRL` at `0x0500`
+- **Write value:** `0x00`
+- **Wait/Poll:** Poll BUSY bit7 until =0
+- **Rationale:** Verify EEPROM ready: Ensure non-volatile storage is idle before calibration data access
+
+### Step 20 — Application Init
+- **Register:** `CALIB_CTRL` at `0x0A00`
+- **Write value:** `0x03`
+- **Wait/Poll:** Poll CALIB_STATUS (0x0A01) bit0 (CALIB_DONE) until =1
+- **Rationale:** Start auto-calibration: Trigger DC offset, gain, and IQ phase calibration sequence for receive path

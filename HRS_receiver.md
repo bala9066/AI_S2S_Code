@@ -1,497 +1,640 @@
 **Document Status: AI-GENERATED**
 
-# Hardware Requirements Specification (HRS)
-
-## Project: Receiver
-**Document ID:** HRS-REV-001
-**Date:** 2023-10-27
-
----
-
 # 1. Introduction
 
 ## 1.1 Purpose
-This Hardware Requirements Specification (HRS) defines the comprehensive requirements for the design, development, and verification of the **Wideband RF Receiver (Project: Receiver)**.
+This Hardware Requirements Specification (HRS) defines the comprehensive set of hardware requirements for the **receiver** project, a wideband RF receiver system covering the 5-18 GHz frequency range.
 
 The purpose of this document is to:
-1.  Establish a baseline for the electrical, mechanical, and environmental performance of the receiver hardware.
-2.  Detail the interfaces between the RF subsystem, digital processing subsystem, and power distribution units.
-3.  Serve as the single source of truth for hardware validation, ensuring all functional and performance requirements (REQ-HW-xxx) are met prior to integration.
-4.  Facilitate traceability between high-level system parameters and specific component selection (e.g., Analog Devices HMC698LP4, Texas Instruments ADC12DJ3200).
+*   Establish a detailed baseline for the hardware design, ensuring all functional, performance, and interface requirements are captured.
+*   Specify the electrical, mechanical, and environmental characteristics necessary to achieve the system goals.
+*   Provide a binding reference for hardware engineering, PCB layout, procurement, and verification testing teams.
+*   Facilitate traceability between high-level system requirements and specific electronic component selections (e.g., HMC1061LP4E, TGA4506-SM, ADF5356).
 
-This document is intended for hardware engineers, PCB designers, test engineers, and system integrators involved in the lifecycle of the receiver unit.
+This document is prepared in conformance with IEEE 29148:2018 standard for systems and software engineeringRequirements and specifications.
 
 ## 1.2 Scope
-The scope of this specification covers the physical and electrical realization of a 5-18 GHz wideband RF receiver designed for industrial/desktop environments.
+This specification covers the complete hardware implementation of the **receiver** system, including:
+*   **RF Front-End:** The chain from the SMA input connector through the limiter, Low Noise Amplifier (LNA), and Variable Gain Amplifier (VGA).
+*   **Frequency Conversion:** The downconversion stage utilizing the IQ mixer and Local Oscillator (LO) synthesizer.
+*   **Signal Processing:** The Intermediate Frequency (IF) amplification, anti-aliasing filtering, and Analog-to-Digital Conversion (ADC).
+*   **Digital Control:** The microcontroller unit (MCU), SPI communication interfaces, and clock management.
+*   **Power Supply:** Power distribution, regulation (DC-DC conversion), and protection circuits.
+*   **Mechanical:** The enclosure design, thermal management, and connector interfacing.
 
-### Inclusions
-*   **RF Front End:** Wideband Low Noise Amplifier (LNA), Variable Gain Amplifier (VGA), and bandpass filtering covering 5.0 GHz to 18.0 GHz.
-*   **Downconversion Stage:** I/Q Demodulator for direct conversion to baseband in-phase and quadrature signals.
-*   **Frequency Synthesis:** Local Oscillator (LO) generation capable of tuning across the 5-18 GHz band with specified phase noise performance.
-*   **Digitization:** Dual-channel Analog-to-Digital Converters (ADC) capable of sampling I/Q data at a minimum rate of 500 MSPS with 12-bit resolution.
-*   **Digital Logic:** FPGA interface for data buffering, gain control (SPI), and clock distribution.
-*   **Power Supply:** DC-DC conversion and regulation to derive +12V, +5V, +3.3V, and -5V rails from an external source.
-*   **Mechanical:** Enclosure design, PCB stack-up definitions, and thermal management for a desktop form factor.
+The scope is limited to the physical hardware and firmware embedded within the hardware controller (e.g., MCU register configuration). It does not cover high-level application layer software running on an external host PC or system integration beyond the defined chassis interfaces.
 
-### Exclusions
-*   Signal processing algorithms implemented in software (firmware) on the FPGA, other than the hardware definition of the interface pins.
-*   External host system software (APIs/Drivers) required to process the digital I/Q output.
-*   The external AC/DC power brick (assumed to be a standard COTS 12V DC supply).
+### 1.2.1 Target Performance
+The receiver is designed to achieve a system Noise Figure (NF) of 3-5 dB, a maximum input power handling of +30 dBm, and a tunable gain range of 40-70 dB, operating within a portable benchtop form factor (≤ 200 mm x 150 mm x 50 mm).
 
 ## 1.3 Definitions, Acronyms, and Abbreviations
 
 | Term | Definition |
 | :--- | :--- |
-| **ADC** | Analog-to-Digital Converter. A device that converts a continuous physical quantity (voltage) to a digital number representing the quantity's amplitude. |
-| **BGA** | Ball Grid Array. A type of surface-mount packaging used for integrated circuits (specifically the FPGA and ADC). |
-| **CPLD** | Complex Programmable Logic Device. Used for lower-complexity glue logic (if required). |
-| **EMI** | Electromagnetic Interference. Disturbance generated by an external source that affects an electrical circuit by electromagnetic induction, electrostatic coupling, or conduction. |
-| **ESD** | Electrostatic Discharge. The sudden flow of electricity between two electrically charged objects caused by contact. |
-| **FCC** | Federal Communications Commission. Regulatory body for emission standards. |
-| **FPGA** | Field-Programmable Gate Array. An integrated circuit designed to be configured by a customer or a designer after manufacturing. |
-| **IIP3** | Input Third-order Intercept Point. A metric for linearity, defined as the input power level at which the power of the third-order intermodulation products equals the power of the fundamental tone. |
-| **LO** | Local Oscillator. An oscillator used to generate a signal that is mixed with the input of a receiver to convert the radio frequency to an intermediate frequency or baseband. |
-| **LNA** | Low Noise Amplifier. An electronic amplifier used to amplify very weak signals received by an antenna while adding minimal noise. |
-| **MSPS** | Mega Samples Per Second. A unit of sampling rate. |
-| **NF** | Noise Figure. A measure of degradation of the signal-to-noise ratio (SNR), caused by components in a signal chain. |
-| **OIP3** | Output Third-order Intercept Point. The output power level where the third-order intermodulation products equal the fundamental output. |
+| **ADC** | Analog-to-Digital Converter. A device that converts a continuous physical signal (analog) to a digital number representing the magnitude of the signal. |
+| **AFC** | Automatic Frequency Control. A method to automatically correct tuning errors. |
+| **AGC** | Automatic Gain Control. A closed-loop system regulating gain. |
+| **BOM** | Bill of Materials. A formal list of all mechanical, electrical, and software parts. |
+| **CW** | Continuous Wave. An uninterrupted sinusoidal wave. |
+| **DAC** | Digital-to-Analog Converter. |
+| **DC** | Direct Current. The unidirectional flow of electric charge. |
+| **EMC** | Electromagnetic Compatibility. The ability of equipment to function satisfactorily in its electromagnetic environment without introducing intolerable electromagnetic disturbances. |
+| **ESD** | Electrostatic Discharge. The sudden flow of electricity between two electrically charged objects. |
+| **FCC** | Federal Communications Commission. U.S. regulatory body for RF emissions. |
+| **FPGA** | Field-Programmable Gate Array. |
+| **GHz** | Gigahertz (10⁹ Hz). |
+| **GPIO** | General Purpose Input/Output. |
+| **IIP3** | Input Third-order Intercept Point. A metric for linearity. |
+| **LO** | Local Oscillator. An oscillator used to convert a signal's frequency. |
+| **LNA** | Low Noise Amplifier. An electronic amplifier that amplifies a very low-power signal without significantly degrading its signal-to-noise ratio. |
+| **LVDS** | Low-Voltage Differential Signaling. |
+| **MCU** | Microcontroller Unit. A small computer on a single metal-oxide-semiconductor integrated circuit chip. |
+| **MHz** | Megahertz (10⁶ Hz). |
+| **NF** | Noise Figure. A measure of degradation of the signal-to-noise ratio. |
+| **OIP3** | Output Third-order Intercept Point. |
 | **PCB** | Printed Circuit Board. |
-| **P1dB** | 1 dB Compression Point. The point at which the input signal causes the gain of the system to decrease by 1 dB from the linear gain. |
 | **PLL** | Phase-Locked Loop. A control system that generates an output signal whose phase is related to the phase of an input reference signal. |
-| **QFN** | Quad Flat No-leads package. A surface-mount integrated circuit package with no leads (pins) extending from the package. |
-|**RF** | Radio Frequency. |
-| **RoHS** | Restriction of Hazardous Substances. (Directive 2011/65/EU). |
-| **RX** | Receiver. |
-| **SNR** | Signal-to-Noise Ratio. A measure used in science and engineering that compares the level of a desired signal to the level of background noise. |
-| **SPI** | Serial Peripheral Interface. A synchronous serial communication interface specification used for short-distance communication. |
+| **RF** | Radio Frequency. |
+| **RoHS** | Restriction of Hazardous Substances. |
+| **SPI** | Serial Peripheral Interface. A synchronous serial communication interface specification. |
 | **VCO** | Voltage-Controlled Oscillator. An oscillator whose oscillation frequency is controlled by a voltage input. |
-| **VGA** | Variable Gain Amplifier. An electronic amplifier that has its gain controlled by an external voltage or digital signal. |
-| **VSWR** | Voltage Standing Wave Ratio. A measure of how efficiently RF power is transmitted from a power source, through a transmission line, into a load. |
+| **VGA** | Variable Gain Amplifier. An electronic amplifier whose gain can be controlled by a digital or analog signal. |
 
 ## 1.4 References
-The following standards and documents form the basis of the requirements defined herein. The latest revisions unless otherwise noted apply.
+The following standards and documents form the basis of the requirements defined herein. In cases of conflict, the hierarchy of precedence is: 1) This HRS, 2) Applicable Industry Standards.
 
-| ID | Document Title | Publisher |
-| :--- | :--- | :--- |
-| **IEEE 29148** | Systems and software engineering — Life cycle processes — Requirements engineering | IEEE Standards Association |
-| **IPC-6012** | Qualification and Performance Specification for Rigid Printed Boards | IPC |
-| **IPC-2221** | Generic Standard on Printed Board Design | IPC |
-| **MIL-STD-202** | Test Method Standard for Electronic and Electrical Component Parts | US Department of Defense |
-| **IEC 60529** | Degrees of protection provided by enclosures (IP Code) | International Electrotechnical Commission |
-| **RoHS 2011/65/EU** | Directive on the restriction of the use of certain hazardous substances in electrical and electronic equipment | European Union |
-| **HMC698LP4 Datasheet** | GaAs MMIC PHEMT Wideband Variable Gain Amplifier/Driver | Analog Devices |
-| **HMC1048LP4E Datasheet** | Wideband I/Q Demodulator | Analog Devices |
-| **ADF5355 Datasheet** | Wideband Synthesizer with Integrated VCO | Analog Devices |
-| **ADC12DJ3200 Datasheet** | 12-bit, 3.2 GSPS Dual ADC | Texas Instruments |
-| **XCZU3EG Datasheet** | Zynq UltraScale+ MPSoC | AMD (Xilinx) |
+1.  **IEEE 29148-2018:** *Systems and software engineering — Life cycle processes — Requirements engineering.*
+2.  **IPC-6012D:** *Qualification and Performance Specification for Rigid Printed Boards.*
+3.  **IPC-2221B:** *Generic Standard on Printed Board Design.*
+4.  **IPC-A-610G:** *Acceptability of Electronic Assemblies.*
+5.  **MIL-STD-202G:** *Test Method Standard for Electronic and Electrical Component Parts.*
+6.  **FCC Part 15 Subpart B:** *Unintentional Radiators.*
+7.  **EN 55032:** *Multimedia equipment - Radio disturbance characteristics - Limits and methods of measurement.*
+8.  **Directive 2011/65/EU (RoHS 3):** *Restriction of the use of certain hazardous substances in electrical and electronic equipment.*
+9.  **IEC 61000-4-2:** *Electromagnetic compatibility (EMC) - Part 4-2: Testing and measurement techniques - Electrostatic discharge immunity test.*
 
 ## 1.5 Overview
-The **Wideband RF Receiver** is a high-performance, desktop-form-factor hardware subsystem designed to intercept and demodulate RF signals in the 5.0 GHz to 18.0 GHz frequency range. The system utilizes a direct-downconversion (homodyne) architecture to generate In-phase (I) and Quadrature (Q) baseband signals, which are subsequently digitized and output via a high-speed digital interface.
 
-### System Functional Flow
-1.  **RF Reception:** The signal enters the system via a precision 2.4mm female connector (50Ω impedance).
-2.  **Conditioning:** The signal passes through a Low Noise Amplifier (LNA) and Variable Gain Amplifier (VGA) chain (based on HMC698LP4) to provide up to 16 dB of variable gain and matching.
-3.  **Demodulation:** An I/Q Demodulator (HMC1048LP4E) mixes the RF signal with a Local Oscillator (LO) signal generated by a wideband synthesizer (ADF5355), outputting analog I and Q baseband components.
-4.  **Digitization:** A Dual-Channel ADC (ADC12DJ3200) samples the I and Q signals at a minimum of 500 MSPS.
-5.  **Processing:** An FPGA (Zynq UltraScale+ XCZU3EG) manages the data interface, gain control loops via SPI, and synchronization.
+### 1.5.1 System Context
+The **receiver** is a wideband superheterodyne receiver designed for high-frequency communication applications. It accepts RF signals from 5 GHz to 18 GHz, downconverts them to baseband In-phase and Quadrature (I/Q) signals, and digitizes them for processing.
 
-### Key Performance Capabilities
-*   **Sensitivity:** System Noise Figure (NF) optimized to 6-10 dB.
-*   **Dynamic Range:** Input IP3 of 20-30 dBm, handling input power levels from -30 dBm to -10 dBm.
-*   **Agility:** Digital gain control with latency ≤ 1 µs; LO tuning resolution of <1 kHz.
+The architecture utilizes a high-linearity RF front end to support a demanding dynamic range (-90 dBm to +30 dBm input). A high-performance Phase-Locked Loop (PLL) synthesizer provides the Local Oscillator (LO) signal necessary for frequency downconversion. The output is provided as a digital I/Q stream (via LVDS or CMOS) capable of supporting sample rates up to 200 Msps.
 
-The subsequent sections of this HRS detail the specific hardware requirements allocated to the PCB design, component selection, power distribution network (PDN), and mechanical chassis to ensure the system meets these specifications under industrial temperature conditions (-40°C to +85°C).
+### 1.5.2 Technology Stack
+The hardware is realized using a mix of GaAs (Gallium Arsenide) and SiGe (Silicon-Germanium) RFICs for the analog front end, and high-speed CMOS for digital conversion and control.
+*   **RF Front End:** Utilizing Qorvo's GaAs technology (e.g., TGA4506-SM) for optimal Noise Figure and power handling.
+*   **LO Generation:** Utilizing Analog Devices ADF5356 wideband synthesizer with integrated VCO.
+*   **Digitization:** Utilizing a high-speed IQ ADC (e.g., AD9208).
+*   **Control:** An STM32F4 series MCU manages SPI communication for gain control, frequency tuning, and status monitoring.
+
+### 1.5.3 Document Organization
+The remainder of this document is organized as follows:
+*   **Section 2:** Provides a detailed system overview, including block diagrams and the physical architecture of the receiver.
+*   **Section 3:** Defines the specific hardware requirements, categorized into functional, performance, interface, environmental, and physical requirements.
+*   **Section 4:** Identifies design constraints, including supply voltage limits and compliance standards.
+*   **Section 5:** Outlines the verification requirements for validation testing.
+*   **Section 6:** Lists the preliminary Bill of Materials (BOM).
+*   **Section 7:** Provides a traceability matrix linking design parameters to specific requirements.
 
 ---
+
+**Document Status: AI-GENERATED**
 
 # 2. System Overview
 
 ## 2.1 System Description
 
-The Wideband RF Receiver is a high-performance, microwave downconversion receiver designed to capture and digitize radio frequency signals across the 5.0 GHz to 18.0 GHz spectrum. The system is architected as a superheterodyne receiver utilizing direct I/Q demodulation to translate RF signals directly to baseband in-phase and quadrature components. This architecture minimizes component count while maximizing instantaneous bandwidth utilization for the subsequent digital signal processing stages.
+The **Wideband RF Receiver** is designed as a high-performance, portable benchtop signal acquisition device targeting the 5.0 GHz to 18.0 GHz frequency spectrum. The primary function of the system is to capture RF signals, convert them to digital In-phase (I) and Quadrature (Q) components, and transmit this data via a high-speed digital interface for subsequent processing.
 
-The receiver system is physically partitioned into four main functional subsections integrated into a desktop enclosure:
-1.  **RF Front-End (RFFE):** Handles signal conditioning from the antenna input, providing low-noise amplification and bandpass filtering.
-2.  **Frequency Conversion Section:** Performs the downconversion of the 5–18 GHz RF signal to analog baseband I/Q signals using a high-linearity demodulator driven by a wideband phase-locked loop (PLL) synthesizer.
-3.  **Digitization Section:** Converts the analog I/Q baseband signals into digital data streams using a dual-channel, high-speed analog-to-digital converter (ADC).
-4.  **Digital Processing & Control:** Implements signal processing, gain control loops, and data interface management via a Zynq UltraScale+ MPSoC.
+The system architecture utilizes a **Direct Conversion / Zero-IF Receiver topology**, chosen for its ability to simplify filter requirements and enable high levels of integration using modern RF components. This architecture effectively eliminates the need for intermediate frequency (IF) stages and bulky image-rejection filters found in traditional superheterodyne designs, allowing the system to meet the strict dimensional constraints of < 200 mm × 150 mm × 50 mm.
 
-The system operates from a custom multi-rail DC power supply (+12V, +5V, +3.3V, -5V) and is designed to maintain specified performance metrics (Noise Figure, Gain, IP3) across the industrial temperature range of -40°C to +85°C. The primary output is a digital I/Q data stream transmitted via high-speed serial transceivers (JESD204B/C interface).
+The signal path begins with a robust front-end protection stage utilizing an active limiter to safeguard sensitive downstream components from input power transients up to +30 dBm. The signal is then conditioned by a Low Noise Amplifier (LNA) to establish the system noise figure performance, followed by a Variable Gain Amplifier (VGA) to dynamically adjust the signal amplitude within the optimal range for the mixing stage.
 
-### Functional Flow
-The signal path begins at the 2.4mm female RF input connector. The input signal passes through a wideband Low Noise Amplifier (LNA) implemented by the HMC698LP4, which provides initial gain and digital gain adjustment capabilities. The amplified signal is then filtered to suppress out-of-band noise and spurs before entering the HMC1048LP4E I/Q Demodulator. Simultaneously, the ADF5355 frequency synthesizer generates a precise Local Oscillator (LO) signal. The mixer multiplies the RF signal with the LO, producing differential I and Q baseband outputs.
+Frequency down-conversion is performed by a wideband IQ Mixer driven by a dedicated, ultra-low phase noise Frequency Synthesizer (Local Oscillator). The resulting baseband I and Q signals are filtered and amplified by a fully differential IF amplifier stage before being digitized by a high-speed Analog-to-Digital Converter (ADC).
 
-These analog baseband signals are buffered and filtered to match the input bandwidth of the ADC12DJ3200, where they are digitized at a high sample rate. The FPGA (XCZU3EG-SFVA784) receives this data, performs necessary digital processing (e.g., offset correction, filtering), and outputs the final payload via its high-speed transceivers. The FPGA also manages the system housekeeping, communicating with the PLL and gain amplifiers via SPI.
+System intelligence and control are managed by an onboard microcontroller unit (MCU), which handles SPI communication for gain setting, LO frequency tuning, and ADC configuration. The entire system is powered by a single +12V DC external supply, regulated internally by high-efficiency DC-DC converters to provide the necessary rail voltages (+5V, +3.3V, +1.8V) for the RF, analog, and digital subsystems.
 
 ## 2.2 System Block Diagram
 
-The system-level block diagram illustrates the signal flow from the RF input through the analog chain to the digital back-end. It highlights the critical data paths and the control interfaces managed by the FPGA.
+The following block diagram illustrates the signal flow and control architecture of the Wideband RF Receiver. It details the path from the RF input through the down-conversion chain to the digital output, as well as the power distribution and control networks.
 
 ```mermaid
 flowchart TD
-    %% Inputs
-    RF_IN[RF Input\n5-18 GHz\n2.4mm Connector] --> AMP_CHAIN[Variable Gain LNA\nHMC698LP4]
-    
-    %% Power Supplies
-    PSU[Power Supply Unit\n+12V, +5V, +3.3V, -5V] -.->|DC Power| AMP_CHAIN
-    PSU -.->|DC Power| MIXER
-    PSU -.->|DC Power| LO_SYNTH
-    PSU -.->|DC Power| ADC
-    PSU -.->|DC Power| FPGA
+    %% External Interfaces
+    EXT_RF((RF Input\n5-18 GHz SMA))
+    EXT_PWR((Power Input\n+12V DC))
+    EXT_CTRL((Host Control\nSPI/UART))
+    EXT_DATA((Digital I/Q Output\nLVDS))
 
-    %% RF Chain
-    AMP_CHAIN -->|40-60 dB Gain| RF_FILTER[Bandpass Filter\n5-18 GHz]
-    RF_FILTER --> MIXER[I/Q Demodulator\nHMC1048LP4E]
-    
-    %% LO Path
-    LO_SYNTH[Wideband Synthesizer\nADF5355] -->|LO Drive\n6-18 GHz| MIXER
-    
-    %% IF / Baseband Path
-    MIXER -->|Differential I| I_AMP[IF Amplifier/\nAnti-Alias Filter]
-    MIXER -->|Differential Q| Q_AMP[IF Amplifier/\nAnti-Alias Filter]
-    
-    I_AMP -->|Analog Baseband| ADC[ADC/Digitizer\nADC12DJ3200]
-    Q_AMP -->|Analog Baseband| ADC
+    %% System Boundary
+    subgraph SYSTEM [Wideband RF Receiver System]
+        direction LR
+        
+        %% RF Front End
+        subgraph RF_CHAIN [RF Signal Chain]
+            direction LR
+            LIM[RF Limiter\nHMC1061LP4E]
+            LNA[Wideband LNA\nTGA4506-SM]
+            VGA[Variable Gain Amp\nHMC698LP4]
+            MIXER[IQ Downconverter Mixer\nHMC1052LP4E]
+            
+            LIM --> LNA --> VGA --> MIXER
+        end
 
-    %% Digital Path
-    ADC -->|JESD204B/C\n~12 Gbps Total| FPGA[Signal Processor\nZynq UltraScale+\nXCZU3EG]
+        %% LO Generation
+        subgraph LO_GEN [Local Oscillator]
+            SYNTH[PLL Synthesizer\nADF5356]
+            AMP[LO Buffer Amp]
+            SYNTH --> AMP
+        end
+
+        %% IF & Digitizing
+        subgraph IF_STAGE [Baseband & Digitizer]
+            direction LR
+            IF_AMP[Diff IF Amplifier\nADA4817]
+            AAF[Anti-Alias Filter\nLC Lowpass]
+            ADC[IQ ADC\nAD9208]
+            
+            IF_AMP --> AAF --> ADC
+        end
+
+        %% Digital Control
+        subgraph CTRL [Digital Control]
+            MCU[MCU\nSTM32F407VGT6]
+        end
+
+        %% Power Management
+        subgraph PWR [Power Management]
+            DCDC[LTM4644\nQuad DC-DC]
+            LDO[LDO Regulators]
+        end
+    end
+
+    %% Internal Interconnects
+    EXT_RF --> LIM
+    AMP -->|LO Drive| MIXER
+    MIXER -->|Diff I/Q| IF_AMP
+    ADC -->|LVDS Data| EXT_DATA
     
-    %% Control Path
-    FPGA <-->|SPI Config| AMP_CHAIN
-    FPGA <-->|SPI Config| LO_SYNTH
-    
-    %% Outputs
-    FPGA --> DATA_OUT[Digital I/Q Output\nEthernet / Fiber / CPRI]
-    
-    classDef rfClass fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef digitalClass fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef powerClass fill:#ff9,stroke:#333,stroke-width:2px;
-    
-    class RF_IN,AMP_CHAIN,RF_FILTER,MIXER,LO_SYNTH rfClass;
-    class ADC,FPGA,DATA_OUT digitalClass;
-    class PSU powerClass;
+    %% Control Lines
+    MCU -.->|SPI Config| VGA
+    MCU -.->|SPI Config| SYNTH
+    MCU -.->|SPI Config| ADC
+    EXT_CTRL --> MCU
+
+    %% Power Rails
+    EXT_PWR --> DCDC
+    DCDC --> LDO
+    DCDC -->|+5V RF| LNA
+    DCDC -->|+5V RF| MIXER
+    LDO -->|+3.3V| VGA
+    LDO -->|+3.3V| MCU
+    LDO -->|+1.8V| ADC
 ```
-
-**Diagram Key:**
-*   **Solid Lines:** Signal flow (Analog RF/IF or Digital Data).
-*   **Dotted Lines:** Power distribution rails.
-*   **RF Class (Pink):** Analog Radio Frequency components.
-*   **Digital Class (Blue):** Digital Logic and Conversion components.
-*   **Power Class (Yellow):** Power generation and distribution.
 
 ## 2.3 System Architecture
 
-The receiver system architecture is organized into hierarchical modules to ensure isolation of sensitive analog circuitry from noisy digital logic. The architecture is defined by electrical functionality and PCB layout zones.
+The system architecture is partitioned into four distinct hardware subsystems to ensure design modularity, simplified testing, and electromagnetic compatibility (EMC). These subsystems are: **RF Front-End**, **LO Generation**, **Baseband & Digitization**, and **Power/Control**.
 
-### 2.3.1 RF Front-End (RFFE) Module
-This module constitutes the initial signal conditioning stage.
-*   **Input Matching:** A 50-ohm matching network interfaces the 2.4mm connector to the LNA.
-*   **Variable Gain Amplifier (VGA):** The HMC698LP4 serves as the core gain element. It operates in the 2-20 GHz range, providing up to 16 dB of gain control range digitally via SPI.
-*   **Gain Strategy:** To achieve the total system requirement of 40-60 dB, the HMC698LP4 is cascaded with a fixed gain driver stage. The system gain control algorithm adjusts the HMC698 attenuation in real-time to prevent saturation of the mixer under high input power conditions while maintaining sensitivity for weak signals.
+### 2.3.1 RF Front-End Subsystem
+This subsystem operates in the 5-18 GHz range and is responsible for signal conditioning prior to frequency conversion.
 
-### 2.3.2 Frequency Conversion & LO Module
-This module translates the incoming RF signal to a baseband frequency suitable for digitization.
-*   **I/Q Demodulator:** The HMC1048LP4E is chosen for its direct conversion capability. It accepts RF inputs from 6 to 18 GHz (compatible with the 5-18 GHz system requirement with margin) and outputs differential I and Q voltages centered at DC (or low IF).
-*   **LO Synthesis:** The ADF5355 generates the required LO frequency. Since the demodulator is direct conversion, $F_{LO} \approx F_{RF}$. The ADF5355 operates with a fundamental VCO output up to 13.6 GHz; for frequencies above 13.6 GHz (up to 18 GHz), the internal frequency multipliers are utilized. The PLL loop filter is optimized for phase noise performance (-100 dBc/Hz at 10 kHz offset) to minimize reciprocal mixing.
+1.  **Input Protection & Matching:**
+    *   **Component:** HMC1061LP4E Limiter.
+    *   **Function:** Provides >20 dBm threshold protection. The input is matched to 50 Ω to ensure a return loss of ≥10 dB (REQ-HW-019).
+    *   **Architecture Detail:** The limiter is placed immediately at the SMA connector to minimize trace length before protection, protecting the LNA from Electrostatic Discharge (ESD) and high-power RF surges.
 
-### 2.3.3 Digitization Module
-This module bridges the analog and digital domains.
-*   **ADC Interface:** The ADC12DJ3200 operates in dual-channel mode to sample I and Q inputs simultaneously. With a maximum sample rate of 3.2 GSPS and an input bandwidth of 6.5 GHz, it easily accommodates the baseband I/Q signals. The ADC is configured for JESD204B subclass 1 operation to ensure deterministic latency for the FPGA interface.
-*   **Clocking:** The device clock and the SYSREF (required for JESD204B synchronization) are derived from the ADF5355 synthesizer to ensure clock coherency between the downconversion and digitization stages, minimizing spurs due to clock beat notes.
+2.  **Low Noise Amplification:**
+    *   **Component:** TGA4506-SM (Qorvo).
+    *   **Function:** Sets the system noise floor. With a 2.5 dB Noise Figure and 21 dB gain, it ensures the system meets the sensitivity requirements (REQ-HW-002).
+    *   **Biasing:** Requires +6V supply derived from the +5V rail via a boost converter or filtered rail.
 
-### 2.3.4 Digital Processing & Control Module
-*   **Processing Core:** The XCZU3EG MPSoC provides the processing horsepower. The Programmable Logic (PL) implements the JESD204B IP core to ingest data from the ADC.
-*   **Gain Control Loop:** The Processing System (PS - ARM cores) runs a control algorithm that monitors the signal envelope (calculated in the PL/FPGA). If the signal approaches the ADC full-scale range or drops into the noise floor, the ARM core adjusts the SPI settings of the HMC698LP4 VGA to optimize the dynamic range.
-*   **Data Interface:** Processed I/Q samples are buffered and transmitted via the FPGA's high-speed transceivers (GTX/GTY). While the specific physical protocol (e.g., 10GbE, SRIO, or custom raw framing) is application-dependent, the electrical interface is designed to support data rates up to 12.32 Gbps.
+3.  **Variable Gain Control:**
+    *   **Component:** HMC698LP4 (Analog Devices).
+    *   **Function:** Provides 31 dB of gain adjustment in 1 dB steps.
+    *   **Interface:** Controlled via the MCU SPI bus. This allows the Automatic Gain Control (AGC) loop to optimize the signal level entering the mixer, preventing compression while maintaining SNR.
 
-### 2.3.5 Power Distribution Module (PDM)
-*   **Input Protection:** The external DC input is protected against reverse polarity and overvoltage transients.
-*   **Rail Generation:**
-    *   **+12V:** Powers the high-current RF amplifiers and the mixer.
-    *   **+5V:** Powers the ADC analog supplies and FPGA I/O banks.
-    *   **+3.3V:** Powers the FPGA core, DDR memory, and SPI level shifters.
-    *   **-5V:** Required for the ADF5355 charge pump and the HMC1048LP4E biasing to optimize linearity.
-*   **Sequencing:** A dedicated supervisor IC (or FPGA GPIO) ensures power-up sequencing (typically $\pm$ rails before digital rails) to prevent latch-up in the mixed-signal components.
+### 2.3.2 LO Generation Subsystem
+This subsystem generates the precise Local Oscillator signal required for down-conversion.
+
+1.  **Frequency Synthesis:**
+    *   **Component:** ADF5356 (Analog Devices).
+    *   **Architecture:** A wideband PLL with integrated VCO.
+    *   **Frequency Planning:** The LO must tune from 5.0 GHz to 18.0 GHz to match the RF input for Zero-IF conversion.
+    *   **Phase Noise:** Critical for maintaining SNR and Error Vector Magnitude (EVM). The ADF5356 provides < -100 dBc/Hz at 100 kHz offset (REQ-HW-009).
+
+2.  **LO Distribution:**
+    *   The output of the ADF5356 is fed to a buffer amplifier to ensure the LO input of the HMC1052LP4E mixer receives the required drive level (0 to +5 dBm).
+
+### 2.3.3 Baseband & Digitization Subsystem
+This subsystem processes the analog baseband signals and converts them to digital data.
+
+1.  **IQ Downconversion:**
+    *   **Component:** HMC1052LP4E.
+    *   **Function:** Mixes the RF signal (5-18 GHz) with the LO signal to produce DC (or near-DC) I and Q components.
+    *   **Output:** Two differential analog outputs (I+, I-, Q+, Q-).
+
+2.  **Baseband Amplification & Filtering:**
+    *   **Component:** ADA4817.
+    *   **Function:** A fully differential amplifier drives the ADC inputs. It provides the necessary signal swing and source impedance.
+    *   **Filtering:** A 3rd or 4th order LC Low Pass Filter (Anti-Alias Filter) is inserted between the Mixer outputs and the ADC inputs. The cutoff frequency is set to just below half the ADC sample rate (e.g., 100 MHz for a 200 MSPS ADC) to prevent aliasing (REQ-HW-006).
+
+3.  **Digitization:**
+    *   **Component:** AD9208 (Analog Devices).
+    *   **Function:** Dual-channel, 14-bit (selected for 12-bit minimum req), 1 GSPS ADC.
+    *   **Operation:** Samples the I and Q baseband signals at ≥200 MSPS. Outputs JESD204B or DDR LVDS data streams to the output connector.
+
+### 2.3.4 Power & Control Subsystem
+1.  **Power Management:**
+    *   **Architecture:** A central power module accepts the +12V DC input.
+    *   **Component:** LTM4644 (Quad DC-DC Switching Regulator).
+    *   **Distribution:**
+        *   Generates +5V (RF Rail) for LNA, Mixer, and LO.
+        *   Generates +3.3V (Digital Rail) for FPGA/MCU and VGA.
+        *   Generates +1.8V (Core Rail) for the ADC.
+    *   **Filtering:** Pi-filters and ferrite beads are used on all RF supply rails to suppress switching noise and maintain phase noise integrity.
+
+2.  **Digital Control:**
+    *   **Component:** STM32F407VGT6.
+    *   **Function:** Host controller. It manages the SPI transactions to program the VGA gain, PLL frequency, and ADC sampling mode. It can interface with a host PC via UART or USB for command processing.
+
+### 2.3.5 Mechanical Architecture
+The physical packaging utilizes a split-block aluminum enclosure.
+*   **RF Compartment:** A shielded pocket milled into the housing to contain the RF Front-End and LO, minimizing radiation and susceptibility.
+*   **Digital Compartment:** Separate section for the high-speed digital logic (MCU, ADC interface).
+*   **Thermal Management:** The system is conduction-cooled. The heat-generating components (LNA, Mixer, DC-DC regulators) are mounted onto the chassis via thermal vias in the PCB and thermal pads, dissipating heat to the benchtop or ambient air. Cooling vents are integrated into the top cover (REQ-HW-013).
 
 ## 2.4 Operating Environment
 
-The hardware platform is designed to operate reliably in harsh environmental conditions typical of industrial and aerospace applications.
+The Wideband RF Receiver is designed for operation in controlled laboratory environments and field deployments typical of portable test equipment.
 
 ### 2.4.1 Physical Environment
-The system is packaged in a standard benchtop or rack-mount enclosure.
-*   **Form Factor:** The PCB dimensions are constrained to the 6U × 160mm Eurocard format (233.35 mm x 160 mm) to allow integration into standard industrial racks or chassis with appropriate card cages.
-*   **Connectivity:**
-    *   **RF Input:** Located on the front panel (2.4mm Female).
-    *   **Data Output:** Located on the rear panel (e.g., QSFP+ cage or SMA for clock sync).
-    *   **Power:** Located on the rear panel (MIL-DTL-38999 or standard circular connector for +12V main input).
+*   **Operating Temperature:** 0°C to +50°C (ambient). Performance parameters (Gain, Noise Figure) are specified and guaranteed across this range.
+*   **Storage Temperature:** -40°C to +85°C. Non-operating storage ensures component reliability without damage.
+*   **Humidity:** 5% to 95% relative humidity (non-condensing).
+*   **Shock and Vibration:** Designed to withstand standard benchtop handling and transport shock (30g, 11 ms shock).
+*   **Altitude:** Sea level to 3,000 meters (operation derating may apply above this for cooling).
 
-### 2.4.2 Environmental Stress Conditions
-The design adheres to **REQ-HW-007** (Industrial Temperature Range).
-*   **Temperature:** -40°C to +85°C ambient.
-    *   *Design Impact:* Components are specifically selected for "Industrial" or "Automotive" grade temperature ratings. The HMC698LP4, HMC1048LP4E, and XCZU3EG are all rated for operation up to +85°C or +100°C.
-*   **Humidity:** 5% to 95% non-condensing. The PCB is conformally coated to protect against moisture ingress and corrosion.
-*   **Vibration:** Designed to meet IEC 60068-2-6 random vibration profiles for industrial equipment.
-
-### 2.4.3 Electrical Environment
-*   **Supply Stability:** The internal power regulation assumes the external +12V source may vary by $\pm$10%. Internal DC-DC converters must maintain regulation within this input range.
-*   **Load Impedance:** The RF input is designed for a nominal 50$\Omega$ source impedance. Mismatched loads (VSWR > 2:1) are handled by the LNA's robust matching network but may degrade NF performance.
+### 2.4.2 Electrical Environment
+*   **Supply Source:** Single external DC power supply capable of providing +12V ±10% (10.8V - 13.2V).
+*   **Load Capacity:** The supply must be capable of sourcing up to 1.5A continuous current to meet the 15W maximum power requirement (REQ-HW-012).
+*   **Input Impedance:** The source driving the RF Input must be a nominal 50 Ω.
+*   **EMC Environment:** The receiver is designed to operate in an electromagnetically polluted environment typical of RF labs. It complies with FCC Part 15B and EN 55032 Class B for emissions, and includes input protection to survive moderate levels of external RF interference (REQ-HW-017).
 
 ---
 
-**Document Status: AI-GENERATED**
+# 3. Hardware Requirements
 
-## 3. Hardware Requirements
+## 3.1 Functional Requirements
 
-### 3.1 Functional Requirements
+This section details the functional requirements of the Wideband RF Receiver (5-18 GHz). These requirements specify the fundamental actions the system must perform to meet the operational needs defined in the project summary.
 
-This section details the functional capabilities of the Wideband RF Receiver. Each requirement specifies a behavior or function the system must perform to meet the operational needs.
+### 3.1.1 RF Front-End functionality
 
 | ID | Requirement | Description & Rationale | Priority | Verification Method |
 |---|---|---|---|---|
-| **REQ-HW-101** | **RF Signal Reception** | The system shall accept and process RF input signals over a continuous frequency range of 5.0 GHz to 18.0 GHz via a 2.4mm female connector. <br><br>**Rationale:** Supports the specified wideband operational bandwidth defined in the project summary. | High | Test |
-| **REQ-HW-102** | **Signal Downconversion** | The system shall downconvert the 5–18 GHz RF input to baseband I/Q signals using the HMC1048LP4E image-reject demodulator. <br><br>**Rationale:** Direct conversion architecture minimizes component count while maximizing image rejection (>60 dB). | High | Test |
-| **REQ-HW-103** | **Gain Adjustment Range** | The system shall provide a total variable gain range of 44 dB, split between the RF front-end and baseband stages. The HMC698LP4E shall provide 16 dB of digital gain control (RF VGA), and the ADC12DJ3200 shall provide up to 28 dB of software programmable gain. <br><br>**Rationale:** Ensures the 40-60 dB system requirement is met with margin using component-specific capabilities. | High | Test |
-| **REQ-HW-104** | **Gain Step Resolution** | The RF gain control (HMC698LP4E) shall be adjustable in steps of approximately 1 dB via SPI interface. <br><br>**Rationale:** Allows for precise Automatic Gain Control (AGC) loop implementation. | High | Test |
-| **REQ-HW-105** | **Signal Digitization** | The system shall digitize the baseband I/Q analog signals using the ADC12DJ3200 configured in dual-channel mode. <br><br>**Rationale:** Provides the required 12-bit resolution and sampling rate for signal fidelity. | High | Inspection |
-| **REQ-HW-106** | **Sampling Rate Generation** | The system shall operate the ADC at a sample rate of 3200 MSPS (3.2 GSPS) utilizing the JESD204B interface to transfer data to the FPGA. <br><br>**Rationale:** Meets the ≥500 MSPS requirement and provides sufficient bandwidth for the captured signal spectrum. | High | Inspection |
-| **REQ-HW-107** | **Local Oscillator Synthesis** | The system shall generate a Local Oscillator (LO) signal using the ADF5355 synthesizer to drive the HMC1048LP4E mixer. The LO frequency shall be tunable from 5.0 GHz to 18.0 GHz in steps ≤ 1 Hz. <br><br>**Rationale:** The ADF5355 covers the required frequency range (up to 13.6 GHz fundamental, higher via multipliers) and provides the frequency agility required for wideband reception. | High | Test |
-| **REQ-HW-108** | **Clock Distribution** | The system shall derive the ADC sampling clock and the FPGA reference clock from a common low-phase-noise oscillator source to ensure deterministic phase coherence. <br><br>**Rationale:** Prevents sampling clock drift and jitter-induced SNR degradation. | High | Analysis |
-| **REQ-HW-109** | **Digital Data Interface** | The system shall output digitized I/Q data to the FPGA via a JESD204B Subclass 1 interface (Lane rate: ~12.5 Gbps). <br><br>**Rationale:** Required interface standard for ADC12DJ3200 at 3.2 GSPS; supported by XCZU3EG transceivers. | High | Test |
-| **REQ-HW-110** | **Gain Control Interface** | The FPGA shall control the RF Gain (HMC698LP4E) via a 4-wire SPI interface (CS, SCLK, MOSI, MISO) operating at a logic level of 3.3V. <br><br>**Rationale:** Serial interface minimizes PCB routing complexity compared to parallel control. | High | Test |
-| **REQ-HW-111** | **Power Distribution** | The system shall distribute DC power rails (+12V, +5V, +3.3V, -5V) from the main power entry point to the respective functional blocks (RF, LO, Digital). <br><br>**Rationale:** Specific components require defined voltages (e.g., -5V for ADF5355 charge pump, +5V for HMC1048LP4E). | High | Inspection |
-| **REQ-HW-112** | **Power Sequencing** | The power management circuitry shall sequence the +3.3V (Digital/FPGA) rail to stabilize before enabling the +5V and +12V (RF) rails to prevent latch-up or excessive inrush current. <br><br>**Rationale:** Standard best practice for mixed-signal boards to protect sensitive FPGA inputs during power-up. | Medium | Test |
-| **REQ-HW-113** | **RF Input Protection** | The RF input port shall include a DC block and ESD protection circuitry rated for operation up to 18 GHz. <br><br>**Rationale:** Protects the sensitive LNA input from electrostatic discharge and DC offsets. | Medium | Inspection |
-| **REQ-HW-114** | **Temperature Monitoring** | The system shall monitor the PCB temperature near the RF front end using the FPGA's internal XADC (if connected) or a dedicated local sensor (e.g., TMP46). <br><br>**Rationale:** Required to validate operating environment compliance (-40°C to +85°C) and trigger thermal shutdown if necessary. | Low | Test |
-| **REQ-HW-115** | **Mechanical Fixation** | The system shall provide mounting holes compatible with standard 6U × 160mm Eurocard form factors within the enclosure. <br><br>**Rationale:** Ensures mechanical integration with the specified desktop/benchtop enclosure. | Medium | Inspection |
-| **REQ-HW-116** | **LED Status Indicators** | The front panel shall include at minimum three status indicators: Power (Green), Lock (Green, indicates PLL lock), and Fault (Red). <br><br>**Rationale:** Provides immediate user feedback on system health without requiring software connection. | Low | Inspection |
+| **REQ-HW-101** | **Input Signal Reception** | The system shall accept RF input signals via a 50Ω SMA female connector (Connector: Rosenberger 32K243-40ML5) covering the frequency range of 5.0 GHz to 18.0 GHz. <br><br>**Rationale:** Ensures physical and electrical compatibility with standard test equipment and antennas. | Must Have | Inspection |
+| **REQ-HW-102** | **Input Overload Protection** | The system shall integrate an HMC1061LP4E RF Limiter at the input stage to attenuate signals exceeding +20 dBm. <br><br>**Rationale:** Protects downstream sensitive components (LNA, Mixer) from damage due to accidental high-power transmission or ESD events. | Must Have | Test |
+| **REQ-HW-103** | **RF Signal Amplification** | The system shall provide a minimum of 21 dB gain using the TGA4506-SM LNA in the primary signal path. <br><br>**Rationale:** Sets the noise floor of the system and compensates for mixer conversion loss to ensure Sensitivity requirements are met. | Must Have | Analysis |
+| **REQ-HW-104** | **Variable Gain Adjustment** | The system shall utilize the HMC698LP4 VGA to provide gain adjustment from 0 dB to 31 dB in 1 dB steps via SPI control. <br><br>**Rationale:** Allows the system to handle a wide dynamic range of input signals (-90 to +30 dBm) without saturating the ADC. | Must Have | Test |
+| **REQ-HW-105** | **Spectral Downconversion** | The system shall convert the 5-18 GHz RF input to a baseband or low-IF signal using the HMC1052LP4E IQ Mixer. <br><br>**Rationale:** Translates high-frequency signals to a frequency range processable by the selected ADC (AD9208). | Must Have | Test |
+
+### 3.1.2 Local Oscillator (LO) Generation
+
+| ID | Requirement | Description & Rationale | Priority | Verification Method |
+|---|---|---|---|---|
+| **REQ-HW-106** | **Frequency Synthesis** | The system shall generate a Local Oscillator signal from 5.0 GHz to 18.0 GHz using the ADF5356 synthesizer. <br><br>**Rationale:** Covers the full tuning range required for the downconverter. | Must Have | Test |
+| **REQ-HW-107** | **LO Frequency Agility** | The LO frequency shall be programmable via SPI with a resolution of ≤ 1 MHz and a lock time of < 100 µs. <br><br>**Rationale:** Supports fast frequency hopping applications and precise channel selection. | Must Have | Test |
+| **REQ-HW-108** | **LO Signal Integrity** | The LO path shall include a buffer amplifier to ensure the LO drive level to the HMC1052LP4E mixer is maintained between 0 dBm and +5 dBm. <br><br>**Rationale:** The HMC1052LP4E requires a specific LO drive level to maintain optimal conversion gain and linearity. | Must Have | Test |
+
+### 3.1.3 Intermediate Frequency (IF) & Digitization
+
+| ID | Requirement | Description & Rationale | Priority | Verification Method |
+|---|---|---|---|---|
+| **REQ-HW-109** | **Baseband Amplification** | The system shall amplify the I and Q baseband outputs using the ADA4817 op-amp configured for a gain of 10 dB. <br><br>**Rationale:** Drives the high input capacitance of the ADC and scales the signal to utilize the full ADC input range. | Must Have | Test |
+| **REQ-HW-110** | **Anti-Aliasing Filtering** | The system shall include a 4th-order active low-pass filter with a cutoff frequency of 200 MHz (Nyquist for 400 MSPS operation) prior to the ADC. <br><br>**Rationale:** Prevents aliasing of high-frequency noise and out-of-band signals into the digital baseband. | Must Have | Analysis |
+| **REQ-HW-111** | **I/Q Digitization** | The system shall digitize the I and Q analog signals using the AD9208 dual-channel ADC at a sample rate of 200 MSPS with 14-bit resolution. <br><br>**Rationale:** Meets the requirement for Digital I/Q output with sufficient resolution and bandwidth. | Must Have | Test |
+| **REQ-HW-112** | **Data Interface** | The system shall output digitized I/Q data via a JESD204B SerDes interface operating at the lane rate required by the AD9208 (assumed 8 Gbps per lane). <br><br>**Rationale:** Industry standard for high-speed data transfer between ADCs and FPGAs/processors. | Must Have | Test |
+
+### 3.1.4 Control and Power
+
+| ID | Requirement | Description & Rationale | Priority | Verification Method |
+|---|---|---|---|---|
+| **REQ-HW-113** | **SPI Control Interface** | The system shall configure all SPI-controlled devices (VGA, Synth, ADC) via a single MCU (STM32F407VGT6) acting as the SPI Master. <br><br>**Rationale:** Centralizes control logic and reduces pin count on the connector interface. | Must Have | Test |
+| **REQ-HW-114** | **Power Input** | The system shall accept +12V DC ±10% via a barrel jack or terminal block. <br><br>**Rationale:** Standard benchtop supply voltage. | Must Have | Inspection |
+| **REQ-HW-115** | **Voltage Regulation** | The system shall utilize an LTM4644 Quad DC-DC regulator to generate +5V, +3.3V, and +1.8V rails from the +12V input. <br><br>**Rationale:** Provides efficient power conversion and isolation between noisy digital and sensitive analog rails. | Must Have | Test |
+| **REQ-HW-116** | **Power Sequencing** | The power management circuit shall sequence the +5V (RF) rail to activate before the +1.8V (Digital) rail during power-up. <br><br>**Rationale:** Prevents latch-up and potential damage to the ADC and FPGA by ensuring analog biasing is established before digital interfaces become active. | Should Have | Test |
+
+### 3.1.5 Mechanical & Environmental
+
+| ID | Requirement | Description & Rationale | Priority | Verification Method |
+|---|---|---|---|---|
+| **REQ-HW-117** | **Enclosure Constraints** | The system shall be housed in an enclosure with maximum dimensions of 200mm (W) x 150mm (D) x 50mm (H). <br><br>**Rationale:** Meets portability requirements for benchtop testing. | Must Have | Inspection |
+| **REQ-HW-118** | **Thermal Management** | The system shall utilize the enclosure as a heatsink for the RF ICs (HMC1052LP4E, TGA4506) using thermal vias and conductive pads. <br><br>**Rationale:** These components dissipate significant heat (> 1W combined) and require conduction cooling to maintain ambient temperature rating. | Must Have | Analysis |
+| **REQ-HW-119** | **RF Shielding** | The RF and LO sections shall be enclosed in machined aluminum compartments or shield cans with a conductivity > 1e5 S/m. <br><br>**Rationale:** Prevents internal oscillator leakage from interfering with the sensitive input stage and ensures EMC compliance. | Must Have | Inspection |
 
 ---
 
-### 3.2 Performance Requirements
+## 3.2 Performance Requirements
 
-This section defines the quantitative performance criteria the hardware must achieve. Values are derived from cascaded analysis of the selected components.
+This section quantifies the specific performance characteristics the receiver must exhibit. Values are derived from the component selections outlined in the System Architecture.
 
-#### 3.2.1 RF Performance
+### 3.2.1 Signal Integrity & Chain Performance
 
-| ID | Metric | Requirement Value | Rationale / Calculation | Verification Method |
-|---|---|---|---|---|
-| **REQ-HW-201** | **Frequency Range** | 5.0 GHz to 18.0 GHz | Defined by project scope. | Test |
-| **REQ-HW-202** | **Noise Figure (NF)** | ≤ 7.5 dB (Typical) | **Cascaded NF Calculation:** <br>Stage 1 (HMC698LP4 VGA): 5.0 dB NF @ 16 dB Gain.<br>Stage 2 (HMC1048LP4E Mixer): 13 dB NF @ 6 dB Gain.<br>Using Friis Formula: $NF_{total} = NF_1 + (NF_2-1)/G_1$ <br>$NF_{total} = 5 + (13-1)/63.1 (linear) \approx 5.2 dB$. <br>Adding margin for filter loss (2 dB) and PCB traces (0.3 dB) yields ~7.5 dB max. Meets 6-10 dB spec. | Test |
-| **REQ-HW-203** | **Maximum Gain** | ≥ 50 dB | HMC698LP4 (16 dB) + HMC1048LP4E (6 dB) + Baseband Gain (variable, assumed min 28 dB to meet spec). | Test |
-| **REQ-HW-204** | **Gain Flatness** | ± 3.5 dB (Peak-to-Peak) | Accounts for frequency response variation of LNA and Mixer across 5-18 GHz. | Test |
-| **REQ-HW-205** | **Input Third-Order Intercept (IIP3)** | ≥ +24 dBm | Defined by the HMC1048LP4E Mixer IIP3 spec (+24 dBm). This is the limiting block in the chain. | Test |
-| **REQ-HW-206** | **Input Return Loss** | ≥ 10 dB (VSWR ≤ 2.0:1) | Specified in design parameters. Dependent on input matching network quality. | Test |
-| **REQ-HW-207** | **LO Phase Noise** | ≤ -100 dBc/Hz @ 10 kHz offset | ADF5355 Spec is typically -125 dBc/Hz @ 1 MHz. Calculated performance at 10 kHz offset is approx -100 to -105 dBc/Hz. This ensures reciprocal mixing does not degrade SNR. | Test |
+| ID | Requirement | Min | Typ | Max | Unit | Description & Calculation |
+|---|---|---|---|---|---|---|
+| **REQ-HW-201** | **System Noise Figure** | - | 4.0 | 5.0 | dB | The system Noise Figure (NF) shall not exceed 5.0 dB across the band.<br><br>**Analysis:** Calculated via Friis formula.<br>1. LNA (TGA4506): NF = 2.5 dB, Gain = 21 dB.<br>2. Mixer (HMC1052): NF = 11 dB, Gain = 10 dB.<br>3. VGA (HMC698): NF = 5 dB, Gain = 15 dB (Avg).<br><br>**Calculation:**<br>$F_{sys} = F_1 + \frac{F_2-1}{G_1} + \frac{F_3-1}{G_1 G_2}$<br>$NF_{sys} \approx 2.5 + \frac{11-1}{125.9} + \frac{5-1}{3981}$<br>$NF_{sys} \approx 2.5 + 0.08 + 0.001 = 3.3 \text{ dB (Typ)}$<br>Includes margin for Limiter loss (1.8 dB) -> **~5.1 dB Worst Case.** |
+| **REQ-HW-202** | **System Gain Range** | 20 | 50 | 70 | dB | The total gain from RF Input to ADC Input shall be adjustable.<br><br>**Analysis:**<br>Min Gain: LNA(21) + Mixer(10) + VGA(0) - Limiter(1.8) = **29.2 dB**.<br>Max Gain: LNA(21) + Mixer(10) + VGA(31) - Limiter(1.8) = **60.2 dB**.<br>Includes IF Amp gain (approx 10 dB). Range covers the dynamic range requirement. |
+| **REQ-HW-203** | **Input Third-Order Intercept (IIP3)** | 20 | 23 | - | dBm | The system input-referred IP3 shall be ≥ 20 dBm.<br><br>**Analysis:** Driven primarily by the LNA (OIP3 30 dBm). With 21 dB gain, IIP3 = 30 - 21 = 9 dBm. However, the Mixer (IIP3 +23 dBm) dominates linearity when LNA gain is considered. System IIP3 is approx +20 dBm at maximum gain setting. |
+| **REQ-HW-204** | **Input Return Loss** | 10 | 15 | - | dB | Measured at the SMA input. Must be ≥ 10 dB VSWR 1.9:1.<br><br>**Constraint:** Ensures efficient power transfer. Depends on the input matching network designed for the HMC1061LP4E and TGA4506-SM. |
+| **REQ-HW-205** | **Gain Flatness** | - | - | ±3 | dB | Peak-to-peak variation over 5-18 GHz.<br><br>**Constraint:** The TGA4506 has typical flatness of ±2 dB. The VGA adds variation. DSP correction may be required to meet strict ±3 dB analog flatness. |
 
-#### 3.2.2 Digital Performance
+### 3.2.2 Local Oscillator Performance
 
-| ID | Metric | Requirement Value | Rationale / Calculation | Verification Method |
-|---|---|---|---|---|
-| **REQ-HW-208** | **ADC Resolution** | 12 Bits | Fixed by ADC12DJ3200 selection. | Inspection |
-| **REQ-HW-209** | **ADC Sampling Rate** | 3.2 GSPS | Utilizing the ADC12DJ3200 in dual-channel mode (I/Q) requires high sample rate per channel to support Nyquist for wideband IF. | Inspection |
-| **REQ-HW-210** | **ADC SNR** | ≥ 57 dBFS | Typical SNR for ADC12DJ3200 at 3.2 GSPS input ~100 MHz. | Test |
-| **REQ-HW-211** | **Data Throughput** | 12.8 Gbps (Raw) | Calculation: 2 Channels (I/Q) × 12 Bits × 3.2 GSPS = 76.8 Gbps raw. Encoded using 8b/10b or 64b/66b for JESD204B link. | Analysis |
+| ID | Requirement | Min | Typ | Max | Unit | Description & Calculation |
+|---|---|---|---|---|---|---|
+| **REQ-HW-206** | **LO Phase Noise** | - | - | -100 | dBc/Hz | Single sideband phase noise at 100 kHz offset.<br><br>**Analysis:** The ADF5356 typically achieves -136 dBc/Hz @ 1MHz offset. At 100kHz, it is typically -105 to -110 dBc/Hz. This meets the requirement of -100 dBc/Hz. |
+| **REQ-HW-207** | **LO Frequency Settling Time** | - | 50 | 100 | µs | Time to lock within 1 kHz of target frequency.<br><br>**Constraint:** Determined by the loop filter bandwidth design of the ADF5356 PLL. |
 
-#### 3.2.3 Environmental & Power Performance
+### 3.2.3 Digitizer Performance
 
-| ID | Metric | Requirement Value | Rationale / Calculation | Verification Method |
-|---|---|---|---|---|
-| **REQ-HW-212** | **Operating Temperature** | -40°C to +85°C | Industrial temperature range requirement. Components selected (HMC/LP4, ADC12DJ3200, XCZU3EG) are all Industrial temp rated. | Test |
-| **REQ-HW-213** | **Total Power Consumption** | ≤ 35 Watts | **Power Budget Estimation:** <br>1. **ADC12DJ3200**: ~1.8W <br>2. **FPGA (XCZU3EG)**: ~5W (Typical) <br>3. **ADF5355 (LO)**: ~0.5W <br>4. **HMC698LP4 (VGA)**: ~0.5W <br>5. **HMC1048LP4E (Mixer)**: ~0.8W <br>6. **LDO/DC-DC Losses**: Estimated 20% overhead. <br>**Total Active:** ~9W. <br>Margin included for undefined regulators and auxiliary loads. | Test |
-| **REQ-HW-214** | **Power Supply Ripple** | ≤ 50 mV pk-pk | Required for RF rails (+5V) to prevent phase noise modulation in the synthesizer and mixer. | Test |
+| ID | Requirement | Min | Typ | Max | Unit | Description |
+|---|---|---|---|---|---|---|
+| **REQ-HW-208** | **ADC Resolution** | 12 | 14 | - | Bits | Effective Number of Bits (ENOB) shall be ≥ 10 bits at 200 MSPS.<br><br>**Constraint:** The AD9208 is a 14-bit ADC. Ensures sufficient dynamic range for the Digital I/Q output requirement. |
+| **REQ-HW-209** | **ADC Spurious-Free Dynamic Range (SFDR)** | 65 | 75 | - | dBc | <br>**Constraint:** Ensures that harmonic distortion from the ADC does not limit the receiver's ability to detect weak signals adjacent to strong ones. |
+
+### 3.2.4 Environmental & Power Performance
+
+| ID | Requirement | Min | Typ | Max | Unit | Description & Calculation |
+|---|---|---|---|---|---|---|
+| **REQ-HW-210** | **Total Power Consumption** | - | 10 | 15 | Watts | Total power drawn from +12V source.<br><br>**Power Budget Calculation:**<br>1. **LNA (TGA4506):** +6V @ 90mA = 0.54 W<br>2. **Mixer (HMC1052):** +5V @ 180mA = 0.90 W<br>3. **VGA (HMC698):** +5V @ 130mA = 0.65 W<br>4. **Synth (ADF5356):** +3.3V @ 100mA = 0.33 W<br>5. **ADC (AD9208):** +1.8V @ 800mA (Typ dual) = 1.44 W<br>6. **IF Amp (ADA4817):** +5V @ 50mA x 2 = 0.50 W<br>7. **MCU (STM32):** +3.3V @ 50mA = 0.17 W<br>8. **Regulator Efficiency Loss:** ~20% overhead.<br>**Total DC Load:** ~4.5 W (Active components).<br>**System Max:** ~12 W (including margin for aux/fans). Meets 15 W limit comfortably. |
+| **REQ-HW-211** | **Operating Temperature Range** | 0 | 25 | +50 | °C | Ambient temperature. <br><br>**Analysis:** Selected components are Commercial or Industrial grade (0 to +70°C). Internal heating must be managed such that junction temps < 100°C. |
+| **REQ-HW-212** | **Input Power Handling (Damage)** | - | - | +30 | dBm | Continuous Wave (CW) input.<br><br>**Analysis:** The HMC1061LP4E limiter protects up to 20 dBm. To meet 30 dBm, we rely on the limiter's clamping action and the 1.8dB insertion loss absorbing some energy. *Note: The 30 dBm requirement pushes the HMC1061 limits (absolute max). A 10W peak (with low duty cycle) is supported, but 30dBm CW (1W) is near the threshold for extended duration.* |
+
+```mermaid
+pie title Power Budget Distribution (Estimated Max)
+    "RF LNA" : 5
+    "Mixer" : 9
+    "VGA" : 7
+    "LO Synth" : 4
+    "ADC (Dual)" : 15
+    "IF Amplifiers" : 6
+    "MCU/Logic" : 4
+    "Quiescent/Overhead" : 50
+```
 
 ---
 
 **Document Status: AI-GENERATED**
+
+# 3. Hardware Requirements
 
 ## 3.3 Interface Requirements
 
 ### 3.3.1 External Interfaces
 
 #### 3.3.1.1 RF Input Interface
-**REQ-HW-011:** The system shall provide a single RF input port configured for 50-ohm impedance.
-**REQ-HW-031:** The RF input connection shall utilize a 2.4mm female coaxial connector (PC board mount), compatible with 2.92mm (K) male connectors.
-**REQ-HW-032:** The input connector shall exhibit a return loss of ≥ 10 dB (VSWR ≤ 2.0:1) across the 5-18 GHz operating band when the system is powered.
+**REQ-HW-021:** The system shall provide an RF input port via a female SMA connector (50Ω impedance).
+*   **Rationale:** Standard interface for benchtop RF test equipment.
+*   **Verification:** Inspection.
 
-**Table 3-1: RF Input Interface Characteristics**
+**REQ-HW-022:** The RF input port shall accept input frequencies from 5000 MHz to 18000 MHz.
+*   **Rationale:** Ensures coverage of the target operational band.
+*   **Verification:** Test.
 
-| Parameter | Value | Unit | Remarks |
-|---|---|---|---|
-| Connector Type | 2.4mm Female (PC Mount) | - | Ohmium Mfg. P/N: 1224-402F-15 or equivalent |
-| Impedance | 50 | Ω | Controlled to 50Ω ± 5% |
-| Frequency Range | 5 - 18 | GHz | Supporting full band coverage |
-| Maximum Input Power | +10 | dBm | Continuous wave (CW) |
-| Input P1dB | +15 | dBm | System compression point |
+**REQ-HW-023:** The RF input port shall maintain a return loss of greater than or equal to 10 dB across the 5000-18000 MHz range.
+*   **Rationale:** Minimizes signal reflection and ensures maximum power transfer.
+*   **Verification:** Test.
 
-#### 3.3.1.2 Digital Data Output Interface
-**REQ-HW-006:** The receiver shall output digitized I/Q data via a high-speed parallel CMOS/LVDS interface.
-**REQ-HW-033:** The digital output shall utilize JESD204B SerDes technology to minimize pin count and EMI.
+**REQ-HW-024:** The RF input path shall include protection circuitry (HMC1061LP4E) capable of withstanding a continuous wave (CW) input power of +30 dBm without permanent damage.
+*   **Rationale:** Protects sensitive downstream components (LNA, Mixer) from accidental overdrive.
+*   **Verification:** Test.
 
-**Table 3-2: JESD204B Output Interface Characteristics**
+#### 3.3.1.2 Power Supply Interface
+**REQ-HW-025:** The system shall utilize a 2.1mm x 5.5mm barrel jack connector for the primary DC power input.
+*   **Rationale:** Industry standard for 12V DC benchtop equipment.
+*   **Verification:** Inspection.
 
-| Parameter | Value | Unit | Remarks |
-|---|---|---|---|
-| Standard | JESD204B Subclass 1 | - | Deterministic latency |
-| Lanes | 2 | - | Supports dual ADC output |
-| Lane Rate | 6.4 to 12.8 | Gbps | Configurable via FPGA register |
-| Data Format | 12-bit I / 12-bit Q | bits | Per sample |
-| Scrambling | Enabled | - | For high-frequency spectral content |
+**REQ-HW-026:** The barrel jack center pin shall accept positive voltage (+12V DC), and the outer sleeve shall connect to ground (negative).
+*   **Rationale:** Polarity protection prevents reverse voltage damage.
+*   **Verification:** Inspection.
 
-#### 3.3.1.3 Control and Synchronization Interface
-**REQ-HW-034:** The system shall provide external synchronization via a SMA connector for 10 MHz reference input.
-**REQ-HW-035:** An external trigger input shall be provided via SMB connector to initiate data capture.
+**REQ-HW-027:** The power input module shall support an input voltage range of +10.8V DC to +13.2V DC (±10% tolerance).
+*   **Rationale:** Accommodates standard supply variations.
+*   **Verification:** Test.
 
-**Table 3-3: Sync/Control Interface Pinout**
+**REQ-HW-028:** The system shall include a polyfuse on the input rail with a hold current of 2.0A and a trip current of 4.0A.
+*   **Rationale:** Overcurrent protection for the device and the power supply.
+*   **Verification:** Analysis.
 
-| Connector Type | Signal | Description | Impedance |
-|---|---|---|---|
-| SMA Female | REF_IN | 10 MHz Reference Clock Input (AC Coupled) | 50 Ω |
-| SMB Female | TRIG_IN | External Trigger Input (LVTTL compatible) | 50 Ω |
+#### 3.3.1.3 Data and Control Interfaces
+**REQ-HW-029:** The system shall expose digital I/Q data via a High-Density (HD) SFF-8643 (Mini SAS HD) connector supporting 4 lanes at up to 12 Gbps per lane.
+*   **Rationale:** Provides sufficient bandwidth for high-sample-rate I/Q data (>200 MSPS x 2 channels x 16 bits = 6.4 Gbps aggregate).
+*   **Verification:** Inspection.
+
+**REQ-HW-030:** The system shall provide a USB 2.0 Type B port for MCU control and firmware updates.
+*   **Rationale:** Standard interface for PC-based control utility.
+*   **Verification:** Inspection.
+
+**REQ-HW-031:** The system may provide a Reference Clock Input/Output via an SMA connector (10 MHz, 0 dBm).
+*   **Rationale:** Allows synchronization with other test equipment.
+*   **Verification:** Inspection.
+
+---
 
 ### 3.3.2 Internal Interfaces
 
-#### 3.3.2.1 RF Chain Interconnects
-**REQ-HW-036:** The interface between the LNA (HMC698LP4) and the Mixer (HMC1048LP4E) shall be a controlled impedance microstrip transmission line of 50 Ω.
-**REQ-HW-037:** The LO interface between the Synthesizer (ADF5355) and the Mixer shall provide +5 dBm to +7 dBm drive level.
+#### 3.3.2.1 RF Chain Internal Interfaces
+**REQ-HW-032:** The connection between the RF Limiter (HMC1061LP4E) and the LNA (TGA4506-SM) shall utilize a 50-ohm controlled impedance microstrip transmission line.
+*   **Rationale:** Preserves signal integrity between the input and the first gain stage.
+*   **Verification:** Inspection.
 
-**Table 3-4: Internal RF Interface Levels**
+**REQ-HW-033:** The connection between the LNA (TGA4506-SM) and the VGA (HMC698LP4) shall utilize a 50-ohm controlled impedance microstrip line with AC coupling capacitance of 100 pF.
+*   **Rationale:** Blocks DC bias from the LNA output entering the VGA input.
+*   **Verification:** Inspection.
 
-| From | To | Interface Type | Power Level (typ) |
-|---|---|---|---|
-| Input Connector | LNA | 50 Ω Microstrip | -30 to -10 dBm |
-| LNA | Mixer | 50 Ω Microstrip | -10 to +10 dBm (Variable) |
-| PLL (ADF5355) | Mixer (LO) | 50 Ω Microstrip | +5 dBm |
-| Mixer (I/Q) | ADC | Differential | 1.5 Vpp Differential |
+**REQ-HW-034:** The LO path from the ADF5356 synthesizer to the HMC1052LP4E mixer shall include a 3dB attenuator to drive the LO input at the optimal level (+5 dBm).
+*   **Rationale:** The ADF5356 output is typically +2 dBm to +5 dBm, while the mixer requires up to +5 dBm for optimal performance; the attenuator acts as a level set and improves VSWR matching.
+*   **Verification:** Test.
 
-#### 3.3.2.2 Internal SPI Control Bus
-**REQ-HW-038:** An internal SPI bus shall be shared between the FPGA and the RF components (LNA, PLL) for gain and frequency configuration.
+#### 3.3.2.2 Internal Power Distribution Interfaces
+**REQ-HW-035:** The +12V input rail shall be converted to +5V (LTM4644 Channel 1) to power the RF Limiter, LNA, and Mixer.
+*   **Rationale:** These components require a +5V supply rail.
+*   **Verification:** Inspection.
 
-**Table 3-5: Internal SPI Pin Assignment (FPGA Master)**
+**REQ-HW-036:** The +12V input rail shall be converted to +3.3V (LTM4644 Channel 2) to power the VGA and MCU.
+*   **Rationale:** These components utilize +3.3V logic and supply rails.
+*   **Verification:** Inspection.
 
-| Net Name | Source | Destination | Description |
-|---|---|---|---|
-| RF_SCLK | FPGA (Bank 34) | HMC698, ADF5355 | SPI Clock (≤ 20 MHz) |
-| RF_MOSI | FPGA (Bank 34) | HMC698, ADF5355 | Master Out Slave In |
-| RF_MISO | FPGA (Bank 34) | HMC698, ADF5355 | Master In Slave Out |
-| LNA_CS_N | FPGA (Bank 34) | HMC698LP4 | Chip Select (LNA) |
-| PLL_CS_N | FPGA (Bank 34) | ADF5355 | Chip Select (PLL) |
+**REQ-HW-037:** The +12V input rail shall be converted to +1.8V (LTM4644 Channel 3) to power the ADC digital core.
+*   **Rationale:** The AD9208 requires a 1.8V supply for high-speed logic operation.
+*   **Verification:** Inspection.
+
+**REQ-HW-038:** The +12V input rail shall be converted to +3.3V (LTM4644 Channel 4) to power the IF Amplifiers (ADA4817).
+*   **Rationale:** High-speed op-amps require a clean, low-noise supply.
+*   **Verification:** Inspection.
+
+#### 3.3.2.3 Digital Interface Pin Mapping (Internal)
+The following table defines the internal SPI and control interfaces between the MCU (STM32F407VGT6) and peripheral components.
+
+**Table 3-1: MCU to VGA (HMC698LP4) SPI Interface**
+
+| MCU Pin (STM32F407) | VGA Pin (HMC698LP4) | Signal Name | Description |
+| :--- | :--- | :--- | :--- |
+| PA4 | CSB | SPI_CS_VGA | Chip Select (Active Low) |
+| PA5 | SCK | SPI_SCK | Serial Clock |
+| PA6 | SDO (MISO) | MISO | Master In Slave Out (Status read) |
+| PA7 | SDI (MOSI) | MOSI | Master Out Slave In (Data write) |
+| PD0 | GPIO | CLK | Serial Clock Input (Latch data) |
+
+**Table 3-2: MCU to LO Synthesizer (ADF5356) SPI Interface**
+
+| MCU Pin (STM32F407) | LO Pin (ADF5356) | Signal Name | Description |
+| :--- | :--- | :--- | :--- |
+| PC4 | LE | SPI_CS_LO | Latch Enable (Chip Select) |
+| PA5 | CLK | SPI_SCK | Serial Clock (Shared) |
+| PA6 | MISO | MISO | Data Read (Shared) |
+| PA7 | MOSI | MOSI | Data Write (Shared) |
+| PC5 | GPIO | MUXOUT | Muxout for lock detect status |
+
+**Table 3-3: MCU to ADC (AD9208) SPI Interface**
+
+| MCU Pin (STM32F407) | ADC Pin (AD9208) | Signal Name | Description |
+| :--- | :--- | :--- | :--- |
+| PB12 | CSB | SPI_CS_ADC | Chip Select (Active Low) |
+| PA5 | SCK | SPI_SCK | Serial Clock (Shared) |
+| PA6 | SDO | SDIO_0 | Bidirectional Data 0 |
+| PA7 | SDIO | SDIO_1 | Bidirectional Data 1 |
+
+---
 
 ### 3.3.3 Communication Interfaces
 
-#### 3.3.3.1 System Configuration Interface (USB)
-**REQ-HW-039:** The system shall use a USB 2.0 High Speed (480 Mbps) interface for host control and firmware updates.
-**REQ-HW-040:** The USB interface shall utilize the native USB capabilities of the Xilinx Zynq PS (Processing System).
+#### 3.3.3.1 Serial Peripheral Interface (SPI)
+**REQ-HW-039:** The MCU shall communicate with the VGA, LO Synthesizer, and ADC using a common SPI bus operating in Mode 0 (CPOL=0, CPHA=0).
+*   **Rationale:** Ensures compatibility with all target peripherals.
+*   **Verification:** Test.
 
-**Table 3-6: USB Interface Pinout**
+**REQ-HW-040:** The SPI clock frequency shall be 10 MHz maximum.
+*   **Rationale:** Ensures signal integrity over PCB traces and meets setup/hold times for all target devices.
+*   **Verification:** Test.
 
-| Pin # | Signal Name | Description | Type |
-|---|---|---|---|
-| 1 | USB_VBUS | +5V Power from Host | Power In |
-| 2 | USB_DM | Negative Data | D- |
-| 3 | USB_DP | Positive Data | D+ |
-| 4 | USB_GND | Ground | GND |
+#### 3.3.3.2 USB Virtual Control Port
+**REQ-HW-041:** The system shall enumerate as a USB Communications Device Class (CDC) device on the host PC.
+*   **Rationale:** Eliminates the need for proprietary drivers.
+*   **Verification:** Test.
 
-#### 3.3.3.2 Network Management Interface (Optional)
-**REQ-HW-041:** The system shall support a 1000BASE-T Ethernet interface for remote command and control in future revisions.
+**REQ-HW-042:** The USB interface shall support a command set for setting Frequency, Gain, Sample Rate, and reading Status registers.
+*   **Rationale:** Provides standardized control mechanism.
+*   **Verification:** Test.
+
+#### 3.3.3.3 JTAG Interface
+**REQ-HW-043:** The PCB shall expose a standard 20-pin JTAG header (0.1" pitch) for debugging and programming the STM32F407 and the FPGA.
+*   **Rationale:** Essential for development and field firmware updates.
+*   **Verification:** Inspection.
 
 ---
 
 ## 3.4 Environmental Requirements
 
-### 3.4.1 Operating Conditions
-**REQ-HW-007:** The receiver system shall operate continuously without degradation in ambient temperatures ranging from -40°C to +85°C (Industrial Temperature Range).
-**REQ-HW-042:** The system shall maintain performance specifications (Gain, NF, IP3) across the full temperature range after a 30-minute warm-up period.
-**REQ-HW-043:** The system shall be stored in temperatures ranging from -55°C to +125°C without damage.
+### 3.4.1 Operating Temperature
+**REQ-HW-044:** The receiver shall maintain all performance specifications within an ambient temperature range of 0°C to +50°C.
+*   **Rationale:** Defines standard operating environment for benchtop equipment.
+*   **Verification:** Test.
 
-### 3.4.2 Humidity
-**REQ-HW-044:** The system shall operate in relative humidity ranging from 5% to 95% (non-condensing).
-**REQ-HW-045:** The system shall withstand 95% relative humidity at +40°C for 96 hours (IEC 60068-2-78) without corrosion or functional failure.
+### 3.4.2 Storage Temperature
+**REQ-HW-045:** The receiver shall remain undamaged within a storage temperature range of -40°C to +85°C.
+*   **Rationale:** Ensures survivability during shipping and non-operation.
+*   **Verification:** Test.
 
-### 3.4.3 Vibration and Shock
-**REQ-HW-046:** The system shall withstand random vibration of 0.03 g²/Hz from 20 Hz to 2000 Hz (Total GRMS = 7.5g) for 2 hours per axis.
-**REQ-HW-047:** The system shall withstand operational shock of 40g, 11 ms half-sine wave.
+### 3.4.3 Humidity
+**REQ-HW-046:** The system shall operate without degradation in non-condensing humidity environments from 10% to 90% relative humidity.
+*   **Rationale:** Standard laboratory humidity range.
+*   **Verification:** Test.
 
-### 3.4.4 Altitude
-**REQ-HW-048:** The system shall operate at altitudes up to 15,000 feet (4,572 meters) without requiring forced air cooling beyond the standard installed fans.
+### 3.4.4 Thermal Dissipation
+**REQ-HW-047:** The system shall utilize thermal vias under the RF power amplifiers and the DC-DC converter to transfer heat to the bottom side of the PCB.
+*   **Rationale:** These components dissipate significant heat and require a thermal path to the enclosure.
+*   **Verification:** Inspection.
 
-### 3.4.5 Contamination
-**REQ-HW-049:** Conformal coating shall be applied to the PCB assembly to protect against moisture, dust, and sulfurization.
+**REQ-HW-048:** The enclosure shall include a passive cooling vent area of at least 20 cm² on the top and bottom covers to facilitate convective cooling.
+*   **Rationale:** Maintains internal ambient temperature within component limits assuming 15W max power dissipation.
+*   **Verification:** Inspection.
 
 ---
 
 ## 3.5 Power Requirements
 
-### 3.5.1 Input Power
-**REQ-HW-009:** The system shall accept power from an external AC/DC power brick providing a nominal +12V DC output.
-**REQ-HW-050:** The system input voltage range shall be +11V to +13V DC to accommodate cable drops.
-**REQ-HW-051:** The system shall incorporate reverse polarity protection on the main DC input jack (2.5mm barrel connector).
+### 3.5.1 Power Budget Analysis
+The following power budget is derived from the typical current consumption values of the selected components at their nominal supply voltages.
 
-### 3.5.2 Power Distribution and Budget
-**REQ-HW-052:** The system shall utilize internal DC-DC converters to generate the required voltage rails: +5V, +3.3V, +2.5V (FPGA MGTAVCC), +1.8V (FPGA Core), +1.2V (FPGA Core), and -5V.
+**Table 3-4: Detailed Power Budget**
 
-**Table 3-7: Detailed Power Budget Analysis (Derived from Component Datasheets)**
+| Rail (V) | Subsystem | Component(s) | Current (Typ) | Current (Max) | Power (W) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **+12V** | Input / Adapter | External Supply | - | 2.50 A | 30.0 W (Cap) |
+| **+5V** | RF Front End | HMC1061LP4E (Limiter) | 50 mA | 75 mA | 0.38 W |
+| **+5V** | RF Front End | TGA4506-SM (LNA) | 90 mA | 110 mA | 0.55 W |
+| **+5V** | Downconversion | HMC1052LP4E (Mixer) | 180 mA | 210 mA | 1.05 W |
+| **+5V** | IF Section | x2 ADA4817 (Op-Amps) | 40 mA | 50 mA | 0.20 W |
+| **+5V** | Digital/FIFO | LVDS Buffers | 30 mA | 50 mA | 0.15 W |
+| **+5V Total** | | | **460 mA** | **555 mA** | **2.78 W** |
+| **+3.3V** | RF IF | HMC698LP4 (VGA) | 130 mA | 150 mA | 0.43 W |
+| **+3.3V** | Control | STM32F407VGT6 (MCU) | 100 mA | 150 mA | 0.33 W |
+| **+3.3V** | Support | SD Card / LED / Fan | 50 mA | 100 mA | 0.15 W |
+| **+3.3V Total** | | | **280 mA** | **400 mA** | **1.32 W** |
+| **+1.8V** | High Speed | AD9208 (ADC Core) | 1.00 A | 1.20 A | 1.80 W |
+| **+1.8V** | High Speed | FPGA Core (Assumed) | 200 mA | 500 mA | 0.36 W |
+| **+1.8V Total** | | | **1.20 A** | **1.70 A** | **3.06 W** |
+| **Eff. Loss** | Regulation | LTM4644 (Eff ~85%) | - | - | 1.20 W (Est) |
+| **TOTAL** | | | **~1.8 A** | **~2.2 A** | **~9.0 W** |
 
-| Voltage Rail | Load Device(s) | Est. Current (Typ) | Est. Current (Max) | Power (W) | Derivation/Assumption |
-|---|---|---|---|---|---|
-| **+12.0V** | Input to DC-DC | 1.50 A | 2.50 A | 30.0 W | Total Input Power (≈85% efficiency) |
-| **+5.0V** | LNA (HMC698) | 120 mA | 150 mA | 0.75 W | 5V @ 120mA typ (Datasheet) |
-| **+5.0V** | Mixer (HMC1048) | 180 mA | 210 mA | 1.05 W | 5V @ 180mA typ (Datasheet) |
-| **+5.0V** | PLL (ADF5355) | 90 mA | 110 mA | 0.55 W | 5V @ 90mA typ (Datasheet) |
-| **+3.3V** | ADC Logic | 200 mA | 250 mA | 0.83 W | Supplying digital rails of ADC |
-| **+3.3V** | FPGA I/O | 100 mA | 500 mA | 1.65 W | Assumes 50 I/Os active |
-| **-5.0V** | Mixer (HMC1048) | 150 mA | 180 mA | 0.90 W | Negative rail for mixer bias |
-| **+1.8V** | FPGA PS/PL Aux | 1.20 A | 1.50 A | 2.70 W | Zynq Aux rail |
-| **+1.2V** | ADC Cores | 800 mA | 950 mA | 1.14 W | ADC12DJ3200 Core (1.2V) |
-| **+1.0V** | FPGA PL Core | 3.00 A | 4.00 A | 4.00 W | Zynq PL Core (High utilization) |
-| **+3.3V** | Fans/Accessories | 200 mA | 300 mA | 0.99 W | 2x 40mm Fans |
-| **TOTAL** | **(Internal Rails)** | **6.24 A** | **8.15 A** | **14.56 W** | **Internal Consumption** |
-| **TOTAL** | **(Input +12V)** | **1.50 A** | **2.50 A** | **18.00 W** | **Max Input Power** |
+*Note: The calculated total power is approximately 9.0 Watts. This provides a 6.0 Watt safety margin relative to the 15W requirement (REQ-HW-012).*
 
-**REQ-HW-053:** The power supply design shall include a minimum of 30% headroom above the calculated maximum load (Max Load = 18W, Design Target = 24W capability).
+### 3.5.2 Power Supply Requirements
+**REQ-HW-049:** The external power supply shall be capable of delivering +12V DC at 2.5A continuous.
+*   **Rationale:** Ensures sufficient headroom for the ~9W operational draw and inrush currents.
+*   **Verification:** Analysis.
 
-### 3.5.3 Power Sequencing
-**REQ-HW-054:** The system shall implement a power sequencing scheme compliant with the Xilinx Zynq UltraScale+ requirements:
-1.  **Step 1:** +3.3V (PS I/O)
-2.  **Step 2:** +1.8V (PS MGTAVCC)
-3.  **Step 3:** +1.0V / +1.2V (Core Rails) within 50ms of Step 1
-
-### 3.5.4 Thermal Requirements
-**REQ-HW-055:** The system shall maintain the FPGA junction temperature (Tj) below 100°C at maximum ambient temperature of +85°C.
-**REQ-HW-056:** The system shall maintain the RF component case temperatures below +105°C to ensure performance stability.
-
-**Thermal Analysis Calculation:**
-*   **FPGA Power:** 4.0W (Zynq PL Core).
-*   **Theta JA (Junction to Ambient):** Assuming forced convection with heatsink ≈ 15°C/W.
-*   **Tj Calculation:** $Tj = Tamb + (P \times \Theta ja) = 85°C + (4.0W \times 15°C/W) = 145°C$.
-*   **Requirement Update:** Standard heatsink is insufficient.
-*   **REQ-HW-057:** The FPGA shall be equipped with an active heatsink (fan + heatsink) with a thermal resistance of ≤ 5°C/W to maintain $Tj = 85 + (4.0 \times 5) = 105°C$ (Requires margin cooling). A fan is mandatory.
+**REQ-HW-050:** The internal DC-DC converter (LTM4644) shall utilize an input inductance of 1.0 µH and output capacitance of 47 µF (tantalum) per channel to maintain ripple voltage below 50 mV peak-to-peak.
+*   **Rationale:** Low ripple is critical for the noise figure performance of the LNA and Mixer.
+*   **Verification:** Analysis.
 
 ---
 
 ## 3.6 Physical Requirements
 
-### 3.6.1 Enclosure
-**REQ-HW-008:** The system shall be housed in a standard desktop/benchtop enclosure.
-**REQ-HW-058:** The enclosure dimensions shall not exceed 200mm (W) x 250mm (D) x 70mm (H).
-**REQ-HW-059:** The enclosure material shall be aluminum (6061-T6 or equivalent) with a minimum thickness of 2mm for RF shielding and structural rigidity.
-**REQ-HW-060:** The enclosure shall provide EMI shielding effectiveness of ≥ 60 dB from 5 GHz to 18 GHz.
+### 3.6.1 Enclosure Dimensions
+**REQ-HW-051:** The receiver shall be housed in an enclosure with external dimensions not exceeding 200mm (W) x 150mm (D) x 50mm (H).
+*   **Rationale:** Meets the "Portable Benchtop" form factor requirement.
+*   **Verification:** Inspection.
 
-### 3.6.2 Printed Circuit Board (PCB)
-**REQ-HW-061:** The RF section of the PCB shall utilize Rogers RO4350B laminate (εr = 3.48, loss tangent = 0.0037) for controlled impedance and low loss at 18 GHz.
-**REQ-HW-062:** The PCB stack-up shall be a minimum of 8 layers.
-    *   Layers 1-2: Rogers RO4350B (RF signals, GND).
-    *   Layers 3-8: FR-4 (Standard) for power planes and digital routing.
-**REQ-HW-063:** PCB surface finish shall be ENIG (Electroless Nickel Immersion Gold) to ensure corrosion resistance and flatness for RF components.
-**REQ-HW-064:** The PCB dimensions shall be 180mm x 220mm to fit within the specified enclosure.
-**REQ-HW-065:** The PCB shall use 0.5mm (20 mil) diameter non-plated holes for via stitching under RF pads to minimize ground inductance.
+### 3.6.2 Weight
+**REQ-HW-052:** The total weight of the assembly (excluding external power brick) shall not exceed 1.8 kg.
+*   **Rationale:** Ensures portability while accommodating the metal enclosure necessary for EMI shielding.
+*   **Verification:** Test.
 
-### 3.6.3 Connectors and Mounting
-**REQ-HW-066:** All RF connectors (Input) shall be mounted on the front panel with PCB launch or coaxial launches (SMP/2.4mm).
-**REQ-HW-067:** The PCB shall be mounted to the chassis chassis using 4-40 or M3 standoffs at the corners and along the longest edge every 100mm to prevent resonance vibration.
+### 3.6.3 PCB Stackup
+**REQ-HW-053:** The PCB shall be fabricated using 8-layer stackup with Rogers RO4350B laminate for the top 2 RF layers and FR-4 for the inner digital/power layers.
+*   **Rationale:** RO4350B offers stable dielectric constant (Er=3.48) essential for 18 GHz RF performance; FR-4 reduces cost for standard digital routing.
+*   **Verification:** Inspection.
 
-### 3.6.4 Cooling
-**REQ-HW-068:** The system shall include two (2) 40mm x 40mm brushless DC fans for exhaust cooling.
-**REQ-HW-069:** Airflow vents shall be designed to prevent direct ingress of fingers or tools (IP20 rating) while allowing minimum 20 CFM airflow.
+**REQ-HW-054:** The PCB thickness shall be 1.60 mm (0.062 inches).
+*   **Rationale:** Standard rigid PCB thickness providing mechanical stability.
+*   **Verification:** Inspection.
+
+### 3.6.4 Connector Placement
+**REQ-HW-055:** The RF Input SMA connector shall be positioned on the rear panel of the enclosure.
+*   **Rationale:** Standard practice for cabling management on benchtop equipment.
+*   **Verification:** Inspection.
+
+**REQ-HW-056:** The Power Input and USB Control connectors shall be positioned on the rear panel.
+*   **Rationale:** Grouping fixed infrastructure connections on the rear panel keeps the workspace clean.
+*   **Verification:** Inspection.
+
+**REQ-HW-057:** The Digital I/Q Output (SFF-8643) shall be positioned on the front panel for easy access to data acquisition cables.
+*   **Rationale:** High-speed data cables are frequently connected/disconnected and are best accessed from the front.
+*   **Verification:** Inspection.
 
 ---
 
@@ -499,509 +642,501 @@ This section defines the quantitative performance criteria the hardware must ach
 
 ## 4.1 Standards Compliance
 
-The design of the 5-18 GHz Wideband RF Receiver shall adhere to the following industry standards and regulatory requirements. These constraints ensure the manufacturability, safety, environmental compliance, and electromagnetic compatibility of the final system.
+The design of the 5-18 GHz Receiver shall adhere to the following international, regional, and industry standards to ensure safety, electromagnetic compatibility (EMC), environmental compliance, and manufacturing quality.
 
-### 4.1.1 PCB Design and Fabrication Standards
-The Printed Circuit Board (PCB) design for the RF Front End and Digital sections shall comply with the following IPC standards to ensure reliability and signal integrity, particularly given the high-frequency operation (up to 18 GHz).
+### 4.1.1 Environmental Compliance
+The receiver system shall comply with the following restrictions on hazardous substances:
 
-**Table 4-1: PCB Design and Fabrication Compliance Standards**
+*   **REQ-HW-018 (RoHS 3 Compliance):** The system shall comply with Directive 2011/65/EU (RoHS 2) and its amendment Directive 2015/863 (RoHS 3). This restricts the use of Lead (Pb), Mercury (Hg), Cadmium (Cd), Hexavalent Chromium (Cr6+), Polybrominated Biphenyls (PBB), and Polybrominated Diphenyl Ethers (PBDE), plus four phthalates (DEHP, BBP, DBP, DIBP).
+    *   **Assessment:** All selected components (HMC1061, TGA4506, HMC698, etc.) are verified as RoHS compliant. The PCB assembly shall utilize lead-free solder paste (SAC305: Sn96.5/Ag3.0/Cu0.5).
+*   **REACH:** The system shall not contain substances listed on the Candidate List of Substances of Very High Concern (SVHC) in concentrations above 0.1% by weight, in accordance with Regulation (EC) No 1907/2006.
 
-| Standard ID | Title | Application to Project |
-| :--- | :--- | :--- |
-| **IPC-2221** | Generic Standard on Printed Board Design | Base standard for board layout, conductor spacing, and component mounting. |
-| **IPC-2221A** | Generic Standard on Printed Board Design (Amendment 1) | Includes critical high-frequency design guidelines applicable to the 5-18 GHz RF chain. |
-| **IPC-6012** | Qualification and Performance Specification for Rigid Printed Boards | Class 3 performance specification (High Reliability Electronic Products) required for the RF chain due to impedance control tolerances (±5%). |
-| **IPC-6013** | Qualification and Performance Specification for Flexible Printed Boards | Applied if flex-rigid materials are used for internal board-to-board connectors within the enclosure. |
+### 4.1.2 Electromagnetic Compatibility (EMC)
+To minimize interference and ensure reliable operation in the presence of other electronic equipment, the receiver shall meet the following emissions and immunity standards:
 
-**Justification:**
-*   **Impedance Control:** For the RF chain operating at 5-18 GHz, impedance discontinuities cause severe VSWR degradation. IPC-6012 Class 3 ensures strict impedance control tolerances on the PCB dielectric (assumed Rogers RO4350B based on HMC698LP4 evaluation board designs).
-*   **Microstrip/Stripline Rules:** The design shall adhere to controlled dielectric stack-up requirements defined in IPC-2221 to maintain 50Ω characteristic impedance for the RF input and mixer LO paths.
+*   **REQ-HW-017 (FCC Part 15 Subpart B):** The receiver shall comply with the digital device limits for unintentional radiators set forth by the Federal Communications Commission (FCC).
+    *   **Specific Limit:** For a Class B digital device (intended for use in a residential environment), the radiated emission field strength limits at 3 meters shall not exceed 40 dBµV/m for frequencies 30 – 88 MHz, 43.5 dBµV/m for 88 – 216 MHz, and 46 dBµV/m for 216 – 960 MHz. Above 960 MHz, the limit is 54 dBµV/m.
+*   **EN 55032:2015 / CISPR 32:** The receiver shall meet the emission requirements for multimedia equipment as defined by the European Committee for Electrotechnical Standardization (CENELEC).
+    *   **Class B Selection:** As defined in project requirements, the unit must meet Class B limits (residential/light industrial) rather than Class A (industrial).
+*   **EN 55035:2017 / CISPR 35:** The receiver shall demonstrate immunity to electromagnetic disturbances, ensuring it continues to function as intended when exposed to radio frequency (RF) fields, electrostatic discharge (ESD), and electrical fast transients (EFT).
 
-### 4.1.2 Assembly and Repair Standards
-To support field maintenance and high-volume production, the assembly processes shall meet the following:
+### 4.1.3 Safety and Performance Standards
+The design shall prioritize electrical safety and signal integrity:
 
-**Table 4-2: Assembly and Repair Standards**
+*   **IEC 61010-1:** Safety requirements for electrical equipment for measurement, control, and laboratory use. The enclosure shall prevent exposure to hazardous voltages (the internal +12V rail is classified as Safety Extra-Low Voltage (SELV), but proper insulation is required for the RF input port).
+*   **IPC-2221A:** Generic Standard on Printed Board Design. This standard dictates the critical spacing between conductors on the PCB to prevent arcing and ensure dielectric withstand voltage, specifically critical for the RF input handling +30 dBm transients.
 
-| Standard ID | Title | Requirement |
-| :--- | :--- | :--- |
-| **IPC-A-610** | Acceptability of Electronic Assemblies | Acceptance criteria for solder joints (Class 3). Specifically for BGA (FPGA/ADC) and QFN (LNA/Mixer) terminations. |
-| **IPC-7711/21** | Rework of Electronic Assemblies / Rework Modification | Procedures for removing and replacing the 12x12mm BGA ADC (ADC12DJ3200) and the 0.5mm pitch FPGA without damaging the laminate. |
-| **J-STD-001** | Requirements for Soldered Electrical and Electronic Assemblies | Ensures solder alloy compliance (Lead-free SAC305) compatible with the operating temperature range (-40 to +85°C). |
-
-### 4.1.3 Environmental and Safety Compliance
-**REQ-HW-014** mandates RoHS compliance. The following specific directives and standards apply:
-
-**Table 4-3: Environmental and Safety Constraints**
-
-| Standard ID | Title | Constraint Details |
-| :--- | :--- | :--- |
-| **2011/65/EU (RoHS)** | Restriction of Hazardous Substances | All PCBs, cables, and sub-assemblies shall be Lead-free. Maximum Concentration Value (MCV) of 0.1% (by weight) for Pb, Hg, Cd, etc. |
-| **1907/2006 (REACH)** | Registration, Evaluation, Authorisation and Restriction of Chemicals | Substances of Very High Concern (SVHC) must be declared in the BOM. |
-| **UL 60950-1** | Information Technology Equipment - Safety | Power supply unit (custom +12V/5V/3.3V/-5V) shall be isolated to prevent fire/shock hazards in a desktop form factor. |
-| **IEC 61010-1** | Safety Requirements for Electrical Equipment for Measurement, Control, and Laboratory Use | Enclosure design must prevent finger contact with live RF connectors (2.4mm female) during operation. |
-
-### 4.1.4 Electromagnetic Compliance (EMC)
-As a receiver sensitive to -90 dBm (calculated sensitivity), the system is susceptible to RF Interference (RFI).
-
-**Table 4-4: EMC Standards**
-
-| Standard ID | Title | Design Constraint |
-| :--- | :--- | :--- |
-| **FCC Part 15 B** | Unintentional Radiators | The digital switching noise from the FPGA (XCZU3EG) and ADC (ADC12DJ3200) must be suppressed to prevent interference with the RF input. |
-| **IEC 61000-4-3** | Immunity to Radiated RF Fields | System must maintain NF < 10dB while subjected to 3 V/m field from external sources. |
+### 4.1.4 Mechanical and Material Standards
+*   **IPC-7711/21:** Requirements for Rework of Electronic Assemblies. The BOM and assembly processes shall be compatible with standard rework techniques for the fine-pitch QFN and LFCSP packages utilized in the RF chain.
 
 ---
 
 ## 4.2 Component Constraints
 
-This section defines the constraints placed on specific components selected in the BOM to ensure system performance over the industrial temperature range and lifecycle requirements.
+The selection and application of components within the RF chain and digital subsystems are governed by strict electrical, thermal, and sourcing constraints to ensure system reliability and signal fidelity.
 
-### 4.2.1 Temperature Derating and Reliability
-The system is specified for **-40°C to +85°C** operation. Components must be rated beyond this range to ensure margin.
+### 4.2.1 Frequency and Impedance Matching Constraints
+*   **REQ-HW-001 (Frequency Coverage):** All RF components in the signal path (Limiter, LNA, VGA, Mixer) must maintain a -3 dB bandwidth covering at least 5.0 GHz to 18.0 GHz.
+*   **Impedance:** The entire RF signal chain (from SMA connector to Mixer RF port) must be designed for a characteristic impedance of 50Ω ± 5%. Any deviation will cause VSWR degradation, violating the return loss requirements (REQ-HW-019).
+*   **Transmission Lines:** Traces carrying RF signals exceeding 100 MHz (including the LO distribution path) must be treated as controlled impedance transmission lines. Microstrip geometries will be calculated based on the Rogers RO4350B dielectric properties (εr ≈ 3.66, thickness 0.168 mm) to maintain 50Ω impedance.
 
-**Table 4-5: Component Temperature Derating**
+### 4.2.2 Linearity and Dynamic Range Constraints
+*   **IIP3 Budgeting:** To meet the system requirement of IIP3 ≥ 20 dBm (REQ-HW-008), the Input Third-order Intercept Point of the VGA (HMC698LP4) and Mixer (HMC1052LP4E) cannot be compressed by the preceding LNA gain.
+    *   **Constraint Calculation:** With TGA4506 LNA Gain ≈ 21 dB, the output IP3 of the LNA is roughly 30 dBm + 21 dB = 51 dBm. The VGA Input P1dB is +17 dBm.
+    *   **Constraint:** The VGA gain setting must be managed by the MCU to ensure the input to the VGA does not exceed +5 dBm when the system is in high-sensitivity mode, to prevent gain compression.
+*   **Noise Figure (NF):** To achieve the system target of 3-5 dB (REQ-HW-002):
+    *   **Constraint:** The insertion loss of the RF Limiter (HMC1061LP4E, 1.8 dB) directly adds to the Noise Figure. No additional lossy components (e.g., unnecessary switches or long trace runs) may be placed between the Limiter and the LNA.
 
-| Component | Recommended Part | Rated Range | Derating Requirement |
-| :--- | :--- | :--- | :--- |
-| **LNA / VGA** | HMC698LP4 | -40°C to +85°C | Operating junction temp (Tj) must not exceed 125°C at max ambient + dissipation. |
-| **Mixer** | HMC1048LP4E | -40°C to +85°C | Gain variation across temp must be compensated by digital gain control (REQ-HW-003). |
-| **ADC** | ADC12DJ3200 | 0°C to +85°C (Commercial) | **CRITICAL CONSTRAINT:** Must upgrade to Industrial grade variant (ADC12DJ3200EVM or equivalent) or verify performance at -40°C via characterization. Current assumption is Industrial temp availability. |
-| **FPGA** | XCZU3EG-SFVA784 | -40°C to +100°C (Industrial) | "I" grade required. Commercial grade (0-85C) is strictly prohibited. |
-| **Passives** | Capacitors/Inductors | X7R / C0G (NP0) | Only C0G/NP0 dielectrics allowed in RF path (5-18 GHz) to prevent drift with temperature/voltage. X7R acceptable for power distribution. |
+### 4.2.3 Thermal and Power Constraints
+*   **Power Dissipation (REQ-HW-012):** The total system power draw is capped at 15.0W @ +12V DC (1.25A average).
+*   **Component Power Budget:**
+    *   RF Chain (LNA + VGA + Mixer + LO + Limiter): ~5.0W.
+    *   ADC (AD9208): ~2.0W.
+    *   FPGA/Controller: ~1.5W.
+    *   Margin Remaining: ~6.5W for overhead and regulatory spikes.
+*   **Derating:** All active components must be operated with a minimum safety margin of 20% below their maximum rated junction temperature (Tj) and Absolute Maximum Ratings (e.g., if HMC698 max V is 5.5V, supply rail must be regulated to 5.0V ±5%).
 
-### 4.2.2 Supply Voltage Ripple Constraints
-The phase noise requirement (**REQ-HW-013**: ≤ -100 dBc/Hz at 10 kHz offset) dictates extremely low noise power supplies.
+### 4.2.4 Supply Voltage Sequencing
+*   **Constraint:** The ADF5356 synthesizer requires a strict power-up sequence to prevent damage to the charge pump and VCO core.
+    *   **Sequence:** 3.3V logic supplies must be stable before the 5.0V RF supply is enabled. This sequencing must be implemented in the firmware (STM32F407) controlling the enable pins of the LTM4644 DC-DC converters.
 
-**Table 4-6: Power Supply Ripple Constraints (Calculated)**
-
-| Rail | Component(s) Served | Max Allowed Ripple | Calculation Basis |
-| :--- | :--- | :--- | :--- |
-| **+3.3V (Digital)** | FPGA, ADC Logic | < 50 mV pk-pk | Standard high-speed digital logic noise margin. |
-| **+3.3V (ADC Core)** | ADC12DJ3200 | < 10 mV rms | ADC SNR (57 dBFS) degradation limit. Ripple > 10mV directly impacts effective number of bits (ENOB). |
-| **+5V (IF Amp)** | HMC1048 IF Stage | < 100 µV rms | 1/f noise upconversion. Low ripple required to maintain Mixer IIP3 performance. |
-| **-5V (LO)** | ADF5355 PLL | < 50 µV rms | PLL Phase Noise is directly correlated to VCO control line noise. |
-| **+12V (RF LNA)** | HMC698LP4 | < 20 mV pk-pk | AM noise modulation. |
-
-### 4.2.3 Mechanical and Footprint Constraints
-To facilitate assembly and repair within the Desktop Form Factor (6U x 160mm Eurocard format):
-
-*   **Pitch:** All fine-pitch components (BGA, QFN) must allow for escape routing on standard layers (assumed 6-8 layer stackup).
-*   **Keep-out Zones:** The area underneath the 2.4mm RF connector must be clear of components for at least 5mm to prevent mechanical collision during cable mating.
-*   **Thermal Pads:** The HMC698LP4 (QFN) and HMC1048LP4E (LFCSP) have exposed thermal pads. These must be soldered to the ground plane with thermal vias (3x3 array, 0.3mm diameter) to meet θJA requirements.
-
-### 4.2.4 Lifecycle and Sourcing
-*   **Obsolescence:** The selection of the HMC1048LP4E is critical; as it is an older generation part. A formal "Last Time Buy" (LTB) check must be performed before Phase 2 production.
-*   **Alternatives:** The design must retain footprint compatibility for the ADL5380 (lower freq) if the 6 GHz lower limit is relaxed, though this is a constraint on flexibility, not supply chain.
+### 4.2.5 Sourcing and Lifecycle
+*   **Availability:** All primary components identified in the BOM must be available in production quantities (Orderable Part Number status: "Active").
+*   **Form Factor:** All ICs are specified as QFN or LFCSP packages (≤ 7x7 mm). This constraint is imposed to allow placement within the dense, multi-channel RF layout. Components requiring BGA packages with > 0.8mm pitch are excluded due to the lack of advanced X-Ray inspection capability in the standard assembly process.
 
 ---
 
 ## 4.3 Manufacturing Constraints
 
-Constraints related to the fabrication, assembly, and testing of the receiver hardware.
+The physical realization of the receiver hardware is subject to specific assembly, PCB fabrication, and enclosure constraints to ensure yield and field reliability.
 
-### 4.3.1 PCB Stackup and Material Constraints
-The **Input Return Loss (REQ-HW-010: < 10 dB)** and **5-18 GHz Frequency Range** dictate the use of high-frequency laminate materials, not standard FR-4.
+### 4.3.1 PCB Fabrication Constraints
+*   **Material Selection (REQ-HW-001 Context):** Standard FR-4 material is insufficient for the 18 GHz upper frequency limit due to high dielectric loss (tan δ).
+    *   **Requirement:** The PCB substrate must be **Rogers RO4350B** or equivalent hydrocarbon ceramic laminate.
+        *   Dielectric Constant (εr): 3.48 ± 0.05.
+        *   Loss Tangent: 0.0037 @ 10 GHz.
+    *   **Stackup:** A 6-layer or 8-layer stackup is required.
+        *   Layer 1 (Top): RF Components (Microstrip).
+        *   Layer 2: Ground Plane (Solid).
+        *   Layer 3: Sensitive Signal Routing (LO, Control).
+        *   Layer 4: Power Planes (+5V, +3.3V).
+*   **Minimum Feature Size:** The fabrication vendor must support laser-drilled microvias (≤ 0.15mm diameter) for the ground vias placed adjacent to the RF pins of the LFCSP packages (Via-in-pad) to minimize inductance.
 
-*   **Material Requirement:** Rogers RO4350B or Tachyon 100T.
-    *   *Justification:* FR-4 exhibits a loss tangent (tan δ) of ~0.02 at 10 GHz, which results in excessive insertion loss (>2dB/inch). Rogers RO4350B has tan δ of 0.0037.
-*   **Layer Stackup (8-Layer Proposal):**
-    1.  **Signal 1 (RF):** Top Layer - Rogers material. Components: HMC698, Mixer.
-    2.  **GND 1:** Solid ground plane (critical for microstrip RF lines).
-    3.  **Signal 2 (LO):** Buried layer. Shielded stripline for LO routing to minimize radiation.
-    4.  **GND 2:** Shield for LO.
-    5.  **Power Planes:** Split planes for +12V, +5V, +3.3V.
-    6.  **Signal 3 (Digital):** High-speed routing for FPGA/ADC JESD204B lanes.
-    7.  **GND 3:** Return path for digital signals.
-    8.  **Signal 4:** Bottom layer (General I/O).
+### 4.3.2 Assembly Constraints
+*   **Solder Paste:** Lead-free SAC305 solder paste with Type 4 powder (20-38 µm particle size) must be used to ensure proper release for the fine-pitch leadless QFN components (0.5mm pitch).
+*   **Stencil Design:** Area ratio considerations for the QFN thermal pads require a step-down stencil thickness or reduced aperture to prevent solder wicking and tombstoning.
+*   **RF Shorting:** The ground paddle of the HMC1052LP4E (Mixer) and TGA4506-SM (LNA) must be soldered to the ground plane with multiple vias (thermal relief) to conduct heat away from the die.
 
-### 4.3.2 Trace Geometry and Tolerances
-To maintain 50Ω impedance on Rogers RO4350B (Er = 3.66, Height = 0.168mm / 6.6 mil):
-*   **Trace Width:** Calculated ~0.35mm (14 mils) for surface microstrip.
-*   **Tolerance:** ±0.05mm required to maintain VSWR ≤ 2.0:1.
-*   **Plating:** Electroless Nickel Immersion Gold (ENIG) is prohibited on RF traces due to skin effect losses at 18 GHz. Electrolytic Hard Gold over Nickel is required for connector contact pads.
+### 4.3.3 Enclosure and Mechanical Constraints
+*   **Form Factor (REQ-HW-013):** The external dimensions shall not exceed 200mm x 150mm x 50mm.
+*   **Connector Mounting:** The SMA female RF input connector must be panel-mountable to the front enclosure. The PCB-to-connector interface must use a semi-rigid coaxial solder-jump or edge-launch connector to maintain the 50Ω impedance transition right up to the HMC1061 Limiter input pin. Trace length from connector to Limiter IC must not exceed 5mm to minimize loss.
+*   **Ventilation (Thermal):** The 15W power budget requires thermal management.
+    *   **Requirement:** The enclosure must include ventilation slots or passive convection fins.
+    *   **Internal:** Thermal interface material (TIM) must be applied between the component packages (specifically the VGA and Mixer) and the enclosure wall or an internal aluminum heatsink spreader.
 
-### 4.3.3 Testing and Inspection Constraints
-*   **Flying Probe vs. Bed-of-Nails:** Due to the high density of the FPGA (784 balls) and RF components, Bed-of-Nails test points must be included.
-    *   *Requirement:* 100% test coverage on all power rails and critical SPI control lines.
-*   **RF Test Fixtures:**
-    *   The PCB must include footprint-compatible RF launchers (e.g., SMP or 2.4mm edge launch) for prototype tuning.
-    *   Production test will utilize the final 2.4mm connector (REQ-HW-011), requiring calibration to the connector plane.
-*   **JTAG Boundary Scan:** The FPGA (XCZU3EG) and potentially the ADC (if supported) must support JTAG to verify interconnects after assembly. The BSDL files for these components must be integrated into the test plan.
-
-### 4.3.4 Cleaning and Conformal Coating
-*   **No-Clean Flux:** The solder paste used for the BGA and QFN components shall be no-clean (ROL0/ROL1 classification per IPC/J-STD-004).
-*   **Conformal Coating:** If the unit is operated in high-humidity environments (not specified, but potential for industrial use), a thin acrylic conformal coating (parylene) may be applied *except* on the RF connector interfaces and the heat sink of the PA/VGA to prevent thermal impedance increase.
-
----
-
-# 5. Verification Requirements
-
-This section defines the verification methods for all hardware requirements specified in Section 3. The verification approach ensures that the "receiver" system meets its functional, performance, and environmental specifications.
-
-## 5.1 Test Requirements
-
-This subsection details the specific test procedures, equipment, and acceptance criteria for requirements validated through empirical measurement. Tests are categorized by functional area: RF Performance, Digital Interface, and Environmental Stress.
-
-### 5.1.1 RF Performance Test Setup
-
-**Test Configuration:**
-The System Under Test (SUT) is the complete receiver assembly within the enclosure. The testing utilizes the following reference equipment:
-
-| Equipment | Recommended Model | Purpose |
-|---|---|---|
-| Signal Generator | Keysight N5183B MXG X-Series | Provides clean CW and modulated RF stimulus (5-18 GHz). |
-| Spectrum Analyzer | Keysight N9030B PXA | Measures gain, noise figure, IP3, and spurious content. |
-| Vector Network Analyzer | Keysight N5242B PNA-X | Measures S-parameters (Gain Flatness, Return Loss). |
-| Phase Noise Analyzer | Keysight E5052B SSA | Measures LO phase noise contribution. |
-| Power Supplies | Keysent N6700C | Provides DC input rails (+12V, +5V, +3.3V, -5V). |
-| Oscilloscope | Tektronix DPO70000SX | Analyzes Digital I/Q output eye diagram and timing. |
-
-### 5.1.2 Detailed Test Cases
-
-#### TC-001: Frequency Range & Bandwidth
-**Requirement ID:** REQ-HW-001
-**Priority:** Must have
-**Method:** Functional Test
-**Setup:** Connect Signal Generator to RF Input (2.4mm). Set Output Power to -20 dBm.
-**Procedure:**
-1. Set the Signal Generator frequency to 5.0 GHz.
-2. Monitor the ADC output data stream via FPGA capture logic.
-3. Verify presence of a digital tone at the expected frequency bin.
-4. Sweep frequency from 5.0 GHz to 18.0 GHz in 0.5 GHz steps.
-**Pass Criteria:** The receiver successfully digitizes and outputs a signal with a Signal-to-Noise Ratio (SNR) > 20 dB at all frequency steps.
-
-#### TC-002: System Gain & Gain Flatness
-**Requirement ID:** REQ-HW-003
-**Priority:** Must have
-**Method:** Performance Test
-**Setup:** VNA configured for S21 measurement. Input power -30 dBm.
-**Procedure:**
-1. Calibrate VNA at the receiver input plane.
-2. Configure receiver gain to maximum setting (SPI code 0x3F assumed).
-3. Sweep 5 GHz to 18 GHz.
-4. Record S21 (Gain).
-5. Calculate average gain and peak-to-peak variation.
-**Pass Criteria:**
-*   Average Gain: 50 dB to 60 dB.
-*   Gain Flatness: ≤ ±3.0 dB across the band.
-
-#### TC-003: Noise Figure (NF)
-**Requirement ID:** REQ-HW-002
-**Priority:** Must have
-**Method:** Performance Test (Y-Factor or Cold Source)
-**Setup:** Noise Source (34 dB ENR) connected to RF Input. Spectrum Analyzer at Digital I/Q output (reconstructed) or IF monitor port.
-**Procedure:**
-1. Calibrate Noise Figure Analyzer (NFA) with the Noise Source.
-2. Connect Noise Source to Receiver Input.
-3. Measure Noise Figure using the Y-Factor method.
-4. Sweep LO frequency to cover the band.
-**Pass Criteria:** Noise Figure ≤ 10.0 dB for all frequencies 5-18 GHz.
-
-#### TC-004: Input Third-Order Intercept Point (IIP3)
-**Requirement ID:** REQ-HW-005
-**Priority:** Must have
-**Method:** Linearity Test
-**Setup:** Two Signal Generators combined (Combiner) fed into RF Input. Frequencies $f_1$ and $f_2$.
-**Procedure:**
-1. Set $f_c = 10.0$ GHz (Center).
-2. Set $f_1 = 10.0$ GHz + 1 MHz; $f_2 = 10.0$ GHz + 2 MHz.
-3. Set input power per tone to -30 dBm.
-4. Measure output power of fundamental tones ($P_{out}$) and 3rd-order intermodulation products ($2f_1 - f_2$, $2f_2 - f_1$) at the ADC output.
-5. Calculate OIP3 and IIP3.
-**Pass Criteria:** Calculated IIP3 ≥ 20 dBm.
-
-#### TC-005: Input Return Loss / VSWR
-**Requirement ID:** REQ-HW-010
-**Priority:** Should have
-**Method:** VNA Measurement
-**Setup:** VNA Port 1 connected to Receiver RF Input.
-**Procedure:**
-1. Measure S11 (Reflection Coefficient) across 5-18 GHz.
-2. Convert to Return Loss ($RL = -20 \log |S11|$) and VSWR.
-**Pass Criteria:** Return Loss ≥ 10.0 dB (VSWR ≤ 2.0:1).
-
-#### TC-006: Phase Noise
-**Requirement ID:** REQ-HW-013
-**Priority:** Should have
-**Method:** Spectral Analysis
-**Setup:** Signal Generator provides -10 dBm CW tone at 10 GHz. Phase Noise Analyzer connected to LO output (test point) or measuring ADC Reciprocal Mixing.
-**Procedure:**
-1. Set receiver to downconvert 10 GHz.
-2. Measure phase noise of the LO signal at 10 kHz offset.
-**Pass Criteria:** Phase Noise ≤ -100 dBc/Hz @ 10 kHz offset.
-
-#### TC-007: Image Rejection
-**Requirement ID:** REQ-HW-015
-**Priority:** Should have
-**Method:** Frequency Response Test
-**Setup:** Signal Generator.
-**Procedure:**
-1. Tune LO to $f_{LO}$.
-2. Inject Signal at $f_{RF} = f_{LO} + f_{IF}$ (Desired).
-3. Measure amplitude at ADC ($A_{desired}$).
-4. Inject Signal at $f_{IM} = f_{LO} - f_{IF}$ (Image).
-5. Measure amplitude at ADC ($A_{image}$).
-6. Calculate Rejection = $20 \log (A_{desired} / A_{image})$.
-**Pass Criteria:** Image Rejection ≥ 60 dB.
-
-#### TC-008: ADC Resolution & Sample Rate
-**Requirement ID:** REQ-HW-006
-**Priority:** Must have
-**Method:** Digital Logic Analysis
-**Setup:** Logic Analyzer on FPGA data bus.
-**Procedure:**
-1. Capture I/Q data frames.
-2. Decode data width.
-3. Measure data rate clock.
-**Pass Criteria:** Data width = 12 bits; Data rate ≥ 500 MSPS per channel.
-
-#### TC-009: Gain Control Interface (SPI)
-**Requirement ID:** REQ-HW-012
-**Priority:** Must have
-**Method:** Functional Comms Test
-**Setup:** FPGA SPI Master connected to HMC698LP4 SPI bus.
-**Procedure:**
-1. Send gain increment commands (0x00 to 0x3F).
-2. Measure RF gain at the output of the HMC698LP4 (using RF couplers or VNA if accessible) or verify resulting system gain change.
-3. Measure latency between SPI command and settling time.
-**Pass Criteria:** System gain changes correspond to SPI commands; Settling time ≤ 1 µs.
-
-#### TC-010: Input Power Handling
-**Requirement ID:** REQ-HW-004
-**Priority:** Must have
-**Method:** Stress Test
-**Setup:** Signal Generator.
-**Procedure:**
-1. Apply CW tone at -10 dBm (Max Spec).
-2. Monitor for gain compression (P1dB check) or SPI errors (latch-up).
-3. Increase input to 0 dBm (Margin Check) for 60 seconds.
-**Pass Criteria:** No permanent degradation of NF or Gain after returning to nominal power (-20 dBm).
-
-### 5.1.3 Environmental Testing
-
-#### TC-011: Operating Temperature Range
-**Requirement ID:** REQ-HW-007
-**Priority:** Must have
-**Method:** Environmental Chamber
-**Setup:** Receiver inside thermal chamber. External cabling for RF I/O.
-**Procedure:**
-1. Set Chamber to -40°C. Stabilize for 30 mins. Run TC-002 (Gain) and TC-003 (NF).
-2. Set Chamber to +25°C (Ambient). Stabilize. Run TC-002, TC-003.
-3. Set Chamber to +85°C. Stabilize for 30 mins. Run TC-002, TC-003.
-**Pass Criteria:** All parameter specifications (Gain 40-60dB, NF < 10dB) met at all three temperature setpoints.
-
-#### TC-012: Power Supply Variation
-**Requirement ID:** REQ-HW-009
-**Priority:** Must have
-**Method:** Voltage Margining
-**Setup:** Variable DC Power Supplies.
-**Procedure:**
-1. Apply nominal voltages (+12V, +5V, +3.3V, -5V). Verify Operation.
-2. Vary +12V rail ±10% (10.8V to 13.2V). Verify Operation.
-3. Vary +5V rail ±5% (4.75V to 5.25V). Verify Operation.
-4. Vary +3.3V rail ±5% (3.135V to 3.465V). Verify Operation.
-**Pass Criteria:** No latch-up, reset, or performance degradation exceeding limits (±1 dB) during voltage variations.
-
-## 5.2 Analysis Requirements
-
-This subsection details requirements that are verified through engineering calculations, simulations, and design review rather than physical measurement. This includes link budget analysis, thermal analysis, and signal integrity simulations.
-
-### 5.2.1 RF Link Budget Analysis
-**Requirement ID:** REQ-HW-002, REQ-HW-003, REQ-HW-005
-**Method:** Friis Formula Cascaded Analysis
-**Tool:** Keysight PathWave or Excel Calculator.
-**Procedure:**
-1. Create a cascaded chain model including:
-    *   Input Matching Loss (Est. 0.5 dB)
-    *   LNA (HMC698LP4): Gain 16 dB, NF 5 dB, OIP3 30 dBm (typ).
-    *   Mixer (HMC1048LP4E): CG 6 dB, NF 13 dB, OIP3 26 dBm.
-    *   IF Amp / Filter chain: Gain 20 dB, NF 6 dB, OIP3 35 dBm.
-2. Calculate total system Gain, NF, and OIP3.
-**Pass Criteria:**
-*   Calculated Total Gain ≥ 40 dB.
-*   Calculated Total NF ≤ 9.5 dB (to meet 6-10 dB spec).
-*   Calculated Total IIP3 ≥ 22 dBm (to meet 20-30 dBm spec).
-
-### 5.2.2 Thermal Analysis
-**Requirement ID:** REQ-HW-007
-**Method:** Computational Fluid Dynamics (CFD) or Spreadsheet calculation.
-**Assumptions:**
-*   Ambient Temp: +55°C (inside enclosure) or +85°C (external).
-*   Power Dissipation:
-    *   HMC698LP4: ~0.6W
-    *   HMC1048LP4E: ~0.9W
-    *   ADF5355: ~0.6W
-    *   XCZU3EG FPGA: ~3.0W (Assumed moderate activity)
-    *   ADC12DJ3200: ~1.8W
-    *   **Total Power:** ~6.9W
-**Procedure:**
-1. Calculate thermal resistance junction-to-ambient ($\Theta_{JA}$) for packages.
-2. Verify Junction Temp ($T_j = T_a + P \cdot \Theta_{JA}$) remains below $T_{j(max)}$ (125°C for SiGe, 150°C for GaAs).
-3. Simulate heat sink effectiveness.
-**Pass Criteria:** All component junction temperatures remain within datasheet maximum ratings at +85°C ambient.
-
-### 5.2.3 Signal Integrity Analysis (Digital)
-**Requirement ID:** REQ-HW-006
-**Method:** IBIS Simulation / HyperLynx
-**Focus:** ADC to FPGA interface (JESD204B/C or LVDS).
-**Procedure:**
-1. Simulate the trace lengths from ADC outputs to FPGA inputs.
-2. Verify eye diagram opening at the receiver input (FPGA) margin for setup/hold times.
-**Pass Criteria:** Eye diagram eye height > 30% of swing; No timing violations at 3.2 Gbps.
-
-### 5.2.4 Power Distribution Network (PDN) Analysis
-**Requirement ID:** REQ-HW-009
-**Method:** SPICE Simulation
-**Procedure:**
-1. Simulate transient response of the +3.3V and +1.0V (FPGA core) rails during maximum current switching (FPGA toggling).
-2. Verify voltage ripple stays within limits (±5%).
-**Pass Criteria:** Rail noise < 100 mV pk-pk on +3.3V rail; < 50 mV on core rails.
-
-## 5.3 Inspection Requirements
-
-This subsection covers requirements verified by visual inspection, design review, and bill of materials (BOM) validation.
-
-### 5.3.1 Physical Inspection
-**Requirement ID:** REQ-HW-008, REQ-HW-011
-**Method:** Visual / Mechanical Measurement
-**Procedure:**
-1. **Form Factor:** Measure enclosure dimensions against mechanical drawings (6U x 160mm Eurocard).
-2. **Connectors:** Verify presence of 2.4mm female connector on front panel. Verify polarity.
-3. **Assembly:** Inspect PCB for proper soldering, cleanliness (no flux residue), and orientation of polarized components.
-**Pass Criteria:** Dimensions match drawing with ±1mm tolerance; Connectors are correct type and orientation; No assembly defects.
-
-### 5.3.2 Component Compliance Verification
-**Requirement ID:** REQ-HW-014
-**Method:** BOM Audit / Datasheet Review
-**Procedure:**
-1. Review manufacturer datasheets for HMC698LP4, HMC1048LP4E, ADF5355, ADC12DJ3200, XCZU3EG.
-2. Confirm "RoHS Compliant" or "Green" status is checked.
-3. Verify PCB material is lead-free (compatible with RoHS).
-**Pass Criteria:** 100% of active components and PCB are listed as RoHS 2011/65/EU compliant.
-
-### 5.3.3 Design Rule Check (DRC)
-**Requirement ID:** REQ-HW-001, REQ-HW-008
-**Method:** CAD Review
-**Procedure:**
-1. Run Altium/KiCad DRC report.
-2. Verify no unconnected nets, especially for Power Pins on ICs.
-3. Verify trace width for power currents (12V input, 5V/3.3V outputs).
-**Pass Criteria:** Zero DRC errors related to power/ground connections; High-speed traces (RF, DDR) meet impedance constraints.
-
----
-
-## Traceability Matrix
-
-| REQ ID | Description | Verification Method | Test Case ID |
-| :--- | :--- | :--- | :--- |
-| **REQ-HW-001** | Frequency Range 5-18 GHz | Test | TC-001 |
-| **REQ-HW-002** | Noise Figure ≤ 10 dB | Test, Analysis | TC-003, 5.2.1 |
-| **REQ-HW-003** | Gain 40-60 dB, ±3dB Flatness | Test, Analysis | TC-002, 5.2.1 |
-| **REQ-HW-004** | Input Power Range -30 to -10 dBm | Test | TC-010 |
-| **REQ-HW-005** | IIP3 20-30 dBm | Test, Analysis | TC-004, 5.2.1 |
-| **REQ-HW-006** | Digital I/Q Output (12-bit, ≥500MSPS) | Test | TC-008 |
-| **REQ-HW-007** | Operating Temp -40 to +85°C | Test, Analysis | TC-011, 5.2.2 |
-| **REQ-HW-008** | Form Factor Desktop | Inspection | 5.3.1 |
-| **REQ-HW-009** | Power Supply Inputs | Test, Analysis | TC-012, 5.2.4 |
-| **REQ-HW-010** | VSWR ≤ 2.0:1 | Test | TC-005 |
-| **REQ-HW-011** | RF Input Connector 2.4mm Female | Inspection | 5.3.1 |
-| **REQ-HW-012** | Gain Control SPI Interface | Test | TC-009 |
-| **REQ-HW-013** | Phase Noise ≤ -100 dBc/Hz | Test | TC-006 |
-| **REQ-HW-014** | RoHS Compliance | Inspection | 5.3.2 |
-| **REQ-HW-015** | Image Rejection ≥ 60 dB | Test | TC-007 |
+### 4.3.4 Inspection and Test Constraints
+*   **Flying Probe vs. ICT:** Due to the high density of the RF board and the lack of test nodes on the high-frequency nets, In-Circuit Test (ICT) is not feasible.
+    *   **Constraint:** Manufacturing verification shall rely on Boundary Scan (JTAG) for the digital components (FPGA/MCU) and Flying Probe testing for power supply continuity.
+*   **RF Testing:** A bed-of-nails fixture is prohibited for the RF path. Functional validation must be performed via the external SMA connectors.
 
 ---
 
 **Document Status: AI-GENERATED**
 
+# 5. Verification Requirements
+
+## 5.1 Test Requirements
+This section defines the specific test cases, procedures, and equipment required to verify the functional and performance requirements of the 5-18 GHz Wideband RF Receiver. All tests shall be conducted under standard ambient conditions (25°C ±3°C, relative humidity 20-80%) unless otherwise specified in the environmental stress testing section.
+
+### 5.1.1 RF Performance Test Plan
+The following table maps the critical hardware requirements to their verification methods, pass criteria, and priority.
+
+| REQ-ID | Test Method | Pass Criteria | Priority |
+|---|---|---|---|
+| **REQ-HW-001** | **Frequency Coverage Sweep** | The receiver produces a valid digital I/Q output with an SNR > 10 dB for input frequencies from 5.0 GHz to 18.0 GHz (stepped in 10 MHz increments). | Must have |
+| **REQ-HW-002** | **Noise Figure Measurement** | Measured Noise Figure (NF) is ≤ 5.0 dB across the 5-18 GHz band (measured via Y-factor or Noise Figure Meter). | Must have |
+| **REQ-HW-003** | **Dynamic Range & Sensitivity** | The system detects signals down to -90 dBm input (BER < 10^-6 or SNR > 0 dB) and maintains linearity to +20 dBm input. | Must have |
+| **REQ-HW-004** | **Overpower Survival** | System withstands +30 dBm CW input at 10 GHz for 5 minutes. Post-test gain variation < 1 dB and NF variation < 1 dB. | Must have |
+| **REQ-HW-008** | **Linearity (IIP3)** | Measured Input Third-Order Intercept Point (IIP3) is ≥ +20 dBm using two-tone spacing of 1 MHz. | Should have |
+| **REQ-HW-015** | **Gain Flatness** | Total system gain variation is within ±3 dB of the nominal gain setting across 5-18 GHz. | Should have |
+| **REQ-HW-019** | **Input Return Loss** | Measured S11 is ≤ -10 dB (VSWR ≤ 2:1) across the 5-18 GHz band at the SMA connector. | Must have |
+| **REQ-HW-007** | **Gain Control Range** | Gain adjustment range covers ≥ 30 dB in 1 dB steps. Measured gain error per step < ±0.5 dB. | Should have |
+| **REQ-HW-009** | **LO Phase Noise** | LO phase noise ≤ -100 dBc/Hz at 100 kHz offset from carrier (measured at 10 GHz carrier). | Must have |
+
+### 5.1.2 Detailed Test Procedures
+
+#### Test Case 1: Frequency Response & Gain Flatness (REQ-HW-001, REQ-HW-015)
+**Objective:** Verify the receiver operates across the 5-18 GHz band and meets gain flatness specifications.
+**Setup:**
+*   Signal Generator: Keysight N5183B (10 MHz - 40 GHz)
+*   Spectrum Analyzer / Vector Signal Analyzer (VSA): Keysight N9040B
+*   Attenuators: 30 dB fixed, 10 dB step variable.
+*   Control PC running SPI control script.
+
+**Procedure:**
+1.  Power the receiver and allow it to stabilize for 10 minutes.
+2.  Set the receiver gain to maximum (nominal).
+3.  Set the Signal Generator output to -30 dBm.
+4.  Sweep the frequency from 5 GHz to 18 GHz in 100 MHz steps.
+5.  At each step, record the output power level (from ADC digital codes converted to dBFS).
+6.  Calculate the gain: $Gain = P_{out} - P_{in}$.
+7.  Determine max and min gain. Flatness = $(Max - Min) / 2$.
+
+**Pass Criteria:**
+*   Valid I/Q data present at all frequencies (REQ-HW-001).
+*   Gain variation ≤ ±3 dB (REQ-HW-015).
+
+#### Test Case 2: System Noise Figure (REQ-HW-002)
+**Objective:** Verify the system Noise Figure (NF) is ≤ 5.0 dB.
+**Setup:**
+*   Noise Figure Analyzer: Keysight N8975B with Noise Source (346C).
+*   Power Supply +12V.
+
+**Procedure:**
+1.  Connect Noise Source to RF Input (SMA).
+2.  Connect IF/BB Output (captured digitally) to analyzer input or monitor ADC output.
+3.  Perform a calibrated Y-factor measurement.
+4.  Measure NF at minimum frequency (5 GHz), center (11.5 GHz), and maximum (18 GHz).
+
+**Pass Criteria:**
+*   NF ≤ 5.0 dB at all three test points.
+*   Calculation check: Theoretical NF = $NF_{LIM} + 10\log(F_{LNA})$. Target is dominated by TGA4506-SM (2.5 dB) + Limiter (1.8 dB) + Mixer (11 dB gain). *Note: Mixer NF at high IF is effectively conversion loss.*
+*   Budget: $NF_{total} = 10\log(F_1 + \frac{F_2-1}{G_1} + \dots)$
+    *   Limiter: 1.8 dB loss (G=-1.8dB, NF=1.8dB)
+    *   LNA: Gain = 21dB, NF = 2.5dB.
+    *   Mixer: Gain = 10dB, NF = 11dB.
+    *   Total NF $\approx 2.5 + 0.1 \approx 2.6$ dB (theoretical). Requirement allows 5 dB to account for implementation losses.
+
+#### Test Case 3: Input Third-Order Intercept (REQ-HW-008)
+**Objective:** Verify IIP3 ≥ +20 dBm.
+**Setup:**
+*   Two Signal Generators combined (or dual-output source).
+*   Spectrum Analyzer.
+
+**Procedure:**
+1.  Set receiver gain to maximum (sensitivity setting).
+2.  Apply two tones ($f_1$ and $f_2$) at -10 dBm each, spaced 1 MHz apart (e.g., 10.0 GHz and 10.001 GHz).
+3.  Observe the output spectrum for fundamental ($P_{fund}$) and third-order intermodulation products ($P_{IM3}$).
+4.  Calculate IIP3:
+    $$IIP3 = P_{fund} + \frac{|P_{fund} - P_{IM3}|}{2}$$
+
+**Pass Criteria:**
+*   Calculated IIP3 ≥ +20 dBm.
+*   *Design Note:* TGA4506-SM OIP3 is +30 dBm. HMC1052LP4E IIP3 is +23 dBm. System floor is approx +23 dBm. Requirement is +20 dBm.
+
+#### Test Case 4: Input Protection & Limiter Response (REQ-HW-004, REQ-HW-014)
+**Objective:** Verify the limiter activates at +20 dBm and the system survives +30 dBm.
+**Setup:**
+*   High Power Amplifier capable of +35 dBm output.
+*   40 dB directional coupler to monitor input power.
+*   Power Meter.
+
+**Procedure:**
+1.  Set carrier frequency to 10 GHz.
+2.  Apply input power at +20 dBm.
+    *   *Check:* Verify gain compresses by > 10 dB or HMC1061LP4E clamp engages.
+3.  Increase input power to +30 dBm CW.
+4.  Maintain for 5 minutes.
+5.  Reduce power to -30 dBm.
+6.  Measure Gain and Noise Figure immediately.
+
+**Pass Criteria:**
+*   No permanent damage (smoke, fire, component failure).
+*   Post-stress Gain change < 1 dB.
+*   Post-stress NF change < 1 dB.
+
+#### Test Case 5: Local Oscillator Phase Noise (REQ-HW-009)
+**Objective:** Verify LO Phase Noise ≤ -100 dBc/Hz @ 100 kHz offset.
+**Setup:**
+*   Signal Source Analyzer (e.g., Keysight E5052B) or Spectrum Analyzer with phase noise utility.
+*   LO Buffer Output (Test Point) coupled via -20 dB probe.
+
+**Procedure:**
+1.  Tune LO (ADF5356) to 10 GHz.
+2.  Measure phase noise offset.
+3.  Repeat at 5 GHz and 18 GHz.
+
+**Pass Criteria:**
+*   Phase Noise ≤ -100 dBc/Hz @ 100 kHz.
+*   *Design Note:* ADF5356 Typical Performance @ 10GHz is -110 dBc/Hz @ 100kHz offset.
+
+#### Test Case 6: Digital Interface & SPI Control (REQ-HW-010)
+**Objective:** Verify SPI control of Gain, Frequency, and ADC settings.
+**Setup:**
+*   Logic Analyzer (e.g., Saleae) or Microcontroller Test Harness.
+*   Control PC.
+
+**Procedure:**
+1.  Send SPI command to HMC698LP4 (VGA) to set gain to 0x00 (Min) and 0x1F (Max). Read back registers.
+2.  Send SPI command to ADF5356 to change frequency from 5 GHz to 18 GHz. Verify lock detect signal asserts.
+3.  Write configuration registers to AD9208 (ADC) and read back.
+
+**Pass Criteria:**
+*   All writes successful (ACK received).
+*   Read-back data matches written data.
+*   Lock Detect (MUXOUT) indicates lock within 100 µs (spec) of frequency change.
+
+#### Test Case 7: Return Loss (VSWR) (REQ-HW-019)
+**Objective:** Verify Input Return Loss ≥ 10 dB.
+**Setup:**
+*   Vector Network Analyzer (VNA).
+*   Calibration kit (SOLT).
+
+**Procedure:**
+1.  Calibrate VNA at receiver SMA connector.
+2.  Measure S11 (Log Magnitude) from 5 GHz to 18 GHz.
+
+**Pass Criteria:**
+*   $S_{11} \leq -10 \text{ dB}$ across the band.
+*   *Design Note:* HMC1061LP4E Input Return Loss is typically > 15 dB.
+
+---
+
+## 5.2 Analysis Requirements
+This section outlines analytical methods used to verify requirements where physical testing is destructive, impractical, or requires computational simulation.
+
+### 5.2.1 Power Budget Analysis (REQ-HW-012)
+**Requirement:** Max Power W < 15.
+**Analysis Method:** Summation of typical supply currents from component datasheets against worst-case voltage.
+
+**Calculation:**
+$$ P_{total} = \sum (I_{max} \times V_{nom}) $$
+
+1.  **RF Front End:**
+    *   TGA4506-SM (LNA): $90 \text{ mA} @ 6\text{V} \rightarrow 0.54 \text{ W}$
+    *   HMC698LP4 (VGA): $130 \text{ mA} @ 5\text{V} \rightarrow 0.65 \text{ W}$
+    *   HMC1052LP4E (Mixer): $180 \text{ mA} @ 5\text{V} \rightarrow 0.90 \text{ W}$
+    *   HMC1061LP4E (Limiter): Negligible (< 20mA).
+    *   *Subtotal RF:* $\approx 2.09 \text{ W}$
+
+2.  **LO/PLL:**
+    *   ADF5356: $140 \text{ mA} @ 3.3\text{V} \rightarrow 0.46 \text{ W}$
+
+3.  **IF / Digital:**
+    *   AD9208 (ADC): $1.2 \text{ W}$ (Typical 200 MSPS)
+    *   STM32F407 (MCU): $100 \text{ mA} @ 3.3\text{V} \rightarrow 0.33 \text{ W}$ (Running max speed)
+    *   Support Logic (FIFO/Level Shifters): Est. $0.2 \text{ W}$.
+
+4.  **Power Supply Losses:**
+    *   LTM4644 Efficiency (~90%): $P_{loss} \approx 10\% \times P_{total}$.
+
+**Total Estimate:**
+$P_{dissipated} \approx 2.09 + 0.46 + 1.2 + 0.33 + 0.2 \approx 4.28 \text{ W}$
+$P_{input} \approx 4.28 / 0.9 \approx 4.75 \text{ W}$
+
+**Verification Result:** Estimated 4.75 W is well below the 15 W requirement. Margin = 10.25 W.
+
+### 5.2.2 Thermal Analysis (REQ-HW-011, REQ-HW-013)
+**Requirement:** Operating 0-50°C.
+**Analysis Method:** Computational Fluid Dynamics (CFD) or thermal resistance calculation ($\Delta T = P \times \theta_{JA}$).
+
+**Assumptions:**
+*   Enclosure: Aluminum 200x150x50 mm.
+*   Max Ambient: 50°C.
+*   Max Junction Temp ($T_j$): Most ICs are rated to +125°C (TGA4506-SM) or +150°C (Silicon).
+
+**Component Thermal Check:**
+*   **HMC1052LP4E (Mixer):** $Q_{JA}$ (PCB mounted) $\approx 40^\circ\text{C/W}$.
+    *   $\Delta T = 0.9\text{W} \times 40 = 36^\circ\text{C}$.
+    *   $T_j = T_A + \Delta T = 50 + 36 = 86^\circ\text{C}$.
+    *   Pass ($86 < 125$).
+
+**Conclusion:** Natural convection within the specified enclosure is sufficient. No forced air cooling required.
+
+### 5.2.3 Signal Integrity / Bandwidth Analysis (REQ-HW-006)
+**Requirement:** ADC Sample Rate >= 200 MSPS, Digital I/Q Output.
+**Analysis Method:** SPICE Simulation of IF Chain and IBIS Model simulation of ADC inputs.
+
+**Analysis:**
+1.  **Analog Bandwidth:** Verify the -3 dB point of the Anti-Alias Filter (AAF) and the Bandwidth of the ADA4817 op-amp.
+    *   ADA4817 GBWP = 1 GHz. Gain = 10 (20 dB). Bandwidth = 100 MHz. Sufficient for I/Q baseband.
+2.  **Nyquist Criterion:** With 200 MSPS ADC, maximum analog input frequency is 100 MHz (Baseband) or centered IF (complex sampling). System architecture uses Baseband I/Q, so 100 MHz single-sided bandwidth is theoretical max. Realizable usable bandwidth $\approx 160 \text{ MHz}$ (complex) limited by filter roll-off and ADC roll-off.
+3.  **Slew Rate:** ADA4817 Slew Rate = 470 V/µs. Max freq 100 MHz.
+    *   $SR_{req} = 2 \pi f V_p = 2 \pi (100\times 10^6) (1.0) = 628 \text{ V/µs}$.
+    *   *Adjustment:* At 100 MHz, gain is usually rolling off. Output swing is likely < 1Vpp due to mixer limits. 470 V/µs is sufficient for 1Vpp at 100 MHz.
+
+---
+
+## 5.3 Inspection Requirements
+This section details physical and visual inspections required to validate manufacturing integrity and compliance with constraints.
+
+### 5.3.1 Mechanical Inspection (REQ-HW-013)
+**Objective:** Verify Form Factor (200x150x50 mm) and weight (< 2.0 kg).
+**Method:** Physical measurement with calipers and scale.
+**Acceptance Criteria:**
+*   Length $L \leq 200 \text{ mm}$
+*   Width $W \leq 150 \text{ mm}$
+*   Height $H \leq 50 \text{ mm}$
+*   Weight $W_{total} \leq 2.0 \text{ kg}$
+
+### 5.3.2 PCB Assembly Inspection
+**Objective:** Ensure correct component placement and soldering integrity per IPC-A-610 Class 2 standards.
+**Method:** Automated Optical Inspection (AOI) and Manual Visual Inspection.
+**Checks:**
+1.  **Polarity:** Check orientation of ADA4817, DC-DC converters, and electrolytic capacitors.
+2.  **Soldering:** No cold solder joints, bridges, or tombstoning on QFN/LFCSP packages (HMC series, ADF5356).
+3.  **Cleanliness:** No flux residue that could compromise high-impedance RF nodes (Input matching networks).
+
+### 5.3.3 Material Compliance Inspection (REQ-HW-018)
+**Objective:** RoHS 3 Compliance.
+**Method:** Review Material Certifications (Certificate of Compliance) from suppliers for all BOM items.
+**Acceptance Criteria:**
+*   All homogeneous materials contain < 0.1% (by weight) Lead (Pb), Mercury (Hg), Cadmium (Cd), etc., except where exempted.
+*   Full Material Declaration (FMD) available on file.
+
+### 5.3.4 Connector Interface Inspection (REQ-HW-005)
+**Objective:** Verify RF Input Connector SMA Female 50Ω.
+**Method:** Visual check and mechanical gauging.
+**Acceptance Criteria:**
+*   Part number matches SMA connector spec (e.g., Rosenberger 32K243-40ML5 or equivalent).
+*   Interface dimensions per IEC 60169-15.
+*   Center pin not recessed or bent. Dielectric surface not damaged.
+
+### 5.3.5 Labeling and Marking
+**Objective:** Identify unit and compliance markings.
+**Method:** Visual Inspection.
+**Requirements:**
+*   Model Number, Serial Number, and Revision visible on rear/bottom panel.
+*   "FCC ID: [Pending]" label present.
+*   "CE" mark present (for EU compliance).
+*   Recycling symbol (WEEE directive) present.
+
+---
+
 # 6. Bill of Materials (Preliminary)
 
-This section lists the preliminary Bill of Materials (BOM) for the 5-18 GHz Wideband RF Receiver. Cost estimates are based on unit pricing for low-to-medium volume procurement (100-999 pieces) from standard distributors (DigiKey, Mouser). Prices are subject to market fluctuations and are excluded from formal requirements but provided for budgetary estimation.
+## 6.1 BOM Overview
+This section details the preliminary Bill of Materials (BOM) for the **receiver** assembly. The costs provided are estimates based on standard unit pricing for low-to-medium volume procurement (100-999 units) as of the current market data. Prices exclude applicable taxes, shipping, and customs duties.
 
-The total estimated material cost for the electronic assemblies (PCAs) is approximately **$2,053.61**, excluding mechanical enclosure and manufacturing labor.
+The design utilizes a modular architecture splitting the hardware into the following subsections:
+1.  **RF Front End (5–18 GHz):** Input protection, Low Noise Amplification (LNA), and Variable Gain Amplification (VGA).
+2.  **Frequency Conversion:** Local Oscillator (LO) synthesis and IQ Mixing.
+3.  **IF & Digitization:** Baseband amplification, anti-alias filtering, and Analog-to-Digital Conversion (ADC).
+4.  **Digital Control:** Microcontroller (MCU) and support circuitry.
+5.  **Power Management:** DC-DC conversion and power distribution.
+6.  **Mechanical:** Enclosure, connectors, and PCB hardware.
 
-## 6.1 RF Front End & Downconversion
-*Includes components from the RF Input (SMA) through to the I/Q Baseband outputs.*
+**Total Estimated Unit Cost:** **$913.71 USD**
+**Target Selling Price (2.5x - 3x COGS):** **$2,284.00 - $2,741.00 USD**
 
-| Item No | Ref Des | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost (USD) | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 100 | J1, J2 | 149-1012-1 | 2.4mm Female Jack, 50 Ohm, PCB Mount | TE Connectivity | 2 | $45.00 | $90.00 | Input/Output Ports (RF) |
-| 101 | U1 | HMC698LP4ETR | Wideband Variable Gain Amplifier, 2-20 GHz, 4x4 QFN | Analog Devices | 1 | $85.50 | $85.50 | Primary LNA/VGA |
-| 102 | U2 | HMC1048LP4E | Wideband I/Q Demodulator, 6-18 GHz, 4x4 LFCSP | Analog Devices | 1 | $92.00 | $92.00 | Direct Conversion Mixer |
-| 103 | U3 | ADF5355CCPZ | Wideband Synthesizer w/ Integrated VCO, 13.6 GHz | Analog Devices | 1 | $55.75 | $55.75 | Local Oscillator (LO) |
-| 104 | U4 | ADCLK948 | Ultra Low Noise Clock Driver, 8 GHz | Analog Devices | 1 | $18.20 | $18.20 | LO Distribution Buffer |
-| 105 | L1 | 0603CS-82N | 82 nH Wirewound Inductor, 0603 | Coilcraft | 1 | $0.85 | $0.85 | RF Choke (LO) |
-| 106 | L2, L3 | 0603CS-2N7 | 2.7 nH High Q Inductor, 0603 | Coilcraft | 2 | $0.45 | $0.90 | RF Matching |
-| 107 | T1 | BAL-0006SM | 180 Deg Hybrid, 4-10 GHz | Marki Microwave | 1 | $110.00 | $110.00 | LO Balun (Optional, if single-ended drive) |
-| 108 | F1 | 142-070-751 | DC Block, 0.1-10 GHz, SMA | Fairview Microwave | 2 | $22.50 | $45.00 | Input/Output DC Bias protection |
+---
 
-## 6.2 Digitization & Signal Processing
-*Includes the high-speed ADC, FPGA, and configuration memory.*
+## 6.2 RF Front End Components
 
-| Item No | Ref Des | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost (USD) | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 200 | U5 | ADC12DJ3200AAV | 12-Bit, 3.2 GSPS Dual ADC, 12x12 BGA | Texas Instruments | 1 | $450.00 | $450.00 | I/Q Digitizer |
-| 201 | U6 | XCZU3EG-SFVA784I | Zynq UltraScale+ MPSoC, 50K Logic, Industrial | AMD (Xilinx) | 1 | $285.00 | $285.00 | System-on-Chip / DSP |
-| 202 | U7 | MT25QU512ABA8EW12 | 512 Mb Serial NOR Flash, 3V, 104 MHz | Micron | 1 | $6.50 | $6.50 | FPGA Configuration Memory |
-| 203 | U8 | W25Q128JVSIM | 128 Mb Serial NOR Flash | Winbond | 1 | $1.25 | $1.25 | Secondary Boot/Backup |
-| 204 | Y1 | CABT3-M-105.000000 | Crystal Oscillator, 105 MHz, LVDS, 0.5ppm | Crystek | 1 | $45.00 | $45.00 | PLL/FPGA Reference Clock |
+This group handles the incoming 5-18 GHz signal, providing protection, initial amplification, and gain control.
 
-## 6.3 Power Distribution & Regulation
-*Includes input protection, DC-DC converters, and LDOs for rail generation (+12V, +5V, +3.3V, -5V).*
+| Item No | Reference Designator | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost | Notes |
+|:---:|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **100** | **U1** | **HMC1061LP4E** | **RF Limiter, DC-18 GHz, 20dBm Threshold** | **Analog Devices** | **1** | **$22.50** | **$22.50** | **Input Protection** |
+| 101 | C101, C102 | 04025A100J500CT | Capacitor 10pF 50V C0G/NP0 5% | Knowles Syfer | 2 | $0.25 | $0.50 | DC Block / RF Coupling |
+| 102 | L101 | 04025N12J500CT | Inductor 12nH High Frequency C0G | Knowles Syfer | 1 | $0.20 | $0.20 | RF Choke / Bias |
+| **110** | **U2** | **TGA4506-SM** | **Wideband LNA, 2-20 GHz, 21dB Gain** | **Qorvo** | **1** | **$48.75** | **$48.75** | **Primary Gain Stage** |
+| 111 | R101 | CRCW040210K0FKED | Resistor 10k 1% 1/16W | Vishay | 1 | $0.10 | $0.10 | Gate Bias |
+| 112 | C103 | GRM1555C1H221JA01D | Capacitor 220pF 50V X7R | Murata | 1 | $0.15 | $0.15 | Decoupling |
+| **120** | **U3** | **HMC698LP4** | **Digital VGA, DC-14 GHz, 31dB Range** | **Analog Devices** | **1** | **$65.20** | **$65.20** | **Gain Control** |
+| 121 | R102, R103 | ERJ-2GEJ331X | Resistor 330 5% 1/10W | Panasonic | 2 | $0.05 | $0.10 | SPI Pull-ups/Downs |
 
-| Item No | Ref Des | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost (USD) | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 300 | J3 | 691322310002 | 5mm Pitch Pluggable Terminal Block, 2-pin | Würth Elektronik | 1 | $0.55 | $0.55 | Main DC Input (12V) |
-| 301 | F2 | 0451002.MRL | 2A Fuse Holder, 250VAC | Littelfuse | 1 | $0.40 | $0.40 | Input Protection |
-| 302 | U9 | LTM8058EV#PBF | 36VIN, 1.2A Silent Switcher µModule (12V->5V) | Analog Devices | 1 | $32.50 | $32.50 | Main Step-Down Regulator |
-| 303 | U10 | LTM4644IY#PBF | Quad 4A DC/DC µModule Regulator | Analog Devices | 1 | $55.00 | $55.00 | Generates +3.3V, +1.8V, +1.0V |
-| 304 | U11 | LT3094ES5#PBF | -5V Ultralow Noise Linear Regulator | Analog Devices | 1 | $8.75 | $8.75 | Analog/Rail (-5V Gen) |
-| 305 | U12 | LT3045EDD#PBF | 5A Ultralow Noise Linear Regulator | Analog Devices | 1 | $10.25 | $10.25 | Clean ADC/FPGA Supply |
-| 306 | L4 | 744771401 | 47 µH Power Inductor, 2A | Würth Elektronik | 1 | $1.80 | $1.80 | Input Filter Choke |
-| 307 | C100 | B32529C3104K | X2 Film Capacitor, 0.1uF, 275VAC | TDK | 1 | $0.75 | $0.75 | Input EMI Filter |
+---
 
-## 6.4 Analog Interface & Filtering
-*Passive components and amplifiers required for the IF/Analog signal path between Mixer and ADC.*
+## 6.3 Frequency Conversion (LO & Mixer)
 
-| Item No | Ref Des | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost (USD) | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 400 | U13 | ADA4817-1ACPZ-R7 | 1 GHz FastFET Op-Amp, Low Noise | Analog Devices | 4 | $9.50 | $38.00 | I/Q Baseband Buffer/Driver |
-| 401 | T2, T3 | ADT1-1WT | 1:1 RF Transformer, 10 MHz - 1 GHz | Mini-Circuits | 4 | $5.85 | $23.40 | Single-ended to Differential (ADC) |
-| 402 | R10 | 0805W8F1002T5E | Resistor, 1k, 0.1%, 25ppm | Vishay | 100 | $0.12 | $12.00 | Resistor Array (Reel) |
-| 403 | C10 | GRM32ER71C226KE15L | 22uF, 16V, X7R Ceramic Capacitor | Murata | 50 | $0.45 | $22.50 | Decoupling/Filtering (Reel) |
-| 404 | C11 | GQM2195C2E150JB12D | 15 pF, 250V, C0G/NP0 Capacitor | Murata | 20 | $0.85 | $17.00 | High Freq Matching |
-| 405 | R11 | FC4L1002CT-ND | Bulk Metal Foil Resistor, 1k, 0.01% | Vishay | 10 | $5.50 | $55.00 | Precision Reference (Vref) |
+This section generates the Local Oscillator signal and performs the down-conversion of RF to Baseband I/Q signals.
 
-## 6.5 Board Interconnect & Mechanical
-*Connectors, LEDs, and PCB mounting hardware.*
+| Item No | Reference Designator | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost | Notes |
+|:---:|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **200** | **U4** | **ADF5356CCPZ** | **PLL Frequency Synthesizer, 13.6 GHz** | **Analog Devices** | **1** | **$52.30** | **$52.30** | **LO Generation** |
+| 201 | Y1 | ABM3B-8.000MHZ-10-1-U-T | Crystal 8.000MHz 10ppm 10pF | Abracon | 1 | $1.85 | $1.85 | Reference Clock |
+| 202 | C201, C202 | GRM1555C1H100JA01D | Capacitor 10pF 50V C0G | Murata | 2 | $0.12 | $0.24 | Crystal Load Caps |
+| 203 | C203-C210 | GRM155R71E104KA01D | Capacitor 0.1uF 25V X7R | Murata | 8 | $0.10 | $0.80 | VCO/Decoupling |
+| 204 | L201-L204 | 04025N12J500CT | Inductor 12nH High Freq | Knowles | 4 | $0.20 | $0.80 | Loop Filter |
+| 205 | R201-R210 | CRCW04021K00FKED | Resistor 1k 1% 1/16W | Vishay | 10 | $0.10 | $1.00 | Loop Filter Resistors |
+| **210** | **U5** | **HMC1052LP4E** | **IQ Mixer, 5-26 GHz RF/LO, 10dB Gain** | **Analog Devices** | **1** | **$58.90** | **$58.90** | **Downconverter** |
+| 211 | R211, R212 | ERA-2AEB301X | Resistor 300 1% Thin Film | Panasonic | 2 | $0.15 | $0.30 | LO Interface |
+| **220** | **U6** | **HMC361LP4E** | **LO Buffer Amplifier, 2-20 GHz** | **Analog Devices** | **1** | **$38.45** | **$38.45** | **LO Drive to Mixer** |
 
-| Item No | Ref Des | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost (USD) | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 500 | J4, J5 | S5441-46 | Samtec QSH/QTH High-Speed Edge Rate | Samtec | 2 | $12.50 | $25.00 | FPGA Data Expansion/Debug |
-| 501 | J6 | 5-1437652-1 | Micro USB Type-B Receptacle | TE Connectivity | 1 | $0.65 | $0.65 | FPGA UART / Config |
-| 502 | DS1 | LNQ32R88L | 3.2mm LED, Red, Diffused | Lite-On | 1 | $0.15 | $0.15 | Power Indicator |
-| 503 | DS2 | LNQ32R88L | 3.2mm LED, Green, Diffused | Lite-On | 1 | $0.15 | $0.15 | Lock Indicator |
-| 504 | TP1-TP8 | 5003 | Keystone Test Point, Solder Pin | Keystone | 8 | $0.10 | $0.80 | Oscilloscope Test Points |
+---
 
-## 6.6 Raw PCB & Assembly Materials
-*Estimated costs for the bare printed circuit board and stencil.*
+## 6.4 IF Section & Digitization
 
-| Item No | Ref Des | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost (USD) | Notes |
-|---|---|---|---|---|---|---|---|---|
-| 600 | PCB | CUSTOM-6U-160 | PCB, 6U 160mm, 10-Layer, Rogers 4350B/FR4 Hybrid | Custom Fab | 1 | $350.00 | $350.00 | RF Material Required |
-| 601 | STL | CUSTOM-STENCIL | Laser Cut Stencil, 150mm | Custom Fab | 1 | $45.00 | $45.00 | SMT Assembly |
+Components for amplifying the baseband I/Q signals and converting them to digital streams.
 
-## 6.7 Cost Summary
+| Item No | Reference Designator | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost | Notes |
+|:---:|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **300** | **U7, U8** | **ADA4817-1ACPZ** | **Op-Amp, 1GHz BW, Low Noise (SOT-23)** | **Analog Devices** | **2** | **$12.40** | **$24.80** | **IF Amplifier (I & Q)** |
+| 301 | R301-R308 | ERJ-2RKF301X | Resistor 300 1% | Panasonic | 8 | $0.10 | $0.80 | Feedback/Gain Res |
+| 302 | R309-R316 | ERJ-2RKF1001X | Resistor 1k 1% | Panasonic | 8 | $0.10 | $0.80 | Input Termination |
+| 303 | C301-C308 | GCM1555C1H104JA16 | Capacitor 0.1uF 50V X7R | Murata | 8 | $0.10 | $0.80 | Supply Bypass |
+| **310** | **FL1, FL2** | **LFCN-2250+** | **Low Pass Filter, 2.25 GHz Cutoff** | **Mini-Circuits** | **2** | **$18.50** | **$37.00** | **Anti-Alias Filter** |
+| **320** | **U9** | **AD9208-250EBZ** | **Dual ADC, 250 MSPS, 14-Bit** | **Analog Devices** | **1** | **$195.00** | **$195.00** | **Digitizer** |
+| 321 | L301, L302 | BLM18PG471SN1D | Ferrite Bead 470 600mA | Murata | 2 | $0.15 | $0.30 | ADC Supply Filtering |
+| 322 | C309-C312 | GRM32ER71H475KA88L | Capacitor 4.7uF 50V X7R | Murata | 4 | $0.85 | $3.40 | ADC Bulk Decoupling |
 
-| Category | Estimated Cost (USD) |
-|---|---|
-| RF Front End & Downconversion | $512.75 |
-| Digitization & Signal Processing | $787.75 |
-| Power Distribution | $109.50 |
-| Analog Interface & Filtering | $141.90 |
-| Interconnect & Mechanical | $27.75 |
-| Raw PCB & Assembly | $395.00 |
-| **TOTAL (Excluding Labor/Enclosure)** | **$2,053.61** |
+---
+
+## 6.5 Digital Control & Communication
+
+MCU and interface components for system configuration and data handling.
+
+| Item No | Reference Designator | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost | Notes |
+|:---:|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **400** | **U10** | **STM32F407VGT6** | **ARM Cortex-M4 MCU, 168MHz** | **STMicroelectronics** | **1** | **$18.20** | **$18.20** | **System Controller** |
+| 401 | Y2 | ABS07-12.000MHZ-T | Crystal 12.000MHz 20ppm | Abracon | 1 | $1.25 | $1.25 | MCU Clock |
+| 402 | C401, C402 | GRM1555C1H220JA01D | Capacitor 22pF 50V C0G | Murata | 2 | $0.10 | $0.20 | Load Caps |
+| 403 | R401 | ERJ-2GEJ103X | Resistor 10k | Panasonic | 1 | $0.05 | $0.05 | Reset Pull-up |
+| 404 | SW1 | FSM4JSMA | Tactile Switch Side Mount | TE Connectivity | 1 | $0.35 | $0.35 | Reset Button |
+| 405 | J2 | 53047-0410 | Header 4-pin 2mm R/A | Molex | 1 | $0.25 | $0.25 | SWD Debug Port |
+| **410** | **U11** | **74LVC1G126** | **Tri-state Buffer, 1-Bit** | **NXP** | **1** | **$0.45** | **$0.45** | **Clock Output Buffer** |
+
+---
+
+## 6.6 Power Management
+
+Voltage regulation and distribution components.
+
+| Item No | Reference Designator | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost | Notes |
+|:---:|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **500** | **U12** | **LTM4644IY#PBF** | **Quad DC-DC Regulator, 4A/Channel** | **Analog Devices** | **1** | **$42.50** | **$42.50** | **Main Power Supply** |
+| 501 | L501 | 74404024100 | Inductor 1.0uH 4.2A | Würth | 4 | $1.85 | $7.40 | Power Inductors (x4) |
+| 502 | C501-C504 | GRM32EC72D475KA03L | Capacitor 4.7uF 100V X7R | Murata | 4 | $1.25 | $5.00 | Input Bulk Caps |
+| 503 | C505-C516 | GRM32ER61A476KE15L | Capacitor 47uF 10V X5R | Murata | 12 | $0.95 | $11.40 | Output Filter Caps |
+| 504 | F1 | 0451000.MXP | Fuse 5A Hold 250V AC | Littelfuse | 1 | $1.15 | $1.15 | Input Protection |
+| 505 | D1, D2 | MBRS340T3 | Schottky Diode 40V 3A | ON Semi | 2 | $0.65 | $1.30 | Reverse Polarity Prot |
+
+---
+
+## 6.7 Interconnect & Mechanical
+
+Connectors, PCB, and enclosure.
+
+| Item No | Reference Designator | Part Number | Description | Manufacturer | Qty | Unit Cost (USD) | Total Cost | Notes |
+|:---:|:---:|:---:|:---|:---:|:---:|:---:|:---:|:---|
+| **600** | **J1** | **142-0701-851** | **SMA Connector, PCB Jack, 50 Ohm** | **Cinch Connectivity** | **1** | **$4.80** | **$4.80** | **RF Input** |
+| 601 | J3 | 142-0701-851 | SMA Connector, PCB Jack | Cinch | 1 | $4.80 | $4.80 | Clock Output |
+| 602 | J4 | 53047-1010 | Header 10-pin 2mm R/A | Molex | 1 | $0.45 | $0.45 | Digital I/O Expansion |
+| 603 | TB1 | 282834-2 | Terminal Block 2-pin 5.08mm | TE Connectivity | 1 | $0.85 | $0.85 | DC Power Input |
+| **610** | **PCB** | **N/A** | **PCB Assembly, 6-Layer Rogers/FR4** | **Fab House** | **1** | **$75.00** | **$75.00** | **RF Controlled Impedance** |
+| **620** | **ENC** | **1551P** | **Enclosure Aluminum 200x150x50mm** | **Hammond** | **1** | **$35.00** | **$35.00** | **Benchtop Case** |
+| 621 | HS1, HS2 | 1511550000 | Heatsink 25x25x10mm | Fischer | 2 | $2.50 | $5.00 | For Hot Components |
+| 622 | HW-KIT | N/A | Screw/Machine Kit Assortment | Various | 1 | $5.00 | $5.00 | Mechanical Assbly |
+
+---
+
+## 6.8 Summary of Costs
+
+The following table summarizes the cost breakdown by functional block.
+
+| Cost Category | Total Cost (USD) | Percentage of Total |
+|:---|:---:|:---:|
+| **RF Front End** | $137.35 | 15.0% |
+| **Frequency Conversion** | $153.39 | 16.8% |
+| **IF & Digitization** | $261.10 | 28.6% |
+| **Digital Control** | $21.75 | 2.4% |
+| **Power Management** | $68.75 | 7.5% |
+| **Interconnect & Mech** | $125.10 | 13.7% |
+| **NRE / Test / Overhead (Est.)** | $146.27 | 16.0% |
+| **TOTAL (Estimated)** | **$913.71** | **100.0%** |
+
+> **Note:** The "NRE / Test / Overhead" line item is an estimated allowance (15-20%) for cables, missing passives, PCB tooling, and manufacturing yield loss, included here to provide a realistic unit cost projection.
 
 ---
 
@@ -1009,82 +1144,84 @@ The total estimated material cost for the electronic assemblies (PCAs) is approx
 
 # 7. Traceability Matrix
 
-## 7.1 Introduction
-This section provides the comprehensive Requirement Traceability Matrix (RTM) for the Wideband RF Receiver Hardware Requirements Specification. The matrix establishes a bidirectional traceability between the system requirements (REQ-HW-xxx), their derivation sources, allocated design components, verification methods, and implementation status.
+This section provides the Requirement Traceability Matrix (RTM) for the Wideband RF Receiver. The matrix maps the system requirements identified in Section 3 to their verification methods, architectural components, and design parameters.
 
-The purpose of this matrix is to ensure that:
-1. Every requirement has a defined verification method (Test, Analysis, or Inspection).
-2. Every requirement is traceable to a source (User Need, System Spec, or Design Constraint).
-3. Design components are mapped to requirements to confirm coverage.
-4. Development status can be tracked through the hardware lifecycle phases.
+The purpose of this matrix is to ensure that every requirement defined for the hardware is allocated to a specific component or design feature and that a objective verification method (Test, Analysis, or Inspection) is defined to validate compliance.
 
-## 7.2 Matrix Definitions
-*   **REQ-ID:** Unique identifier for the hardware requirement.
-*   **Requirement Summary:** Brief title or description of the requirement.
-*   **Source:** Document or origin of the requirement (e.g., "Phase 1 Input Spec", "IEC 60950", "HMC698LP4 Datasheet").
-*   **Allocation / Component:** Specific hardware component(s) or subsystem responsible for fulfilling the requirement.
-*   **Verification Method:** The method used to verify compliance.
-    *   **T (Test):** Quantitative measurement using test equipment (VNA, Spectrum Analyzer, etc.).
-    *   **I (Inspection):** Visual or non-invasive verification (BOM review, mechanical check).
-    *   **A (Analysis):** Mathematical calculation or simulation (Thermal, Power Budget, Link Budget).
-*   **Phase:** The development lifecycle phase where verification occurs.
-*   **Status:** Current state of the requirement definition or verification.
+## 7.1 Requirement Traceability Matrix
 
-## 7.3 Comprehensive Traceability Table
-
-| REQ-ID | Requirement Summary | Source | Allocation / Component | Verification Method | Phase | Status |
+| REQ ID | Requirement Summary | Source Document | Verification Method | Allocated Component(s) | Design Ref | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **REQ-HW-001** | Frequency Range (5-18 GHz) | Phase 1 Requirements | HMC698LP4, HMC1048LP4E | T | Proto | Verified |
-| **REQ-HW-002** | Noise Figure (≤ 10 dB) | Phase 1 Requirements | HMC698LP4 (LNA) | T | EVT | Calculated |
-| **REQ-HW-003** | Gain Range (40-60 dB) | Phase 1 Requirements | HMC698LP4, IF Amplifier | T | EVT | Verified |
-| **REQ-HW-004** | Input Power Range (-30 to -10 dBm) | Phase 1 Requirements | HMC698LP4 (P1dB +23dBm) | T | Proto | Validated |
-| **REQ-HW-005** | Input IP3 (20-30 dBm) | Phase 1 Requirements | HMC1048LP4E (IIP3 +24dBm) | T | EVT | Verified |
-| **REQ-HW-006** | Digital I/Q Output (12-bit) | Phase 1 Requirements | ADC12DJ3200 | T | EVT | Verified |
-| **REQ-HW-007** | Operating Temperature (-40 to +85°C) | Phase 1 Requirements | XCZU3EG, HMC698LP4 | T | DVT | Pending |
-| **REQ-HW-008** | Form Factor (Desktop/Enclosure) | Phase 1 Requirements | Enclosure Chassis | I | Proto | Pending |
-| **REQ-HW-009** | Power Supply Rails (+12V, +5V, +3.3V, -5V) | Phase 1 Requirements | DC-DC Regulators | A | Proto | Validated |
-| **REQ-HW-010** | Input Return Loss (≤ 2.0:1) | Phase 1 Requirements | Input Matching Network | T | Proto | Validated |
-| **REQ-HW-011** | RF Input Connector (2.4mm Female) | Phase 1 Requirements | Conn. SMA 2.4mm | I | Proto | Pending |
-| **REQ-HW-012** | Gain Control Interface (SPI) | Phase 1 Requirements | HMC698LP4 SPI Input | T | Proto | Verified |
-| **REQ-HW-013** | Phase Noise (≤ -100 dBc/Hz @ 10kHz) | Phase 1 Requirements | ADF5355 Synthesizer | T | EVT | Verified |
-| **REQ-HW-014** | RoHS Compliance | Directive 2011/65/EU | All Components | I | Production | Pending |
-| **REQ-HW-015** | Image Rejection (≥ 60 dB) | Phase 1 Requirements | HMC1048LP4E (IQ Demod) | T | EVT | Calculated |
-| **REQ-HW-101** | LNA Frequency Coverage (2-20 GHz) | Component Sel. (HMC698LP4) | HMC698LP4 | T | Proto | Verified |
-| **REQ-HW-102** | LNA Noise Figure (5 dB) | Component Sel. (HMC698LP4) | HMC698LP4 | T | Proto | Verified |
-| **REQ-HW-103** | LNA Gain Control (16 dB Range) | Component Sel. (HMC698LP4) | HMC698LP4 | T | Proto | Verified |
-| **REQ-HW-104** | Mixer Frequency Range (6-18 GHz) | Component Sel. (HMC1048LP4E) | HMC1048LP4E | T | Proto | Verified |
-| **REQ-HW-105** | Mixer Conversion Gain (6 dB) | Component Sel. (HMC1048LP4E) | HMC1048LP4E | A | Proto | Verified |
-| **REQ-HW-106** | Mixer Input IP3 (+24 dBm) | Component Sel. (HMC1048LP4E) | HMC1048LP4E | A | Proto | Verified |
-| **REQ-HW-107** | LO Synthesizer Range (13.6 GHz) | Component Sel. (ADF5355) | ADF5355 | T | Proto | Verified |
-| **REQ-HW-108** | LO Phase Noise Performance | Component Sel. (ADF5355) | ADF5355 | T | Proto | Verified |
-| **REQ-HW-109** | ADC Resolution (12-bit) | Component Sel. (ADC12DJ3200) | ADC12DJ3200 | T | EVT | Verified |
-| **REQ-HW-110** | ADC Sample Rate (≥ 500 MSPS) | Component Sel. (ADC12DJ3200) | ADC12DJ3200 | T | EVT | Verified |
-| **REQ-HW-111** | ADC Input Bandwidth (6.5 GHz) | Component Sel. (ADC12DJ3200) | ADC12DJ3200 | T | EVT | Verified |
-| **REQ-HW-112** | FPGA Logic Resources (50K Cells) | Component Sel. (XCZU3EG) | XCZU3EG-SFVA784 | A | DVT | Verified |
-| **REQ-HW-113** | FPGA DSP Slices (192) | Component Sel. (XCZU3EG) | XCZU3EG-SFVA784 | A | DVT | Verified |
-| **REQ-HW-114** | Total Power Consumption (< 30W) | System Design Constraint | Power Supply Unit | A | Proto | Calculated |
-| **REQ-HW-115** | PCB Impedance Control (50Ω) | Design Constraint | PCB Stackup | T | Proto | Pending |
-| **REQ-HW-116** | EMI/EMC Compliance (FCC Part 15) | Regulatory Standard | Chassis Shielding | T | DVT | Pending |
-| **REQ-HW-117** | Cooling Requirements (Forced Air) | Thermal Analysis | Heatsink / Fan | A | EVT | Calculated |
+| **REQ-HW-001** | Frequency Range (5-18 GHz) | Customer Specs | Test | LNA (TGA4506-SM), Mixer (HMC1052LP4E) | 3.2.1 | Active |
+| **REQ-HW-002** | System Noise Figure (3-5 dB) | Design Params | Analysis / Test | Limiter (HMC1061), LNA (TGA4506), Mixer (HMC1052) | 3.2.2 | Active |
+| **REQ-HW-003** | Input Power Range (-90 to +30 dBm) | Design Params | Test | Limiter (HMC1061), LNA (TGA4506) | 3.2.3 | Active |
+| **REQ-HW-004** | Max Input Power Survivability (+30 dBm) | Design Params | Test | RF Limiter (HMC1061LP4E), Input Circuit | 3.2.4 | Active |
+| **REQ-HW-005** | RF Input Connector (SMA Female 50Ω) | Interface Specs | Inspection | Mechanical Enclosure, PCB Edge Launch | 3.3.1 | Active |
+| **REQ-HW-006** | Digital I/Q Output (≥12-bit) | Interface Specs | Test | ADC (AD9208), FPGA Interface | 3.3.2 | Active |
+| **REQ-HW-007** | Gain Control Range (≥30 dB) | Functional Specs | Test | VGA (HMC698LP4) | 3.1.2 | Active |
+| **REQ-HW-008** | Input Third-order Intercept (IIP3 ≥20) | Performance Specs | Test | LNA (TGA4506), Mixer (HMC1052), VGA (HMC698) | 3.2.5 | Active |
+| **REQ-HW-009** | Local Oscillator (5-18 GHz) | Functional Specs | Test | Synthesizer (ADF5356), LO Buffer | 3.1.3 | Active |
+| **REQ-HW-010** | Control Interface (SPI) | Interface Specs | Test | MCU (STM32F407), SPI Bus Topology | 3.3.3 | Active |
+| **REQ-HW-011** | Operating Temperature (0°C to +50°C) | Environmental Specs | Test | All Components, Thermal Management | 3.4.1 | Active |
+| **REQ-HW-012** | Power Supply (+12V DC, ±10%) | Power Specs | Test | DC-DC Converter (LTM4644), Power Entry | 3.5.1 | Active |
+| **REQ-HW-013** | Form Factor (≤ 200x150x50mm) | Mechanical Specs | Inspection | Enclosure, PCB Stackup | 3.6.1 | Active |
+| **REQ-HW-014** | RF Limiter Protection | Functional Specs | Test | RF Limiter (HMC1061LP4E) | 3.1.4 | Active |
+| **REQ-HW-015** | Gain Flatness (±3 dB) | Performance Specs | Test | VGA (HMC698), IF Amp (ADA4817), Filter | 3.2.6 | Active |
+| **REQ-HW-016** | Clock Output (Optional) | Interface Specs | Test | FPGA Clock Manager, Clock Buffer | 3.3.4 | Active |
+| **REQ-HW-017** | EMC Compliance (FCC/EN) | Regulatory | Test | Shielding, Filtering, PCB Layout | 4.1.1 | Active |
+| **REQ-HW-018** | RoHS Compliance | Regulatory | Inspection | BOM, Procurement Specs | 4.1.2 | Active |
+| **REQ-HW-019** | Input Return Loss (≥10 dB) | RF Performance | Test | Input Matching Network, RF Limiter | 3.2.7 | Active |
+| **REQ-HW-020** | Output Return Loss (≥10 dB) | RF Performance | Test | IF Matching Network, ADC Input | 3.2.8 | Active |
+| **REQ-HW-021** | LO Phase Noise (≤ -100 dBc/Hz) | Performance Specs | Analysis / Test | PLL Synthesizer (ADF5356) | 3.2.9 | Active |
+| **REQ-HW-022** | ADC Sample Rate (≥200 MSPS) | Performance Specs | Test | ADC (AD9208), Clock Distribution | 3.2.10 | Active |
+| **REQ-HW-023** | Power Consumption (≤15W) | Power Specs | Analysis / Test | Power Supply (LTM4644), All Loads | 3.5.2 | Active |
+| **REQ-HW-024** | ADC Resolution (≥12 Bits) | Performance Specs | Test | ADC (AD9208) | 3.2.11 | Active |
+| **REQ-HW-025** | System Gain (40-70 dB) | Performance Specs | Analysis / Test | RF Chain Total Gain | 3.2.12 | Active |
+| **REQ-HW-026** | Input VSWR (derived from Return Loss) | RF Performance | Test | SMA Connector, PCB Trace | 3.2.13 | Active |
+| **REQ-HW-027** | Storage Temperature (-40°C to +85°C) | Environmental | Analysis | Component Ratings, Packaging | 3.4.2 | Active |
+| **REQ-HW-028** | Weight (< 2.0 kg) | Mechanical Specs | Inspection | Enclosure Material, PCB Weight | 3.6.2 | Active |
+| **REQ-HW-029** | SPI Mode Compatibility (0-3) | Interface Specs | Test | MCU Firmware Configuration | 3.3.5 | Active |
+| **REQ-HW-030** | Limiter Recovery Time (< 1 µs) | Functional Specs | Test | RF Limiter (HMC1061LP4E) | 3.1.5 | Active |
 
-## 7.4 Requirement Verification Summary
+## 7.2 Requirement Coverage Summary
 
-The table below summarizes the verification methods defined in the Traceability Matrix.
+The following tables summarize the distribution of requirements based on Verification Method and Priority.
+
+### 7.2.1 Verification Method Distribution
 
 | Verification Method | Count | Percentage |
 | :--- | :--- | :--- |
-| **Test (T)** | 18 | 58% |
-| **Analysis (A)** | 8 | 26% |
-| **Inspection (I)** | 5 | 16% |
-| **TOTAL** | **31** | **100%** |
+| **Test** | 22 | 73% |
+| **Inspection** | 5 | 17% |
+| **Analysis** | 3 | 10% |
+| **Total** | **30** | **100%** |
 
-### 7.4.1 Verification Method Legend
-*   **Test (T):** Requires the unit to be powered and operating, using specialized equipment to measure electrical parameters (e.g., VNA for S-parameters, Spectrum Analyzer for Noise Figure/IP3). This is the primary method for RF Performance Requirements.
-*   **Analysis (A):** Involves engineering calculations or simulations to predict behavior (e.g., Power Budget calculation, Thermal simulation, Friis noise equation). Used for constraints derived from component datasheets or physics.
-*   **Inspection (I):** Involves visual review or comparison to physical standards (e.g., Checking connector footprint, RoHS certificate review, mechanical dimension check). Used for physical and compliance requirements.
+*Note: "Test" implies laboratory measurement using RF test equipment (Spectrum Analyzers, Network Analyzers, Power Meters). "Inspection" implies visual review or design audit. "Analysis" implies simulation or mathematical derivation.*
 
-## 7.5 Status Summary
-*   **Verified:** Requirement has been tested or analyzed against the component datasheet and proven valid in the design phase.
-*   **Calculated:** Requirement is valid based on link budget or power analysis calculations.
-*   **Validated:** Requirement is valid based on simulation or theoretical performance of selected components.
-*   **Pending:** Requirement awaits physical prototype verification (DVT/Production phases).
+### 7.2.2 Priority Distribution
+
+| Priority | Count | Percentage |
+| :--- | :--- | :--- |
+| **Must Have** | 21 | 70% |
+| **Should Have** | 7 | 23% |
+| **Could Have** | 2 | 7% |
+| **Total** | **30** | **100%** |
+
+### 7.2.3 Component Allocation Summary
+
+| Component | Allocated Requirements Count |
+| :--- | :--- |
+| RF Limiter (HMC1061) | 4 (REQ-HW-003, REQ-HW-004, REQ-HW-014, REQ-HW-019) |
+| LNA (TGA4506) | 4 (REQ-HW-001, REQ-HW-002, REQ-HW-008, REQ-HW-025) |
+| VGA (HMC698) | 3 (REQ-HW-007, REQ-HW-008, REQ-HW-015) |
+| Mixer (HMC1052) | 4 (REQ-HW-001, REQ-HW-008, REQ-HW-019, REQ-HW-020) |
+| LO Synth (ADF5356) | 2 (REQ-HW-009, REQ-HW-021) |
+| IF Amp/Filter | 3 (REQ-HW-015, REQ-HW-020, REQ-HW-025) |
+| ADC (AD9208) | 3 (REQ-HW-006, REQ-HW-022, REQ-HW-024) |
+| Power Supply | 2 (REQ-HW-012, REQ-HW-023) |
+| MCU/FPGA | 3 (REQ-HW-007, REQ-HW-010, REQ-HW-016) |
+| Mechanical/Enclosure | 4 (REQ-HW-005, REQ-HW-011, REQ-HW-013, REQ-HW-028) |
+| Regulatory/General | 3 (REQ-HW-017, REQ-HW-018, REQ-HW-027) |
+
+---
+*End of Hardware Requirements Specification*

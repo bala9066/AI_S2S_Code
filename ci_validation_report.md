@@ -1,7 +1,7 @@
 # CI/CD Workflow Validation Report
 
 **File:** `.github/workflows/hardware_pipeline_ci.yml`
-**Validated:** 2026-04-17 07:39:35 — offline YAML syntax check
+**Validated:** 2026-04-17 10:09:04 — offline YAML syntax check
 > **Note:** Your GitHub token IS used — for the git push and PR creation (next step).
 > This step validates YAML syntax, job structure, and trigger keys locally.
 > No GitHub API call needed here. The token is applied when committing and opening the PR.

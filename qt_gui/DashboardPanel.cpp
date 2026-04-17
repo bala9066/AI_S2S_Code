@@ -22,7 +22,7 @@ DashboardPanel::DashboardPanel(QWidget *parent)
     ui->progressBar->setValue(0);
     ui->progressBar->setFormat("%p%  buffer");
 
-    ui->headerLabel->setText(tr("<b>receiver &mdash; Live Dashboard</b>"));
+    ui->headerLabel->setText(tr("<b>receiver &amp;mdash; Live Dashboard</b>"));
 }
 
 DashboardPanel::~DashboardPanel()

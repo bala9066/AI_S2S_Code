@@ -92,14 +92,84 @@ bool hal_is_ready(void)
  * High-level register accessors (auto-generated from RDT)
  * ================================================================ */
 
-hal_status_t hal_read_reg_0x54(uint16_t *out)
+hal_status_t hal_read_or(uint16_t *out)
 {
-    return hal_reg_read((uint16_t)(0x54U | 0x8000U), out);
+    return hal_reg_read((uint16_t)(0x8000U | 0x8000U), out);
 }
 
-hal_status_t hal_write_reg_0x54(uint16_t value)
+hal_status_t hal_write_or(uint16_t value)
 {
-    return hal_reg_write((uint16_t)(0x54U & 0x7FFFU), value);
+    return hal_reg_write((uint16_t)(0x8000U & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_address(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0x0010U | 0x8000U), out);
+}
+
+hal_status_t hal_write_address(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0x0010U & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_address(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0x0020U | 0x8000U), out);
+}
+
+hal_status_t hal_write_address(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0x0020U & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_reg_0x1f(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0x1fU | 0x8000U), out);
+}
+
+hal_status_t hal_write_reg_0x1f(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0x1fU & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_reg_0x48(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0x48U | 0x8000U), out);
+}
+
+hal_status_t hal_write_reg_0x48(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0x48U & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_reg_0x50(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0x50U | 0x8000U), out);
+}
+
+hal_status_t hal_write_reg_0x50(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0x50U & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_0x55(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0xaaU | 0x8000U), out);
+}
+
+hal_status_t hal_write_0x55(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0xaaU & 0x7FFFU), value);
+}
+
+hal_status_t hal_read_reg_0xa5(uint16_t *out)
+{
+    return hal_reg_read((uint16_t)(0xa5U | 0x8000U), out);
+}
+
+hal_status_t hal_write_reg_0xa5(uint16_t value)
+{
+    return hal_reg_write((uint16_t)(0xa5U & 0x7FFFU), value);
 }
 
 hal_status_t hal_read_reg_0x0000(uint16_t *out)
@@ -220,76 +290,6 @@ hal_status_t hal_read_reg_0x05ff(uint16_t *out)
 hal_status_t hal_write_reg_0x05ff(uint16_t value)
 {
     return hal_reg_write((uint16_t)(0x05ffU & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0x0600(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0x0600U | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0x0600(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0x0600U & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0x06ff(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0x06ffU | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0x06ff(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0x06ffU & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0x0a00(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0x0a00U | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0x0a00(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0x0a00U & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0x0a00(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0x0a00U | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0x0a00(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0x0a00U & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0x0aff(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0x0affU | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0x0aff(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0x0affU & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0x00(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0x00U | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0x00(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0x00U & 0x7FFFU), value);
-}
-
-hal_status_t hal_read_reg_0xa5a5(uint16_t *out)
-{
-    return hal_reg_read((uint16_t)(0xa5a5U | 0x8000U), out);
-}
-
-hal_status_t hal_write_reg_0xa5a5(uint16_t value)
-{
-    return hal_reg_write((uint16_t)(0xa5a5U & 0x7FFFU), value);
 }
 
 /* ================================================================
