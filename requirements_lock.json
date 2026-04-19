@@ -1,0 +1,174 @@
+{
+  "architecture": null,
+  "domain": "communication",
+  "frozen_at": "2026-04-19T11:37:56.641650+00:00",
+  "llm_model": "glm-5.1",
+  "llm_model_version": null,
+  "project_id": "75",
+  "requirements": {
+    "_requirement_entries": [
+      {
+        "category": "functional",
+        "description": "8-channel RF front-end covering 2-6 GHz frequency range with 10-100 MHz instantaneous bandwidth for EW/ESM/ELINT applications",
+        "priority": "Must have",
+        "req_id": "REQ-HW-001",
+        "title": "RF Front-End Operation"
+      },
+      {
+        "category": "functional",
+        "description": "Simultaneous operation of 8 independent RF channels",
+        "priority": "Must have",
+        "req_id": "REQ-HW-002",
+        "title": "Channel Parallelism"
+      },
+      {
+        "category": "performance",
+        "description": "Target system noise figure of 4-6 dB across 2-6 GHz band",
+        "priority": "Must have",
+        "req_id": "REQ-HW-003",
+        "title": "System Noise Figure"
+      },
+      {
+        "category": "performance",
+        "description": "LNA chain gain of 40-60 dB",
+        "priority": "Must have",
+        "req_id": "REQ-HW-004",
+        "title": "System Gain"
+      },
+      {
+        "category": "performance",
+        "description": "Target IIP3 of +20 dBm",
+        "priority": "Must have",
+        "req_id": "REQ-HW-005",
+        "title": "Linearity (IIP3)"
+      },
+      {
+        "category": "performance",
+        "description": "Safe input handling up to +40 dBm with survivability requirements",
+        "priority": "Must have",
+        "req_id": "REQ-HW-006",
+        "title": "Maximum Input Power"
+      },
+      {
+        "category": "performance",
+        "description": "Input return loss of -20 dB (1.2:1 VSWR)",
+        "priority": "Must have",
+        "req_id": "REQ-HW-007",
+        "title": "Return Loss/VSWR"
+      },
+      {
+        "category": "performance",
+        "description": "Minimum detectable signal of -92.0 dBm",
+        "priority": "Must have",
+        "req_id": "REQ-HW-008",
+        "title": "MDS (Friis)"
+      },
+      {
+        "category": "interface",
+        "description": "Single-ended 50\u03a9 antenna interface",
+        "priority": "Must have",
+        "req_id": "REQ-HW-009",
+        "title": "Antenna Interface"
+      },
+      {
+        "category": "interface",
+        "description": "SMP connector for RF input",
+        "priority": "Must have",
+        "req_id": "REQ-HW-010",
+        "title": "RF Connector"
+      },
+      {
+        "category": "interface",
+        "description": "Interface to superheterodyne receiver",
+        "priority": "Must have",
+        "req_id": "REQ-HW-011",
+        "title": "Output Interface"
+      },
+      {
+        "category": "environmental",
+        "description": "Military temperature range: -55\u00b0C to +125\u00b0C",
+        "priority": "Must have",
+        "req_id": "REQ-HW-012",
+        "title": "Operating Temperature"
+      },
+      {
+        "category": "environmental",
+        "description": "MIL-STD-810 heavy vibration/shock environment",
+        "priority": "Must have",
+        "req_id": "REQ-HW-013",
+        "title": "Vibration/Shock"
+      },
+      {
+        "category": "environmental",
+        "description": "IP67 ruggedized enclosure",
+        "priority": "Must have",
+        "req_id": "REQ-HW-014",
+        "title": "Ingress Protection"
+      },
+      {
+        "category": "constraint",
+        "description": "Total power consumption limited to 15-30 W",
+        "priority": "Must have",
+        "req_id": "REQ-HW-015",
+        "title": "Power Budget"
+      },
+      {
+        "category": "constraint",
+        "description": "Primary supply voltage: +12 V",
+        "priority": "Must have",
+        "req_id": "REQ-HW-016",
+        "title": "Supply Voltage"
+      },
+      {
+        "category": "functional",
+        "description": "Handle 5-16 simultaneous signals",
+        "priority": "Should have",
+        "req_id": "REQ-HW-017",
+        "title": "Simultaneous Signal Handling"
+      },
+      {
+        "category": "functional",
+        "description": "Multi-band (octave) threat band coverage",
+        "priority": "Should have",
+        "req_id": "REQ-HW-018",
+        "title": "Threat Band Coverage"
+      },
+      {
+        "category": "constraint",
+        "description": "GaN HEMT semiconductor technology for LNA",
+        "priority": "Should have",
+        "req_id": "REQ-HW-019",
+        "title": "LNA Technology"
+      },
+      {
+        "category": "constraint",
+        "description": "Ceramic pre-select filter technology",
+        "priority": "Should have",
+        "req_id": "REQ-HW-020",
+        "title": "Filter Technology"
+      },
+      {
+        "category": "constraint",
+        "description": "Active biasing for LNA",
+        "priority": "Should have",
+        "req_id": "REQ-HW-021",
+        "title": "Biasing Scheme"
+      }
+    ],
+    "bandwidth_mhz": "100",
+    "frequency_range_ghz": "2-6",
+    "iip3_dbm": "20",
+    "mds_dbm": "-92",
+    "noise_figure_db": "5",
+    "output_power_dbm": "20",
+    "power_budget_w": "25",
+    "supply_voltage_v": "12",
+    "system_gain_db": "50"
+  },
+  "requirements_hash": "73c232183caa6751a5e4ac6d8371cd49f3b914487387e2aad29852c4fe9ed4c9",
+  "round1_confirmed": true,
+  "round2_confirmed": true,
+  "round3_confirmed": true,
+  "round4_confirmed": true,
+  "schema_version": "1.0"
+}

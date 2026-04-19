@@ -1,0 +1,263 @@
+{
+  "project": "gvng",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "8:1 RF Switch",
+      "type": "PE8135",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "PE8135",
+        "component_name": "8:1 RF Switch",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "GaN HEMT LNA",
+      "type": "CGH40010F",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "CGH40010F",
+        "component_name": "GaN HEMT LNA",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "Ceramic Pre-select Filter",
+      "type": "BPFB-0600-5100+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "BPFB-0600-5100+",
+        "component_name": "Ceramic Pre-select Filter",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "RF Limiter",
+      "type": "MADL-011019",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "MADL-011019",
+        "component_name": "RF Limiter",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "Input Matching Network",
+      "type": "LC Matching Network",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "LC Matching Network",
+        "component_name": "Input Matching Network",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Output Matching Network",
+      "type": "LC Matching Network",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "LC Matching Network",
+        "component_name": "Output Matching Network",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "SMP Connector",
+      "type": "141-0711-801",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "141-0711-801",
+        "component_name": "SMP Connector",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "Active Bias Circuit",
+      "type": "LMH6401",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "LMH6401",
+        "component_name": "Active Bias Circuit",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "Power Supply Regulator",
+      "type": "LMR36506",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "part_number": "LMR36506",
+        "component_name": "Power Supply Regulator",
+        "reference_designator": "U8"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "U4",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "U5",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "GND",
+      "target": "U6",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "J1",
+      "source_pin": "GND",
+      "target": "J1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GND",
+      "target": "U8",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "J1",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "IN",
+      "signal": "RF_J1_U2",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "IN",
+      "signal": "RF_U2_U3",
+      "type": "rf"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true
+  }
+}
