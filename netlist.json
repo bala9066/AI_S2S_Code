@@ -1,0 +1,701 @@
+{
+  "project": "dgh",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "High Power Limiter",
+      "type": "MADL-011017",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "MADL-011017",
+        "component_name": "High Power Limiter",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "SAW Pre-select Filter",
+      "type": "SAW-518-HP",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "SAW-518-HP",
+        "component_name": "SAW Pre-select Filter",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "GaN HEMT LNA",
+      "type": "QPL9057",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "QPL9057",
+        "component_name": "GaN HEMT LNA",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "LNA Driver Stage",
+      "type": "ADL5545",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "ADL5545",
+        "component_name": "LNA Driver Stage",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "Output Buffer",
+      "type": "MGA-68563",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "MGA-68563",
+        "component_name": "Output Buffer",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Power Management",
+      "type": "LT3636",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "LT3636",
+        "component_name": "Power Management",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "Control Interface",
+      "type": "MCP23017",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "MCP23017",
+        "component_name": "Control Interface",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "RF Input Connector",
+      "type": "SMA-50-CLS",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "SMA-50-CLS",
+        "component_name": "RF Input Connector",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "RF Output Connector",
+      "type": "SMA-50-CLS",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "part_number": "SMA-50-CLS",
+        "component_name": "RF Output Connector",
+        "reference_designator": "J2"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "Control Interface Connector",
+      "type": "CON_4",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "part_number": "CON_4",
+        "component_name": "Control Interface Connector",
+        "reference_designator": "J3"
+      }
+    },
+    {
+      "id": "J4",
+      "name": "Power Input Connector",
+      "type": "CON_2",
+      "pins": [],
+      "properties": {
+        "instance_id": "J4",
+        "part_number": "CON_2",
+        "component_name": "Power Input Connector",
+        "reference_designator": "J4"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Decoupling Capacitor",
+      "type": "CL05B1C1G5C",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "part_number": "CL05B1C1G5C",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C1"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Decoupling Capacitor",
+      "type": "CL05B1C1G5C",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "part_number": "CL05B1C1G5C",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C2"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Decoupling Capacitor",
+      "type": "CL05B1C1G5C",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "part_number": "CL05B1C1G5C",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C3"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Decoupling Capacitor",
+      "type": "CL05B1C1G5C",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "part_number": "CL05B1C1G5C",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C4"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "Decoupling Capacitor",
+      "type": "CL05B1C1G5C",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "part_number": "CL05B1C1G5C",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C5"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "Decoupling Capacitor",
+      "type": "CL05B1C1G5C",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "part_number": "CL05B1C1G5C",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C6"
+      }
+    },
+    {
+      "id": "L1",
+      "name": "RF Choke",
+      "type": "LQH32PN47K03L",
+      "pins": [],
+      "properties": {
+        "instance_id": "L1",
+        "part_number": "LQH32PN47K03L",
+        "component_name": "RF Choke",
+        "reference_designator": "L1"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "Bias Resistor",
+      "type": "ERJ-6ENF1000V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "part_number": "ERJ-6ENF1000V",
+        "component_name": "Bias Resistor",
+        "reference_designator": "R1"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Bias Resistor",
+      "type": "ERJ-6ENF1000V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "part_number": "ERJ-6ENF1000V",
+        "component_name": "Bias Resistor",
+        "reference_designator": "R2"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Bias Resistor",
+      "type": "ERJ-6ENF1000V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "part_number": "ERJ-6ENF1000V",
+        "component_name": "Bias Resistor",
+        "reference_designator": "R3"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Bias Resistor",
+      "type": "ERJ-6ENF1000V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "part_number": "ERJ-6ENF1000V",
+        "component_name": "Bias Resistor",
+        "reference_designator": "R4"
+      }
+    },
+    {
+      "id": "R5",
+      "name": "Bias Resistor",
+      "type": "ERJ-6ENF1000V",
+      "pins": [],
+      "properties": {
+        "instance_id": "R5",
+        "part_number": "ERJ-6ENF1000V",
+        "component_name": "Bias Resistor",
+        "reference_designator": "R5"
+      }
+    },
+    {
+      "id": "D1",
+      "name": "ESD Protection Diode",
+      "type": "ESD1A5.0BT1G",
+      "pins": [],
+      "properties": {
+        "instance_id": "D1",
+        "part_number": "ESD1A5.0BT1G",
+        "component_name": "ESD Protection Diode",
+        "reference_designator": "D1"
+      }
+    },
+    {
+      "id": "D2",
+      "name": "ESD Protection Diode",
+      "type": "ESD1A5.0BT1G",
+      "pins": [],
+      "properties": {
+        "instance_id": "D2",
+        "part_number": "ESD1A5.0BT1G",
+        "component_name": "ESD Protection Diode",
+        "reference_designator": "D2"
+      }
+    },
+    {
+      "id": "R6",
+      "name": "Termination Resistor",
+      "type": "CR0805-FX-1002ELF",
+      "pins": [],
+      "properties": {
+        "instance_id": "R6",
+        "part_number": "CR0805-FX-1002ELF",
+        "component_name": "Termination Resistor",
+        "reference_designator": "R6"
+      }
+    },
+    {
+      "id": "R7",
+      "name": "Termination Resistor",
+      "type": "CR0805-FX-1002ELF",
+      "pins": [],
+      "properties": {
+        "instance_id": "R7",
+        "part_number": "CR0805-FX-1002ELF",
+        "component_name": "Termination Resistor",
+        "reference_designator": "R7"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "P1",
+      "target": "D1",
+      "target_pin": "A",
+      "signal": "RF_IN",
+      "type": "rf"
+    },
+    {
+      "source": "D1",
+      "source_pin": "K",
+      "target": "U1",
+      "target_pin": "RF_IN",
+      "signal": "RF_IN",
+      "type": "rf"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RF_OUT",
+      "target": "D2",
+      "target_pin": "A",
+      "signal": "RF_PROTECTED",
+      "type": "rf"
+    },
+    {
+      "source": "D2",
+      "source_pin": "K",
+      "target": "U2",
+      "target_pin": "RF_IN",
+      "signal": "RF_PROTECTED",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "RF_OUT",
+      "target": "U3",
+      "target_pin": "RF_IN",
+      "signal": "RF_FILTERED",
+      "type": "rf"
+    },
+    {
+      "source": "U3",
+      "source_pin": "RF_OUT",
+      "target": "U4",
+      "target_pin": "RF_IN",
+      "signal": "RF_AMPLIFIED_1",
+      "type": "rf"
+    },
+    {
+      "source": "U4",
+      "source_pin": "RF_OUT",
+      "target": "U5",
+      "target_pin": "RF_IN",
+      "signal": "RF_AMPLIFIED_2",
+      "type": "rf"
+    },
+    {
+      "source": "U5",
+      "source_pin": "RF_OUT",
+      "target": "R6",
+      "target_pin": "P1",
+      "signal": "RF_OUTPUT",
+      "type": "rf"
+    },
+    {
+      "source": "R6",
+      "source_pin": "P2",
+      "target": "J2",
+      "target_pin": "P1",
+      "signal": "RF_OUTPUT",
+      "type": "rf"
+    },
+    {
+      "source": "J4",
+      "source_pin": "P1",
+      "target": "U6",
+      "target_pin": "IN",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT1",
+      "target": "C1",
+      "target_pin": "P1",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "C1",
+      "source_pin": "P2",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT2",
+      "target": "C2",
+      "target_pin": "P1",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "C2",
+      "source_pin": "P2",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT3",
+      "target": "C3",
+      "target_pin": "P1",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "C3",
+      "source_pin": "P2",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT4",
+      "target": "C4",
+      "target_pin": "P1",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "C4",
+      "source_pin": "P2",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT5",
+      "target": "C5",
+      "target_pin": "P1",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "C5",
+      "source_pin": "P2",
+      "target": "U5",
+      "target_pin": "VCC",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT6",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "VCC_28V",
+      "type": "power"
+    },
+    {
+      "source": "J4",
+      "source_pin": "P2",
+      "target": "U6",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PGND",
+      "target": "C1",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PGND",
+      "target": "C2",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PGND",
+      "target": "C3",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PGND",
+      "target": "C4",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PGND",
+      "target": "C5",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "PGND",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "D1",
+      "target_pin": "CATHODE",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "D2",
+      "target_pin": "CATHODE",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "L1",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "R1",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "R2",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "R3",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "R4",
+      "target_pin": "P1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U7",
+      "source_pin": "SCL",
+      "target": "J3",
+      "target_pin": "P1",
+      "signal": "CTRL_I2C_SDA",
+      "type": "digital"
+    },
+    {
+      "source": "U7",
+      "source_pin": "SDA",
+      "target": "J3",
+      "target_pin": "P2",
+      "signal": "CTRL_I2C_SCL",
+      "type": "digital"
+    },
+    {
+      "source": "U6",
+      "source_pin": "BIAS1",
+      "target": "R1",
+      "target_pin": "P2",
+      "signal": "BIAS_U1",
+      "type": "analog"
+    },
+    {
+      "source": "U6",
+      "source_pin": "BIAS2",
+      "target": "R2",
+      "target_pin": "P2",
+      "signal": "BIAS_U2",
+      "type": "analog"
+    },
+    {
+      "source": "U6",
+      "source_pin": "BIAS3",
+      "target": "L1",
+      "target_pin": "P2",
+      "signal": "BIAS_U3",
+      "type": "analog"
+    },
+    {
+      "source": "L1",
+      "source_pin": "P1",
+      "target": "R3",
+      "target_pin": "P2",
+      "signal": "BIAS_U3",
+      "type": "analog"
+    },
+    {
+      "source": "U6",
+      "source_pin": "BIAS4",
+      "target": "R4",
+      "target_pin": "P2",
+      "signal": "BIAS_U4",
+      "type": "analog"
+    },
+    {
+      "source": "U6",
+      "source_pin": "BIAS5",
+      "target": "R5",
+      "target_pin": "P2",
+      "signal": "BIAS_U5",
+      "type": "analog"
+    },
+    {
+      "source": "R5",
+      "source_pin": "P1",
+      "target": "U5",
+      "target_pin": "BIAS",
+      "signal": "BIAS_U5",
+      "type": "analog"
+    },
+    {
+      "source": "J3",
+      "source_pin": "P3",
+      "target": "R7",
+      "target_pin": "P1",
+      "signal": "TERM",
+      "type": "digital"
+    },
+    {
+      "source": "R7",
+      "source_pin": "P2",
+      "target": "J3",
+      "target_pin": "P4",
+      "signal": "TERM",
+      "type": "digital"
+    }
+  ],
+  "metadata": {}
+}

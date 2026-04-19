@@ -1,0 +1,208 @@
+{
+  "architecture": null,
+  "domain": "radar",
+  "frozen_at": "2026-04-19T09:42:31.771483+00:00",
+  "llm_model": "glm-5.1",
+  "llm_model_version": null,
+  "project_id": "71",
+  "requirements": {
+    "_requirement_entries": [
+      {
+        "category": "functional",
+        "description": "Operate across 5-18 GHz frequency band for radar applications",
+        "priority": "shall",
+        "req_id": "REQ-HW-001",
+        "title": "Frequency Range",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Support 10-100 MHz instantaneous bandwidth for signal processing",
+        "priority": "shall",
+        "req_id": "REQ-HW-002",
+        "title": "Instantaneous Bandwidth",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Target system noise figure of 4-6 dB across 5-18 GHz range",
+        "priority": "shall",
+        "req_id": "REQ-HW-003",
+        "title": "System Noise Figure",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Provide 40-60 dB total gain through LNA chain",
+        "priority": "shall",
+        "req_id": "REQ-HW-004",
+        "title": "LNA Chain Gain",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Achieve +20 dBm IIP3 for robust interference handling",
+        "priority": "shall",
+        "req_id": "REQ-HW-005",
+        "title": "Linearity (IIP3)",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Withstand +30 dBm maximum input without damage",
+        "priority": "shall",
+        "req_id": "REQ-HW-006",
+        "title": "Survivability",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Maintain -14 dB input return loss (1.5:1 VSWR) across 5-18 GHz",
+        "priority": "shall",
+        "req_id": "REQ-HW-007",
+        "title": "Input Return Loss",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Single-ended 50\u03a9 antenna interface via SMA connectors",
+        "priority": "shall",
+        "req_id": "REQ-HW-008",
+        "title": "Antenna Interface",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "constraint",
+        "description": "Total power consumption limited to 5-15 W",
+        "priority": "should",
+        "req_id": "REQ-HW-009",
+        "title": "Power Consumption",
+        "verification_method": "test"
+      },
+      {
+        "category": "constraint",
+        "description": "Operate from +28 V primary rail",
+        "priority": "shall",
+        "req_id": "REQ-HW-010",
+        "title": "Supply Voltage",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Military temperature range: -55\u00b0C to +125\u00b0C",
+        "priority": "shall",
+        "req_id": "REQ-HW-011",
+        "title": "Operating Temperature",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Meet MIL-STD-810 heavy vibration/shock requirements",
+        "priority": "shall",
+        "req_id": "REQ-HW-012",
+        "title": "Vibration/Shock",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "IP67 rating for rugged environmental protection",
+        "priority": "should",
+        "req_id": "REQ-HW-013",
+        "title": "Ingress Protection",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Support 4 parallel RF channels simultaneously",
+        "priority": "shall",
+        "req_id": "REQ-HW-014",
+        "title": "Channel Count",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Interface with superheterodyne receiver architecture",
+        "priority": "shall",
+        "req_id": "REQ-HW-015",
+        "title": "Downstream Interface",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "functional",
+        "description": "Support CW and LFM (Linear Frequency Modulated) radar signals",
+        "priority": "should",
+        "req_id": "REQ-HW-016",
+        "title": "Signal Types",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Utilize GaN HEMT technology for LNA implementation",
+        "priority": "shall",
+        "req_id": "REQ-HW-017",
+        "title": "LNA Technology",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "functional",
+        "description": "SAW pre-select filter technology for RF filtering",
+        "priority": "should",
+        "req_id": "REQ-HW-018",
+        "title": "Filter Technology",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Active biasing scheme for LNA stability",
+        "priority": "should",
+        "req_id": "REQ-HW-019",
+        "title": "LNA Biasing",
+        "verification_method": "test"
+      },
+      {
+        "category": "constraint",
+        "description": "High interference environment (co-site radar/communications)",
+        "priority": "shall",
+        "req_id": "REQ-HW-020",
+        "title": "Interference Environment",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Derived minimum detectable signal of -92.0 dBm",
+        "priority": "shall",
+        "req_id": "REQ-HW-021",
+        "title": "MDS (Friis)",
+        "verification_method": "calculation"
+      }
+    ],
+    "antenna_interface": "Single-ended 50\u03a9",
+    "biasing_scheme": "Active bias",
+    "channels": "4",
+    "connector_type": "SMA",
+    "downstream_receiver": "Superheterodyne",
+    "filter_technology": "SAW",
+    "frequency_range": "5-18 GHz",
+    "gain": "40-60 dB",
+    "iip3": "+20 dBm",
+    "ingress_protection": "IP67",
+    "input_return_loss": "-14 dB",
+    "instantaneous_bandwidth": "10-100 MHz",
+    "interference_environment": "High",
+    "lna_technology": "GaN HEMT",
+    "max_input": "+30 dBm",
+    "noise_figure": "4-6 dB",
+    "power_budget": "5-15 W",
+    "signal_types": "CW/LFM",
+    "supply_voltage": "+28 V",
+    "temperature_range": "-55 to +125\u00b0C",
+    "tr_switching": "No T/R switch",
+    "vibration": "MIL-STD-810 heavy"
+  },
+  "requirements_hash": "56a42868d627adabf6e44c66c985460973f0376fd6bcb58023033897598ab0a6",
+  "round1_confirmed": true,
+  "round2_confirmed": true,
+  "round3_confirmed": true,
+  "round4_confirmed": true,
+  "schema_version": "1.0"
+}
