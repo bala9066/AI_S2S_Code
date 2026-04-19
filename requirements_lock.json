@@ -1,0 +1,202 @@
+{
+  "architecture": null,
+  "domain": "radar",
+  "frozen_at": "2026-04-19T16:47:11.825451+00:00",
+  "llm_model": "glm-5.1",
+  "llm_model_version": null,
+  "project_id": "79",
+  "requirements": {
+    "_requirement_entries": [
+      {
+        "category": "functional",
+        "description": "Operate across 2-6 GHz frequency band with instantaneous bandwidth of 10-100 MHz",
+        "priority": "Must have",
+        "req_id": "REQ-HW-001",
+        "title": "Frequency Range Coverage",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Achieve system noise figure of 2-4 dB across the full frequency range",
+        "priority": "Must have",
+        "req_id": "REQ-HW-002",
+        "title": "System Noise Figure",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Provide 20-40 dB gain in the LNA chain",
+        "priority": "Must have",
+        "req_id": "REQ-HW-003",
+        "title": "LNA Chain Gain",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Maintain +30 dBm IIP3 to handle strong interferers",
+        "priority": "Must have",
+        "req_id": "REQ-HW-004",
+        "title": "Linearity (IIP3)",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Withstand up to +20 dBm input without damage",
+        "priority": "Must have",
+        "req_id": "REQ-HW-005",
+        "title": "Survivability",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Maintain input return loss of -20 dB (1.2:1 VSWR) across 2-6 GHz",
+        "priority": "Must have",
+        "req_id": "REQ-HW-006",
+        "title": "Input Return Loss",
+        "verification_method": "test"
+      },
+      {
+        "category": "constraint",
+        "description": "Total power consumption limited to >30 W at +12V supply",
+        "priority": "Must have",
+        "req_id": "REQ-HW-007",
+        "title": "Power Consumption",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Operate reliably from -55\u00b0C to +125\u00b0C military temperature range",
+        "priority": "Must have",
+        "req_id": "REQ-HW-008",
+        "title": "Operating Temperature",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Meet MIL-STD-810 heavy vibration and shock requirements",
+        "priority": "Must have",
+        "req_id": "REQ-HW-009",
+        "title": "Environmental Vibration/Shock",
+        "verification_method": "demonstration"
+      },
+      {
+        "category": "environmental",
+        "description": "Achieve IP67 rating for rugged operation",
+        "priority": "Must have",
+        "req_id": "REQ-HW-010",
+        "title": "Ingress Protection",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Support 2 independent receiver antennas",
+        "priority": "Must have",
+        "req_id": "REQ-HW-011",
+        "title": "Multi-Antenna Operation",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Provide 4 parallel analog RF channels per antenna",
+        "priority": "Must have",
+        "req_id": "REQ-HW-012",
+        "title": "Channelised Filter Bank",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Implement SAW filters for out-of-band and image rejection",
+        "priority": "Must have",
+        "req_id": "REQ-HW-013",
+        "title": "Preselect Filter Technology",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Single-ended 50\u03a9 interface via SMA connectors",
+        "priority": "Must have",
+        "req_id": "REQ-HW-014",
+        "title": "Antenna Interface",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Use GaAs pHEMT semiconductor technology for LNAs",
+        "priority": "Must have",
+        "req_id": "REQ-HW-015",
+        "title": "LNA Technology",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "dependencies": [
+          "REQ-HW-015"
+        ],
+        "description": "Implement gate-before-drain bias sequencing for GaAs pHEMT devices",
+        "priority": "Must have",
+        "req_id": "REQ-HW-016",
+        "title": "Bias Sequencing",
+        "verification_method": "analysis"
+      },
+      {
+        "category": "performance",
+        "dependencies": [
+          "REQ-HW-002"
+        ],
+        "description": "Achieve derived MDS of -94.0 dBm based on system noise figure",
+        "priority": "Should have",
+        "req_id": "REQ-HW-017",
+        "title": "MDS Performance",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Meet MIL-STD-461 EMI/EMC requirements for co-site operation",
+        "priority": "Should have",
+        "req_id": "REQ-HW-018",
+        "title": "MIL-STD-461 Compliance",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Meet MIL-STD-810 environmental requirements",
+        "priority": "Should have",
+        "req_id": "REQ-HW-019",
+        "title": "MIL-STD-810 Compliance",
+        "verification_method": "demonstration"
+      },
+      {
+        "category": "constraint",
+        "description": "Handle high interference environment with co-site radar and comms signals",
+        "priority": "Must have",
+        "req_id": "REQ-HW-020",
+        "title": "Interference Environment",
+        "verification_method": "test"
+      }
+    ],
+    "antenna_count": "2",
+    "bandwidth_mhz": "100",
+    "bias_scheme": "Active",
+    "channel_count": "4",
+    "connector_type": "SMA",
+    "frequency_range_ghz": "2-6",
+    "iip3_dbm": "30",
+    "interference_environment": "High",
+    "lifecycle_status": "active",
+    "mds_dbm": "-94",
+    "noise_figure_db": "3",
+    "operating_temperature_c": "-55_to_125",
+    "output_power_dbm": "0",
+    "power_budget_w": "30",
+    "preselector_tech": "SAW",
+    "semiconductor_technology": "GaAs_pHEMT",
+    "supply_voltage_v": "12",
+    "system_gain_db": "30"
+  },
+  "requirements_hash": "14f7d54956215c1d686267505190cfbf267cb8c42db27611da310a860944d187",
+  "round1_confirmed": true,
+  "round2_confirmed": true,
+  "round3_confirmed": true,
+  "round4_confirmed": true,
+  "schema_version": "1.0"
+}

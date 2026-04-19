@@ -1,0 +1,633 @@
+{
+  "project": "hh",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "RF Limiter",
+      "type": "MADL-011017",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "MADL-011017",
+        "component_name": "RF Limiter",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "SAW Filter",
+      "type": "SAW-2400-6000",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "SAW-2400-6000",
+        "component_name": "SAW Filter",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "Bias Tee",
+      "type": "BTL-1-6-G-S+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "BTL-1-6-G-S+",
+        "component_name": "Bias Tee",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "GaAs pHEMT LNA",
+      "type": "HMC8411",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "HMC8411",
+        "component_name": "GaAs pHEMT LNA",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "1:4 Power Splitter",
+      "type": "PSA4-5043+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "PSA4-5043+",
+        "component_name": "1:4 Power Splitter",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "Channel Filter BPF",
+      "type": "BLF-254+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "BLF-254+",
+        "component_name": "Channel Filter BPF",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "LNA Bias Voltage Regulator",
+      "type": "TPS7A47",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "TPS7A47",
+        "component_name": "LNA Bias Voltage Regulator",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "Limiter Power Supply",
+      "type": "LM5175",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "part_number": "LM5175",
+        "component_name": "Limiter Power Supply",
+        "reference_designator": "U8"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "RF Limiter",
+      "type": "MADL-011017",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "part_number": "MADL-011017",
+        "component_name": "RF Limiter",
+        "reference_designator": "U9"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "SAW Filter",
+      "type": "SAW-2400-6000",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "part_number": "SAW-2400-6000",
+        "component_name": "SAW Filter",
+        "reference_designator": "U10"
+      }
+    },
+    {
+      "id": "U11",
+      "name": "Bias Tee",
+      "type": "BTL-1-6-G-S+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U11",
+        "part_number": "BTL-1-6-G-S+",
+        "component_name": "Bias Tee",
+        "reference_designator": "U11"
+      }
+    },
+    {
+      "id": "U12",
+      "name": "GaAs pHEMT LNA",
+      "type": "HMC8411",
+      "pins": [],
+      "properties": {
+        "instance_id": "U12",
+        "part_number": "HMC8411",
+        "component_name": "GaAs pHEMT LNA",
+        "reference_designator": "U12"
+      }
+    },
+    {
+      "id": "U13",
+      "name": "1:4 Power Splitter",
+      "type": "PSA4-5043+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U13",
+        "part_number": "PSA4-5043+",
+        "component_name": "1:4 Power Splitter",
+        "reference_designator": "U13"
+      }
+    },
+    {
+      "id": "U14",
+      "name": "Channel Filter BPF",
+      "type": "BLF-254+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U14",
+        "part_number": "BLF-254+",
+        "component_name": "Channel Filter BPF",
+        "reference_designator": "U14"
+      }
+    },
+    {
+      "id": "J1",
+      "name": "RF Input Connector",
+      "type": "SMA",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "SMA",
+        "component_name": "RF Input Connector",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "RF Output Connector",
+      "type": "SMA",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "part_number": "SMA",
+        "component_name": "RF Output Connector",
+        "reference_designator": "J2"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "RF Input Connector",
+      "type": "SMA",
+      "pins": [],
+      "properties": {
+        "instance_id": "J3",
+        "part_number": "SMA",
+        "component_name": "RF Input Connector",
+        "reference_designator": "J3"
+      }
+    },
+    {
+      "id": "J4",
+      "name": "RF Output Connector",
+      "type": "SMA",
+      "pins": [],
+      "properties": {
+        "instance_id": "J4",
+        "part_number": "SMA",
+        "component_name": "RF Output Connector",
+        "reference_designator": "J4"
+      }
+    },
+    {
+      "id": "C1",
+      "name": "Decoupling Capacitor",
+      "type": "100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C1",
+        "part_number": "100nF",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C1"
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Decoupling Capacitor",
+      "type": "100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C2",
+        "part_number": "100nF",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C2"
+      }
+    },
+    {
+      "id": "C3",
+      "name": "Decoupling Capacitor",
+      "type": "100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C3",
+        "part_number": "100nF",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C3"
+      }
+    },
+    {
+      "id": "C4",
+      "name": "Decoupling Capacitor",
+      "type": "100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C4",
+        "part_number": "100nF",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C4"
+      }
+    },
+    {
+      "id": "C5",
+      "name": "Decoupling Capacitor",
+      "type": "100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C5",
+        "part_number": "100nF",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C5"
+      }
+    },
+    {
+      "id": "C6",
+      "name": "Decoupling Capacitor",
+      "type": "100nF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C6",
+        "part_number": "100nF",
+        "component_name": "Decoupling Capacitor",
+        "reference_designator": "C6"
+      }
+    },
+    {
+      "id": "C7",
+      "name": "Bulk Capacitor",
+      "type": "10uF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C7",
+        "part_number": "10uF",
+        "component_name": "Bulk Capacitor",
+        "reference_designator": "C7"
+      }
+    },
+    {
+      "id": "C8",
+      "name": "Bulk Capacitor",
+      "type": "10uF",
+      "pins": [],
+      "properties": {
+        "instance_id": "C8",
+        "part_number": "10uF",
+        "component_name": "Bulk Capacitor",
+        "reference_designator": "C8"
+      }
+    },
+    {
+      "id": "R1",
+      "name": "Termination Resistor",
+      "type": "50",
+      "pins": [],
+      "properties": {
+        "instance_id": "R1",
+        "part_number": "50",
+        "component_name": "Termination Resistor",
+        "reference_designator": "R1"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Termination Resistor",
+      "type": "50",
+      "pins": [],
+      "properties": {
+        "instance_id": "R2",
+        "part_number": "50",
+        "component_name": "Termination Resistor",
+        "reference_designator": "R2"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Termination Resistor",
+      "type": "50",
+      "pins": [],
+      "properties": {
+        "instance_id": "R3",
+        "part_number": "50",
+        "component_name": "Termination Resistor",
+        "reference_designator": "R3"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Termination Resistor",
+      "type": "50",
+      "pins": [],
+      "properties": {
+        "instance_id": "R4",
+        "part_number": "50",
+        "component_name": "Termination Resistor",
+        "reference_designator": "R4"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "P1",
+      "target": "U1",
+      "target_pin": "RF_IN",
+      "signal": "RF_IN_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "J3",
+      "source_pin": "P1",
+      "target": "U9",
+      "target_pin": "RF_IN",
+      "signal": "RF_IN_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U1",
+      "source_pin": "RF_OUT",
+      "target": "U2",
+      "target_pin": "RF_IN",
+      "signal": "LIMITED_RF_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U9",
+      "source_pin": "RF_OUT",
+      "target": "U10",
+      "target_pin": "RF_IN",
+      "signal": "LIMITED_RF_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U2",
+      "source_pin": "RF_OUT",
+      "target": "U3",
+      "target_pin": "RF_IN",
+      "signal": "SAW_OUT_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U10",
+      "source_pin": "RF_OUT",
+      "target": "U11",
+      "target_pin": "RF_IN",
+      "signal": "SAW_OUT_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U3",
+      "source_pin": "RF_OUT",
+      "target": "U4",
+      "target_pin": "RF_IN",
+      "signal": "BIAS_RF_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U11",
+      "source_pin": "RF_OUT",
+      "target": "U12",
+      "target_pin": "RF_IN",
+      "signal": "BIAS_RF_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U4",
+      "source_pin": "RF_OUT",
+      "target": "U5",
+      "target_pin": "RF_IN",
+      "signal": "LNA_OUT_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U12",
+      "source_pin": "RF_OUT",
+      "target": "U13",
+      "target_pin": "RF_IN",
+      "signal": "LNA_OUT_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U5",
+      "source_pin": "RF_OUT_1",
+      "target": "U6",
+      "target_pin": "RF_IN",
+      "signal": "CH1_RF_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U5",
+      "source_pin": "RF_OUT_2",
+      "target": "C1",
+      "target_pin": "P1",
+      "signal": "CH2_RF_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U5",
+      "source_pin": "RF_OUT_3",
+      "target": "R1",
+      "target_pin": "P1",
+      "signal": "CH3_RF_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U5",
+      "source_pin": "RF_OUT_4",
+      "target": "R2",
+      "target_pin": "P1",
+      "signal": "CH4_RF_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U13",
+      "source_pin": "RF_OUT_1",
+      "target": "U14",
+      "target_pin": "RF_IN",
+      "signal": "CH1_RF_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U13",
+      "source_pin": "RF_OUT_2",
+      "target": "C2",
+      "target_pin": "P1",
+      "signal": "CH2_RF_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U13",
+      "source_pin": "RF_OUT_3",
+      "target": "R3",
+      "target_pin": "P1",
+      "signal": "CH3_RF_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U13",
+      "source_pin": "RF_OUT_4",
+      "target": "R4",
+      "target_pin": "P1",
+      "signal": "CH4_RF_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U6",
+      "source_pin": "RF_OUT",
+      "target": "J2",
+      "target_pin": "P1",
+      "signal": "FILTERED_CH1_ANT1",
+      "type": "RF"
+    },
+    {
+      "source": "U14",
+      "source_pin": "RF_OUT",
+      "target": "J4",
+      "target_pin": "P1",
+      "signal": "FILTERED_CH1_ANT2",
+      "type": "RF"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U3",
+      "target_pin": "BIAS",
+      "signal": "DC_BIAS",
+      "type": "DC"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U4",
+      "target_pin": "BIAS",
+      "signal": "DC_BIAS",
+      "type": "DC"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U11",
+      "target_pin": "BIAS",
+      "signal": "DC_BIAS",
+      "type": "DC"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "U12",
+      "target_pin": "BIAS",
+      "signal": "DC_BIAS",
+      "type": "DC"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "LIMITER_POWER",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VOUT",
+      "target": "U9",
+      "target_pin": "VCC",
+      "signal": "LIMITER_POWER",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VIN",
+      "target": "U7",
+      "target_pin": "VIN",
+      "signal": "12V_SUPPLY",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "C3",
+      "target_pin": "P1",
+      "signal": "3V3_AUX",
+      "type": "POWER"
+    },
+    {
+      "source": "U7",
+      "source_pin": "VOUT",
+      "target": "C4",
+      "target_pin": "P1",
+      "signal": "3V3_AUX",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VIN",
+      "target": "C5",
+      "target_pin": "P1",
+      "signal": "12V_SUPPLY",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VIN",
+      "target": "C6",
+      "target_pin": "P1",
+      "signal": "12V_SUPPLY",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VIN",
+      "target": "C7",
+      "target_pin": "P1",
+      "signal": "12V_SUPPLY",
+      "type": "POWER"
+    },
+    {
+      "source": "U8",
+      "source_pin": "VIN",
+      "target": "C8",
+      "target_pin": "P1",
+      "signal": "12V_SUPPLY",
+      "type": "POWER"
+    }
+  ],
+  "metadata": {}
+}
