@@ -1,0 +1,543 @@
+{
+  "project": "hm",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "RF limiter / input protection \u2014 protects LNA from +20 dBm overload and ESD. 120 dBm dynamic range, low insertion loss.",
+      "type": "SKY16406-321LF",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "SKY16406-321LF",
+        "component_name": "RF limiter / input protection \u2014 protects LNA from +20 dBm overload and ESD. 120 dBm dynamic range, low insertion loss.",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "LNA \u2014 first active stage in the signal chain. Sets system noise figure to < 2 dB.",
+      "type": "PMA3-83LN+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "PMA3-83LN+",
+        "component_name": "LNA \u2014 first active stage in the signal chain. Sets system noise figure to < 2 dB.",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "RF SPDT switches for sub-band filter bank \u2014 routes signal through the appropriate bandpass filter for the selected 300\u20131000 MHz sub-band.",
+      "type": "HMC253LC4",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "HMC253LC4",
+        "component_name": "RF SPDT switches for sub-band filter bank \u2014 routes signal through the appropriate bandpass filter for the selected 300\u20131000 MHz sub-band.",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "1st mixer \u2014 converts selected UHF sub-band (300\u20131000 MHz) down to 70 MHz IF using high-side LO injection.",
+      "type": "ADE-25MH+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "ADE-25MH+",
+        "component_name": "1st mixer \u2014 converts selected UHF sub-band (300\u20131000 MHz) down to 70 MHz IF using high-side LO injection.",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "Y1",
+      "name": "IF bandpass filter \u2014 70 MHz center frequency, 10 MHz bandwidth crystal or LC filter for channel selection and image rejection.",
+      "type": "BFCG-70A+",
+      "pins": [],
+      "properties": {
+        "instance_id": "Y1",
+        "part_number": "BFCG-70A+",
+        "component_name": "IF bandpass filter \u2014 70 MHz center frequency, 10 MHz bandwidth crystal or LC filter for channel selection and image rejection.",
+        "reference_designator": "Y1"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "IF VGA with AGC \u2014 maintains constant IF output level despite varying input signal levels. Provides ~40 dB gain control range.",
+      "type": "ADL5330",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "ADL5330",
+        "component_name": "IF VGA with AGC \u2014 maintains constant IF output level despite varying input signal levels. Provides ~40 dB gain control range.",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "IQ demodulator \u2014 splits the 70 MHz IF into quadrature baseband I and Q channels for coherent pulse-Doppler processing.",
+      "type": "LTC5596",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "LTC5596",
+        "component_name": "IQ demodulator \u2014 splits the 70 MHz IF into quadrature baseband I and Q channels for coherent pulse-Doppler processing.",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "PLL synthesizer \u2014 generates tunable LO (230\u2013930 MHz) for 1st mixer, plus quadrature LO for IQ demod. Phase noise -100 dBc/Hz at 10 kHz offset.",
+      "type": "ADF4153A",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "ADF4153A",
+        "component_name": "PLL synthesizer \u2014 generates tunable LO (230\u2013930 MHz) for 1st mixer, plus quadrature LO for IQ demod. Phase noise -100 dBc/Hz at 10 kHz offset.",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "Y2",
+      "name": "VCO \u2014 voltage-controlled oscillator for the PLL loop. Covers 370\u20131070 MHz for high-side LO injection to 300\u20131000 MHz RF.",
+      "type": "ROS-1080+",
+      "pins": [],
+      "properties": {
+        "instance_id": "Y2",
+        "part_number": "ROS-1080+",
+        "component_name": "VCO \u2014 voltage-controlled oscillator for the PLL loop. Covers 370\u20131070 MHz for high-side LO injection to 300\u20131000 MHz RF.",
+        "reference_designator": "Y2"
+      }
+    },
+    {
+      "id": "U8",
+      "name": "LO buffer amplifier \u2014 provides +7 dBm drive to the mixer LO port and isolation between LO chain and mixer.",
+      "type": "GVA-84+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U8",
+        "part_number": "GVA-84+",
+        "component_name": "LO buffer amplifier \u2014 provides +7 dBm drive to the mixer LO port and isolation between LO chain and mixer.",
+        "reference_designator": "U8"
+      }
+    },
+    {
+      "id": "U9",
+      "name": "Baseband low-pass filter \u2014 5 MHz cutoff for I and Q channels. Active filter with Butterworth/Bessel response for strict group delay variation < 1 ns.",
+      "type": "LTC1569-7",
+      "pins": [],
+      "properties": {
+        "instance_id": "U9",
+        "part_number": "LTC1569-7",
+        "component_name": "Baseband low-pass filter \u2014 5 MHz cutoff for I and Q channels. Active filter with Butterworth/Bessel response for strict group delay variation < 1 ns.",
+        "reference_designator": "U9"
+      }
+    },
+    {
+      "id": "U10",
+      "name": "DC-DC converter \u2014 steps down +28V to +5V for powering RF chain, synthesizer, and baseband.",
+      "type": "LTM8074",
+      "pins": [],
+      "properties": {
+        "instance_id": "U10",
+        "part_number": "LTM8074",
+        "component_name": "DC-DC converter \u2014 steps down +28V to +5V for powering RF chain, synthesizer, and baseband.",
+        "reference_designator": "U10"
+      }
+    },
+    {
+      "id": "U11",
+      "name": "Low-noise LDO \u2014 generates clean +3.3V rail from +5V for PLL synthesizer, VCO tuning, and control logic.",
+      "type": "LT3045",
+      "pins": [],
+      "properties": {
+        "instance_id": "U11",
+        "part_number": "LT3045",
+        "component_name": "Low-noise LDO \u2014 generates clean +3.3V rail from +5V for PLL synthesizer, VCO tuning, and control logic.",
+        "reference_designator": "U11"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "Y1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "Y2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U10",
+      "source_pin": "OUT",
+      "target": "U9",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "Y1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "Y2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U11",
+      "source_pin": "OUT",
+      "target": "U9",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "U1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "U2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "U3",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "U4",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "Y1",
+      "source_pin": "GND",
+      "target": "Y1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "U5",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "GND",
+      "target": "U6",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "U7",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "Y2",
+      "source_pin": "GND",
+      "target": "Y2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U8",
+      "source_pin": "GND",
+      "target": "U8",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U9",
+      "source_pin": "GND",
+      "target": "U9",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U10",
+      "source_pin": "GND",
+      "target": "U10",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U11",
+      "source_pin": "GND",
+      "target": "U11",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U1",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "IN",
+      "signal": "RF_U1_U2",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U3",
+      "target_pin": "IN",
+      "signal": "RF_U2_U3",
+      "type": "rf"
+    },
+    {
+      "source": "U3",
+      "source_pin": "OUT",
+      "target": "Y1",
+      "target_pin": "IN",
+      "signal": "RF_U3_Y1",
+      "type": "rf"
+    },
+    {
+      "source": "Y1",
+      "source_pin": "OUT",
+      "target": "U5",
+      "target_pin": "IN",
+      "signal": "RF_Y1_U5",
+      "type": "rf"
+    },
+    {
+      "source": "U5",
+      "source_pin": "OUT",
+      "target": "U9",
+      "target_pin": "IN",
+      "signal": "RF_U5_U9",
+      "type": "rf"
+    },
+    {
+      "source": "U9",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "IN",
+      "signal": "RF_U9_U4",
+      "type": "rf"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT",
+      "target": "U7",
+      "target_pin": "IN",
+      "signal": "IF_U4_U7",
+      "type": "if"
+    },
+    {
+      "source": "U7",
+      "source_pin": "OUT",
+      "target": "U8",
+      "target_pin": "IN",
+      "signal": "IF_U7_U8",
+      "type": "if"
+    },
+    {
+      "source": "U8",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "IN",
+      "signal": "digital_U8_U6",
+      "type": "digital"
+    },
+    {
+      "source": "Y2",
+      "source_pin": "RF_OUT",
+      "target": "U4",
+      "target_pin": "LO",
+      "signal": "LO_Y2_U4",
+      "type": "clock"
+    },
+    {
+      "source": "Y2",
+      "source_pin": "RF_OUT",
+      "target": "U7",
+      "target_pin": "LO",
+      "signal": "LO_Y2_U7",
+      "type": "clock"
+    },
+    {
+      "source": "Y2",
+      "source_pin": "RF_OUT",
+      "target": "U8",
+      "target_pin": "LO",
+      "signal": "LO_Y2_U8",
+      "type": "clock"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true
+  }
+}

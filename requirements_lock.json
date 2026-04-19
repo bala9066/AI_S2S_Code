@@ -1,0 +1,274 @@
+{
+  "architecture": null,
+  "domain": "radar",
+  "frozen_at": "2026-04-18T22:38:59.644903+00:00",
+  "llm_model": "glm-5.1",
+  "llm_model_version": null,
+  "project_id": "67",
+  "requirements": {
+    "_requirement_entries": [
+      {
+        "category": "functional",
+        "description": "Superheterodyne receiver (single or double IF) covering 300\u20131000 MHz with sub-band tuning via switched filter bank.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-001",
+        "title": "Receiver Architecture",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "The receiver shall operate across 300\u20131000 MHz (UHF band).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-002",
+        "title": "Frequency Range",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Instantaneous bandwidth shall be 1\u201310 MHz.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-003",
+        "title": "Instantaneous Bandwidth",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Minimum discernible signal shall be -100 dBm or better.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-004",
+        "title": "Sensitivity (MDS)",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "The receiver shall survive +20 dBm CW at the antenna port without damage.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-005",
+        "title": "Maximum Input Power",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "System noise figure shall be less than 2 dB.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-006",
+        "title": "System Noise Figure",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Total system gain shall be 30 dB nominal.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-007",
+        "title": "System Gain",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Input third-order intercept point shall be -10 dBm or better.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-008",
+        "title": "Input IP3",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Input 1 dB compression point shall be -20 dBm or better.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-009",
+        "title": "Input P1dB",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Image rejection shall exceed 50 dB across the tuning range.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-010",
+        "title": "Image Rejection",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Local oscillator phase noise shall be -100 dBc/Hz at 10 kHz offset.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-011",
+        "title": "LO Phase Noise",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Sub-band tuning via switched filter bank across the 300\u20131000 MHz range.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-012",
+        "title": "Tuning Method",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Receiver shall process pulsed radar signals with 1 \u00b5s nominal pulse width.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-013",
+        "title": "Signal Type Support",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Fully coherent operation required for pulse-Doppler and MTI processing.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-014",
+        "title": "Phase Coherence",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Group delay variation shall be less than 1 ns across the instantaneous bandwidth.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-015",
+        "title": "Group Delay Variation",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Receiver shall support coherent pulse-Doppler and MTI processing.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-016",
+        "title": "Coherent Processing Support",
+        "verification_method": "demonstration"
+      },
+      {
+        "category": "functional",
+        "description": "Receiver shall operate in the presence of strong adjacent and out-of-band blockers.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-017",
+        "title": "Blocker Handling",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Analog baseband output (I/Q differential pair).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-018",
+        "title": "Output Type",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "50 \u03a9 output impedance with SMA connectors.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-019",
+        "title": "Output Impedance and Connector",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "interface",
+        "description": "Baseband output bandwidth shall support the 1\u201310 MHz instantaneous bandwidth requirement.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-020",
+        "title": "Baseband Bandwidth",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Baseband output level 1 Vpp nominal (engineering default).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-021",
+        "title": "Output Signal Level",
+        "verification_method": "test"
+      },
+      {
+        "category": "interface",
+        "description": "Primary supply voltage shall be +28V (MIL standard bus).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-022",
+        "title": "Power Supply",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Total power consumption shall be 5\u201315 W.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-023",
+        "title": "Power Consumption",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Internal PLL frequency reference with standard stability (engineering default).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-024",
+        "title": "Frequency Reference",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Operating temperature range -40\u00b0C to +85\u00b0C (engineering default for military/defense application).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-025",
+        "title": "Operating Temperature",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Conduction-cooled for military deployment (engineering default given +28V rail).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-026",
+        "title": "Cooling Method",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "environmental",
+        "description": "SWaP-optimized module (engineering default for +28V defense application).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-027",
+        "title": "Form Factor",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "constraint",
+        "description": "Design shall comply with MIL-STD-461 EMI and MIL-STD-810 environmental standards (engineering default for defense radar application).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-028",
+        "title": "Compliance",
+        "verification_method": "analysis"
+      }
+    ],
+    "application": "Radar / pulse-Doppler / MTI",
+    "architecture": "Superheterodyne (single/double IF)",
+    "baseband_bandwidth": "1\u201310 MHz",
+    "blockers": "Yes (strong adjacent and out-of-band)",
+    "coherent_processing": "Yes (pulse-Doppler / MTI)",
+    "compliance": "MIL-STD-461 / MIL-STD-810 (default)",
+    "cooling_method": "Conduction (default)",
+    "form_factor": "SWaP module (default)",
+    "frequency_range": "300\u20131000 MHz (UHF)",
+    "frequency_reference": "Internal PLL (standard)",
+    "group_delay_variation": "< 1 ns across IBW",
+    "if_center_freq": "70 MHz",
+    "image_rejection": "> 50 dB",
+    "input_iip3": "-10 dBm",
+    "input_p1db": "-20 dBm",
+    "instantaneous_bandwidth": "1\u201310 MHz",
+    "lo_phase_noise": "-100 dBc/Hz @ 10 kHz offset",
+    "lo_range": "230\u2013930 MHz or 370\u20131070 MHz",
+    "max_input_power": "+20 dBm",
+    "noise_figure": "< 2 dB",
+    "operating_temperature": "-40\u00b0C to +85\u00b0C",
+    "output_connector": "SMA",
+    "output_impedance": "50 \u03a9",
+    "output_level": "1 Vpp (default)",
+    "output_type": "Analog baseband (I/Q differential)",
+    "phase_coherence": "Fully coherent",
+    "power_consumption": "5\u201315 W",
+    "sensitivity_mds": "-100 dBm",
+    "signal_type": "Pulsed (1 \u00b5s pulse width)",
+    "supply_voltage": "+28V",
+    "system_gain": "30 dB",
+    "tuning_method": "Sub-band tuning (switched filter bank)"
+  },
+  "requirements_hash": "4508ca069b384d36ee6fc9f16532197d0f4a9ccdb2f623e7b1e4cdd618e5574d",
+  "round1_confirmed": true,
+  "round2_confirmed": true,
+  "round3_confirmed": true,
+  "round4_confirmed": true,
+  "schema_version": "1.0"
+}
