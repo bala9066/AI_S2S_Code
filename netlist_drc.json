@@ -1,0 +1,197 @@
+{
+  "checks_run": [
+    "shorts",
+    "power_collision",
+    "floating_net",
+    "dangling_power_rail",
+    "power_rail_no_driver",
+    "power_naming",
+    "missing_decap",
+    "cdc_boundary_undeclared",
+    "unknown_ref"
+  ],
+  "violations": [
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U13.VOUT",
+      "detail": "Pin U13.VOUT is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U15.VDD_5V",
+      "detail": "Pin U15.VDD_5V is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U14.VOUT",
+      "detail": "Pin U14.VOUT is connected to multiple power nets: 3V3_LDO, VDD_LDO"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U1.VDD",
+      "detail": "Pin U1.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U2.VDD",
+      "detail": "Pin U2.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U3.VDD",
+      "detail": "Pin U3.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U4.VDD",
+      "detail": "Pin U4.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U5.VDD",
+      "detail": "Pin U5.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U6.VDD",
+      "detail": "Pin U6.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U7.VDD",
+      "detail": "Pin U7.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U8.VDD",
+      "detail": "Pin U8.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U9.VDD",
+      "detail": "Pin U9.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U10.VDD",
+      "detail": "Pin U10.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U11.VDD",
+      "detail": "Pin U11.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/U12.VDD",
+      "detail": "Pin U12.VDD is connected to multiple power nets: 5V_BUCK, VDD_BUCK"
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/DC_IN",
+      "detail": "Power/ground rail 'DC_IN' has 4 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/12V_RAW",
+      "detail": "Power/ground rail '12V_RAW' has 2 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/5V_BUCK",
+      "detail": "Power/ground rail '5V_BUCK' has 17 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/3V3_LDO",
+      "detail": "Power/ground rail '3V3_LDO' has 4 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VDD_BUCK",
+      "detail": "Power/ground rail 'VDD_BUCK' has 29 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/GND",
+      "detail": "Power/ground rail 'GND' has 42 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VDD_LDO",
+      "detail": "Power/ground rail 'VDD_LDO' has 3 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/SW_BUCK",
+      "detail": "Power/ground rail 'SW_BUCK' has 2 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/DC_IN",
+      "detail": "Power net 'DC_IN' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/SW_BUCK",
+      "detail": "Power net 'SW_BUCK' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/12V_RAW",
+      "detail": "Power net '12V_RAW' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/5V_BUCK",
+      "detail": "Power net '5V_BUCK' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/3V3_LDO",
+      "detail": "Power net '3V3_LDO' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/SW_BUCK",
+      "detail": "Power net 'SW_BUCK' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    }
+  ],
+  "counts": {
+    "critical": 15,
+    "high": 0,
+    "medium": 12,
+    "low": 2,
+    "info": 0
+  },
+  "overall_pass": false
+}

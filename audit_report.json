@@ -1,0 +1,52 @@
+{
+  "phase_id": "P1",
+  "issues": [
+    {
+      "severity": "critical",
+      "category": "hallucinated_part",
+      "location": "component_recommendations/Mini-Circuits BFHK-5001+",
+      "detail": "Part `Mini-Circuits BFHK-5001+` was not found on DigiKey, Mouser, or in the local component seed \u2014 the LLM may have invented it.",
+      "suggested_fix": "Replace with a verifiable active-production part from data/sample_components.json or a real distributor MPN."
+    },
+    {
+      "severity": "critical",
+      "category": "hallucinated_part",
+      "location": "component_recommendations/Pi attenuator 3 dB",
+      "detail": "Part `Pi attenuator 3 dB` was not found on DigiKey, Mouser, or in the local component seed \u2014 the LLM may have invented it.",
+      "suggested_fix": "Replace with a verifiable active-production part from data/sample_components.json or a real distributor MPN."
+    },
+    {
+      "severity": "medium",
+      "category": "datasheet_url",
+      "location": "component_recommendations/Mini-Circuits BFHK-5001+",
+      "detail": "Component `Mini-Circuits BFHK-5001+` has no `datasheet_url` field.",
+      "suggested_fix": "Populate `datasheet_url` with the manufacturer's product page."
+    },
+    {
+      "severity": "medium",
+      "category": "datasheet_url",
+      "location": "component_recommendations/Pi attenuator 3 dB",
+      "detail": "Component `Pi attenuator 3 dB` has no `datasheet_url` field.",
+      "suggested_fix": "Populate `datasheet_url` with the manufacturer's product page."
+    },
+    {
+      "severity": "high",
+      "category": "not_from_candidate_pool",
+      "location": "component_recommendations/Mini-Circuits BFHK-5001+",
+      "detail": "Part `Mini-Circuits BFHK-5001+` was not in the `find_candidate_parts` shortlist for this turn \u2014 the LLM either skipped the retrieval step or picked an MPN outside the returned candidates.",
+      "suggested_fix": "Re-run P1 and ensure the LLM calls find_candidate_parts for every signal-chain stage, then selects only from the returned `candidates[].part_number` list."
+    },
+    {
+      "severity": "high",
+      "category": "not_from_candidate_pool",
+      "location": "component_recommendations/Pi attenuator 3 dB",
+      "detail": "Part `Pi attenuator 3 dB` was not in the `find_candidate_parts` shortlist for this turn \u2014 the LLM either skipped the retrieval step or picked an MPN outside the returned candidates.",
+      "suggested_fix": "Re-run P1 and ensure the LLM calls find_candidate_parts for every signal-chain stage, then selects only from the returned `candidates[].part_number` list."
+    }
+  ],
+  "hallucination_count": 0,
+  "unresolved_citations": 0,
+  "cascade_errors": 0,
+  "overall_pass": false,
+  "confidence_score": 0.3
+}

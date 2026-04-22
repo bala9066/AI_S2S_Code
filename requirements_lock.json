@@ -1,0 +1,415 @@
+{
+  "architecture": null,
+  "domain": "radar",
+  "frozen_at": "2026-04-22T05:43:30.545538+00:00",
+  "llm_model": "glm-4.7",
+  "llm_model_version": null,
+  "project_id": "5",
+  "requirements": {
+    "_requirement_entries": [
+      {
+        "category": "functional",
+        "constraints": [
+          "S-band and C-band coverage",
+          "Single-ended 50\u03a9 input impedance"
+        ],
+        "description": "RF front-end shall operate from 2.0 to 6.0 GHz with full coverage across S-band (2-4 GHz) and C-band (4-6 GHz).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-001",
+        "title": "Frequency Range",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Front-end shall support 10 to 100 MHz instantaneous bandwidth per channel.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-002",
+        "title": "Instantaneous Bandwidth",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "dependencies": [
+          "REQ-HW-010",
+          "REQ-HW-011"
+        ],
+        "description": "Overall system noise figure shall be 4 to 6 dB (includes limiter, preselector, LNA chain losses).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-003",
+        "title": "System Noise Figure",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "dependencies": [
+          "REQ-HW-010"
+        ],
+        "description": "LNA chain shall provide 40 to 60 dB of gain per channel across 2-6 GHz.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-004",
+        "title": "LNA Chain Gain",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "System input-referred third-order intercept point (IIP3) shall be +20 dBm minimum.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-005",
+        "title": "Input Linearity (IIP3)",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Input return loss shall be 14 dB minimum (VSWR \u2264 1.5:1) across 2-6 GHz.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-006",
+        "title": "Input Return Loss",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "dependencies": [
+          "REQ-HW-009"
+        ],
+        "description": "Front-end shall survive +30 dBm CW input power at antenna port without damage.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-007",
+        "title": "Maximum Survivable Input",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "constraints": [
+          "Requires fast T/R switching"
+        ],
+        "description": "Front-end shall tolerate +10 to +20 dBm TX leakage at LNA input during transmit mode with < 0.5 dB gain compression.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-008",
+        "title": "TX Leakage Handling",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "dependencies": [
+          "REQ-HW-007"
+        ],
+        "description": "Input limiter shall activate at \u2264 +15 dBm and provide protection up to +30 dBm with < 0.5 dB flat loss and < 10 ns recovery time.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-009",
+        "title": "Input Limiter Protection",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "dependencies": [
+          "REQ-HW-003"
+        ],
+        "description": "LC bandpass preselector shall provide \u2265 15 dB out-of-band rejection at \u00b1500 MHz from passband edges.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-010",
+        "title": "Preselector Filtering",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "dependencies": [
+          "REQ-HW-005"
+        ],
+        "description": "Low-noise amplifier stages shall use GaN HEMT technology for high linearity and power handling.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-011",
+        "title": "GaN LNA Technology",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "performance",
+        "description": "Gain flatness shall be \u00b12.5 dB across 2-6 GHz per channel.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-012",
+        "title": "Gain Flatness",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Reverse isolation shall be \u2265 40 dB to prevent LO leakage and transmitter back-reflection.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-013",
+        "title": "Reverse Isolation",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "constraints": [
+          "Phase matching: \u00b15\u00b0 across band",
+          "Amplitude matching: \u00b10.5 dB across band"
+        ],
+        "description": "System shall provide 4 independent parallel RF channels for monopulse \u03a3\u0394\u0394 beamforming with phase-matched paths.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-014",
+        "title": "4-Channel Parallel Architecture",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "functional",
+        "description": "RF input/output connectors shall be 2.92mm (K) type, 50\u03a9, female.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-015",
+        "title": "RF Interface Connector",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "performance",
+        "dependencies": [
+          "REQ-HW-008"
+        ],
+        "description": "T/R switching time shall be \u2264 10 \u00b5s from transmit-to-receive and receive-to-transmit transitions.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-016",
+        "title": "T/R Switching Speed",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "constraints": [
+          "Gate-before-drain sequencing required"
+        ],
+        "description": "LNA bias shall use active bias circuitry for temperature compensation and gate sequencing (negative gate before positive drain for GaN).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-017",
+        "title": "Active Bias Control",
+        "verification_method": "test"
+      },
+      {
+        "category": "functional",
+        "description": "Primary supply voltage shall be +12 V DC \u00b110%.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-018",
+        "title": "Supply Voltage",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Total power consumption shall be 15 to 30 W across all 4 channels including bias and control circuits.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-019",
+        "title": "Power Consumption",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Operating temperature range shall be 0 to +70\u00b0C (commercial).",
+        "priority": "Must have",
+        "req_id": "REQ-HW-020",
+        "title": "Operating Temperature",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Storage temperature range shall be \u221240 to +85\u00b0C.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-021",
+        "title": "Storage Temperature",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "environmental",
+        "constraints": [
+          "MIL-STD-810 Method 514.6 (Vibration)",
+          "MIL-STD-810 Method 516.6 (Shock)"
+        ],
+        "description": "Unit shall survive MIL-STD-810 light vibration and shock profiles.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-022",
+        "title": "Vibration and Shock",
+        "verification_method": "test"
+      },
+      {
+        "category": "environmental",
+        "description": "Enclosure shall provide IP54 rating (dust-protected, water-splash resistant) for outdoor deployment.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-023",
+        "title": "Ingress Protection",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "environmental",
+        "description": "Unit shall operate at 5% to 95% relative humidity (non-condensing).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-024",
+        "title": "Humidity",
+        "verification_method": "test"
+      },
+      {
+        "category": "constraint",
+        "dependencies": [
+          "REQ-HW-011"
+        ],
+        "description": "LNA shall use GaN HEMT technology as specified.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-025",
+        "title": "Semiconductor Technology",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "constraint",
+        "dependencies": [
+          "REQ-HW-010"
+        ],
+        "description": "Preselector filters shall use discrete LC technology for custom 2-6 GHz tuning.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-026",
+        "title": "Filter Technology",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "functional",
+        "constraints": [
+          "Compatible with 70 MHz or 140 MHz first-IF"
+        ],
+        "description": "RF outputs shall interface to superheterodyne downconverter with 50\u03a9 single-ended impedance.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-027",
+        "title": "Interface to Downconverter",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "performance",
+        "description": "LNA chain additive phase noise shall be \u2264 \u2212150 dBc/Hz at 10 kHz offset (no LO contribution).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-028",
+        "title": "Phase Noise Contribution",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "LNA chain shall be unconditionally stable with K-factor > 1.5 and B1 > 0 across 2-6 GHz.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-029",
+        "title": "Stability",
+        "verification_method": "test"
+      },
+      {
+        "category": "performance",
+        "description": "Group delay variation shall be \u2264 5 ns across 100 MHz instantaneous bandwidth for 1-10 \u00b5s radar pulses.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-030",
+        "title": "Group Delay Variation",
+        "verification_method": "test"
+      },
+      {
+        "category": "constraint",
+        "constraints": [
+          "FCC Part 15 Subpart B (unintentional radiator)",
+          "EN 55032 Class B emissions limit"
+        ],
+        "description": "Unit shall meet applicable EMC requirements for commercial radar equipment.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-031",
+        "title": "EMC Compliance",
+        "verification_method": "test"
+      },
+      {
+        "category": "constraint",
+        "description": "All components shall be RoHS 2011/65/EU compliant.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-032",
+        "title": "RoHS Compliance",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "functional",
+        "constraints": [
+          "MDS = \u2212174 + 10\u00b7log10(BW) + NF + SNR",
+          "Assumes 100 MHz IBW, 5 dB NF, 10 dB SNR"
+        ],
+        "description": "System MDS shall be \u221292 dBm (derived from 5 dB NF, 100 MHz BW, 10 dB SNR).",
+        "priority": "Should have",
+        "req_id": "REQ-HW-033",
+        "title": "Minimum Detectable Signal (MDS)",
+        "verification_method": "analysis"
+      },
+      {
+        "category": "performance",
+        "description": "Mean time between failures (MTBF) shall be \u2265 50,000 hours at 40\u00b0C ambient.",
+        "priority": "Could have",
+        "req_id": "REQ-HW-034",
+        "title": "MTBF",
+        "verification_method": "analysis"
+      },
+      {
+        "category": "functional",
+        "dependencies": [
+          "REQ-HW-014"
+        ],
+        "description": "Front-end shall provide calibration access for gain/phase trimming per channel.",
+        "priority": "Could have",
+        "req_id": "REQ-HW-035",
+        "title": "Calibration Interface",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "constraint",
+        "constraints": [
+          "Gate-before-drain sequence prevents device destruction"
+        ],
+        "description": "For GaN HEMT LNAs, negative gate voltage shall be applied before positive drain voltage; drain shall be enabled before RF signal path.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-036",
+        "title": "Bias Sequencing (GaN)",
+        "verification_method": "inspection"
+      },
+      {
+        "category": "performance",
+        "dependencies": [
+          "REQ-HW-019",
+          "REQ-HW-020"
+        ],
+        "description": "Junction temperature of all active devices shall remain \u2264 125\u00b0C at +70\u00b0C ambient with worst-case power dissipation.",
+        "priority": "Must have",
+        "req_id": "REQ-HW-037",
+        "title": "Thermal Management",
+        "verification_method": "analysis"
+      },
+      {
+        "category": "performance",
+        "description": "Each LNA chain shall deliver 0 to +10 dBm output power into 50\u03a9 load at 1 dB compression.",
+        "priority": "Should have",
+        "req_id": "REQ-HW-038",
+        "title": "Output Power Capability",
+        "verification_method": "test"
+      }
+    ],
+    "amplitude_matching_db": "0.5",
+    "antenna_count": "4",
+    "bandwidth_mhz": "100",
+    "channel_count": "1",
+    "frequency_range_ghz": "2-6",
+    "iip3_dbm": "20",
+    "input_return_loss_db": "14",
+    "interference_environment": "Low",
+    "ip_rating": "IP54",
+    "lna_semiconductor": "GaN HEMT",
+    "max_safe_input_dbm": "30",
+    "mds_dbm": "-92",
+    "noise_figure_db": "5",
+    "operating_temp_c": "0 to +70",
+    "output_impedance_ohm": "50",
+    "output_power_dbm": "10",
+    "phase_matching_deg": "5",
+    "power_budget_w": "22.5",
+    "preselector_tech": "LC discrete",
+    "pulse_width_range_us": "1-10",
+    "rf_connector_type": "2.92mm",
+    "supply_voltage_v": "12",
+    "system_gain_db": "50",
+    "tr_switching_time_us": "10",
+    "tx_leakage_dbm": "15",
+    "vibration_standard": "MIL-STD-810 light"
+  },
+  "requirements_hash": "7f2344809df89f9d1c77bfcd3ffdc52973fb1b4d9431048b4403cc526771a067",
+  "round1_confirmed": true,
+  "round2_confirmed": true,
+  "round3_confirmed": true,
+  "round4_confirmed": true,
+  "schema_version": "1.0"
+}

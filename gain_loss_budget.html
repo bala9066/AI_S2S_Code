@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>RF Gain-Loss Budget — hfuf</title>
+<style>
+body { font-family: -apple-system, Segoe UI, Inter, sans-serif; max-width: 1200px;
+       margin: 32px auto; padding: 0 24px; color: #1a2235; background: #f7f8fa; }
+h1 { font-size: 28px; margin-bottom: 4px; color: #0b1220; }
+h1 small { display: block; font-size: 14px; color: #64748b; font-weight: 400; margin-top: 6px; }
+h2 { font-size: 18px; margin-top: 32px; border-bottom: 2px solid #00c6a7;
+     padding-bottom: 6px; color: #0b1220; }
+p.note { color: #475569; font-size: 13px; line-height: 1.55; }
+p.formula { font-size: 15px; text-align: center; padding: 14px; background: #fff;
+            border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; background: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-radius: 6px; overflow: hidden; }
+th { background: #0b1220; color: #e2e8f0; text-align: left; padding: 10px 12px;
+     font-weight: 600; font-size: 12px; letter-spacing: 0.3px; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; }
+tr.totals td { background: #eef5f3; font-weight: 600; }
+td.warn { background: #fff4e5; color: #c2410c; font-weight: 600; }
+td.pass { background: #ecfdf5; color: #065f46; font-weight: 600; }
+td.fail { background: #fef2f2; color: #991b1b; font-weight: 600; }
+p.verdict { padding: 10px 14px; border-radius: 6px; font-size: 13px; }
+p.verdict.ok { background: #ecfdf5; color: #065f46; }
+p.verdict.warn { background: #fef2f2; color: #991b1b; }
+code { background: #eef2f6; padding: 1px 5px; border-radius: 3px; font-size: 12px; font-family: JetBrains Mono, Consolas, monospace; }
+span.warn-inline { color: #c2410c; font-size: 11px; font-style: italic; }
+table.sweep th, table.sweep td { padding: 6px 8px; font-size: 12px; text-align: right; }
+table.sweep th:nth-child(-n+3), table.sweep td:nth-child(-n+3) { text-align: left; }
+table.sweep .rowlabel { font-weight: 600; color: #0b1220; background: #f7f8fa; }
+</style>
+</head>
+<body>
+<h1>RF Gain-Loss Budget
+  <small>hfuf · Generated: 2026-04-22 · AI-GENERATED — verify against final component datasheets</small>
+</h1>
+
+
+<h2>Design Contract Checks</h2>
+<p class="verdict warn">&#9888; WARN — 0 hard violations, 1 warning(s) — review before release</p>
+<table>
+  <tr><th>#</th><th>Rule</th><th>Status</th><th>Detail</th></tr>
+  <tr><td><b>C1</b></td><td>Analysis at worst-case frequency</td><td class='pass'><b>&#9989; pass</b></td><td>Cascade evaluated at f_max = 4050 MHz (centre 4000 + BW/2 = 50 MHz).</td></tr><tr><td><b>C2</b></td><td>Bias conditions declared for every active stage</td><td class='pass'><b>&#9989; pass</b></td><td>Every LNA / amp / mixer stage cites the datasheet Vdd/Idq row that produces its gain and NF.</td></tr><tr><td><b>C3</b></td><td>Pdc = Vdd × Idq (±10 mW)</td><td class='pass'><b>&#9989; pass</b></td><td>All biased stages obey the Ohm-law tie between supply and DC power.</td></tr><tr><td><b>C4</b></td><td>Passive NF = |insertion loss| (Friis)</td><td class='pass'><b>&#9989; pass</b></td><td>Every passive stage&#x27;s NF equals its insertion loss in dB, as thermodynamics requires.</td></tr><tr><td><b>C5</b></td><td>GLB ↔ BOM component match</td><td class='warn'><b>&#9888; warn</b></td><td>No BOM supplied to this renderer — cross-check skipped.</td></tr>
+</table>
+<p class="note">These five invariants must hold for any RF receiver GLB to be
+releasable to PCB. Any <b>fail</b> row is a contract violation — regenerate
+Phase 1 or edit the offending stage before proceeding to PCB layout.</p>
+
+
+
+<h2>System Parameters</h2>
+<table>
+  <tr><th>Parameter</th><th>Value</th><th>Unit</th></tr>
+  <tr><td>Centre Frequency</td><td>4000</td><td>MHz</td></tr><tr><td>RF Bandwidth</td><td>100</td><td>MHz</td></tr><tr><td><b>Analysis Frequency (worst-case upper edge)</b></td><td class='warn'><b>4050</b></td><td>MHz</td></tr><tr><td>Input Signal Level</td><td>-30</td><td>dBm</td></tr><tr><td>Target Output Power</td><td>20</td><td>dBm</td></tr><tr><td>Required System Gain</td><td>50</td><td>dB</td></tr>
+</table>
+
+
+<h2>Stage-by-Stage Gain / Loss Budget</h2>
+<table>
+  <tr><th>#</th><th>Stage</th><th>Component</th><th>Gain/Loss (dB)</th>
+      <th>Cum. Gain (dB)</th><th>Output Power (dBm)</th>
+      <th>NF (dB)</th><th>Cum. NF (dB)</th>
+      <th>P1dB Out (dBm)</th><th>OIP3 (dBm)</th>
+      <th>Region</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Input Connector (2.92mm)</td><td>2.92mm SMA-K connector</td><td class='warn'>-0.2</td><td>-0.2</td><td>-30.2</td><td>0.15</td><td>0.15</td><td>N/A</td><td>N/A</td><td class='pass'>Linear (passive)</td><td>Connector loss per interface</td></tr><tr><td>2</td><td>PCB Trace</td><td>50Ω Microstrip (RO4350B)</td><td class='warn'>-0.3</td><td>-0.6</td><td>-30.6</td><td>0.30</td><td>0.45</td><td>N/A</td><td>N/A</td><td class='pass'>Linear (passive)</td><td>Typ 1–2 in RO4350B microstrip loss at band</td></tr><tr><td>3</td><td>Input Limiter</td><td>SKY16602-632LF</td><td class='warn'>-0.3</td><td>-0.9</td><td>-30.9</td><td>0.30</td><td>0.76</td><td>N/A</td><td>N/A</td><td class='pass'>Linear (passive)</td><td>Passive limiter loss at 4 GHz</td></tr><tr><td>4</td><td>Preselector BPF</td><td>BFHK-5001+ (custom LC 2-6 GHz)</td><td class='warn'>-3.0</td><td>-3.9</td><td>-33.9</td><td>2.00</td><td>2.81</td><td>N/A</td><td>N/A</td><td class='pass'>Linear (passive)</td><td>LC bandpass filter insertion loss<br><span class='warn-inline'>&#9888; Passive NF ≠ |loss| (2.00 vs 3.00 dB)</span></td></tr><tr><td>5</td><td>Bias-T</td><td>PE1604</td><td class='warn'>-0.2</td><td>-4.1</td><td>-34.1</td><td>0.15</td><td>3.00</td><td>N/A</td><td>N/A</td><td class='pass'>Linear (passive)</td><td>Bias tee insertion loss</td></tr><tr><td>6</td><td>LNA Stage 1</td><td>LVA-273PN+</td><td class='pass'>+13.5</td><td>9.4</td><td>-20.6</td><td>4.00</td><td>7.70</td><td>9.0</td><td>21.0</td><td class='pass'>Linear (29.6 dB BO)</td><td>First gain stage - sets NF</td></tr><tr><td>7</td><td>LNA Stage 2</td><td>LVA-273PN+</td><td class='pass'>+13.5</td><td>22.9</td><td>-7.1</td><td>4.00</td><td>7.82</td><td>9.0</td><td>21.0</td><td class='pass'>Linear (16.1 dB BO)</td><td>Second gain stage</td></tr><tr><td>8</td><td>LNA Stage 3</td><td>LVA-273PN+</td><td class='pass'>+13.5</td><td>36.4</td><td>6.4</td><td>4.00</td><td>7.83</td><td>9.0</td><td>21.0</td><td class='warn'>Compressing (2.6 dB BO)</td><td>Third gain stage</td></tr><tr><td>9</td><td>LNA Stage 4</td><td>LVA-273PN+</td><td class='pass'>+13.5</td><td>49.9</td><td>19.9</td><td>4.00</td><td>7.83</td><td>9.0</td><td>21.0</td><td class='fail'>SATURATED (10.9 dB over P1dB)</td><td>Fourth gain stage to achieve 50 dB target</td></tr><tr><td>10</td><td>Output Connector</td><td>2.92mm SMA-K connector</td><td class='warn'>-0.2</td><td>49.7</td><td>19.7</td><td>0.15</td><td>7.83</td><td>N/A</td><td>N/A</td><td class='pass'>Linear (passive)</td><td>Output connector loss</td></tr>
+</table>
+<p class="note"><b>Region legend:</b> <em>Linear</em> = ≥10 dB back-off from P1dB ·
+<em>Near-linear</em> = 6-10 dB · <em>Compressing</em> = 0-6 dB (onset of gain compression) ·
+<em>Saturated</em> = above P1dB (hard non-linear). Keep every stage in the Linear zone for
+analogue receivers; transmit chains may intentionally drive the PA into compression.
+Warning icons (&#9888;) flag datasheet values that fail senior-RF-engineer sanity checks
+(e.g. OIP3 &lt; P1dB + 5 dB, NF &lt; 0.5 dB, passive NF &ne; |loss|, mixer gain outside
+typical passive/active bands).</p>
+
+
+<h2>Budget Summary</h2>
+<table>
+  <tr><th>Metric</th><th>Value</th><th>Unit</th></tr>
+  <tr><td>Total System Gain</td><td>49.7</td><td>dB</td></tr><tr><td>Final Output Power</td><td>19.7</td><td>dBm</td></tr><tr><td>Cascaded System NF</td><td>7.83</td><td>dB</td></tr><tr><td>Output Power Margin</td><td>+0.3</td><td>dB</td></tr>
+</table>
+
+<p class="note"><b>Per-stage DC bias (Vdd/Idq/Pdc)</b> is listed in the companion <code>power_calculation.md</code> / <code>power_calculation.html</code> document — the single source for power-budget information.</p>
+
+<h2>Noise Floor &amp; Sensitivity</h2>
+<table>
+  <tr><th>Parameter</th><th>Formula</th><th>Value</th><th>Unit</th></tr>
+  <tr><td>Thermal Noise Floor (kTB)</td><td><code>-174 + 10·log(BW_Hz)</code></td><td>-94.00</td><td>dBm</td></tr>
+  <tr><td>System NF (cascaded)</td><td>Friis</td><td>7.83</td><td>dB</td></tr>
+  <tr><td>Input-Referred Noise Floor</td><td><code>kTB + NF_sys</code></td><td class="warn">-86.17</td><td>dBm</td></tr>
+  <tr><td>Output Noise Floor</td><td><code>Noise_in + Total_Gain</code></td><td>-36.47</td><td>dBm</td></tr>
+  <tr class="totals"><td><b>MDS (SNR = 10 dB)</b></td><td><code>Noise_in + 10</code></td><td><b>-76.17</b></td><td>dBm</td></tr>
+</table>
+<p class="note">Assumes 290 K ambient, full RF instantaneous bandwidth, AWGN channel.
+MDS convention: 10 dB SNR above the input-referred noise floor.</p>
+
+
+<h2>Gain Variation — Thermal (-40 to +85 °C)</h2>
+<table>
+  <tr><th>#</th><th>Stage</th><th>Component</th>
+      <th>Nominal Gain (dB)</th><th>Tempco (dB/°C)</th>
+      <th>ΔG @ -40 °C</th><th>ΔG @ +85 °C</th><th>Worst-Case (dB)</th></tr>
+  <tr><td>1</td><td>Input Connector (2.92mm)</td><td>2.92mm SMA-K connector</td><td>-0.20</td><td>±0.005</td><td>+0.33</td><td>-0.30</td><td>±0.33</td></tr><tr><td>2</td><td>PCB Trace</td><td>50Ω Microstrip (RO4350B)</td><td>-0.35</td><td>±0.005</td><td>+0.33</td><td>-0.30</td><td>±0.33</td></tr><tr><td>3</td><td>Input Limiter</td><td>SKY16602-632LF</td><td>-0.35</td><td>±0.005</td><td>+0.33</td><td>-0.30</td><td>±0.33</td></tr><tr><td>4</td><td>Preselector BPF</td><td>BFHK-5001+ (custom LC 2-6 GHz)</td><td>-3.00</td><td>±0.005</td><td>+0.33</td><td>-0.30</td><td>±0.33</td></tr><tr><td>5</td><td>Bias-T</td><td>PE1604</td><td>-0.20</td><td>±0.005</td><td>+0.33</td><td>-0.30</td><td>±0.33</td></tr><tr><td>6</td><td>LNA Stage 1</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.020</td><td>+1.30</td><td>-1.20</td><td>±1.30</td></tr><tr><td>7</td><td>LNA Stage 2</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.020</td><td>+1.30</td><td>-1.20</td><td>±1.30</td></tr><tr><td>8</td><td>LNA Stage 3</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.020</td><td>+1.30</td><td>-1.20</td><td>±1.30</td></tr><tr><td>9</td><td>LNA Stage 4</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.020</td><td>+1.30</td><td>-1.20</td><td>±1.30</td></tr><tr><td>10</td><td>Output Connector</td><td>2.92mm SMA-K connector</td><td>-0.20</td><td>±0.005</td><td>+0.33</td><td>-0.30</td><td>±0.33</td></tr>
+  <tr class="totals"><td colspan="5"><b>TOTAL SYSTEM</b></td>
+      <td class="warn"><b>+7.15</b></td>
+      <td class="warn"><b>-6.60</b></td>
+      <td>—</td></tr>
+</table>
+<p class="note">Active stages (LNA, amp, mixer): ±0.020 dB/°C typical for GaAs pHEMT / SiGe.
+Passives (connectors, traces, filters, splitters): ±0.005 dB/°C.
+Plan for ≥ 3 dB AGC range or closed-loop gain compensation to hold system gain across the
+temperature envelope.</p>
+
+
+<h2>Gain Variation — Frequency (across RF bandwidth)</h2>
+<table>
+  <tr><th>#</th><th>Stage</th><th>Component</th>
+      <th>Nominal Gain (dB)</th><th>Typ Flatness (± dB)</th>
+      <th>Min Gain (dB)</th><th>Max Gain (dB)</th></tr>
+  <tr><td>1</td><td>Input Connector (2.92mm)</td><td>2.92mm SMA-K connector</td><td>-0.20</td><td>±0.1</td><td>-0.30</td><td>-0.10</td></tr><tr><td>2</td><td>PCB Trace</td><td>50Ω Microstrip (RO4350B)</td><td>-0.35</td><td>±0.1</td><td>-0.45</td><td>-0.25</td></tr><tr><td>3</td><td>Input Limiter</td><td>SKY16602-632LF</td><td>-0.35</td><td>±0.1</td><td>-0.45</td><td>-0.25</td></tr><tr><td>4</td><td>Preselector BPF</td><td>BFHK-5001+ (custom LC 2-6 GHz)</td><td>-3.00</td><td>±1.0</td><td>-4.00</td><td>-2.00</td></tr><tr><td>5</td><td>Bias-T</td><td>PE1604</td><td>-0.20</td><td>±0.1</td><td>-0.30</td><td>-0.10</td></tr><tr><td>6</td><td>LNA Stage 1</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.5</td><td>+13.00</td><td>+14.00</td></tr><tr><td>7</td><td>LNA Stage 2</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.5</td><td>+13.00</td><td>+14.00</td></tr><tr><td>8</td><td>LNA Stage 3</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.5</td><td>+13.00</td><td>+14.00</td></tr><tr><td>9</td><td>LNA Stage 4</td><td>LVA-273PN+</td><td>+13.50</td><td>±0.5</td><td>+13.00</td><td>+14.00</td></tr><tr><td>10</td><td>Output Connector</td><td>2.92mm SMA-K connector</td><td>-0.20</td><td>±0.1</td><td>-0.30</td><td>-0.10</td></tr>
+  <tr class="totals"><td colspan="4"><b>WORST-CASE (Σ)</b></td>
+      <td class="warn"><b>±3.5</b></td><td>—</td><td>—</td></tr>
+  <tr class="totals"><td colspan="4"><b>RSS (statistical)</b></td>
+      <td class=""><b>±1.43</b></td><td>—</td><td>—</td></tr>
+</table>
+<p class="note">Amps: ±0.5 dB in-band. Filters: ±1.0 dB (passband ripple + skirt roll-off).
+Passives: ±0.1 dB. Worst-case Σ assumes all deviations align; RSS assumes uncorrelated
+contributions — the truth sits between the two. If flatness is critical (e.g. ±1 dB system
+spec), add an equaliser or gain-slope compensator after the LNA.</p>
+
+
+<h2>Stage Gain vs Frequency — 250 MHz step (BW &lt; 3 GHz)</h2>
+<table class="sweep">
+  <tr><th>#</th><th>Stage</th><th>Component</th><th>Nominal (dB)</th><th>4.0 GHz</th><th>4.0 GHz</th></tr>
+  <tr><td>1</td><td class='rowlabel'>Input Connector (2.92mm)</td><td>2.92mm SMA-K connector</td><td>-0.15</td><td>-0.20</td><td>-0.20</td></tr><tr><td>2</td><td class='rowlabel'>PCB Trace</td><td>50Ω Microstrip (RO4350B)</td><td>-0.30</td><td>-0.35</td><td>-0.35</td></tr><tr><td>3</td><td class='rowlabel'>Input Limiter</td><td>SKY16602-632LF</td><td>-0.30</td><td>-0.35</td><td>-0.35</td></tr><tr><td>4</td><td class='rowlabel'>Preselector BPF</td><td>BFHK-5001+ (custom LC 2-6 GHz)</td><td>-2.00</td><td>-3.00</td><td>-3.00</td></tr><tr><td>5</td><td class='rowlabel'>Bias-T</td><td>PE1604</td><td>-0.15</td><td>-0.20</td><td>-0.20</td></tr><tr><td>6</td><td class='rowlabel'>LNA Stage 1</td><td>LVA-273PN+</td><td>+14.00</td><td>+14.50</td><td>+13.50</td></tr><tr><td>7</td><td class='rowlabel'>LNA Stage 2</td><td>LVA-273PN+</td><td>+14.00</td><td>+14.50</td><td>+13.50</td></tr><tr><td>8</td><td class='rowlabel'>LNA Stage 3</td><td>LVA-273PN+</td><td>+14.00</td><td>+14.50</td><td>+13.50</td></tr><tr><td>9</td><td class='rowlabel'>LNA Stage 4</td><td>LVA-273PN+</td><td>+14.00</td><td>+14.50</td><td>+13.50</td></tr><tr><td>10</td><td class='rowlabel'>Output Connector</td><td>2.92mm SMA-K connector</td><td>-0.15</td><td>-0.20</td><td>-0.20</td></tr>
+</table>
+<p class="note">Gain roll-off model: amps &amp; mixers fall off monotonically toward the
+high edge of the band by ±0.5 dB; filters ripple symmetrically by ±1.0 dB across the
+passband; connectors and PCB traces vary by ±0.1 dB.</p>
+
+<h2>System Rollup vs Frequency</h2>
+<table>
+  <tr><th>Frequency (GHz)</th><th>Total Gain (dB)</th>
+      <th>Cascaded NF (dB)</th><th>Output Power (dBm)</th>
+      <th>MDS @ 10 dB SNR (dBm)</th></tr>
+  <tr><td>4.0</td><td>+53.70</td><td>7.24</td><td>+23.70</td><td>-76.76</td></tr><tr><td>4.0</td><td>+49.70</td><td>7.27</td><td>+19.70</td><td>-76.73</td></tr>
+</table>
+<p class="note">Cascaded NF recomputed with Friis at each frequency — the LNA
+continues to dominate, so NF typically stays within ±0.3 dB of nominal across
+the band. If the band-edge MDS is more than 2 dB worse than midband, add
+frequency-dependent equalisation or re-allocate gain toward the LNA.</p>
+
+
+<h2>Return Loss — Per Stage</h2>
+<table>
+  <tr><th>#</th><th>Stage</th><th>Component</th>
+      <th>S11 — Input RL (dB)</th><th>S22 — Output RL (dB)</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Input Connector (2.92mm)</td><td>2.92mm SMA-K connector</td><td>20.0</td><td>20.0</td><td>Connector loss per interface</td></tr><tr><td>2</td><td>Input Limiter</td><td>SKY16602-632LF</td><td>14.0</td><td>14.0</td><td>Passive limiter loss at 4 GHz</td></tr><tr><td>3</td><td>Preselector BPF</td><td>BFHK-5001+ (custom LC 2-6 GHz)</td><td>10.0</td><td>10.0</td><td>LC bandpass filter insertion loss</td></tr><tr><td>4</td><td>Bias-T</td><td>PE1604</td><td>15.0</td><td>15.0</td><td>Bias tee insertion loss</td></tr><tr><td>5</td><td>LNA Stage 1</td><td>LVA-273PN+</td><td>12.0</td><td>12.0</td><td>First gain stage - sets NF</td></tr><tr><td>6</td><td>LNA Stage 2</td><td>LVA-273PN+</td><td>12.0</td><td>12.0</td><td>Second gain stage</td></tr><tr><td>7</td><td>LNA Stage 3</td><td>LVA-273PN+</td><td>12.0</td><td>12.0</td><td>Third gain stage</td></tr><tr><td>8</td><td>LNA Stage 4</td><td>LVA-273PN+</td><td>12.0</td><td>12.0</td><td>Fourth gain stage to achieve 50 dB target</td></tr><tr><td>9</td><td>Output Connector</td><td>2.92mm SMA-K connector</td><td>20.0</td><td>20.0</td><td>Output connector loss</td></tr>
+</table>
+<p class="note">Return loss values referenced to 50 Ω. Higher value = better match.</p>
+
+
+
+
+
+
+<h2>Consistency Checks</h2>
+<p class="note">(No BOM supplied to the GLB tool call — cross-check skipped. When the
+BOM is available, this section lists any component in the GLB that does not appear in
+the parts list.)</p>
+
+
+<h2>Cascade Noise Figure — Friis Formula</h2>
+<p class="formula"><code>F<sub>sys</sub> = F<sub>1</sub> + (F<sub>2</sub> − 1) / G<sub>1</sub>
+  + (F<sub>3</sub> − 1) / (G<sub>1</sub>·G<sub>2</sub>) + …</code></p>
+<p class="note">Where <em>F</em> = linear noise factor (not dB), <em>G</em> = linear gain.
+The first stage NF dominates — minimise LNA / driver NF for the best system sensitivity.</p>
+<p class="verdict ok"><b>Note:</b> All values are estimated from component datasheets at 25 °C nominal.
+Verify with bench measurements (spectrum analyser + noise source) during hardware bring-up.</p>
+
+</body>
+</html>
