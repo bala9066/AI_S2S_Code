@@ -1,0 +1,38 @@
+{
+  "checks_run": [
+    "shorts",
+    "power_collision",
+    "pin_multiple_nets",
+    "floating_net",
+    "dangling_power_rail",
+    "power_rail_no_driver",
+    "power_naming",
+    "missing_decap",
+    "cdc_boundary_undeclared",
+    "unknown_ref"
+  ],
+  "violations": [
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U6.RF_OUT_2",
+      "detail": "Pin U6.RF_OUT_2 is connected to 2 distinct nets \u2014 RF_OUT_2_U6, TERM_U6_RF_OUT_2 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC",
+      "detail": "Power/ground rail 'VCC' has 22 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    }
+  ],
+  "counts": {
+    "critical": 0,
+    "high": 1,
+    "medium": 1,
+    "low": 0,
+    "info": 0
+  },
+  "overall_pass": false,
+  "source": "schematic_post_synthesis",
+  "sheet_count": 2
+}

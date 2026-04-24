@@ -1,0 +1,263 @@
+{
+  "project": "yhh",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "U1",
+      "name": "Low-noise amplifier per balanced pair arm (2 per channel, 8 total) covering 6-26.5 GHz with high gain and low noise figure",
+      "type": "PMA4-6263LN+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U1",
+        "part_number": "PMA4-6263LN+",
+        "component_name": "Low-noise amplifier per balanced pair arm (2 per channel, 8 total) covering 6-26.5 GHz with high gain and low noise figure",
+        "reference_designator": "U1"
+      }
+    },
+    {
+      "id": "U2",
+      "name": "Ka-band gain block / driver amplifier per channel (15-45 GHz), used for stages 2 and 3 after the balanced LNA",
+      "type": "PMA3-15453+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U2",
+        "part_number": "PMA3-15453+",
+        "component_name": "Ka-band gain block / driver amplifier per channel (15-45 GHz), used for stages 2 and 3 after the balanced LNA",
+        "reference_designator": "U2"
+      }
+    },
+    {
+      "id": "U3",
+      "name": "PIN diode limiter for front-end protection (1 per channel, 4 total). Survives +30 dBm, limits output to +15 dBm",
+      "type": "CLA4611-085LF",
+      "pins": [],
+      "properties": {
+        "instance_id": "U3",
+        "part_number": "CLA4611-085LF",
+        "component_name": "PIN diode limiter for front-end protection (1 per channel, 4 total). Survives +30 dBm, limits output to +15 dBm",
+        "reference_designator": "U3"
+      }
+    },
+    {
+      "id": "U4",
+      "name": "Ceramic preselector bandpass filter between limiter and LNA (1 per channel, 4 total). Also used as interstage BPF for high-gain stability (4 additional)",
+      "type": "BFCN-1840+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U4",
+        "part_number": "BFCN-1840+",
+        "component_name": "Ceramic preselector bandpass filter between limiter and LNA (1 per channel, 4 total). Also used as interstage BPF for high-gain stability (4 additional)",
+        "reference_designator": "U4"
+      }
+    },
+    {
+      "id": "U5",
+      "name": "T/R protection SPDT switch (1 per channel, 4 total). Isolates front-end during TX pulses, < 10 us switching",
+      "type": "QPC2420SR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U5",
+        "part_number": "QPC2420SR",
+        "component_name": "T/R protection SPDT switch (1 per channel, 4 total). Isolates front-end during TX pulses, < 10 us switching",
+        "reference_designator": "U5"
+      }
+    },
+    {
+      "id": "U6",
+      "name": "4-way power splitter/combiner for monopulse comparator network. Combines 4 channel outputs into Sum and 3 Delta outputs",
+      "type": "SCA-4-132+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U6",
+        "part_number": "SCA-4-132+",
+        "component_name": "4-way power splitter/combiner for monopulse comparator network. Combines 4 channel outputs into Sum and 3 Delta outputs",
+        "reference_designator": "U6"
+      }
+    },
+    {
+      "id": "U7",
+      "name": "DC-DC buck converter from +28V MIL bus to +5V rail for LNA and gain block bias supplies",
+      "type": "TPS54531DDA",
+      "pins": [],
+      "properties": {
+        "instance_id": "U7",
+        "part_number": "TPS54531DDA",
+        "component_name": "DC-DC buck converter from +28V MIL bus to +5V rail for LNA and gain block bias supplies",
+        "reference_designator": "U7"
+      }
+    },
+    {
+      "id": "J_PWR",
+      "name": "Supply Connector (synthesised)",
+      "type": "PWR_HEADER",
+      "pins": [],
+      "properties": {
+        "instance_id": "J_PWR",
+        "part_number": "PWR_HEADER",
+        "component_name": "Supply Connector (synthesised)",
+        "reference_designator": "J_PWR"
+      }
+    },
+    {
+      "id": "GND_STAR",
+      "name": "Ground Reference",
+      "type": "GND",
+      "pins": [],
+      "properties": {
+        "instance_id": "GND_STAR",
+        "part_number": "GND",
+        "component_name": "Ground Reference",
+        "reference_designator": "GND_STAR"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U3",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U4",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U5",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U6",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U7",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U2",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U3",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U4",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U5",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U6",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U7",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U1",
+      "source_pin": "OUT",
+      "target": "U2",
+      "target_pin": "IN",
+      "signal": "RF_U1_U2",
+      "type": "rf"
+    },
+    {
+      "source": "U2",
+      "source_pin": "OUT",
+      "target": "U4",
+      "target_pin": "IN",
+      "signal": "RF_U2_U4",
+      "type": "rf"
+    },
+    {
+      "source": "U4",
+      "source_pin": "OUT",
+      "target": "U6",
+      "target_pin": "IN",
+      "signal": "RF_U4_U6",
+      "type": "rf"
+    },
+    {
+      "source": "U6",
+      "source_pin": "OUT",
+      "target": "U7",
+      "target_pin": "IN",
+      "signal": "RF_U6_U7",
+      "type": "rf"
+    }
+  ],
+  "metadata": {
+    "auto_synthesized": true
+  }
+}
