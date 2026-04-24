@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SettingsPanel</class>
+ <widget class="QWidget" name="SettingsPanel">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>900</width><height>700</height></rect>
+  </property>
+  <layout class="QVBoxLayout" name="outerLayout">
+   <property name="leftMargin"><number>16</number></property>
+   <property name="topMargin"><number>16</number></property>
+   <property name="rightMargin"><number>16</number></property>
+   <property name="bottomMargin"><number>16</number></property>
+   <property name="spacing"><number>14</number></property>
+   <item>
+    <widget class="QLabel" name="headerLabel">
+     <property name="text"><string>&lt;b&gt;Connection Settings&lt;/b&gt;</string></property>
+     <property name="styleSheet"><string>color:#00c6a7; font-size:14px;</string></property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="portGroup">
+     <property name="title"><string>Serial Port</string></property>
+     <layout class="QFormLayout" name="portForm">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lPort"><property name="text"><string>Port:</string></property></widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="portCombo">
+        <property name="minimumWidth"><number>160</number></property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lBaud"><property name="text"><string>Baud Rate:</string></property></widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="baudCombo">
+        <item><property name="text"><string>9600</string></property></item>
+        <item><property name="text"><string>19200</string></property></item>
+        <item><property name="text"><string>38400</string></property></item>
+        <item><property name="text"><string>57600</string></property></item>
+        <item><property name="text"><string>115200</string></property></item>
+        <item><property name="text"><string>230400</string></property></item>
+        <item><property name="text"><string>460800</string></property></item>
+        <item><property name="text"><string>921600</string></property></item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lData"><property name="text"><string>Data Bits:</string></property></widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="dataBitsCombo">
+        <item><property name="text"><string>8</string></property></item>
+        <item><property name="text"><string>7</string></property></item>
+        <item><property name="text"><string>6</string></property></item>
+        <item><property name="text"><string>5</string></property></item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lParity"><property name="text"><string>Parity:</string></property></widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="parityCombo">
+        <item><property name="text"><string>None</string></property></item>
+        <item><property name="text"><string>Even</string></property></item>
+        <item><property name="text"><string>Odd</string></property></item>
+        <item><property name="text"><string>Mark</string></property></item>
+        <item><property name="text"><string>Space</string></property></item>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lStop"><property name="text"><string>Stop Bits:</string></property></widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="stopBitsCombo">
+        <item><property name="text"><string>1</string></property></item>
+        <item><property name="text"><string>1.5</string></property></item>
+        <item><property name="text"><string>2</string></property></item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <!-- Buttons + status -->
+   <item>
+    <layout class="QHBoxLayout" name="btnRow">
+     <property name="spacing"><number>10</number></property>
+     <item>
+      <widget class="QPushButton" name="connectButton">
+       <property name="objectName"><string>connectButton</string></property>
+       <property name="text"><string>Connect</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="disconnectButton">
+       <property name="objectName"><string>disconnectButton</string></property>
+       <property name="text"><string>Disconnect</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="refreshButton">
+       <property name="text"><string>Refresh Ports</string></property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="hSpacer">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="sizeHint" stdset="0">
+        <size><width>40</width><height>20</height></size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="statusLabel">
+       <property name="text"><string>Not connected</string></property>
+       <property name="styleSheet">
+        <string>color:#dc2626; font-weight:bold;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="vSpacer">
+     <property name="orientation"><enum>Qt::Vertical</enum></property>
+     <property name="sizeHint" stdset="0">
+      <size><width>20</width><height>40</height></size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
