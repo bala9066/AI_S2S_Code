@@ -1,0 +1,90 @@
+{
+  "checks_run": [
+    "shorts",
+    "power_collision",
+    "pin_multiple_nets",
+    "floating_net",
+    "dangling_power_rail",
+    "power_rail_no_driver",
+    "power_naming",
+    "missing_decap",
+    "cdc_boundary_undeclared",
+    "unknown_ref"
+  ],
+  "violations": [
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U6.RF_OUT",
+      "detail": "Pin U6.RF_OUT is connected to 3 distinct nets \u2014 LO_U6_U11, LO_U6_U3, LO_U6_U4 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U3.LO",
+      "detail": "Pin U3.LO is connected to 5 distinct nets \u2014 LO_U6_U3, LO_U7_U3, LO_U8_U3, LO_Y1_U3, LO_Y2_U3 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U4.LO",
+      "detail": "Pin U4.LO is connected to 5 distinct nets \u2014 LO_U6_U4, LO_U7_U4, LO_U8_U4, LO_Y1_U4, LO_Y2_U4 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U11.LO",
+      "detail": "Pin U11.LO is connected to 5 distinct nets \u2014 LO_U6_U11, LO_U7_U11, LO_U8_U11, LO_Y1_U11, LO_Y2_U11 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U7.RF_OUT",
+      "detail": "Pin U7.RF_OUT is connected to 3 distinct nets \u2014 LO_U7_U11, LO_U7_U3, LO_U7_U4 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U8.RF_OUT",
+      "detail": "Pin U8.RF_OUT is connected to 3 distinct nets \u2014 LO_U8_U11, LO_U8_U3, LO_U8_U4 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/Y1.RF_OUT",
+      "detail": "Pin Y1.RF_OUT is connected to 3 distinct nets \u2014 LO_Y1_U11, LO_Y1_U3, LO_Y1_U4 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/Y2.RF_OUT",
+      "detail": "Pin Y2.RF_OUT is connected to 3 distinct nets \u2014 LO_Y2_U11, LO_Y2_U3, LO_Y2_U4 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/GND",
+      "detail": "Power/ground rail 'GND' has 14 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/VCC",
+      "detail": "Power net 'VCC' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "cdc_boundary_undeclared",
+      "location": "clocks/LO_U6_U11,LO_U6_U3,LO_U6_U4,LO_U7_U11,LO_U7_U3,LO_U7_U4,LO_U8_U11,LO_U8_U3,LO_U8_U4,LO_Y1_U11,LO_Y1_U3,LO_Y1_U4,LO_Y2_U11,LO_Y2_U3,LO_Y2_U4",
+      "detail": "Design has 15 distinct clock domains (LO_U6_U11, LO_U6_U3, LO_U6_U4, LO_U7_U11, LO_U7_U3, LO_U7_U4, LO_U8_U11, LO_U8_U3, LO_U8_U4, LO_Y1_U11, LO_Y1_U3, LO_Y1_U4, LO_Y2_U11, LO_Y2_U3, LO_Y2_U4) but no CDC synchroniser / FIFO / dual-port cell is declared in the BOM. Metastability risk unless RTL adds 2FF synchronisers at every crossing."
+    }
+  ],
+  "counts": {
+    "critical": 0,
+    "high": 8,
+    "medium": 3,
+    "low": 0,
+    "info": 0
+  },
+  "overall_pass": false
+}

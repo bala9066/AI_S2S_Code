@@ -1,0 +1,230 @@
+{
+  "checks_run": [
+    "shorts",
+    "power_collision",
+    "pin_multiple_nets",
+    "floating_net",
+    "dangling_power_rail",
+    "power_rail_no_driver",
+    "power_naming",
+    "missing_decap",
+    "cdc_boundary_undeclared",
+    "unknown_ref"
+  ],
+  "violations": [
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U7.RF_OUT_2",
+      "detail": "Pin U7.RF_OUT_2 is connected to 2 distinct nets \u2014 RF_OUT_2_U7, TERM_U7_RF_OUT_2 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U7.RF_OUT_3",
+      "detail": "Pin U7.RF_OUT_3 is connected to 2 distinct nets \u2014 RF_OUT_3_U7, TERM_U7_RF_OUT_3 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/J_PWR.RF_OUT",
+      "detail": "Pin J_PWR.RF_OUT is connected to 2 distinct nets \u2014 RF_J_PWR, RF_OUT_J_PWR \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U3.LO_P",
+      "detail": "Pin U3.LO_P is connected to 4 distinct nets \u2014 LO_P_U8, LO_P_Y1, LO_P_Y2, RF_OUT_2_U2 \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U4.LO_P",
+      "detail": "Pin U4.LO_P is connected to 4 distinct nets \u2014 IF_OUT_N_U3, LO_P_U8, LO_P_Y1, LO_P_Y2 \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U11.LO_P",
+      "detail": "Pin U11.LO_P is connected to 4 distinct nets \u2014 LO_P_U8, LO_P_Y1, LO_P_Y2, RF_OUT_2_U7 \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U11.LO_N",
+      "detail": "Pin U11.LO_N is connected to 4 distinct nets \u2014 LO_N_U8, LO_N_Y1, LO_N_Y2, RF_OUT_3_U7 \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U9.AIN_P",
+      "detail": "Pin U9.AIN_P is connected to 4 distinct nets \u2014 IF_OUT_P_U11, IF_OUT_P_U3, IF_OUT_P_U4, OUT_U6 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U10.SPI_CLK",
+      "detail": "Pin U10.SPI_CLK is connected to 4 distinct nets \u2014 SPI_SPI_CLK_U8, SPI_SPI_CLK_U9, SPI_SPI_CLK_Y1, SPI_SPI_CLK_Y2 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U10.SPI_MOSI",
+      "detail": "Pin U10.SPI_MOSI is connected to 4 distinct nets \u2014 SPI_SPI_DATA_U8, SPI_SPI_DATA_Y1, SPI_SPI_DATA_Y2, SPI_SPI_MOSI_U9 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U10.SPI_CS_CLKGEN",
+      "detail": "Pin U10.SPI_CS_CLKGEN is connected to 3 distinct nets \u2014 SPI_SPI_LE_U8, SPI_SPI_LE_Y1, SPI_SPI_LE_Y2 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U3.LO_N",
+      "detail": "Pin U3.LO_N is connected to 4 distinct nets \u2014 AC_GND_U3_LO_N, LO_N_U8, LO_N_Y1, LO_N_Y2 \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U4.LO_N",
+      "detail": "Pin U4.LO_N is connected to 4 distinct nets \u2014 AC_GND_U4_LO_N, LO_N_U8, LO_N_Y1, LO_N_Y2 \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U9.AIN_N",
+      "detail": "Pin U9.AIN_N is connected to 4 distinct nets \u2014 AC_GND_U9_AIN_N, IF_OUT_N_U11, IF_OUT_N_U3, IF_OUT_N_U4 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U9.CLK_P",
+      "detail": "Pin U9.CLK_P is connected to 2 distinct nets \u2014 CLK_ADC_P, PD_U9_CLK_P \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U9.CLK_N",
+      "detail": "Pin U9.CLK_N is connected to 2 distinct nets \u2014 AC_GND_U9_CLK_N, CLK_ADC_N \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U8.CLK_REF_P",
+      "detail": "Pin U8.CLK_REF_P is connected to 2 distinct nets \u2014 CLK_ADC_P, PD_U8_CLK_REF_P \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U8.CLK_REF_N",
+      "detail": "Pin U8.CLK_REF_N is connected to 2 distinct nets \u2014 AC_GND_U8_CLK_REF_N, CLK_ADC_N \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U8.RF_OUT_P",
+      "detail": "Pin U8.RF_OUT_P is connected to 2 distinct nets \u2014 LO_P_U8, RF_OUT_P_U8 \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U8.RF_OUT_N",
+      "detail": "Pin U8.RF_OUT_N is connected to 2 distinct nets \u2014 LO_N_U8, RF_OUT_N_U8 \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/Y1.RF_OUT_P",
+      "detail": "Pin Y1.RF_OUT_P is connected to 2 distinct nets \u2014 LO_P_Y1, RF_OUT_P_Y1 \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/Y1.RF_OUT_N",
+      "detail": "Pin Y1.RF_OUT_N is connected to 2 distinct nets \u2014 LO_N_Y1, RF_OUT_N_Y1 \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/Y2.RF_OUT_P",
+      "detail": "Pin Y2.RF_OUT_P is connected to 2 distinct nets \u2014 LO_P_Y2, RF_OUT_P_Y2 \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/Y2.RF_OUT_N",
+      "detail": "Pin Y2.RF_OUT_N is connected to 2 distinct nets \u2014 LO_N_Y2, RF_OUT_N_Y2 \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC",
+      "detail": "Power/ground rail 'VCC' has 29 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/AVDD",
+      "detail": "Power/ground rail 'AVDD' has 5 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/DVDD",
+      "detail": "Power/ground rail 'DVDD' has 5 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCCINT",
+      "detail": "Power/ground rail 'VCCINT' has 5 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCCIO",
+      "detail": "Power/ground rail 'VCCIO' has 5 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_RF",
+      "detail": "Power/ground rail 'VCC_RF' has 12 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_DIG",
+      "detail": "Power/ground rail 'VCC_DIG' has 12 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/VCCINT",
+      "detail": "Power net 'VCCINT' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/VCCIO",
+      "detail": "Power net 'VCCIO' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "medium",
+      "rule": "cdc_boundary_undeclared",
+      "location": "clocks/AC_GND_U10_CLK_IN_N,AC_GND_U8_CLK_REF_N,AC_GND_U9_CLK_N,AC_GND_Y1_CLK_REF_N,AC_GND_Y2_CLK_REF_N,CLK_ADC_N,CLK_ADC_P,LO_N_U8,LO_N_Y1,LO_N_Y2,LO_P_U8,LO_P_Y1,LO_P_Y2,PD_U10_CLK_IN_P,PD_U8_CLK_REF_P,PD_U9_CLK_P,PD_Y1_CLK_REF_P,PD_Y2_CLK_REF_P,SPI_SPI_CLK_U8,SPI_SPI_CLK_U9,SPI_SPI_CLK_Y1,SPI_SPI_CLK_Y2",
+      "detail": "Design has 22 distinct clock domains (AC_GND_U10_CLK_IN_N, AC_GND_U8_CLK_REF_N, AC_GND_U9_CLK_N, AC_GND_Y1_CLK_REF_N, AC_GND_Y2_CLK_REF_N, CLK_ADC_N, CLK_ADC_P, LO_N_U8, LO_N_Y1, LO_N_Y2, LO_P_U8, LO_P_Y1, LO_P_Y2, PD_U10_CLK_IN_P, PD_U8_CLK_REF_P, PD_U9_CLK_P, PD_Y1_CLK_REF_P, PD_Y2_CLK_REF_P, SPI_SPI_CLK_U8, SPI_SPI_CLK_U9, SPI_SPI_CLK_Y1, SPI_SPI_CLK_Y2) but no CDC synchroniser / FIFO / dual-port cell is declared in the BOM. Metastability risk unless RTL adds 2FF synchronisers at every crossing."
+    }
+  ],
+  "counts": {
+    "critical": 0,
+    "high": 24,
+    "medium": 8,
+    "low": 2,
+    "info": 0
+  },
+  "overall_pass": false,
+  "source": "schematic_post_synthesis",
+  "sheet_count": 1
+}

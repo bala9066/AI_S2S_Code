@@ -1,0 +1,5762 @@
+{
+  "sheets": [
+    {
+      "id": "sheet1",
+      "title": "Schematic",
+      "components": [
+        {
+          "ref": "U1",
+          "type": "ic",
+          "value": "PE8022",
+          "part_number": "PE8022",
+          "x": 4,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT",
+              "num": "2",
+              "side": "right"
+            },
+            {
+              "name": "GND",
+              "num": "3",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "GND1",
+          "type": "ground",
+          "value": "GND",
+          "x": 5.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "U2",
+          "type": "ic",
+          "value": "GRF2074",
+          "part_number": "GRF2074",
+          "x": 16,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN_1",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "RF_IN_2",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT_1",
+              "num": "3",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_2",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "5",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "6",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C1",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 18.5,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C1",
+          "type": "ground",
+          "value": "GND",
+          "x": 18.5,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C2",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 19.4,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C2",
+          "type": "ground",
+          "value": "GND",
+          "x": 19.4,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C3",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 17.6,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C3",
+          "type": "ground",
+          "value": "GND",
+          "x": 17.6,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "GND5",
+          "type": "ground",
+          "value": "GND",
+          "x": 17.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "U3",
+          "type": "ic",
+          "value": "MCA1-42+",
+          "part_number": "MCA1-42+",
+          "x": 28,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "LO_P",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "LO_N",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "IF_OUT_P",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "IF_OUT_N",
+              "num": "5",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "6",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "7",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C4",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 30.5,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C4",
+          "type": "ground",
+          "value": "GND",
+          "x": 30.5,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C5",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 31.4,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C5",
+          "type": "ground",
+          "value": "GND",
+          "x": 31.4,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C6",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 29.6,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C6",
+          "type": "ground",
+          "value": "GND",
+          "x": 29.6,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "GND9",
+          "type": "ground",
+          "value": "GND",
+          "x": 29.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "U4",
+          "type": "ic",
+          "value": "RMS-2+",
+          "part_number": "RMS-2+",
+          "x": 40,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "LO_P",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "LO_N",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "IF_OUT_P",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "IF_OUT_N",
+              "num": "5",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "6",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "7",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C7",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 42.5,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C7",
+          "type": "ground",
+          "value": "GND",
+          "x": 42.5,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C8",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 43.4,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C8",
+          "type": "ground",
+          "value": "GND",
+          "x": 43.4,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C9",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 41.6,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C9",
+          "type": "ground",
+          "value": "GND",
+          "x": 41.6,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "GND13",
+          "type": "ground",
+          "value": "GND",
+          "x": 41.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "U5",
+          "type": "ic",
+          "value": "HMC788ALP2E",
+          "part_number": "HMC788ALP2E",
+          "x": 52,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN_1",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "RF_IN_2",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT_1",
+              "num": "3",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_2",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "5",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "6",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C10",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 54.5,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C10",
+          "type": "ground",
+          "value": "GND",
+          "x": 54.5,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C11",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 55.4,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C11",
+          "type": "ground",
+          "value": "GND",
+          "x": 55.4,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C12",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 53.6,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C12",
+          "type": "ground",
+          "value": "GND",
+          "x": 53.6,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "GND17",
+          "type": "ground",
+          "value": "GND",
+          "x": 53.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "U7",
+          "type": "ic",
+          "value": "EP2K1+",
+          "part_number": "EP2K1+",
+          "x": 64,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT_1",
+              "num": "2",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_2",
+              "num": "3",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_3",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_4",
+              "num": "5",
+              "side": "right"
+            },
+            {
+              "name": "GND",
+              "num": "6",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "GND18",
+          "type": "ground",
+          "value": "GND",
+          "x": 65.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "R1",
+          "type": "resistor",
+          "value": "50R",
+          "x": 69,
+          "y": 34,
+          "rot": 0
+        },
+        {
+          "ref": "GND_T19",
+          "type": "ground",
+          "value": "GND",
+          "x": 69,
+          "y": 36,
+          "rot": 0
+        },
+        {
+          "ref": "R2",
+          "type": "resistor",
+          "value": "50R",
+          "x": 69,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "GND_T20",
+          "type": "ground",
+          "value": "GND",
+          "x": 69,
+          "y": 37,
+          "rot": 0
+        },
+        {
+          "ref": "R3",
+          "type": "resistor",
+          "value": "50R",
+          "x": 69,
+          "y": 33,
+          "rot": 0
+        },
+        {
+          "ref": "GND_T21",
+          "type": "ground",
+          "value": "GND",
+          "x": 69,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "U11",
+          "type": "ic",
+          "value": "MIC5209-3.3YM",
+          "part_number": "MIC5209-3.3YM",
+          "x": 76,
+          "y": 32,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "LO_P",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "LO_N",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "IF_OUT_P",
+              "num": "4",
+              "side": "right"
+            },
+            {
+              "name": "IF_OUT_N",
+              "num": "5",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "6",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "7",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C13",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 78.5,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C13",
+          "type": "ground",
+          "value": "GND",
+          "x": 78.5,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C14",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 79.4,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C14",
+          "type": "ground",
+          "value": "GND",
+          "x": 79.4,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "C15",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 77.6,
+          "y": 30,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C15",
+          "type": "ground",
+          "value": "GND",
+          "x": 77.6,
+          "y": 32,
+          "rot": 0
+        },
+        {
+          "ref": "GND25",
+          "type": "ground",
+          "value": "GND",
+          "x": 77.5,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "J_PWR",
+          "type": "ic",
+          "value": "PWR_HEADER",
+          "part_number": "PWR_HEADER",
+          "x": 4,
+          "y": 5,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "RF_OUT",
+              "num": "1",
+              "side": "right"
+            },
+            {
+              "name": "GND",
+              "num": "2",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "GND26",
+          "type": "ground",
+          "value": "GND",
+          "x": 5.5,
+          "y": 8,
+          "rot": 0
+        },
+        {
+          "ref": "D1",
+          "type": "diode_tvs",
+          "value": "ESD",
+          "x": 6,
+          "y": 3,
+          "rot": 90
+        },
+        {
+          "ref": "GND_D1",
+          "type": "ground",
+          "value": "GND",
+          "x": 6,
+          "y": 5,
+          "rot": 0
+        },
+        {
+          "ref": "U6",
+          "type": "ic",
+          "value": "GRF2040",
+          "part_number": "GRF2040",
+          "x": 4,
+          "y": 59,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "OUT",
+              "num": "2",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "3",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "4",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C16",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 6.5,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C16",
+          "type": "ground",
+          "value": "GND",
+          "x": 6.5,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C17",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 7.4,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C17",
+          "type": "ground",
+          "value": "GND",
+          "x": 7.4,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C18",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 5.6,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C18",
+          "type": "ground",
+          "value": "GND",
+          "x": 5.6,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "GND31",
+          "type": "ground",
+          "value": "GND",
+          "x": 5.5,
+          "y": 62,
+          "rot": 0
+        },
+        {
+          "ref": "U9",
+          "type": "ic",
+          "value": "AD9643BCPZ-170",
+          "part_number": "AD9643BCPZ-170",
+          "x": 16,
+          "y": 59,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "AIN_P",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "AIN_N",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "CLK_P",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "CLK_N",
+              "num": "4",
+              "side": "left"
+            },
+            {
+              "name": "SYNC_P",
+              "num": "5",
+              "side": "left"
+            },
+            {
+              "name": "SYNC_N",
+              "num": "6",
+              "side": "left"
+            },
+            {
+              "name": "D0_P",
+              "num": "7",
+              "side": "right"
+            },
+            {
+              "name": "D0_N",
+              "num": "8",
+              "side": "right"
+            },
+            {
+              "name": "D1_P",
+              "num": "9",
+              "side": "right"
+            },
+            {
+              "name": "D1_N",
+              "num": "10",
+              "side": "right"
+            },
+            {
+              "name": "DCO_P",
+              "num": "11",
+              "side": "right"
+            },
+            {
+              "name": "DCO_N",
+              "num": "12",
+              "side": "right"
+            },
+            {
+              "name": "SPI_CLK",
+              "num": "13",
+              "side": "left"
+            },
+            {
+              "name": "SPI_MOSI",
+              "num": "14",
+              "side": "left"
+            },
+            {
+              "name": "SPI_CS",
+              "num": "15",
+              "side": "left"
+            },
+            {
+              "name": "AVDD",
+              "num": "16",
+              "side": "top"
+            },
+            {
+              "name": "DVDD",
+              "num": "17",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "18",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C19",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 17.833333333333332,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C19",
+          "type": "ground",
+          "value": "GND",
+          "x": 17.833333333333332,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C20",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 18.73333333333333,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C20",
+          "type": "ground",
+          "value": "GND",
+          "x": 18.73333333333333,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C21",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 16.933333333333334,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C21",
+          "type": "ground",
+          "value": "GND",
+          "x": 16.933333333333334,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C22",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 19.166666666666668,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C22",
+          "type": "ground",
+          "value": "GND",
+          "x": 19.166666666666668,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C23",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 20.066666666666666,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C23",
+          "type": "ground",
+          "value": "GND",
+          "x": 20.066666666666666,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C24",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 18.26666666666667,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C24",
+          "type": "ground",
+          "value": "GND",
+          "x": 18.26666666666667,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "GND38",
+          "type": "ground",
+          "value": "GND",
+          "x": 17.5,
+          "y": 62,
+          "rot": 0
+        },
+        {
+          "ref": "U10",
+          "type": "ic",
+          "value": "PFP-KX7_PLUS-310LC",
+          "part_number": "PFP-KX7_PLUS-310LC",
+          "x": 28,
+          "y": 59,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "ADC_D0_P",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "ADC_D0_N",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "ADC_D1_P",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "ADC_D1_N",
+              "num": "4",
+              "side": "left"
+            },
+            {
+              "name": "ADC_DCO_P",
+              "num": "5",
+              "side": "left"
+            },
+            {
+              "name": "ADC_DCO_N",
+              "num": "6",
+              "side": "left"
+            },
+            {
+              "name": "ADC_FRAME_P",
+              "num": "7",
+              "side": "left"
+            },
+            {
+              "name": "ADC_FRAME_N",
+              "num": "8",
+              "side": "left"
+            },
+            {
+              "name": "SPI_CLK",
+              "num": "9",
+              "side": "right"
+            },
+            {
+              "name": "SPI_MOSI",
+              "num": "10",
+              "side": "right"
+            },
+            {
+              "name": "SPI_CS_ADC",
+              "num": "11",
+              "side": "right"
+            },
+            {
+              "name": "SPI_CS_CLKGEN",
+              "num": "12",
+              "side": "right"
+            },
+            {
+              "name": "CLK_IN_P",
+              "num": "13",
+              "side": "left"
+            },
+            {
+              "name": "CLK_IN_N",
+              "num": "14",
+              "side": "left"
+            },
+            {
+              "name": "GPIO_0",
+              "num": "15",
+              "side": "right"
+            },
+            {
+              "name": "GPIO_1",
+              "num": "16",
+              "side": "right"
+            },
+            {
+              "name": "VCCINT",
+              "num": "17",
+              "side": "top"
+            },
+            {
+              "name": "VCCIO",
+              "num": "18",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "19",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C25",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 29.833333333333332,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C25",
+          "type": "ground",
+          "value": "GND",
+          "x": 29.833333333333332,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C26",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 30.73333333333333,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C26",
+          "type": "ground",
+          "value": "GND",
+          "x": 30.73333333333333,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C27",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 28.933333333333334,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C27",
+          "type": "ground",
+          "value": "GND",
+          "x": 28.933333333333334,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C28",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 31.166666666666668,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C28",
+          "type": "ground",
+          "value": "GND",
+          "x": 31.166666666666668,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C29",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 32.06666666666667,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C29",
+          "type": "ground",
+          "value": "GND",
+          "x": 32.06666666666667,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C30",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 30.26666666666667,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C30",
+          "type": "ground",
+          "value": "GND",
+          "x": 30.26666666666667,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "GND45",
+          "type": "ground",
+          "value": "GND",
+          "x": 29.5,
+          "y": 62,
+          "rot": 0
+        },
+        {
+          "ref": "GND_STAR",
+          "type": "ic",
+          "value": "GND",
+          "part_number": "GND",
+          "x": 40,
+          "y": 59,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "IN",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "OUT",
+              "num": "2",
+              "side": "right"
+            },
+            {
+              "name": "VCC",
+              "num": "3",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "4",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C31",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 42.5,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C31",
+          "type": "ground",
+          "value": "GND",
+          "x": 42.5,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C32",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 43.4,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C32",
+          "type": "ground",
+          "value": "GND",
+          "x": 43.4,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "C33",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 41.6,
+          "y": 57,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C33",
+          "type": "ground",
+          "value": "GND",
+          "x": 41.6,
+          "y": 59,
+          "rot": 0
+        },
+        {
+          "ref": "GND49",
+          "type": "ground",
+          "value": "GND",
+          "x": 41.5,
+          "y": 62,
+          "rot": 0
+        },
+        {
+          "ref": "U8",
+          "type": "ic",
+          "value": "ADF4106BRUZ-RL",
+          "part_number": "ADF4106BRUZ-RL",
+          "x": 4,
+          "y": 86,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "CLK_REF_P",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "CLK_REF_N",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "SPI_CLK",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "SPI_DATA",
+              "num": "4",
+              "side": "left"
+            },
+            {
+              "name": "SPI_LE",
+              "num": "5",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT_P",
+              "num": "6",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_N",
+              "num": "7",
+              "side": "right"
+            },
+            {
+              "name": "LOCK_DET",
+              "num": "8",
+              "side": "right"
+            },
+            {
+              "name": "VCC_RF",
+              "num": "9",
+              "side": "top"
+            },
+            {
+              "name": "VCC_DIG",
+              "num": "10",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "11",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C34",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 5.833333333333333,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C34",
+          "type": "ground",
+          "value": "GND",
+          "x": 5.833333333333333,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C35",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 6.733333333333333,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C35",
+          "type": "ground",
+          "value": "GND",
+          "x": 6.733333333333333,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C36",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 4.933333333333333,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C36",
+          "type": "ground",
+          "value": "GND",
+          "x": 4.933333333333333,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C37",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 7.166666666666666,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C37",
+          "type": "ground",
+          "value": "GND",
+          "x": 7.166666666666666,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C38",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 8.066666666666666,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C38",
+          "type": "ground",
+          "value": "GND",
+          "x": 8.066666666666666,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C39",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 6.266666666666666,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C39",
+          "type": "ground",
+          "value": "GND",
+          "x": 6.266666666666666,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "GND56",
+          "type": "ground",
+          "value": "GND",
+          "x": 5.5,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "Y1",
+          "type": "ic",
+          "value": "HMC586LC4BTR",
+          "part_number": "HMC586LC4BTR",
+          "x": 16,
+          "y": 86,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "CLK_REF_P",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "CLK_REF_N",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "SPI_CLK",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "SPI_DATA",
+              "num": "4",
+              "side": "left"
+            },
+            {
+              "name": "SPI_LE",
+              "num": "5",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT_P",
+              "num": "6",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_N",
+              "num": "7",
+              "side": "right"
+            },
+            {
+              "name": "LOCK_DET",
+              "num": "8",
+              "side": "right"
+            },
+            {
+              "name": "VCC_RF",
+              "num": "9",
+              "side": "top"
+            },
+            {
+              "name": "VCC_DIG",
+              "num": "10",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "11",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C40",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 17.833333333333332,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C40",
+          "type": "ground",
+          "value": "GND",
+          "x": 17.833333333333332,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C41",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 18.73333333333333,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C41",
+          "type": "ground",
+          "value": "GND",
+          "x": 18.73333333333333,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C42",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 16.933333333333334,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C42",
+          "type": "ground",
+          "value": "GND",
+          "x": 16.933333333333334,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C43",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 19.166666666666668,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C43",
+          "type": "ground",
+          "value": "GND",
+          "x": 19.166666666666668,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C44",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 20.066666666666666,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C44",
+          "type": "ground",
+          "value": "GND",
+          "x": 20.066666666666666,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C45",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 18.26666666666667,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C45",
+          "type": "ground",
+          "value": "GND",
+          "x": 18.26666666666667,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "GND63",
+          "type": "ground",
+          "value": "GND",
+          "x": 17.5,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "Y2",
+          "type": "ic",
+          "value": "OSJ7014-10.0M",
+          "part_number": "OSJ7014-10.0M",
+          "x": 28,
+          "y": 86,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "CLK_REF_P",
+              "num": "1",
+              "side": "left"
+            },
+            {
+              "name": "CLK_REF_N",
+              "num": "2",
+              "side": "left"
+            },
+            {
+              "name": "SPI_CLK",
+              "num": "3",
+              "side": "left"
+            },
+            {
+              "name": "SPI_DATA",
+              "num": "4",
+              "side": "left"
+            },
+            {
+              "name": "SPI_LE",
+              "num": "5",
+              "side": "left"
+            },
+            {
+              "name": "RF_OUT_P",
+              "num": "6",
+              "side": "right"
+            },
+            {
+              "name": "RF_OUT_N",
+              "num": "7",
+              "side": "right"
+            },
+            {
+              "name": "LOCK_DET",
+              "num": "8",
+              "side": "right"
+            },
+            {
+              "name": "VCC_RF",
+              "num": "9",
+              "side": "top"
+            },
+            {
+              "name": "VCC_DIG",
+              "num": "10",
+              "side": "top"
+            },
+            {
+              "name": "GND",
+              "num": "11",
+              "side": "bottom"
+            }
+          ]
+        },
+        {
+          "ref": "C46",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 29.833333333333332,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C46",
+          "type": "ground",
+          "value": "GND",
+          "x": 29.833333333333332,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C47",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 30.73333333333333,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C47",
+          "type": "ground",
+          "value": "GND",
+          "x": 30.73333333333333,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C48",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 28.933333333333334,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C48",
+          "type": "ground",
+          "value": "GND",
+          "x": 28.933333333333334,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C49",
+          "type": "capacitor",
+          "value": "1uF",
+          "x": 31.166666666666668,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C49",
+          "type": "ground",
+          "value": "GND",
+          "x": 31.166666666666668,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C50",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 32.06666666666667,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C50",
+          "type": "ground",
+          "value": "GND",
+          "x": 32.06666666666667,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "C51",
+          "type": "capacitor",
+          "value": "10nF",
+          "x": 30.26666666666667,
+          "y": 84,
+          "rot": 90
+        },
+        {
+          "ref": "GND_C51",
+          "type": "ground",
+          "value": "GND",
+          "x": 30.26666666666667,
+          "y": 86,
+          "rot": 0
+        },
+        {
+          "ref": "GND70",
+          "type": "ground",
+          "value": "GND",
+          "x": 29.5,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "VCC_1",
+          "type": "vcc",
+          "value": "AVDD",
+          "x": 3,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "VCC_2",
+          "type": "vcc",
+          "value": "DVDD",
+          "x": 8,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "VCC_3",
+          "type": "vcc",
+          "value": "VCC",
+          "x": 13,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "VCC_4",
+          "type": "vcc",
+          "value": "VCCINT",
+          "x": 18,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "VCC_5",
+          "type": "vcc",
+          "value": "VCCIO",
+          "x": 23,
+          "y": 1,
+          "rot": 0
+        },
+        {
+          "ref": "R4",
+          "type": "resistor",
+          "value": "10k",
+          "x": 1,
+          "y": 33,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD71",
+          "type": "ground",
+          "value": "GND",
+          "x": 1,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "C52",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 13,
+          "y": 35,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC72",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 37,
+          "rot": 0
+        },
+        {
+          "ref": "C53",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 25,
+          "y": 37,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC73",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 39,
+          "rot": 0
+        },
+        {
+          "ref": "C54",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 37,
+          "y": 37,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC74",
+          "type": "ground",
+          "value": "GND",
+          "x": 37,
+          "y": 39,
+          "rot": 0
+        },
+        {
+          "ref": "TP_6",
+          "type": "connector",
+          "value": "TP_RF_OUT_2",
+          "x": 57,
+          "y": 35,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_7",
+          "type": "connector",
+          "value": "TP_IF_OUT_P",
+          "x": 81,
+          "y": 33,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_8",
+          "type": "connector",
+          "value": "TP_IF_OUT_N",
+          "x": 81,
+          "y": 35,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "C55",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 13,
+          "y": 62,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC75",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 64,
+          "rot": 0
+        },
+        {
+          "ref": "R5",
+          "type": "resistor",
+          "value": "10k",
+          "x": 13,
+          "y": 64,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD76",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 66,
+          "rot": 0
+        },
+        {
+          "ref": "C56",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 13,
+          "y": 66,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC77",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 68,
+          "rot": 0
+        },
+        {
+          "ref": "R6",
+          "type": "resistor",
+          "value": "10k",
+          "x": 13,
+          "y": 68,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD78",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 70,
+          "rot": 0
+        },
+        {
+          "ref": "C57",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 13,
+          "y": 70,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC79",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 72,
+          "rot": 0
+        },
+        {
+          "ref": "R7",
+          "type": "resistor",
+          "value": "10k",
+          "x": 25,
+          "y": 72,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD80",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 74,
+          "rot": 0
+        },
+        {
+          "ref": "C58",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 25,
+          "y": 74,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC81",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 76,
+          "rot": 0
+        },
+        {
+          "ref": "R8",
+          "type": "resistor",
+          "value": "10k",
+          "x": 25,
+          "y": 76,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD82",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 78,
+          "rot": 0
+        },
+        {
+          "ref": "C59",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 25,
+          "y": 78,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC83",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 80,
+          "rot": 0
+        },
+        {
+          "ref": "TP_9",
+          "type": "connector",
+          "value": "TP_GPIO_0",
+          "x": 33,
+          "y": 68,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_10",
+          "type": "connector",
+          "value": "TP_GPIO_1",
+          "x": 33,
+          "y": 70,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "R9",
+          "type": "resistor",
+          "value": "10k",
+          "x": 37,
+          "y": 60,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD84",
+          "type": "ground",
+          "value": "GND",
+          "x": 37,
+          "y": 62,
+          "rot": 0
+        },
+        {
+          "ref": "TP_11",
+          "type": "connector",
+          "value": "TP_OUT",
+          "x": 45,
+          "y": 60,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "R10",
+          "type": "resistor",
+          "value": "10k",
+          "x": 1,
+          "y": 87,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD85",
+          "type": "ground",
+          "value": "GND",
+          "x": 1,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "C60",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 1,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC86",
+          "type": "ground",
+          "value": "GND",
+          "x": 1,
+          "y": 91,
+          "rot": 0
+        },
+        {
+          "ref": "TP_12",
+          "type": "connector",
+          "value": "TP_RF_OUT_P",
+          "x": 9,
+          "y": 87,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_13",
+          "type": "connector",
+          "value": "TP_RF_OUT_N",
+          "x": 9,
+          "y": 89,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_14",
+          "type": "connector",
+          "value": "TP_LOCK_DET",
+          "x": 9,
+          "y": 91,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "R11",
+          "type": "resistor",
+          "value": "10k",
+          "x": 13,
+          "y": 87,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD87",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "C61",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 13,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC88",
+          "type": "ground",
+          "value": "GND",
+          "x": 13,
+          "y": 91,
+          "rot": 0
+        },
+        {
+          "ref": "TP_15",
+          "type": "connector",
+          "value": "TP_RF_OUT_P",
+          "x": 21,
+          "y": 87,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_16",
+          "type": "connector",
+          "value": "TP_RF_OUT_N",
+          "x": 21,
+          "y": 89,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_17",
+          "type": "connector",
+          "value": "TP_LOCK_DET",
+          "x": 21,
+          "y": 91,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "R12",
+          "type": "resistor",
+          "value": "10k",
+          "x": 25,
+          "y": 87,
+          "rot": 90
+        },
+        {
+          "ref": "GND_PD89",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "C62",
+          "type": "capacitor",
+          "value": "100nF",
+          "x": 25,
+          "y": 89,
+          "rot": 0
+        },
+        {
+          "ref": "GND_AC90",
+          "type": "ground",
+          "value": "GND",
+          "x": 25,
+          "y": 91,
+          "rot": 0
+        },
+        {
+          "ref": "TP_18",
+          "type": "connector",
+          "value": "TP_RF_OUT_P",
+          "x": 33,
+          "y": 87,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_19",
+          "type": "connector",
+          "value": "TP_RF_OUT_N",
+          "x": 33,
+          "y": 89,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        },
+        {
+          "ref": "TP_20",
+          "type": "connector",
+          "value": "TP_LOCK_DET",
+          "x": 33,
+          "y": 91,
+          "rot": 0,
+          "pins": [
+            {
+              "name": "1",
+              "num": "1",
+              "side": "left"
+            }
+          ]
+        }
+      ],
+      "nets": [
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U1",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C1",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C2",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C2",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C2",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C3",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C3",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C3",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND5",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C4",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C4",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C4",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C5",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C5",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C5",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C6",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C6",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C6",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND9",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C7",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C7",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C7",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C8",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C8",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C8",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C9",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C9",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C9",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND13",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C10",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C10",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C10",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C11",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C11",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C11",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C12",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C12",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C12",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND17",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND18",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "TERM_U7_RF_OUT_2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "RF_OUT_2"
+            },
+            {
+              "ref": "R1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R1",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_T19",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "TERM_U7_RF_OUT_3",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "RF_OUT_3"
+            },
+            {
+              "ref": "R2",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R2",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_T20",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "TERM_U7_RF_OUT_4",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "RF_OUT_4"
+            },
+            {
+              "ref": "R3",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R3",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_T21",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C13",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C13",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C13",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C14",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C14",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C14",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C15",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C15",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C15",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND25",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "J_PWR",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND26",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_J_PWR",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "J_PWR",
+              "pin": "RF_OUT"
+            },
+            {
+              "ref": "D1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "D1",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_D1",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U6",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C16",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C16",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C16",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U6",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C17",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C17",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C17",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U6",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C18",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C18",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C18",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U6",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND31",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "AVDD"
+            },
+            {
+              "ref": "C19",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C19",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C19",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "AVDD"
+            },
+            {
+              "ref": "C20",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C20",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C20",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "AVDD"
+            },
+            {
+              "ref": "C21",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C21",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C21",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "DVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "DVDD"
+            },
+            {
+              "ref": "C22",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C22",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C22",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "DVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "DVDD"
+            },
+            {
+              "ref": "C23",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C23",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C23",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "DVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "DVDD"
+            },
+            {
+              "ref": "C24",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C24",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C24",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND38",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCCINT",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "VCCINT"
+            },
+            {
+              "ref": "C25",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C25",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C25",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCCINT",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "VCCINT"
+            },
+            {
+              "ref": "C26",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C26",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C26",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCCINT",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "VCCINT"
+            },
+            {
+              "ref": "C27",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C27",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C27",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCCIO",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "VCCIO"
+            },
+            {
+              "ref": "C28",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C28",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C28",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCCIO",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "VCCIO"
+            },
+            {
+              "ref": "C29",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C29",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C29",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCCIO",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "VCCIO"
+            },
+            {
+              "ref": "C30",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C30",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C30",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND45",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "GND_STAR",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C31",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C31",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C31",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "GND_STAR",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C32",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C32",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C32",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "GND_STAR",
+              "pin": "VCC"
+            },
+            {
+              "ref": "C33",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C33",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C33",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "GND_STAR",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND49",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C34",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C34",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C34",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C35",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C35",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C35",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C36",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C36",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C36",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C37",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C37",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C37",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C38",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C38",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C38",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C39",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C39",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C39",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND56",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C40",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C40",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C40",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C41",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C41",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C41",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C42",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C42",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C42",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C43",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C43",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C43",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C44",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C44",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C44",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C45",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C45",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C45",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND63",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C46",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C46",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C46",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C47",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C47",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C47",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_RF",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "VCC_RF"
+            },
+            {
+              "ref": "C48",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C48",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C48",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C49",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C49",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C49",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C50",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C50",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C50",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "VCC_DIG",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "VCC_DIG"
+            },
+            {
+              "ref": "C51",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C51",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_C51",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "GND"
+            },
+            {
+              "ref": "GND70",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "VCC_1",
+              "pin": "1"
+            },
+            {
+              "ref": "U9",
+              "pin": "AVDD"
+            }
+          ]
+        },
+        {
+          "name": "DVDD",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "VCC_2",
+              "pin": "1"
+            },
+            {
+              "ref": "U9",
+              "pin": "DVDD"
+            }
+          ]
+        },
+        {
+          "name": "VCC",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "VCC_3",
+              "pin": "1"
+            },
+            {
+              "ref": "U2",
+              "pin": "VCC"
+            }
+          ]
+        },
+        {
+          "name": "VCCINT",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "VCC_4",
+              "pin": "1"
+            },
+            {
+              "ref": "U10",
+              "pin": "VCCINT"
+            }
+          ]
+        },
+        {
+          "name": "VCCIO",
+          "type": "power",
+          "endpoints": [
+            {
+              "ref": "VCC_5",
+              "pin": "1"
+            },
+            {
+              "ref": "U10",
+              "pin": "VCCIO"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_U1",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U1",
+              "pin": "RF_OUT"
+            },
+            {
+              "ref": "U2",
+              "pin": "RF_IN_1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_1_U2",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "RF_OUT_1"
+            },
+            {
+              "ref": "U3",
+              "pin": "RF_IN"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_2_U2",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "RF_OUT_2"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_P_U3",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "IF_OUT_P"
+            },
+            {
+              "ref": "U4",
+              "pin": "RF_IN"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_N_U3",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "IF_OUT_N"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_P_U4",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "IF_OUT_P"
+            },
+            {
+              "ref": "U5",
+              "pin": "RF_IN_1"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_N_U4",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "IF_OUT_N"
+            },
+            {
+              "ref": "U5",
+              "pin": "RF_IN_2"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_1_U5",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "RF_OUT_1"
+            },
+            {
+              "ref": "U7",
+              "pin": "RF_IN"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_1_U7",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "RF_OUT_1"
+            },
+            {
+              "ref": "U11",
+              "pin": "RF_IN"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_2_U7",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "RF_OUT_2"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_3_U7",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U7",
+              "pin": "RF_OUT_3"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_J_PWR",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "J_PWR",
+              "pin": "RF_OUT"
+            },
+            {
+              "ref": "U6",
+              "pin": "IN"
+            }
+          ]
+        },
+        {
+          "name": "OUT_U6",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U6",
+              "pin": "OUT"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_P"
+            }
+          ]
+        },
+        {
+          "name": "D0_P_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "D0_P"
+            },
+            {
+              "ref": "U10",
+              "pin": "ADC_D0_P"
+            }
+          ]
+        },
+        {
+          "name": "D0_N_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "D0_N"
+            },
+            {
+              "ref": "U10",
+              "pin": "ADC_D0_N"
+            }
+          ]
+        },
+        {
+          "name": "D1_P_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "D1_P"
+            },
+            {
+              "ref": "U10",
+              "pin": "ADC_D1_P"
+            }
+          ]
+        },
+        {
+          "name": "D1_N_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "D1_N"
+            },
+            {
+              "ref": "U10",
+              "pin": "ADC_D1_N"
+            }
+          ]
+        },
+        {
+          "name": "DCO_P_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "DCO_P"
+            },
+            {
+              "ref": "U10",
+              "pin": "ADC_DCO_P"
+            }
+          ]
+        },
+        {
+          "name": "DCO_N_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "DCO_N"
+            },
+            {
+              "ref": "U10",
+              "pin": "ADC_DCO_N"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_CLK_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CLK"
+            },
+            {
+              "ref": "U9",
+              "pin": "SPI_CLK"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_MOSI_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_MOSI"
+            },
+            {
+              "ref": "U9",
+              "pin": "SPI_MOSI"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_CS_U9",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CS_ADC"
+            },
+            {
+              "ref": "U9",
+              "pin": "SPI_CS"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_CLK_U8",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CLK"
+            },
+            {
+              "ref": "U8",
+              "pin": "SPI_CLK"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_DATA_U8",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_MOSI"
+            },
+            {
+              "ref": "U8",
+              "pin": "SPI_DATA"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_LE_U8",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CS_CLKGEN"
+            },
+            {
+              "ref": "U8",
+              "pin": "SPI_LE"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_CLK_Y1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CLK"
+            },
+            {
+              "ref": "Y1",
+              "pin": "SPI_CLK"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_DATA_Y1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_MOSI"
+            },
+            {
+              "ref": "Y1",
+              "pin": "SPI_DATA"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_LE_Y1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CS_CLKGEN"
+            },
+            {
+              "ref": "Y1",
+              "pin": "SPI_LE"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_CLK_Y2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CLK"
+            },
+            {
+              "ref": "Y2",
+              "pin": "SPI_CLK"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_DATA_Y2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_MOSI"
+            },
+            {
+              "ref": "Y2",
+              "pin": "SPI_DATA"
+            }
+          ]
+        },
+        {
+          "name": "SPI_SPI_LE_Y2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "SPI_CS_CLKGEN"
+            },
+            {
+              "ref": "Y2",
+              "pin": "SPI_LE"
+            }
+          ]
+        },
+        {
+          "name": "PD_U1_RF_IN",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U1",
+              "pin": "RF_IN"
+            },
+            {
+              "ref": "R4",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R4",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD71",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U2_RF_IN_2",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U2",
+              "pin": "RF_IN_2"
+            },
+            {
+              "ref": "C52",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C52",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC72",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U3_LO_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "LO_N"
+            },
+            {
+              "ref": "C53",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C53",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC73",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U4_LO_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "LO_N"
+            },
+            {
+              "ref": "C54",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C54",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC74",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_2_U5",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U5",
+              "pin": "RF_OUT_2"
+            },
+            {
+              "ref": "TP_6",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_P_U11",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "IF_OUT_P"
+            },
+            {
+              "ref": "TP_7",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_N_U11",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "IF_OUT_N"
+            },
+            {
+              "ref": "TP_8",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U9_AIN_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "AIN_N"
+            },
+            {
+              "ref": "C55",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C55",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC75",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_U9_CLK_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "CLK_P"
+            },
+            {
+              "ref": "R5",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R5",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD76",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U9_CLK_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "CLK_N"
+            },
+            {
+              "ref": "C56",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C56",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC77",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_U9_SYNC_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "SYNC_P"
+            },
+            {
+              "ref": "R6",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R6",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD78",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U9_SYNC_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U9",
+              "pin": "SYNC_N"
+            },
+            {
+              "ref": "C57",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C57",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC79",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_U10_ADC_FRAME_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "ADC_FRAME_P"
+            },
+            {
+              "ref": "R7",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R7",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD80",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U10_ADC_FRAME_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "ADC_FRAME_N"
+            },
+            {
+              "ref": "C58",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C58",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC81",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_U10_CLK_IN_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "CLK_IN_P"
+            },
+            {
+              "ref": "R8",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R8",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD82",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U10_CLK_IN_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "CLK_IN_N"
+            },
+            {
+              "ref": "C59",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C59",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC83",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GPIO_0_U10",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "GPIO_0"
+            },
+            {
+              "ref": "TP_9",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GPIO_1_U10",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U10",
+              "pin": "GPIO_1"
+            },
+            {
+              "ref": "TP_10",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_GND_STAR_IN",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "GND_STAR",
+              "pin": "IN"
+            },
+            {
+              "ref": "R9",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R9",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD84",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "OUT_GND_STAR",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "GND_STAR",
+              "pin": "OUT"
+            },
+            {
+              "ref": "TP_11",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_U8_CLK_REF_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "CLK_REF_P"
+            },
+            {
+              "ref": "R10",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R10",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD85",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_U8_CLK_REF_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "CLK_REF_N"
+            },
+            {
+              "ref": "C60",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C60",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC86",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_P_U8",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "TP_12",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_N_U8",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "TP_13",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "LOCK_DET_U8",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "LOCK_DET"
+            },
+            {
+              "ref": "TP_14",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_Y1_CLK_REF_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "CLK_REF_P"
+            },
+            {
+              "ref": "R11",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R11",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD87",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_Y1_CLK_REF_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "CLK_REF_N"
+            },
+            {
+              "ref": "C61",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C61",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC88",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_P_Y1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "TP_15",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_N_Y1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "TP_16",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "LOCK_DET_Y1",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "LOCK_DET"
+            },
+            {
+              "ref": "TP_17",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "PD_Y2_CLK_REF_P",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "CLK_REF_P"
+            },
+            {
+              "ref": "R12",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "R12",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_PD89",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "AC_GND_Y2_CLK_REF_N",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "CLK_REF_N"
+            },
+            {
+              "ref": "C62",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "GND",
+          "type": "ground",
+          "endpoints": [
+            {
+              "ref": "C62",
+              "pin": "2"
+            },
+            {
+              "ref": "GND_AC90",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_P_Y2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "TP_18",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "RF_OUT_N_Y2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "TP_19",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "LOCK_DET_Y2",
+          "type": "signal",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "LOCK_DET"
+            },
+            {
+              "ref": "TP_20",
+              "pin": "1"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_P_U3",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "IF_OUT_P"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_P"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_N_U3",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U3",
+              "pin": "IF_OUT_N"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_N"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_P_U4",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "IF_OUT_P"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_P"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_N_U4",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U4",
+              "pin": "IF_OUT_N"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_N"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_P_U11",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "IF_OUT_P"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_P"
+            }
+          ]
+        },
+        {
+          "name": "IF_OUT_N_U11",
+          "type": "analog",
+          "endpoints": [
+            {
+              "ref": "U11",
+              "pin": "IF_OUT_N"
+            },
+            {
+              "ref": "U9",
+              "pin": "AIN_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_U8",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_U8",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_U8",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_U8",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_U8",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_U8",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_Y1",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_Y1",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_Y1",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_Y1",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_Y1",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_Y1",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y1",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_Y2",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_Y2",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U3",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_Y2",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_Y2",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U4",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "LO_P_Y2",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_P"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_P"
+            }
+          ]
+        },
+        {
+          "name": "LO_N_Y2",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "Y2",
+              "pin": "RF_OUT_N"
+            },
+            {
+              "ref": "U11",
+              "pin": "LO_N"
+            }
+          ]
+        },
+        {
+          "name": "CLK_ADC_P",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "CLK_REF_P"
+            },
+            {
+              "ref": "U9",
+              "pin": "CLK_P"
+            }
+          ]
+        },
+        {
+          "name": "CLK_ADC_N",
+          "type": "clock",
+          "endpoints": [
+            {
+              "ref": "U8",
+              "pin": "CLK_REF_N"
+            },
+            {
+              "ref": "U9",
+              "pin": "CLK_N"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auto_synthesized": true,
+  "source": "auto_synthesized"
+}
