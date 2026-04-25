@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Power Calculation — hv</title>
+<style>
+body { font-family: -apple-system, Segoe UI, Inter, sans-serif; max-width: 1200px;
+       margin: 32px auto; padding: 0 24px; color: #1a2235; background: #f7f8fa; }
+h1 { font-size: 28px; margin-bottom: 4px; color: #0b1220; }
+h1 small { display: block; font-size: 14px; color: #64748b; font-weight: 400; margin-top: 6px; }
+h2 { font-size: 18px; margin-top: 32px; border-bottom: 2px solid #00c6a7;
+     padding-bottom: 6px; color: #0b1220; }
+p.note { color: #475569; font-size: 13px; line-height: 1.55; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 13px; background: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-radius: 6px; overflow: hidden; }
+th { background: #0b1220; color: #e2e8f0; text-align: left; padding: 10px 12px; font-weight: 600; font-size: 12px; letter-spacing: 0.3px; }
+td { padding: 8px 12px; border-bottom: 1px solid #e2e8f0; }
+tr.totals td { background: #eef5f3; font-weight: 600; }
+td.warn { background: #fff4e5; color: #c2410c; font-weight: 600; }
+td.pass { background: #ecfdf5; color: #065f46; font-weight: 600; }
+td.fail { background: #fef2f2; color: #991b1b; font-weight: 600; }
+p.verdict { padding: 10px 14px; border-radius: 6px; font-size: 13px; }
+p.verdict.ok { background: #ecfdf5; color: #065f46; }
+p.verdict.warn { background: #fef2f2; color: #991b1b; }
+code { background: #eef2f6; padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Power Calculation
+  <small>hv · Date: 25-04-2026</small>
+</h1>
+
+<p class="note">All values in Watts (W). TYP = typical operating power,
+MAX = worst-case (130 % of TYP). Rail assignment uses the component's optimal
+V_d (datasheet value when present in the BOM, otherwise derived from
+first-principles RF bias formulas tied to the NF / Pout / IIP3 targets).</p>
+
+
+<h2>Per-Stage DC Bias (from GLB stage datasheet conditions)</h2>
+<table>
+  <tr><th>#</th><th>Stage</th><th>Component</th>
+      <th>Vdd (V)</th><th>Idq (mA)</th><th>Pdc (mW)</th>
+      <th>Datasheet Condition</th></tr>
+  <tr><td>1</td><td>SMA Connector</td><td>2.4mm SMA</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>2</td><td>RF Limiter</td><td>HLM-40ABH</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>3</td><td>RF Preselector BPF</td><td>BFCN-1840+ (via XM-A163-0204D)</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>4</td><td>Bias-Tee</td><td>2.4mm-THRU+ (pass-through)</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>5</td><td>LNA</td><td>PMA3-10203+</td><td>5.00</td><td>120.0</td><td>600.0</td><td>Table 3 typ @ Vdd=5V, Id=120mA, f=15GHz, T=25C</td></tr><tr><td>6</td><td>1st RF Mixer</td><td>SMIQ-1844H+</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>7</td><td>1st IF BPF (3.1 GHz)</td><td>IF1 BPF</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>8</td><td>IF Driver Amplifier</td><td>CMD295C4</td><td>5.00</td><td>200.0</td><td>1000.0</td><td>Table 2 typ @ Vdd=5V, Id=200mA, f=6GHz, T=25C</td></tr><tr><td>9</td><td>2nd IF BPF (500 MHz BW)</td><td>IF2 BPF</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>10</td><td>VGA / AGC Stage</td><td>VGA</td><td>5.00</td><td>100.0</td><td>500.0</td><td>Typ AGC/VGA stage, gain set to +20 dB</td></tr><tr><td>11</td><td>ADC Driver / Buffer</td><td>ADC Driver</td><td>5.00</td><td>150.0</td><td>750.0</td><td>Typ differential ADC driver stage, G=+15dB</td></tr><tr><td>12</td><td>LO1 Splitter</td><td>EP2K1+</td><td>—</td><td>—</td><td>—</td><td></td></tr><tr><td>13</td><td>2nd Mixer + IF2 Gain</td><td>2nd Downconverter</td><td>5.00</td><td>200.0</td><td>1000.0</td><td>Active mixer + IF amp combined, net G=+15dB</td></tr><tr><td>14</td><td>Post-2nd-IF VGA</td><td>Output VGA</td><td>5.00</td><td>120.0</td><td>600.0</td><td>Output VGA, gain set to +6.5 dB for alignment</td></tr>
+  <tr class="totals"><td colspan="5"><b>TOTAL</b></td>
+      <td><b>4450.0</b></td>
+      <td>Sum of all powered-stage Pdc</td></tr>
+</table>
+<p class="note"><b>Key consistency rule:</b> the Vdd and Idq above must be the exact
+bias conditions under which the datasheet specifies the gain, NF, P1dB, and OIP3 values
+in the GLB stage-by-stage table. Different bias ⇒ different RF performance. The per-stage
+Pdc (mW) rolls up into the per-rail budget below.</p>
+
+
+<h2>Power Budget — 5 V &amp; 3.3 V Rails</h2>
+<table><tr><th>SI</th><th>Description</th><th>Part No</th><th>Qty</th><th>Current (mA)</th><th>5V TYP (W)</th><th>5V MAX (W)</th><th>3.3V TYP (W)</th><th>3.3V MAX (W)</th><th>Total TYP (W)</th><th>Total MAX (W)</th></tr><tr><td>1</td><td>RF front-end limiter protecting LNA from +40 dBm max input signals across 18-40 GHz Ka-band</td><td>HLM-40ABH</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>2</td><td>RF preselector bandpass filter covering 18-40 GHz for image rejection and out-of-band spur suppression</td><td>XM-A163-0204D</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>3</td><td>RF LNA providing first-stage low-noise gain in GaAs pHEMT technology at 18-40 GHz</td><td>PMA3-10203+</td><td>1</td><td>20</td><td>0.1</td><td>0.13</td><td>—</td><td>—</td><td>0.1</td><td>0.13</td></tr><tr><td>4</td><td>RF-to-IF1 mixer for first downconversion in 18-40 GHz range</td><td>SMIQ-1844H+</td><td>1</td><td>50</td><td>0.25</td><td>0.325</td><td>—</td><td>—</td><td>0.25</td><td>0.325</td></tr><tr><td>5</td><td>IF driver amplifier providing gain at 1st IF (3.1 GHz) with high linearity</td><td>CMD295C4</td><td>1</td><td>90</td><td>0.45</td><td>0.585</td><td>—</td><td>—</td><td>0.45</td><td>0.585</td></tr><tr><td>6</td><td>PLL frequency synthesizer IC for LO1 generation (RF-side, driving external VCO/multiplier for 18-40 GHz coverage)</td><td>ADF4108BCPZ-RL7</td><td>1</td><td>120</td><td>—</td><td>—</td><td>0.396</td><td>0.515</td><td>0.396</td><td>0.515</td></tr><tr><td>7</td><td>PLL frequency synthesizer IC for LO2 generation (IF-side, 3.6 GHz for 2nd downconversion)</td><td>LMX2487ESQ/NOPB</td><td>1</td><td>120</td><td>—</td><td>—</td><td>0.396</td><td>0.515</td><td>0.396</td><td>0.515</td></tr><tr><td>8</td><td>100 MHz TCXO reference oscillator providing low-phase-noise clock for PLL synthesizers and ADC</td><td>ASGTX-D-100.000MHZ-1</td><td>1</td><td>120</td><td>—</td><td>—</td><td>0.396</td><td>0.515</td><td>0.396</td><td>0.515</td></tr><tr><td>9</td><td>Dual-channel 12-bit ADC digitising both IF2 outputs at up to 150 Msps with LVDS interface</td><td>AD9627ABCPZ-150</td><td>1</td><td>400</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>10</td><td>Kintex-7 FPGA for phase-coherent radar signal processing and LVDS data output</td><td>XC7K160T-1FFG676I</td><td>1</td><td>500</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>11</td><td>2-way LO power splitter distributing LO1 signal equally to both RF mixer channels</td><td>EP2K1+</td><td>1</td><td>50</td><td>0.25</td><td>0.325</td><td>—</td><td>—</td><td>0.25</td><td>0.325</td></tr><tr><td>12</td><td>LDO voltage regulator providing +5V rail from +15V primary supply for RF amplifiers and PLLs</td><td>BD50GA3MEFJ-CE2</td><td>1</td><td>120</td><td>—</td><td>—</td><td>0.396</td><td>0.515</td><td>0.396</td><td>0.515</td></tr><tr class="totals"><td></td><td><b>TOTALS</b></td><td></td><td></td><td></td><td><b>1.05</b></td><td><b>1.365</b></td><td><b>1.584</b></td><td><b>2.06</b></td><td><b>2.634</b></td><td><b>3.425</b></td></tr></table>
+
+<h2>Power Budget — 2.5 V &amp; 1.8 V Rails</h2>
+<table><tr><th>SI</th><th>Description</th><th>Part No</th><th>Qty</th><th>Current (mA)</th><th>2.5V TYP (W)</th><th>2.5V MAX (W)</th><th>1.8V TYP (W)</th><th>1.8V MAX (W)</th><th>Total TYP (W)</th><th>Total MAX (W)</th></tr><tr><td>1</td><td>RF front-end limiter protecting LNA from +40 dBm max input signals across 18-40 GHz Ka-band</td><td>HLM-40ABH</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>2</td><td>RF preselector bandpass filter covering 18-40 GHz for image rejection and out-of-band spur suppression</td><td>XM-A163-0204D</td><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>3</td><td>RF LNA providing first-stage low-noise gain in GaAs pHEMT technology at 18-40 GHz</td><td>PMA3-10203+</td><td>1</td><td>20</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>4</td><td>RF-to-IF1 mixer for first downconversion in 18-40 GHz range</td><td>SMIQ-1844H+</td><td>1</td><td>50</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>5</td><td>IF driver amplifier providing gain at 1st IF (3.1 GHz) with high linearity</td><td>CMD295C4</td><td>1</td><td>90</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>6</td><td>PLL frequency synthesizer IC for LO1 generation (RF-side, driving external VCO/multiplier for 18-40 GHz coverage)</td><td>ADF4108BCPZ-RL7</td><td>1</td><td>120</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>7</td><td>PLL frequency synthesizer IC for LO2 generation (IF-side, 3.6 GHz for 2nd downconversion)</td><td>LMX2487ESQ/NOPB</td><td>1</td><td>120</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>8</td><td>100 MHz TCXO reference oscillator providing low-phase-noise clock for PLL synthesizers and ADC</td><td>ASGTX-D-100.000MHZ-1</td><td>1</td><td>120</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>9</td><td>Dual-channel 12-bit ADC digitising both IF2 outputs at up to 150 Msps with LVDS interface</td><td>AD9627ABCPZ-150</td><td>1</td><td>400</td><td>—</td><td>—</td><td>0.72</td><td>0.936</td><td>0.72</td><td>0.936</td></tr><tr><td>10</td><td>Kintex-7 FPGA for phase-coherent radar signal processing and LVDS data output</td><td>XC7K160T-1FFG676I</td><td>1</td><td>500</td><td>—</td><td>—</td><td>0.9</td><td>1.17</td><td>0.9</td><td>1.17</td></tr><tr><td>11</td><td>2-way LO power splitter distributing LO1 signal equally to both RF mixer channels</td><td>EP2K1+</td><td>1</td><td>50</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>12</td><td>LDO voltage regulator providing +5V rail from +15V primary supply for RF amplifiers and PLLs</td><td>BD50GA3MEFJ-CE2</td><td>1</td><td>120</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr class="totals"><td></td><td><b>TOTALS</b></td><td></td><td></td><td></td><td><b>0.0</b></td><td><b>0.0</b></td><td><b>1.62</b></td><td><b>2.106</b></td><td><b>1.62</b></td><td><b>2.106</b></td></tr></table>
+
+<h2>Power Summary</h2>
+<table>
+  <tr><th>Rail</th><th>Typical Power (W)</th><th>Max Power (W)</th></tr>
+  <tr><td>5V</td><td>1.05</td><td>1.365</td></tr><tr><td>3.3V</td><td>1.584</td><td>2.06</td></tr><tr><td>2.5V</td><td>0.0</td><td>0.0</td></tr><tr><td>1.8V</td><td>1.62</td><td>2.106</td></tr><tr class='totals'><td><b>TOTAL</b></td><td><b>4.254</b></td><td><b>5.531</b></td></tr>
+</table>
+<p class="note">Power values are estimated from component datasheets and design
+parameters. Actual measurements should be taken during hardware bring-up and
+updated in this table.</p>
+
+<h2>Power Converters &amp; LDOs — Dissipation and Thermal Analysis</h2>
+<p class="note">Each regulator's dissipation is
+ <code>P_diss = (V_in − V_out) × I_out</code> for linear LDOs
+ (no switching efficiency applies), or
+ <code>P_out × (1 − η) / η</code> for switching converters.
+ Junction temperature is
+ <code>T_j = T_ambient + P_diss × θ_ja</code>
+ evaluated at <b>T_ambient = 85 °C</b> (worst-case avionics chamber),
+ with θ_jc / θ_ja from the datasheet or typical package values.
+ <b>Pass</b> if T_j &lt; 125 °C, <b>Thermally Failed</b> otherwise.</p>
+<table>
+  <tr><th>SI</th><th>Part No</th><th>Topology</th><th>V_in (V)</th>
+      <th>V_out (V)</th><th>I_out (A)</th><th>η</th><th>P_diss (W)</th>
+      <th>θ_jc (°C/W)</th><th>θ_ja (°C/W)</th><th>T_j @ 85 °C amb (°C)</th>
+      <th>Heatsink?</th><th>Verdict</th></tr>
+  <tr><td>1</td><td>BD50GA3MEFJ-CE2</td><td>LDO</td><td>14</td><td>5</td><td>0.210</td><td>N/A (linear)</td><td>1.890</td><td>10</td><td>50</td><td class='warn'>122.8</td><td>required (→122.8 °C with HS)</td><td class='pass'><b>Pass</b></td></tr>
+</table>
+<p class="verdict ok"><b>Overall thermal verdict:</b> ✅ Pass — every regulator junction stays below 125 °C at 85 °C ambient.</p>
+
+</body>
+</html>

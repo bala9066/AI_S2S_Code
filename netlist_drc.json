@@ -1,0 +1,132 @@
+{
+  "checks_run": [
+    "shorts",
+    "power_collision",
+    "pin_multiple_nets",
+    "floating_net",
+    "dangling_power_rail",
+    "power_rail_no_driver",
+    "power_naming",
+    "missing_decap",
+    "cdc_boundary_undeclared",
+    "unknown_ref"
+  ],
+  "violations": [
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U_TCXO.OUT_P",
+      "detail": "Pin U_TCXO.OUT_P is connected to 2 distinct nets \u2014 100MHZ_ADC_CLK, 100MHZ_REF_TO_LO1 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U_TCXO.OUT_N",
+      "detail": "Pin U_TCXO.OUT_N is connected to 2 distinct nets \u2014 100MHZ_ADC_CLK_N, 100MHZ_REF_TO_LO2 \u2014 types: clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U_FPGA.IO_SPI_CLK",
+      "detail": "Pin U_FPGA.IO_SPI_CLK is connected to 3 distinct nets \u2014 ADC_SPI_SCLK, LO1PLL_SPI_CLK, LO2PLL_SPI_CLK \u2014 types: digital. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U_FPGA.IO_SPI_MOSI",
+      "detail": "Pin U_FPGA.IO_SPI_MOSI is connected to 2 distinct nets \u2014 LO1PLL_SPI_DATA, LO2PLL_SPI_DATA \u2014 types: digital. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/5V0",
+      "detail": "Power/ground rail '5V0' has 19 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/3V3",
+      "detail": "Power/ground rail '3V3' has 7 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/1V8",
+      "detail": "Power/ground rail '1V8' has 7 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "high",
+      "rule": "dangling_power_rail",
+      "location": "net/1V2_FPGA",
+      "detail": "Power/ground rail '1V2_FPGA' has only 1 endpoint(s); no driver found. The rail isn't connected to a regulator, supply connector, or bulk cap."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/5V5_BUCK",
+      "detail": "Power/ground rail '5V5_BUCK' has 8 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/5V0",
+      "detail": "Power net '5V0' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/3V3",
+      "detail": "Power net '3V3' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/1V8",
+      "detail": "Power net '1V8' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/1V2_FPGA",
+      "detail": "Power net '1V2_FPGA' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/15V0_IN",
+      "detail": "Power net '15V0_IN' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/5V5_BUCK",
+      "detail": "Power net '5V5_BUCK' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/VCC",
+      "detail": "Power net 'VCC' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "cdc_boundary_undeclared",
+      "location": "clocks/100MHZ_ADC_CLK,100MHZ_ADC_CLK_N,100MHZ_REF_TO_LO1,100MHZ_REF_TO_LO2,ADC_CLK_OUT_N,ADC_CLK_OUT_P,ADC_FCO_N,ADC_FCO_P,ADC_SPI_SCLK,LO1PLL_SPI_CLK,LO2PLL_SPI_CLK",
+      "detail": "Design has 11 distinct clock domains (100MHZ_ADC_CLK, 100MHZ_ADC_CLK_N, 100MHZ_REF_TO_LO1, 100MHZ_REF_TO_LO2, ADC_CLK_OUT_N, ADC_CLK_OUT_P, ADC_FCO_N, ADC_FCO_P, ADC_SPI_SCLK, LO1PLL_SPI_CLK, LO2PLL_SPI_CLK) but no CDC synchroniser / FIFO / dual-port cell is declared in the BOM. Metastability risk unless RTL adds 2FF synchronisers at every crossing."
+    },
+    {
+      "severity": "high",
+      "rule": "unknown_ref",
+      "location": "ref/ADC1",
+      "detail": "Reference designator 'ADC1' appears in nets but not in the component list."
+    }
+  ],
+  "counts": {
+    "critical": 0,
+    "high": 6,
+    "medium": 12,
+    "low": 0,
+    "info": 0
+  },
+  "overall_pass": false
+}

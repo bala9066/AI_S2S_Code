@@ -1,0 +1,43 @@
+{
+  "total_nodes": 50,
+  "total_edges": 142,
+  "isolated_nodes": [],
+  "cycles": [
+    [
+      "U_FPGA"
+    ],
+    [
+      "C_BUCK_1",
+      "U_BUCK"
+    ],
+    [
+      "IF2BPF1",
+      "VGA1",
+      "ADC1",
+      "U_FPGA",
+      "U_LO1PLL",
+      "U_SPLIT",
+      "MIX1",
+      "IF1BPF1",
+      "DA1"
+    ],
+    [
+      "IF2BPF1",
+      "VGA1",
+      "ADC1",
+      "U_FPGA",
+      "U_LO1PLL",
+      "U_LO2PLL",
+      "DA1"
+    ],
+    [
+      "IF2BPF1",
+      "VGA1",
+      "ADC1",
+      "U_FPGA",
+      "U_LO2PLL",
+      "DA1"
+    ]
+  ],
+  "is_connected": true
+}

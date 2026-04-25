@@ -1,0 +1,2097 @@
+{
+  "project": "hv",
+  "version": "1.0",
+  "nodes": [
+    {
+      "id": "J1",
+      "name": "SMA Female Connector CH1",
+      "type": "SMA-F-18-40G",
+      "pins": [],
+      "properties": {
+        "instance_id": "J1",
+        "part_number": "SMA-F-18-40G",
+        "component_name": "SMA Female Connector CH1",
+        "reference_designator": "J1"
+      }
+    },
+    {
+      "id": "J2",
+      "name": "SMA Female Connector CH2",
+      "type": "SMA-F-18-40G",
+      "pins": [],
+      "properties": {
+        "instance_id": "J2",
+        "part_number": "SMA-F-18-40G",
+        "component_name": "SMA Female Connector CH2",
+        "reference_designator": "J2"
+      }
+    },
+    {
+      "id": "LIM1",
+      "name": "GaAs Limiter CH1",
+      "type": "HLM-40ABH",
+      "pins": [],
+      "properties": {
+        "instance_id": "LIM1",
+        "part_number": "HLM-40ABH",
+        "component_name": "GaAs Limiter CH1",
+        "reference_designator": "LIM1"
+      }
+    },
+    {
+      "id": "LIM2",
+      "name": "GaAs Limiter CH2",
+      "type": "HLM-40ABH",
+      "pins": [],
+      "properties": {
+        "instance_id": "LIM2",
+        "part_number": "HLM-40ABH",
+        "component_name": "GaAs Limiter CH2",
+        "reference_designator": "LIM2"
+      }
+    },
+    {
+      "id": "BPF1",
+      "name": "Preselector BPF CH1 BFCN-1840+",
+      "type": "XM-A163-0204D",
+      "pins": [],
+      "properties": {
+        "instance_id": "BPF1",
+        "part_number": "XM-A163-0204D",
+        "component_name": "Preselector BPF CH1 BFCN-1840+",
+        "reference_designator": "BPF1"
+      }
+    },
+    {
+      "id": "BPF2",
+      "name": "Preselector BPF CH2 BFCN-1840+",
+      "type": "XM-A163-0204D",
+      "pins": [],
+      "properties": {
+        "instance_id": "BPF2",
+        "part_number": "XM-A163-0204D",
+        "component_name": "Preselector BPF CH2 BFCN-1840+",
+        "reference_designator": "BPF2"
+      }
+    },
+    {
+      "id": "LNA1",
+      "name": "LNA CH1",
+      "type": "PMA3-10203+",
+      "pins": [],
+      "properties": {
+        "instance_id": "LNA1",
+        "part_number": "PMA3-10203+",
+        "component_name": "LNA CH1",
+        "reference_designator": "LNA1"
+      }
+    },
+    {
+      "id": "LNA2",
+      "name": "LNA CH2",
+      "type": "PMA3-10203+",
+      "pins": [],
+      "properties": {
+        "instance_id": "LNA2",
+        "part_number": "PMA3-10203+",
+        "component_name": "LNA CH2",
+        "reference_designator": "LNA2"
+      }
+    },
+    {
+      "id": "MIX1",
+      "name": "RF Mixer CH1",
+      "type": "SMIQ-1844H+",
+      "pins": [],
+      "properties": {
+        "instance_id": "MIX1",
+        "part_number": "SMIQ-1844H+",
+        "component_name": "RF Mixer CH1",
+        "reference_designator": "MIX1"
+      }
+    },
+    {
+      "id": "MIX2",
+      "name": "RF Mixer CH2",
+      "type": "SMIQ-1844H+",
+      "pins": [],
+      "properties": {
+        "instance_id": "MIX2",
+        "part_number": "SMIQ-1844H+",
+        "component_name": "RF Mixer CH2",
+        "reference_designator": "MIX2"
+      }
+    },
+    {
+      "id": "IF1BPF1",
+      "name": "IF1 Bandpass Filter CH1 3.1 GHz",
+      "type": "LFCN-3000+",
+      "pins": [],
+      "properties": {
+        "instance_id": "IF1BPF1",
+        "part_number": "LFCN-3000+",
+        "component_name": "IF1 Bandpass Filter CH1 3.1 GHz",
+        "reference_designator": "IF1BPF1"
+      }
+    },
+    {
+      "id": "IF1BPF2",
+      "name": "IF1 Bandpass Filter CH2 3.1 GHz",
+      "type": "LFCN-3000+",
+      "pins": [],
+      "properties": {
+        "instance_id": "IF1BPF2",
+        "part_number": "LFCN-3000+",
+        "component_name": "IF1 Bandpass Filter CH2 3.1 GHz",
+        "reference_designator": "IF1BPF2"
+      }
+    },
+    {
+      "id": "DA1",
+      "name": "Driver Amplifier CH1",
+      "type": "CMD295C4",
+      "pins": [],
+      "properties": {
+        "instance_id": "DA1",
+        "part_number": "CMD295C4",
+        "component_name": "Driver Amplifier CH1",
+        "reference_designator": "DA1"
+      }
+    },
+    {
+      "id": "DA2",
+      "name": "Driver Amplifier CH2",
+      "type": "CMD295C4",
+      "pins": [],
+      "properties": {
+        "instance_id": "DA2",
+        "part_number": "CMD295C4",
+        "component_name": "Driver Amplifier CH2",
+        "reference_designator": "DA2"
+      }
+    },
+    {
+      "id": "IF2BPF1",
+      "name": "IF2 Bandpass Filter CH1 500 MHz",
+      "type": "LFCN-500+",
+      "pins": [],
+      "properties": {
+        "instance_id": "IF2BPF1",
+        "part_number": "LFCN-500+",
+        "component_name": "IF2 Bandpass Filter CH1 500 MHz",
+        "reference_designator": "IF2BPF1"
+      }
+    },
+    {
+      "id": "IF2BPF2",
+      "name": "IF2 Bandpass Filter CH2 500 MHz",
+      "type": "LFCN-500+",
+      "pins": [],
+      "properties": {
+        "instance_id": "IF2BPF2",
+        "part_number": "LFCN-500+",
+        "component_name": "IF2 Bandpass Filter CH2 500 MHz",
+        "reference_designator": "IF2BPF2"
+      }
+    },
+    {
+      "id": "VGA1",
+      "name": "VGA CH1 AGC",
+      "type": "ADL5330",
+      "pins": [],
+      "properties": {
+        "instance_id": "VGA1",
+        "part_number": "ADL5330",
+        "component_name": "VGA CH1 AGC",
+        "reference_designator": "VGA1"
+      }
+    },
+    {
+      "id": "VGA2",
+      "name": "VGA CH2 AGC",
+      "type": "ADL5330",
+      "pins": [],
+      "properties": {
+        "instance_id": "VGA2",
+        "part_number": "ADL5330",
+        "component_name": "VGA CH2 AGC",
+        "reference_designator": "VGA2"
+      }
+    },
+    {
+      "id": "ADC1",
+      "name": "Dual 12-bit 150Msps ADC",
+      "type": "AD9627ABCPZ-150",
+      "pins": [],
+      "properties": {
+        "instance_id": "ADC1",
+        "part_number": "AD9627ABCPZ-150",
+        "component_name": "Dual 12-bit 150Msps ADC",
+        "reference_designator": "U_ADC"
+      }
+    },
+    {
+      "id": "U_FPGA",
+      "name": "Kintex-7 FPGA",
+      "type": "XC7K160T-1FFG676I",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_FPGA",
+        "part_number": "XC7K160T-1FFG676I",
+        "component_name": "Kintex-7 FPGA",
+        "reference_designator": "U_FPGA"
+      }
+    },
+    {
+      "id": "U_LO1PLL",
+      "name": "LO1 PLL Synthesizer",
+      "type": "ADF4108BCPZ-RL7",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_LO1PLL",
+        "part_number": "ADF4108BCPZ-RL7",
+        "component_name": "LO1 PLL Synthesizer",
+        "reference_designator": "U_LO1PLL"
+      }
+    },
+    {
+      "id": "U_LO2PLL",
+      "name": "LO2 Dual PLL Synthesizer",
+      "type": "LMX2487ESQ/NOPB",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_LO2PLL",
+        "part_number": "LMX2487ESQ/NOPB",
+        "component_name": "LO2 Dual PLL Synthesizer",
+        "reference_designator": "U_LO2PLL"
+      }
+    },
+    {
+      "id": "U_TCXO",
+      "name": "100 MHz TCXO Reference",
+      "type": "ASGTX-D-100.000MHZ-1",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_TCXO",
+        "part_number": "ASGTX-D-100.000MHZ-1",
+        "component_name": "100 MHz TCXO Reference",
+        "reference_designator": "U_TCXO"
+      }
+    },
+    {
+      "id": "U_SPLIT",
+      "name": "LO1 2-way Splitter",
+      "type": "EP2K1+",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_SPLIT",
+        "part_number": "EP2K1+",
+        "component_name": "LO1 2-way Splitter",
+        "reference_designator": "U_SPLIT"
+      }
+    },
+    {
+      "id": "U_BUCK",
+      "name": "Buck Converter 15V to 5.5V Pre-regulator",
+      "type": "TPS5450DDA",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_BUCK",
+        "part_number": "TPS5450DDA",
+        "component_name": "Buck Converter 15V to 5.5V Pre-regulator",
+        "reference_designator": "U_BUCK"
+      }
+    },
+    {
+      "id": "U_5V_LDO",
+      "name": "5V LDO Regulator",
+      "type": "BD50GA3MEFJ-CE2",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_5V_LDO",
+        "part_number": "BD50GA3MEFJ-CE2",
+        "component_name": "5V LDO Regulator",
+        "reference_designator": "U_5V_LDO"
+      }
+    },
+    {
+      "id": "U_33_LDO",
+      "name": "3.3V LDO Regulator",
+      "type": "LD1117S33TR",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_33_LDO",
+        "part_number": "LD1117S33TR",
+        "component_name": "3.3V LDO Regulator",
+        "reference_designator": "U_33_LDO"
+      }
+    },
+    {
+      "id": "U_18_LDO",
+      "name": "1.8V LDO Regulator for ADC",
+      "type": "ADP1706AUJZ-1.8-R7",
+      "pins": [],
+      "properties": {
+        "instance_id": "U_18_LDO",
+        "part_number": "ADP1706AUJZ-1.8-R7",
+        "component_name": "1.8V LDO Regulator for ADC",
+        "reference_designator": "U_18_LDO"
+      }
+    },
+    {
+      "id": "J_PWR",
+      "name": "DC Power Input Connector +15V",
+      "type": "CON-DC-BARREL-15V",
+      "pins": [],
+      "properties": {
+        "instance_id": "J_PWR",
+        "part_number": "CON-DC-BARREL-15V",
+        "component_name": "DC Power Input Connector +15V",
+        "reference_designator": "J_PWR"
+      }
+    },
+    {
+      "id": "J_DIG",
+      "name": "Digital I/O Connector LVDS Output",
+      "type": "CON-SAMTEC-80PIN",
+      "pins": [],
+      "properties": {
+        "instance_id": "J_DIG",
+        "part_number": "CON-SAMTEC-80PIN",
+        "component_name": "Digital I/O Connector LVDS Output",
+        "reference_designator": "J_DIG"
+      }
+    },
+    {
+      "id": "C_LNA1_1",
+      "name": "100nF Decoupling Cap LNA1",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_LNA1_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap LNA1",
+        "reference_designator": "C_LNA1_1"
+      }
+    },
+    {
+      "id": "C_LNA1_2",
+      "name": "100nF Decoupling Cap LNA1 Alt Rail",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_LNA1_2",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap LNA1 Alt Rail",
+        "reference_designator": "C_LNA1_2"
+      }
+    },
+    {
+      "id": "C_LNA2_1",
+      "name": "100nF Decoupling Cap LNA2",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_LNA2_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap LNA2",
+        "reference_designator": "C_LNA2_1"
+      }
+    },
+    {
+      "id": "C_LNA2_2",
+      "name": "100nF Decoupling Cap LNA2 Alt Rail",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_LNA2_2",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap LNA2 Alt Rail",
+        "reference_designator": "C_LNA2_2"
+      }
+    },
+    {
+      "id": "C_DA1_1",
+      "name": "100nF Decoupling Cap DA1",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_DA1_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap DA1",
+        "reference_designator": "C_DA1_1"
+      }
+    },
+    {
+      "id": "C_DA2_1",
+      "name": "100nF Decoupling Cap DA2",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_DA2_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap DA2",
+        "reference_designator": "C_DA2_1"
+      }
+    },
+    {
+      "id": "C_VGA1_1",
+      "name": "100nF Decoupling Cap VGA1",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_VGA1_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap VGA1",
+        "reference_designator": "C_VGA1_1"
+      }
+    },
+    {
+      "id": "C_VGA2_1",
+      "name": "100nF Decoupling Cap VGA2",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_VGA2_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap VGA2",
+        "reference_designator": "C_VGA2_1"
+      }
+    },
+    {
+      "id": "C_ADC_1",
+      "name": "100nF Decoupling Cap ADC 1.8V",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_ADC_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap ADC 1.8V",
+        "reference_designator": "C_ADC_1"
+      }
+    },
+    {
+      "id": "C_ADC_2",
+      "name": "100nF Decoupling Cap ADC 1.8V Analog",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_ADC_2",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap ADC 1.8V Analog",
+        "reference_designator": "C_ADC_2"
+      }
+    },
+    {
+      "id": "C_FPGA_1",
+      "name": "100nF Decoupling Cap FPGA VCC1",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_FPGA_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap FPGA VCC1",
+        "reference_designator": "C_FPGA_1"
+      }
+    },
+    {
+      "id": "C_FPGA_2",
+      "name": "100nF Decoupling Cap FPGA VCC2",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_FPGA_2",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap FPGA VCC2",
+        "reference_designator": "C_FPGA_2"
+      }
+    },
+    {
+      "id": "C_LO1PLL_1",
+      "name": "100nF Decoupling Cap LO1 PLL",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_LO1PLL_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap LO1 PLL",
+        "reference_designator": "C_LO1PLL_1"
+      }
+    },
+    {
+      "id": "C_LO2PLL_1",
+      "name": "100nF Decoupling Cap LO2 PLL",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_LO2PLL_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap LO2 PLL",
+        "reference_designator": "C_LO2PLL_1"
+      }
+    },
+    {
+      "id": "C_TCXO_1",
+      "name": "100nF Decoupling Cap TCXO",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_TCXO_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap TCXO",
+        "reference_designator": "C_TCXO_1"
+      }
+    },
+    {
+      "id": "C_BUCK_1",
+      "name": "100nF Decoupling Cap Buck Converter",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_BUCK_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap Buck Converter",
+        "reference_designator": "C_BUCK_1"
+      }
+    },
+    {
+      "id": "C_5VLDO_1",
+      "name": "100nF Decoupling Cap 5V LDO",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_5VLDO_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap 5V LDO",
+        "reference_designator": "C_5VLDO_1"
+      }
+    },
+    {
+      "id": "C_33LDO_1",
+      "name": "100nF Decoupling Cap 3.3V LDO",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_33LDO_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap 3.3V LDO",
+        "reference_designator": "C_33LDO_1"
+      }
+    },
+    {
+      "id": "C_18LDO_1",
+      "name": "100nF Decoupling Cap 1.8V LDO",
+      "type": "GRM155R71C104KA88D",
+      "pins": [],
+      "properties": {
+        "instance_id": "C_18LDO_1",
+        "part_number": "GRM155R71C104KA88D",
+        "component_name": "100nF Decoupling Cap 1.8V LDO",
+        "reference_designator": "C_18LDO_1"
+      }
+    },
+    {
+      "id": "GND_STAR",
+      "name": "Ground Reference",
+      "type": "GND",
+      "pins": [],
+      "properties": {
+        "instance_id": "GND_STAR",
+        "part_number": "GND",
+        "component_name": "Ground Reference",
+        "reference_designator": "GND_STAR"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "J1",
+      "source_pin": "1",
+      "target": "LIM1",
+      "target_pin": "RF_IN",
+      "signal": "RF_CH1_IN",
+      "type": "rf"
+    },
+    {
+      "source": "J2",
+      "source_pin": "1",
+      "target": "LIM2",
+      "target_pin": "RF_IN",
+      "signal": "RF_CH2_IN",
+      "type": "rf"
+    },
+    {
+      "source": "J1",
+      "source_pin": "GND",
+      "target": "LIM1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "J2",
+      "source_pin": "GND",
+      "target": "LIM2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "LIM1",
+      "source_pin": "RF_OUT",
+      "target": "BPF1",
+      "target_pin": "IN",
+      "signal": "RF_CH1_LIM_OUT",
+      "type": "rf"
+    },
+    {
+      "source": "LIM2",
+      "source_pin": "RF_OUT",
+      "target": "BPF2",
+      "target_pin": "IN",
+      "signal": "RF_CH2_LIM_OUT",
+      "type": "rf"
+    },
+    {
+      "source": "BPF1",
+      "source_pin": "OUT",
+      "target": "LNA1",
+      "target_pin": "RF_IN",
+      "signal": "RF_CH1_BPF_OUT",
+      "type": "rf"
+    },
+    {
+      "source": "BPF2",
+      "source_pin": "OUT",
+      "target": "LNA2",
+      "target_pin": "RF_IN",
+      "signal": "RF_CH2_BPF_OUT",
+      "type": "rf"
+    },
+    {
+      "source": "LNA1",
+      "source_pin": "RF_OUT",
+      "target": "MIX1",
+      "target_pin": "RF",
+      "signal": "RF_CH1_LNA_OUT",
+      "type": "rf"
+    },
+    {
+      "source": "LNA2",
+      "source_pin": "RF_OUT",
+      "target": "MIX2",
+      "target_pin": "RF",
+      "signal": "RF_CH2_LNA_OUT",
+      "type": "rf"
+    },
+    {
+      "source": "U_SPLIT",
+      "source_pin": "OUT_A",
+      "target": "MIX1",
+      "target_pin": "LO",
+      "signal": "LO1_SPLIT_OUT_A",
+      "type": "rf"
+    },
+    {
+      "source": "U_SPLIT",
+      "source_pin": "OUT_B",
+      "target": "MIX2",
+      "target_pin": "LO",
+      "signal": "LO1_SPLIT_OUT_B",
+      "type": "rf"
+    },
+    {
+      "source": "U_LO1PLL",
+      "source_pin": "RF_OUT",
+      "target": "U_SPLIT",
+      "target_pin": "IN",
+      "signal": "LO1_TO_SPLITTER",
+      "type": "rf"
+    },
+    {
+      "source": "MIX1",
+      "source_pin": "IF",
+      "target": "IF1BPF1",
+      "target_pin": "IN",
+      "signal": "IF1_CH1_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "MIX2",
+      "source_pin": "IF",
+      "target": "IF1BPF2",
+      "target_pin": "IN",
+      "signal": "IF1_CH2_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "IF1BPF1",
+      "source_pin": "OUT",
+      "target": "DA1",
+      "target_pin": "RF_IN",
+      "signal": "IF1_CH1_BPF_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "IF1BPF2",
+      "source_pin": "OUT",
+      "target": "DA2",
+      "target_pin": "RF_IN",
+      "signal": "IF1_CH2_BPF_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "DA1",
+      "source_pin": "RF_OUT",
+      "target": "IF2BPF1",
+      "target_pin": "IN",
+      "signal": "IF1_CH1_DA_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "DA2",
+      "source_pin": "RF_OUT",
+      "target": "IF2BPF2",
+      "target_pin": "IN",
+      "signal": "IF1_CH2_DA_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "IF2BPF1",
+      "source_pin": "OUT",
+      "target": "VGA1",
+      "target_pin": "RF_IN",
+      "signal": "IF2_CH1_BPF_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "IF2BPF2",
+      "source_pin": "OUT",
+      "target": "VGA2",
+      "target_pin": "RF_IN",
+      "signal": "IF2_CH2_BPF_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "VGA1",
+      "source_pin": "RF_OUT",
+      "target": "ADC1",
+      "target_pin": "AIN_A",
+      "signal": "IF2_CH1_VGA_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "VGA2",
+      "source_pin": "RF_OUT",
+      "target": "ADC1",
+      "target_pin": "AIN_B",
+      "signal": "IF2_CH2_VGA_OUT",
+      "type": "analog"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D0A_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A0_P",
+      "signal": "LVDS_D0A_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D0A_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A0_N",
+      "signal": "LVDS_D0A_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D1A_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A1_P",
+      "signal": "LVDS_D1A_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D1A_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A1_N",
+      "signal": "LVDS_D1A_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D2A_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A2_P",
+      "signal": "LVDS_D2A_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D2A_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A2_N",
+      "signal": "LVDS_D2A_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D3A_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A3_P",
+      "signal": "LVDS_D3A_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D3A_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A3_N",
+      "signal": "LVDS_D3A_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D4A_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A4_P",
+      "signal": "LVDS_D4A_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D4A_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A4_N",
+      "signal": "LVDS_D4A_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D5A_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A5_P",
+      "signal": "LVDS_D5A_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D5A_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_A5_N",
+      "signal": "LVDS_D5A_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D0B_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B0_P",
+      "signal": "LVDS_D0B_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D0B_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B0_N",
+      "signal": "LVDS_D0B_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D1B_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B1_P",
+      "signal": "LVDS_D1B_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D1B_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B1_N",
+      "signal": "LVDS_D1B_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D2B_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B2_P",
+      "signal": "LVDS_D2B_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D2B_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B2_N",
+      "signal": "LVDS_D2B_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D3B_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B3_P",
+      "signal": "LVDS_D3B_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D3B_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B3_N",
+      "signal": "LVDS_D3B_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D4B_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B4_P",
+      "signal": "LVDS_D4B_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D4B_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B4_N",
+      "signal": "LVDS_D4B_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D5B_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B5_P",
+      "signal": "LVDS_D5B_P",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "D5B_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_PAD_B5_N",
+      "signal": "LVDS_D5B_N",
+      "type": "digital"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "DCO_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_FCLK_P",
+      "signal": "ADC_CLK_OUT_P",
+      "type": "clock"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "DCO_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_FCLK_N",
+      "signal": "ADC_CLK_OUT_N",
+      "type": "clock"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "FCO_P",
+      "target": "U_FPGA",
+      "target_pin": "IO_FCO_P",
+      "signal": "ADC_FCO_P",
+      "type": "clock"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "FCO_N",
+      "target": "U_FPGA",
+      "target_pin": "IO_FCO_N",
+      "signal": "ADC_FCO_N",
+      "type": "clock"
+    },
+    {
+      "source": "U_TCXO",
+      "source_pin": "OUT_P",
+      "target": "U_LO1PLL",
+      "target_pin": "REF_IN",
+      "signal": "100MHZ_REF_TO_LO1",
+      "type": "clock"
+    },
+    {
+      "source": "U_TCXO",
+      "source_pin": "OUT_N",
+      "target": "U_LO2PLL",
+      "target_pin": "OSC_IN",
+      "signal": "100MHZ_REF_TO_LO2",
+      "type": "clock"
+    },
+    {
+      "source": "U_LO2PLL",
+      "source_pin": "RF_OUT_A",
+      "target": "DA1",
+      "target_pin": "BIAS",
+      "signal": "LO2_TO_DA1",
+      "type": "rf"
+    },
+    {
+      "source": "U_LO2PLL",
+      "source_pin": "RF_OUT_B",
+      "target": "DA2",
+      "target_pin": "BIAS",
+      "signal": "LO2_TO_DA2",
+      "type": "rf"
+    },
+    {
+      "source": "U_TCXO",
+      "source_pin": "OUT_P",
+      "target": "ADC1",
+      "target_pin": "CLK_P",
+      "signal": "100MHZ_ADC_CLK",
+      "type": "clock"
+    },
+    {
+      "source": "U_TCXO",
+      "source_pin": "OUT_N",
+      "target": "ADC1",
+      "target_pin": "CLK_N",
+      "signal": "100MHZ_ADC_CLK_N",
+      "type": "clock"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_CLK",
+      "target": "U_LO1PLL",
+      "target_pin": "CLK",
+      "signal": "LO1PLL_SPI_CLK",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_MOSI",
+      "target": "U_LO1PLL",
+      "target_pin": "DATA",
+      "signal": "LO1PLL_SPI_DATA",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_CS0",
+      "target": "U_LO1PLL",
+      "target_pin": "LE",
+      "signal": "LO1PLL_SPI_LE",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_CLK",
+      "target": "U_LO2PLL",
+      "target_pin": "SCLK",
+      "signal": "LO2PLL_SPI_CLK",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_MOSI",
+      "target": "U_LO2PLL",
+      "target_pin": "SDI",
+      "signal": "LO2PLL_SPI_DATA",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_CS1",
+      "target": "U_LO2PLL",
+      "target_pin": "CSB",
+      "signal": "LO2PLL_SPI_CS",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_CLK",
+      "target": "ADC1",
+      "target_pin": "SCLK",
+      "signal": "ADC_SPI_SCLK",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_SDIO",
+      "target": "ADC1",
+      "target_pin": "SDIO",
+      "signal": "ADC_SPI_SDIO",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_SPI_CS2",
+      "target": "ADC1",
+      "target_pin": "CSB",
+      "signal": "ADC_SPI_CSB",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_GPIO_0",
+      "target": "ADC1",
+      "target_pin": "PDWN",
+      "signal": "ADC_PDWN",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_GPIO_1",
+      "target": "ADC1",
+      "target_pin": "OE",
+      "signal": "ADC_OE",
+      "type": "digital"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_DAC_0",
+      "target": "VGA1",
+      "target_pin": "GAIN",
+      "signal": "FPGA_VGA_GAIN_A",
+      "type": "analog"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_DAC_1",
+      "target": "VGA2",
+      "target_pin": "GAIN",
+      "signal": "FPGA_VGA_GAIN_B",
+      "type": "analog"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "LNA1",
+      "target_pin": "VCC",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "LNA2",
+      "target_pin": "VCC",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "DA1",
+      "target_pin": "VDD",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "DA2",
+      "target_pin": "VDD",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "VGA1",
+      "target_pin": "VPOS",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "VGA2",
+      "target_pin": "VPOS",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "U_LO1PLL",
+      "target_pin": "VDD",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "U_LO2PLL",
+      "target_pin": "VCC",
+      "signal": "5V0",
+      "type": "power"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "VOUT",
+      "target": "U_TCXO",
+      "target_pin": "VCC",
+      "signal": "3V3",
+      "type": "power"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "VOUT",
+      "target": "U_FPGA",
+      "target_pin": "VCCBANK0",
+      "signal": "3V3",
+      "type": "power"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "VOUT",
+      "target": "VGA1",
+      "target_pin": "VNEG",
+      "signal": "3V3",
+      "type": "power"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "VOUT",
+      "target": "VGA2",
+      "target_pin": "VNEG",
+      "signal": "3V3",
+      "type": "power"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "VOUT",
+      "target": "ADC1",
+      "target_pin": "DRVDD",
+      "signal": "1V8",
+      "type": "power"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "VOUT",
+      "target": "ADC1",
+      "target_pin": "AVDD",
+      "signal": "1V8",
+      "type": "power"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "VOUT",
+      "target": "U_FPGA",
+      "target_pin": "VCCINT",
+      "signal": "1V8",
+      "type": "power"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "VCCAUX",
+      "target": "U_FPGA",
+      "target_pin": "VCCAUX",
+      "signal": "1V2_FPGA",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "1",
+      "target": "U_BUCK",
+      "target_pin": "VIN",
+      "signal": "15V0_IN",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "U_5V_LDO",
+      "target_pin": "VIN",
+      "signal": "5V5_BUCK",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "U_33_LDO",
+      "target_pin": "VIN",
+      "signal": "5V5_BUCK",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "U_18_LDO",
+      "target_pin": "VIN",
+      "signal": "5V5_BUCK",
+      "type": "power"
+    },
+    {
+      "source": "J_PWR",
+      "source_pin": "GND",
+      "target": "U_BUCK",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "GND",
+      "target": "U_5V_LDO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "GND",
+      "target": "U_33_LDO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "GND",
+      "target": "U_18_LDO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "GND",
+      "target": "ADC1",
+      "target_pin": "AGND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "DGND",
+      "target": "U_FPGA",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "LNA1",
+      "source_pin": "GND",
+      "target": "LNA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "MIX1",
+      "source_pin": "GND",
+      "target": "MIX2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "DA1",
+      "source_pin": "GND",
+      "target": "DA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "VGA1",
+      "source_pin": "GND",
+      "target": "VGA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_LO1PLL",
+      "source_pin": "GND",
+      "target": "U_LO2PLL",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_LNA1_1",
+      "target_pin": "1",
+      "signal": "5V0_C_LNA1_1",
+      "type": "power"
+    },
+    {
+      "source": "C_LNA1_1",
+      "source_pin": "2",
+      "target": "LNA1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_LNA1_2",
+      "target_pin": "1",
+      "signal": "5V0_C_LNA1_2",
+      "type": "power"
+    },
+    {
+      "source": "C_LNA1_2",
+      "source_pin": "2",
+      "target": "LNA1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_LNA2_1",
+      "target_pin": "1",
+      "signal": "5V0_C_LNA2_1",
+      "type": "power"
+    },
+    {
+      "source": "C_LNA2_1",
+      "source_pin": "2",
+      "target": "LNA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_LNA2_2",
+      "target_pin": "1",
+      "signal": "5V0_C_LNA2_2",
+      "type": "power"
+    },
+    {
+      "source": "C_LNA2_2",
+      "source_pin": "2",
+      "target": "LNA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_DA1_1",
+      "target_pin": "1",
+      "signal": "5V0_C_DA1_1",
+      "type": "power"
+    },
+    {
+      "source": "C_DA1_1",
+      "source_pin": "2",
+      "target": "DA1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_DA2_1",
+      "target_pin": "1",
+      "signal": "5V0_C_DA2_1",
+      "type": "power"
+    },
+    {
+      "source": "C_DA2_1",
+      "source_pin": "2",
+      "target": "DA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_VGA1_1",
+      "target_pin": "1",
+      "signal": "5V0_C_VGA1_1",
+      "type": "power"
+    },
+    {
+      "source": "C_VGA1_1",
+      "source_pin": "2",
+      "target": "VGA1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_VGA2_1",
+      "target_pin": "1",
+      "signal": "5V0_C_VGA2_1",
+      "type": "power"
+    },
+    {
+      "source": "C_VGA2_1",
+      "source_pin": "2",
+      "target": "VGA2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "VOUT",
+      "target": "C_ADC_1",
+      "target_pin": "1",
+      "signal": "1V8_C_ADC_1",
+      "type": "power"
+    },
+    {
+      "source": "C_ADC_1",
+      "source_pin": "2",
+      "target": "ADC1",
+      "target_pin": "DGND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "VOUT",
+      "target": "C_ADC_2",
+      "target_pin": "1",
+      "signal": "1V8_C_ADC_2",
+      "type": "power"
+    },
+    {
+      "source": "C_ADC_2",
+      "source_pin": "2",
+      "target": "ADC1",
+      "target_pin": "AGND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_18_LDO",
+      "source_pin": "VOUT",
+      "target": "C_FPGA_1",
+      "target_pin": "1",
+      "signal": "1V8_C_FPGA_1",
+      "type": "power"
+    },
+    {
+      "source": "C_FPGA_1",
+      "source_pin": "2",
+      "target": "U_FPGA",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "VOUT",
+      "target": "C_FPGA_2",
+      "target_pin": "1",
+      "signal": "3V3_C_FPGA_2",
+      "type": "power"
+    },
+    {
+      "source": "C_FPGA_2",
+      "source_pin": "2",
+      "target": "U_FPGA",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_LO1PLL_1",
+      "target_pin": "1",
+      "signal": "5V0_C_LO1PLL_1",
+      "type": "power"
+    },
+    {
+      "source": "C_LO1PLL_1",
+      "source_pin": "2",
+      "target": "U_LO1PLL",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_5V_LDO",
+      "source_pin": "VOUT",
+      "target": "C_LO2PLL_1",
+      "target_pin": "1",
+      "signal": "5V0_C_LO2PLL_1",
+      "type": "power"
+    },
+    {
+      "source": "C_LO2PLL_1",
+      "source_pin": "2",
+      "target": "U_LO2PLL",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_33_LDO",
+      "source_pin": "VOUT",
+      "target": "C_TCXO_1",
+      "target_pin": "1",
+      "signal": "3V3_C_TCXO_1",
+      "type": "power"
+    },
+    {
+      "source": "C_TCXO_1",
+      "source_pin": "2",
+      "target": "U_TCXO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "C_BUCK_1",
+      "target_pin": "1",
+      "signal": "5V5_C_BUCK_1",
+      "type": "power"
+    },
+    {
+      "source": "C_BUCK_1",
+      "source_pin": "2",
+      "target": "U_BUCK",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "C_5VLDO_1",
+      "target_pin": "1",
+      "signal": "5V5_C_5VLDO_1",
+      "type": "power"
+    },
+    {
+      "source": "C_5VLDO_1",
+      "source_pin": "2",
+      "target": "U_5V_LDO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "C_33LDO_1",
+      "target_pin": "1",
+      "signal": "5V5_C_33LDO_1",
+      "type": "power"
+    },
+    {
+      "source": "C_33LDO_1",
+      "source_pin": "2",
+      "target": "U_33_LDO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "VOUT",
+      "target": "C_18LDO_1",
+      "target_pin": "1",
+      "signal": "5V5_C_18LDO_1",
+      "type": "power"
+    },
+    {
+      "source": "C_18LDO_1",
+      "source_pin": "2",
+      "target": "U_18_LDO",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_FPGA",
+      "source_pin": "IO_DATA_OUT",
+      "target": "J_DIG",
+      "target_pin": "DATA",
+      "signal": "FPGA_DIG_OUT",
+      "type": "digital"
+    },
+    {
+      "source": "J_DIG",
+      "source_pin": "GND",
+      "target": "U_FPGA",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_SPLIT",
+      "source_pin": "GND",
+      "target": "MIX1",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "IF1BPF1",
+      "source_pin": "GND",
+      "target": "IF1BPF2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "IF2BPF1",
+      "source_pin": "GND",
+      "target": "IF2BPF2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "BPF1",
+      "source_pin": "GND",
+      "target": "BPF2",
+      "target_pin": "GND",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "J1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "J2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "LIM1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "LIM2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "BPF1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "BPF2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "IF1BPF1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "IF1BPF2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "DA1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "DA2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "IF2BPF1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "IF2BPF2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "VGA1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "VGA2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "ADC1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "ADC1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "U_FPGA",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "U_LO1PLL",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "J_DIG",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_DA1_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_DA1_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_DA2_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_DA2_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_VGA1_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_VGA1_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_VGA2_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_VGA2_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_ADC_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_ADC_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_ADC_2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_ADC_2",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_FPGA_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_FPGA_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_FPGA_2",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_FPGA_2",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_LO1PLL_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_LO1PLL_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_LO2PLL_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_LO2PLL_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    },
+    {
+      "source": "U_BUCK",
+      "source_pin": "OUT",
+      "target": "C_TCXO_1",
+      "target_pin": "VCC",
+      "signal": "VCC",
+      "type": "power"
+    },
+    {
+      "source": "C_TCXO_1",
+      "source_pin": "GND",
+      "target": "GND_STAR",
+      "target_pin": "1",
+      "signal": "GND",
+      "type": "ground"
+    }
+  ],
+  "metadata": {}
+}
