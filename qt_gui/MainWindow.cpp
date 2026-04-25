@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     initConnections();
 
-    statusBar()->showMessage(tr("hjjg (Digital) — Ready"));
+    statusBar()->showMessage(tr("hjjg (digital) — Ready"));
 }
 
 MainWindow::~MainWindow()
