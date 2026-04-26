@@ -1,0 +1,338 @@
+{
+  "checks_run": [
+    "shorts",
+    "power_collision",
+    "pin_multiple_nets",
+    "floating_net",
+    "dangling_power_rail",
+    "power_rail_no_driver",
+    "power_naming",
+    "missing_decap",
+    "cdc_boundary_undeclared",
+    "unknown_ref"
+  ],
+  "violations": [
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/L2.VIN",
+      "detail": "Pin L2.VIN is connected to multiple power nets: VIN_MAIN, VOUT_U16"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/VCC_IN_28.1",
+      "detail": "Pin VCC_IN_28.1 is connected to multiple power nets: EN_HIGH, VIN_MAIN"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/VCC_IN_30.1",
+      "detail": "Pin VCC_IN_30.1 is connected to multiple power nets: EN_HIGH, VIN_MAIN"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/VCC_IN_32.1",
+      "detail": "Pin VCC_IN_32.1 is connected to multiple power nets: EN_HIGH, VIN_MAIN"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/VCC_IN_34.1",
+      "detail": "Pin VCC_IN_34.1 is connected to multiple power nets: EN_HIGH, VIN_MAIN"
+    },
+    {
+      "severity": "critical",
+      "rule": "power_collision",
+      "location": "pin/VCC_IN_36.1",
+      "detail": "Pin VCC_IN_36.1 is connected to multiple power nets: EN_HIGH, VIN_MAIN"
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/J1.RF_OUT",
+      "detail": "Pin J1.RF_OUT is connected to 2 distinct nets \u2014 RF_J1, RF_OUT_J1 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/J3.RF_OUT",
+      "detail": "Pin J3.RF_OUT is connected to 2 distinct nets \u2014 RF_J3, RF_OUT_J3 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U13.VIN",
+      "detail": "Pin U13.VIN is connected to 2 distinct nets \u2014 RF_OUT_P_U7, VIN_MAIN \u2014 types: analog, power. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U13.VOUT",
+      "detail": "Pin U13.VOUT is connected to 3 distinct nets \u2014 FB_U13, VCC_5V, VOUT_U13 \u2014 types: analog, power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U14.VIN",
+      "detail": "Pin U14.VIN is connected to 2 distinct nets \u2014 VIN_MAIN, VOUT_U13 \u2014 types: analog, power. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U14.VOUT",
+      "detail": "Pin U14.VOUT is connected to 3 distinct nets \u2014 FB_U14, VCC_3V3, VOUT_U14 \u2014 types: analog, power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U15.VIN",
+      "detail": "Pin U15.VIN is connected to 2 distinct nets \u2014 VIN_MAIN, VOUT_U14 \u2014 types: analog, power. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U15.VOUT",
+      "detail": "Pin U15.VOUT is connected to 3 distinct nets \u2014 FB_U15, VCC_1V8, VOUT_U15 \u2014 types: analog, power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U16.VIN",
+      "detail": "Pin U16.VIN is connected to 2 distinct nets \u2014 VIN_MAIN, VOUT_U15 \u2014 types: analog, power. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U16.VOUT",
+      "detail": "Pin U16.VOUT is connected to 2 distinct nets \u2014 FB_U16, VOUT_U16 \u2014 types: analog, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U11.SPI_CLK",
+      "detail": "Pin U11.SPI_CLK is connected to 3 distinct nets \u2014 SPI_SPI_CLK_U10, SPI_SPI_CLK_U3, SPI_SPI_CLK_U7 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U11.SPI_MOSI",
+      "detail": "Pin U11.SPI_MOSI is connected to 3 distinct nets \u2014 SPI_SPI_DATA_U3, SPI_SPI_DATA_U7, SPI_SPI_MOSI_U10 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U11.SPI_CS_CLKGEN",
+      "detail": "Pin U11.SPI_CS_CLKGEN is connected to 2 distinct nets \u2014 SPI_SPI_LE_U3, SPI_SPI_LE_U7 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U10.CLK_P",
+      "detail": "Pin U10.CLK_P is connected to 2 distinct nets \u2014 CLK_ADC_P, PD_U10_CLK_P \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U10.CLK_N",
+      "detail": "Pin U10.CLK_N is connected to 2 distinct nets \u2014 AC_GND_U10_CLK_N, CLK_ADC_N \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U3.CLK_REF_P",
+      "detail": "Pin U3.CLK_REF_P is connected to 2 distinct nets \u2014 CLK_ADC_P, PD_U3_CLK_REF_P \u2014 types: clock, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U3.CLK_REF_N",
+      "detail": "Pin U3.CLK_REF_N is connected to 2 distinct nets \u2014 AC_GND_U3_CLK_REF_N, CLK_ADC_N \u2014 types: analog, clock. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U13.EN",
+      "detail": "Pin U13.EN is connected to 2 distinct nets \u2014 EN_HIGH, PD_U13_EN \u2014 types: power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U14.EN",
+      "detail": "Pin U14.EN is connected to 2 distinct nets \u2014 EN_HIGH, PD_U14_EN \u2014 types: power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U15.EN",
+      "detail": "Pin U15.EN is connected to 2 distinct nets \u2014 EN_HIGH, PD_U15_EN \u2014 types: power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/U16.EN",
+      "detail": "Pin U16.EN is connected to 2 distinct nets \u2014 EN_HIGH, PD_U16_EN \u2014 types: power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/L2.EN",
+      "detail": "Pin L2.EN is connected to 2 distinct nets \u2014 EN_HIGH, PD_L2_EN \u2014 types: power, signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "high",
+      "rule": "pin_multiple_nets",
+      "location": "pin/L2.VOUT",
+      "detail": "Pin L2.VOUT is connected to 2 distinct nets \u2014 FB_L2, VOUT_L2 \u2014 types: signal. A single pin is one electrical node, so these nets are shorted together. If this is a differential pair (_P/_N) tied to one off-page connector pin, give each polarity its own connector pin."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/DC_IN_BT1",
+      "detail": "Power/ground rail 'DC_IN_BT1' has 4 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC",
+      "detail": "Power/ground rail 'VCC' has 65 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/AVDD",
+      "detail": "Power/ground rail 'AVDD' has 5 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/DVDD",
+      "detail": "Power/ground rail 'DVDD' has 5 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCCINT",
+      "detail": "Power/ground rail 'VCCINT' has 9 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCCIO",
+      "detail": "Power/ground rail 'VCCIO' has 9 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_RF",
+      "detail": "Power/ground rail 'VCC_RF' has 8 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_DIG",
+      "detail": "Power/ground rail 'VCC_DIG' has 8 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VOUT_U16",
+      "detail": "Power/ground rail 'VOUT_U16' has 4 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VOUT_L2",
+      "detail": "Power/ground rail 'VOUT_L2' has 4 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VIN_MAIN",
+      "detail": "Power/ground rail 'VIN_MAIN' has 10 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/EN_HIGH",
+      "detail": "Power/ground rail 'EN_HIGH' has 10 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_5V",
+      "detail": "Power/ground rail 'VCC_5V' has 3 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_3V3",
+      "detail": "Power/ground rail 'VCC_3V3' has 3 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "medium",
+      "rule": "power_rail_no_driver",
+      "location": "net/VCC_1V8",
+      "detail": "Power/ground rail 'VCC_1V8' has 3 endpoints but none of the reference designators look like a driver (PWR*, REG*, LDO*, CONN*). Verify a supply source is actually connected."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/DC_IN_BT1",
+      "detail": "Power net 'DC_IN_BT1' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/VCCINT",
+      "detail": "Power net 'VCCINT' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/VCCIO",
+      "detail": "Power net 'VCCIO' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/VIN_MAIN",
+      "detail": "Power net 'VIN_MAIN' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "low",
+      "rule": "power_naming",
+      "location": "net/EN_HIGH",
+      "detail": "Power net 'EN_HIGH' does not match the standard rail naming convention (VCC_*, VDD_*, V3V3, +5V, etc.)."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/VIN_MAIN",
+      "detail": "Power net 'VIN_MAIN' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "missing_decap",
+      "location": "net/EN_HIGH",
+      "detail": "Power net 'EN_HIGH' has no capacitor-class reference (C*) attached \u2014 add bulk + bypass decoupling."
+    },
+    {
+      "severity": "medium",
+      "rule": "cdc_boundary_undeclared",
+      "location": "clocks/AC_GND_J6_CLK_IN_N,AC_GND_U10_CLK_N,AC_GND_U11_CLK_IN_N,AC_GND_U3_CLK_REF_N,AC_GND_U7_CLK_REF_N,CLK_ADC_N,CLK_ADC_P,PD_J6_CLK_IN_P,PD_U10_CLK_P,PD_U11_CLK_IN_P,PD_U3_CLK_REF_P,PD_U7_CLK_REF_P,SPI_CLK_J6,SPI_SPI_CLK_U10,SPI_SPI_CLK_U3,SPI_SPI_CLK_U7",
+      "detail": "Design has 16 distinct clock domains (AC_GND_J6_CLK_IN_N, AC_GND_U10_CLK_N, AC_GND_U11_CLK_IN_N, AC_GND_U3_CLK_REF_N, AC_GND_U7_CLK_REF_N, CLK_ADC_N, CLK_ADC_P, PD_J6_CLK_IN_P, PD_U10_CLK_P, PD_U11_CLK_IN_P, PD_U3_CLK_REF_P, PD_U7_CLK_REF_P, SPI_CLK_J6, SPI_SPI_CLK_U10, SPI_SPI_CLK_U3, SPI_SPI_CLK_U7) but no CDC synchroniser / FIFO / dual-port cell is declared in the BOM. Metastability risk unless RTL adds 2FF synchronisers at every crossing."
+    }
+  ],
+  "counts": {
+    "critical": 6,
+    "high": 23,
+    "medium": 18,
+    "low": 5,
+    "info": 0
+  },
+  "overall_pass": false,
+  "source": "schematic_post_synthesis",
+  "sheet_count": 1
+}

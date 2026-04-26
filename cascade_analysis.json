@@ -1,0 +1,23 @@
+{
+  "direction": "rx",
+  "stages": [],
+  "totals": {
+    "nf_db": null,
+    "gain_db": null,
+    "iip3_dbm": null,
+    "stage_count": 0
+  },
+  "claims": {
+    "nf_db": "8",
+    "iip3_dbm": "20",
+    "total_gain_db": null
+  },
+  "verdict": {
+    "nf_pass": null,
+    "gain_pass": null,
+    "iip3_pass": null,
+    "nf_headroom_db": null,
+    "iip3_headroom_db": null,
+    "gain_delta_db": null
+  }
+}
