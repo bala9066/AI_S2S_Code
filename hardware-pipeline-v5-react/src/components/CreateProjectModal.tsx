@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import type { ProjectType, DesignScope } from '../types';
-import { PROJECT_TYPES, scopesForProjectType, SCOPE_DESC } from '../data/rfArchitect';
 
 interface Props {
   /** Caller receives the picked values. The 5th argument (`design_scope`)
@@ -63,47 +62,25 @@ function inferProjectType(name: string): ProjectType {
   return 'receiver';
 }
 
-/** Order matches the PROJECT_TYPES dict but explicit so we control the
- *  visual layout — Receiver / Transmitter on top row, Transceiver alone
- *  on row 2, then Power Supply + Switch Matrix on row 3. */
-const TYPE_ORDER: ProjectType[] = [
-  'receiver', 'transmitter', 'transceiver', 'power_supply', 'switch_matrix',
-];
-
 export default function CreateProjectModal({ onConfirm, onCancel }: Props) {
   const [name, setName] = useState('');
-  // null = "auto-detect from name" (default). Once the user clicks a
-  // card we lock to that type and stop following the inference.
-  const [pickedType, setPickedType] = useState<ProjectType | null>(null);
-  const [pickedScope, setPickedScope] = useState<DesignScope | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Live inference from the typed name (only used when the user hasn't
-  // clicked a card yet).
-  const inferredType: ProjectType = useMemo(
+  // Class + scope are inferred from the project name; the wizard refines
+  // both inside ChatView. Keeping inference here so the backend still
+  // gets a sensible project_type on creation.
+  const effectiveType: ProjectType = useMemo(
     () => (name.trim() ? inferProjectType(name) : 'receiver'),
     [name],
   );
-  const effectiveType: ProjectType = pickedType ?? inferredType;
-  const allowedScopes = useMemo(
-    () => scopesForProjectType(effectiveType),
-    [effectiveType],
-  );
-  // If the user changes type and the previously-picked scope is no longer
-  // allowed, drop it so we don't ship an invalid combination.
-  useEffect(() => {
-    if (pickedScope && !allowedScopes.includes(pickedScope)) {
-      setPickedScope(null);
-    }
-  }, [allowedScopes, pickedScope]);
 
   const handleSubmit = async () => {
     if (!name.trim() || loading) return;
     setLoading(true);
     try {
       const dtype = inferDesignType(name, effectiveType);
-      // Default scope: 'full' — covers all 5 types and is always allowed.
-      const scope: DesignScope = pickedScope ?? 'full';
+      // Scope defaults to 'full'; user narrows it in the wizard.
+      const scope: DesignScope = 'full';
       await onConfirm(name.trim(), '', dtype, effectiveType, scope);
     } finally {
       setLoading(false);
@@ -145,100 +122,10 @@ export default function CreateProjectModal({ onConfirm, onCancel }: Props) {
           New Project
         </div>
         <div style={{ fontSize: 12, color: 'var(--text3)', marginBottom: 22 }}>
-          Pick the project class first, then name it. Scope can be changed later in the wizard.
+          Give your project a name — class and scope are inferred from the name and refined inside the wizard.
         </div>
 
-        {/* ── Step 1 — TYPE PICKER ─────────────────────────────────── */}
-        <div style={{ marginBottom: 22 }}>
-          <label style={labelStyle}>
-            PROJECT CLASS <span style={{ color: 'var(--teal)' }}>*</span>
-            {pickedType === null && name.trim() && (
-              <span style={{ marginLeft: 10, color: 'var(--text4)', textTransform: 'none' as const, letterSpacing: 0 }}>
-                · auto-detect: <span style={{ color: TYPE_TINT[inferredType] }}>{PROJECT_TYPES[inferredType]?.name}</span>
-              </span>
-            )}
-          </label>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
-            {TYPE_ORDER.map(tid => {
-              const t = PROJECT_TYPES[tid];
-              if (!t) return null;
-              const isEffective = effectiveType === tid;
-              const tint = TYPE_TINT[tid];
-              return (
-                <button
-                  key={tid}
-                  type="button"
-                  onClick={() => setPickedType(tid)}
-                  style={{
-                    display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 4,
-                    padding: '10px 12px', textAlign: 'left' as const,
-                    background: isEffective ? `${tint}1A` : 'var(--panel2)',
-                    border: `1px solid ${isEffective ? tint : 'var(--panel3)'}`,
-                    borderRadius: 6, cursor: 'pointer',
-                    color: 'var(--text)', fontFamily: "'DM Mono', monospace",
-                    transition: 'all 0.14s',
-                    minHeight: 64,
-                  }}
-                  title={t.desc}
-                >
-                  <div style={{
-                    fontFamily: "'Syne', sans-serif", fontSize: 13, fontWeight: 700,
-                    color: isEffective ? tint : 'var(--text)',
-                  }}>
-                    {t.name}
-                  </div>
-                  <div style={{
-                    fontSize: 10, color: 'var(--text4)', lineHeight: 1.3,
-                    overflow: 'hidden' as const, textOverflow: 'ellipsis' as const,
-                    display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as const,
-                  }}>
-                    {t.desc.split(' — ')[0]}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* ── Step 2 — SCOPE (only when more than one option) ──────── */}
-        {allowedScopes.length > 1 && (
-          <div style={{ marginBottom: 22 }}>
-            <label style={labelStyle}>
-              DESIGN SCOPE
-              <span style={{ marginLeft: 10, color: 'var(--text4)', textTransform: 'none' as const, letterSpacing: 0 }}>
-                · default: Full · changeable in the wizard
-              </span>
-            </label>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {(['full','front-end','downconversion','dsp'] as DesignScope[])
-                .filter(s => allowedScopes.includes(s))
-                .map(s => {
-                  const isPicked = (pickedScope ?? 'full') === s;
-                  return (
-                    <button
-                      key={s}
-                      type="button"
-                      onClick={() => setPickedScope(s)}
-                      style={{
-                        padding: '6px 12px',
-                        background: isPicked ? `${TYPE_TINT[effectiveType]}1A` : 'var(--panel2)',
-                        border: `1px solid ${isPicked ? TYPE_TINT[effectiveType] : 'var(--panel3)'}`,
-                        borderRadius: 999, cursor: 'pointer',
-                        color: isPicked ? TYPE_TINT[effectiveType] : 'var(--text2)',
-                        fontFamily: "'DM Mono', monospace", fontSize: 11,
-                        textTransform: 'capitalize' as const,
-                      }}
-                      title={SCOPE_DESC[s].desc}
-                    >
-                      {s.replace('-', ' ')}
-                    </button>
-                  );
-                })}
-            </div>
-          </div>
-        )}
-
-        {/* ── Step 3 — NAME ─────────────────────────────────────────── */}
+        {/* ── NAME (sole input — class/scope inferred + refined in wizard) ── */}
         <div style={{ marginBottom: 22 }}>
           <label style={labelStyle}>PROJECT NAME <span style={{ color: 'var(--teal)' }}>*</span></label>
           <input
@@ -281,7 +168,7 @@ export default function CreateProjectModal({ onConfirm, onCancel }: Props) {
             color: name.trim() && !loading ? '#0a0216' : 'var(--text4)',
             transition: 'all 0.15s', letterSpacing: '0.04em',
           }}>
-            {loading ? 'Creating…' : `CREATE ${PROJECT_TYPES[effectiveType]?.name?.toUpperCase()} →`}
+            {loading ? 'Creating…' : 'CREATE PROJECT →'}
           </button>
         </div>
       </div>

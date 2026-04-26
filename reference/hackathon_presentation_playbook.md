@@ -1,4 +1,4 @@
-# Hardware Pipeline – Hackathon Presentation Playbook
+# Silicon to Software (S2S) – Hackathon Presentation Playbook
 *Saved from session discussion — 2026-03-18*
 
 ---
@@ -7,7 +7,7 @@
 
 | # | Slide Title | Core Content | Visual Cue |
 |---|-------------|--------------|------------|
-| 1 | **Title + Team** | "Hardware Pipeline – AI‑driven hardware‑software co‑design" Team: Code Knights (logo, members) | Clean hero image (circuit + AI brain) |
+| 1 | **Title + Team** | "Silicon to Software (S2S) – AI‑driven hardware‑software co‑design" Team: Code Knights (logo, members) | Clean hero image (circuit + AI brain) |
 | 2 | **Problem Snapshot** | 60‑80% of engineering time spent on repetitive docs, part‑search, compliance, code review. 6‑12 mo cycles, high error rates, silos. | 1‑column bullet + 1‑column bar chart (time distribution) |
 | 3 | **Pain‑Points (User Journey)** | Timeline of the 11 manual steps with red "pain" icons. Highlight three biggest cost drivers: component selection, spec authoring, code review. | Timeline graphic (light gray) → red "pain" spikes |
 | 4 | **Opportunity (Why AI now?)** | Massive unstructured data (datasheets, standards). LLMs can synthesize & reason. RAG gives deterministic retrieval. | Simple "AI‑ready" icon + stats (e.g., 10M+ datasheets indexed) |
@@ -28,7 +28,7 @@
 
 | Slide | What to Say |
 |-------|-------------|
-| 1 | "Good morning – we're Code Knights. Our AI‑driven Hardware Pipeline turns a 6‑12 month hardware‑software flow into a 4‑minute, error‑free experience." |
+| 1 | "Good morning – we're Code Knights. Our AI‑driven Silicon to Software (S2S) turns a 6‑12 month hardware‑software flow into a 4‑minute, error‑free experience." |
 | 2 | "Engineers spend up to 80% of their time on paperwork, part searches and reviews – that's the real bottleneck, not the silicon." |
 | 3 | Walk the audience through the 11 manual steps; point out where delays and re‑work happen (e.g., netlist errors discovered only after PCB layout). |
 | 4 | "Large language models can read 10M+ datasheets, understand standards, and generate structured specs – the perfect tool to eliminate those manual loops." |

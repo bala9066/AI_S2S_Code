@@ -1,4 +1,4 @@
-# Hardware Pipeline — Deploy on a New PC
+# Silicon to Software (S2S) — Deploy on a New PC
 
 ## Prerequisites (install once on the new PC)
 

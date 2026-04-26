@@ -1,4 +1,4 @@
-# Hardware Pipeline V2 — Project Memory
+# Silicon to Software (S2S) V2 — Project Memory
 
 ## Current Status
 - **FastAPI backend** running on `localhost:8000` — serves API + React frontend
@@ -73,7 +73,7 @@ CSS variables in `src/index.css`: `--navy`, `--panel`, `--panel2`, `--panel3`, `
 ```
 +---------------------------------------------------------------------+
 |  TOPBAR  56px fixed                                                  |
-|  [lightning] Hardware Pipeline  |  OVERVIEW  NEW-PROJECT  CHAT      |
+|  [lightning] Silicon to Software (S2S)  |  OVERVIEW  NEW-PROJECT  CHAT      |
 |  PIPELINE  DOCUMENTS  COMPONENTS  NETLIST  CODE  DASHBOARD           |
 |                                        |  [dot] Rf_design  ENGINE[dot]|
 +------------------+---------------------------+----------------------+
@@ -106,7 +106,7 @@ CSS variables in `src/index.css`: `--navy`, `--panel`, `--panel2`, `--panel3`, `
 
 | Tab | View | Key Content |
 |-----|------|-------------|
-| OVERVIEW | Landing / hero | Hero "Hardware Pipeline" (Pipeline in teal), KPI cards, project grid with Open/Create buttons |
+| OVERVIEW | Landing / hero | Hero "Silicon to Software (S2S)" (Pipeline in teal), KPI cards, project grid with Open/Create buttons |
 | NEW-PROJECT | Project creation form | Inline form: name, description, design type (RF/Digital). No product_id field (backend doesn't accept it) |
 | CHAT | Design Chat (P1) | Chat interface with streaming display, suggestion chips, message history |
 | PIPELINE | Phase cards | All P1–P8c cards with inputs/outputs/tools/metrics/sub-steps/Run buttons |
@@ -281,7 +281,7 @@ async def serve_frontend():
 
 ## Branding
 
-- Hero headline: **"Hardware Pipeline"** — "Pipeline" in teal `#00c6a7`
+- Hero headline: **"Silicon to Software (S2S)"** — "Pipeline" in teal `#00c6a7`
 - Subline: `DATA PATTERNS INDIA · GREAT AI HACK-A-THON 2026`
 - Team credits: **NOT included**
 - Logo: lightning bolt icon (teal) — use ASCII `[lightning]` in code to avoid encoding issues

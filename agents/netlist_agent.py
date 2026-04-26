@@ -2,7 +2,7 @@
 Phase 4: Logical Netlist Generation Agent (KEY INNOVATION)
 
 Generates netlist BEFORE PCB design using AI + NetworkX validation.
-This is the core differentiator of Hardware Pipeline.
+This is the core differentiator of Silicon to Software (S2S).
 """
 
 import json

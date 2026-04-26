@@ -1,4 +1,4 @@
-# Ablation Matrix — Hardware Pipeline V2
+# Ablation Matrix — Silicon to Software (S2S) V2
 
 **Driver:** `scripts/run_ablation_matrix.py`
 **Latest report:** `eval_results/ablation_1776488033.json`

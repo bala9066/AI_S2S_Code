@@ -1,7 +1,7 @@
 # ADR-003 — Requirements Lock Semantics
 
 **Status:** Accepted, 2026-04-18.
-**Authors:** Hardware Pipeline team.
+**Authors:** Silicon to Software (S2S) team.
 **Related:** ADR-001 (model selection), ADR-002 (elicitation order),
 `services/requirements_lock.py`, `migrations/001_requirements_lock.sql`,
 `agents/red_team_audit.py`.

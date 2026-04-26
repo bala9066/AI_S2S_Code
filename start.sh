@@ -1,11 +1,11 @@
 #!/bin/bash
-# Hardware Pipeline — startup script
+# Silicon to Software (S2S) — startup script
 # Runs FastAPI backend + Streamlit UI side by side
 
 set -e
 
 echo "================================================"
-echo "  ⚡ Hardware Pipeline — AI Hackathon 2026"
+echo "  ⚡ Silicon to Software (S2S) — AI Hackathon 2026"
 echo "================================================"
 
 # Check for API keys
@@ -55,7 +55,7 @@ STREAMLIT_PID=$!
 
 echo ""
 echo "================================================"
-echo "  🚀 Hardware Pipeline is LIVE"
+echo "  🚀 Silicon to Software (S2S) is LIVE"
 echo "  Backend : http://localhost:8000"
 echo "  API Docs: http://localhost:8000/docs"
 echo "  UI      : http://localhost:8501"

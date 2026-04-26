@@ -8,7 +8,7 @@ version = "1.0.0"
 description = "AI-powered hardware design automation pipeline"
 requires-python = ">=3.12"
 authors = [
-    {name = "Hardware Pipeline Team"},
+    {name = "Silicon to Software (S2S) Team"},
 ]
 readme = "README.md"
 license = {text = "MIT"}

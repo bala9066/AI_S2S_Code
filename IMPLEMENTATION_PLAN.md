@@ -1,4 +1,4 @@
-# Hardware Pipeline V2 — 5-Week Implementation Plan
+# Silicon to Software (S2S) V2 — 5-Week Implementation Plan
 
 Version 1.0 — companion to `CLAUDE.md`. Scope: next-round hackathon preparation for a live panel (CEO/COO/CTO/AI experts/hardware + software senior managers), written submission not mandatory, hands-on technical deep-dive by judges. Target domains: radar, electronic warfare (EW), satcom, and tactical communications. Architecture designed for future expansion into avionics, space, naval, and weapons-platform electronics.
 

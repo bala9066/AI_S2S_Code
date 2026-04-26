@@ -2,11 +2,11 @@
 setlocal enabledelayedexpansion
 
 cd /d "%~dp0"
-title Hardware Pipeline -- One-Click Install
+title Silicon to Software (S2S) -- One-Click Install
 
 echo.
 echo  ============================================================
-echo   Hardware Pipeline  ^|  One-Click Install ^& Launch
+echo   Silicon to Software (S2S)  ^|  One-Click Install ^& Launch
 echo  ============================================================
 echo.
 
@@ -85,7 +85,7 @@ timeout /t 1 /nobreak >nul
 
 REM ── 5. Start FastAPI backend ──────────────────────────────────────────────────
 echo.
-echo  [3/3] Starting Hardware Pipeline backend...
+echo  [3/3] Starting Silicon to Software (S2S) backend...
 start "S2S -- FastAPI Backend" cmd /k "title S2S — FastAPI Backend && cd /d "%~dp0" && %PYTHON_CMD% -m uvicorn main:app --host 0.0.0.0 --port 8000 --log-level info"
 
 REM ── 6. Wait for health ───────────────────────────────────────────────────────
@@ -108,7 +108,7 @@ start "" "http://localhost:8000/app"
 
 echo.
 echo  ============================================================
-echo   Hardware Pipeline is RUNNING
+echo   Silicon to Software (S2S) is RUNNING
 echo.
 echo   App    ->  http://localhost:8000/app
 echo   API    ->  http://localhost:8000/docs

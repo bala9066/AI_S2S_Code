@@ -1,5 +1,5 @@
 """
-SQLAlchemy database models for Hardware Pipeline.
+SQLAlchemy database models for Silicon to Software (S2S).
 Supports PostgreSQL (production) and SQLite (development/demo).
 
 Session strategy:

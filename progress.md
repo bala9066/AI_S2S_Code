@@ -1,4 +1,4 @@
-# Progress Tracker — Hardware Pipeline V2 (Next-Round Hardening)
+# Progress Tracker — Silicon to Software (S2S) V2 (Next-Round Hardening)
 
 **Last updated:** 2026-04-18 (fifth autonomous pass — demo-day polish: judge-mode wipe-state, rerun-plan drawer, networked datasheet sweep report, and in-chat follow-up clarify cards all landed).
 **Scope:** 5-week plan from `IMPLEMENTATION_PLAN.md`, 4 workstreams, team of 4, $1500 budget.

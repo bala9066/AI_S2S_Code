@@ -1,5 +1,5 @@
 #!/bin/bash
-# Hardware Pipeline - Deployment Script
+# Silicon to Software (S2S) - Deployment Script
 # Usage: ./deploy.sh [dev|prod]
 
 set -e
@@ -8,7 +8,7 @@ ENV=${1:-dev}
 PORT=${2:-8501}
 
 echo "=========================================="
-echo "Hardware Pipeline Deployment Script"
+echo "Silicon to Software (S2S) Deployment Script"
 echo "=========================================="
 echo "Environment: $ENV"
 echo "Port: $PORT"
@@ -34,7 +34,7 @@ if [ ! -f .env ]; then
     echo "WARNING: .env file not found"
     echo "Creating from template..."
     cat > .env << 'ENVEOF'
-# Hardware Pipeline Environment Variables
+# Silicon to Software (S2S) Environment Variables
 
 # API Keys (set at least one)
 ANTHROPIC_API_KEY=
@@ -66,7 +66,7 @@ echo "✅ Directories created"
 # Start Streamlit
 echo ""
 echo "=========================================="
-echo "Starting Hardware Pipeline..."
+echo "Starting Silicon to Software (S2S)..."
 echo "=========================================="
 echo "UI will be available at: http://localhost:$PORT"
 echo ""

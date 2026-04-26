@@ -67,7 +67,7 @@ class GitManager:
         self,
         message: str,
         files: Optional[list[str]] = None,
-        author_name: str = "Hardware Pipeline AI",
+        author_name: str = "Silicon to Software (S2S) AI",
         author_email: str = "pipeline@hardware-ai.local",
     ) -> Optional[str]:
         """

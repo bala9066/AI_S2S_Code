@@ -1,5 +1,5 @@
 """
-Hardware Pipeline - Document & Code Generators
+Silicon to Software (S2S) - Document & Code Generators
 Templates and generators for HRS, SRS, SDD, GLR, netlist, and code.
 """
 

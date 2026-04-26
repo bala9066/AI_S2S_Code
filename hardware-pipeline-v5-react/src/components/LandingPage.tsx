@@ -93,8 +93,8 @@ export default function LandingPage({ onCreate, onLoad, theme = 'dark', onToggle
 
         {/* Hero headline */}
         <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 52, fontWeight: 800, lineHeight: 1.05, marginBottom: 12 }}>
-          Hardware{' '}
-          <span style={{ color: 'var(--teal)', textShadow: '0 0 40px rgba(0,198,167,0.4)' }}>Pipeline</span>
+          Silicon to Software{' '}
+          <span style={{ color: 'var(--teal)', textShadow: '0 0 40px rgba(0,198,167,0.4)' }}>(S2S)</span>
         </div>
 
         {/* Tagline */}

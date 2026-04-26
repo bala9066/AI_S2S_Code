@@ -1,6 +1,6 @@
 # How to Test the Full Architecture
 
-This guide explains how to test the Hardware Pipeline AI System with real API keys.
+This guide explains how to test the Silicon to Software (S2S) AI System with real API keys.
 
 ## Quick Start (3 Steps)
 
@@ -433,7 +433,7 @@ Create a test script `run_all_tests.sh`:
 
 ```bash
 #!/bin/bash
-echo "Running all Hardware Pipeline tests..."
+echo "Running all Silicon to Software (S2S) tests..."
 
 echo "[1/3] Simple API test..."
 python simple_api_test.py

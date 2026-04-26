@@ -1,4 +1,4 @@
-# Evaluation Rubric — Hardware Pipeline V2
+# Evaluation Rubric — Silicon to Software (S2S) V2
 
 **Owner:** Workstream D (Product / Eval)
 **Ticket:** D1.2

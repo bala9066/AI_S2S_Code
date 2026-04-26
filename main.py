@@ -1,5 +1,5 @@
 """
-Hardware Pipeline — FastAPI backend.
+Silicon to Software (S2S) — FastAPI backend.
 
 Design principles applied here:
 - Thin route handlers: parse request → call service → return response.
@@ -172,7 +172,7 @@ _LOGIN_PAGE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hardware Pipeline — Login</title>
+<title>Silicon to Software (S2S) — Login</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>

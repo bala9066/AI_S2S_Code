@@ -1,7 +1,7 @@
 """
 Test script to diagnose Mermaid rendering setup.
 
-This script tests all three rendering methods used by the Hardware Pipeline:
+This script tests all three rendering methods used by the Silicon to Software (S2S):
 1. mmdc (mermaid-cli)
 2. Node.js renderer (mermaid_renderer.js)
 3. mermaid.ink public API
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     print("Mermaid Rendering Diagnostic Tool")
     print("=" * 60)
     print("\nThis tool checks which Mermaid rendering methods are available.")
-    print("Hardware Pipeline tries methods in this order:")
+    print("Silicon to Software (S2S) tries methods in this order:")
     print("  1. mmdc (mermaid-cli) - preferred, works on all platforms")
     print("  2. Node.js renderer - requires node + cairosvg")
     print("  3. mermaid.ink API - requires internet")

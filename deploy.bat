@@ -1,5 +1,5 @@
 @echo off
-REM Hardware Pipeline - Deployment Script for Windows
+REM Silicon to Software (S2S) - Deployment Script for Windows
 REM Usage: deploy.bat [dev|prod] [port]
 
 setlocal enabledelayedexpansion
@@ -11,7 +11,7 @@ set PORT=%2
 if "%PORT%"=="" set PORT=8501
 
 echo ==========================================
-echo Hardware Pipeline Deployment Script
+echo Silicon to Software (S2S) Deployment Script
 echo ==========================================
 echo Environment: %ENV%
 echo Port: %PORT%
@@ -47,7 +47,7 @@ if not exist .env (
     echo WARNING: .env file not found
     echo Creating from template...
     (
-        echo # Hardware Pipeline Environment Variables
+        echo # Silicon to Software (S2S) Environment Variables
         echo.
         echo # API Keys - set at least one
         echo ANTHROPIC_API_KEY=
@@ -79,7 +79,7 @@ echo Directories created
 REM Start Streamlit
 echo.
 echo ==========================================
-echo Starting Hardware Pipeline...
+echo Starting Silicon to Software (S2S)...
 echo ==========================================
 echo UI will be available at: http://localhost:%PORT%
 echo.

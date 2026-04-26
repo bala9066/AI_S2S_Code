@@ -1,4 +1,4 @@
-# Hardware Pipeline - Quick Start Guide
+# Silicon to Software (S2S) - Quick Start Guide
 
 ## Prerequisites
 

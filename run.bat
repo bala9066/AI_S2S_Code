@@ -4,11 +4,11 @@ setlocal enabledelayedexpansion
 REM ── Always run from the folder that contains this .bat file ───────────────
 cd /d "%~dp0"
 
-title Hardware Pipeline - Starting...
+title Silicon to Software (S2S) - Starting...
 
 echo.
 echo  ============================================================
-echo   Hardware Pipeline  ^|  AI Design Studio  ^|  S2S V2
+echo   Silicon to Software (S2S)  ^|  AI Design Studio  ^|  S2S V2
 echo  ============================================================
 echo.
 
@@ -105,7 +105,7 @@ timeout /t 2 /nobreak >nul
 
 echo.
 echo  ============================================================
-echo   Hardware Pipeline is ready!
+echo   Silicon to Software (S2S) is ready!
 echo.
 echo   App    ->  http://localhost:8000/app
 echo   API    ->  http://localhost:8000/docs

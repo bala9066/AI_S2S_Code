@@ -1,4 +1,4 @@
-name: CI — Hardware Pipeline
+name: CI — Silicon to Software (S2S)
 
 on:
   push:

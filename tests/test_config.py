@@ -52,7 +52,7 @@ class TestSettingsDefaults:
     def test_default_app_settings(self, mock_env_vars):
         """Test default application settings."""
         s = Settings()
-        assert s.app_name == "Hardware Pipeline"
+        assert s.app_name == "Silicon to Software (S2S)"
         assert s.app_env == "development"
         assert s.debug is True
         assert s.log_level in ["INFO", "DEBUG"]

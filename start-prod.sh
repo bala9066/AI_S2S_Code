@@ -1,12 +1,12 @@
 #!/bin/bash
-# Hardware Pipeline — Production startup (FastAPI only, no --reload, no Streamlit)
+# Silicon to Software (S2S) — Production startup (FastAPI only, no --reload, no Streamlit)
 # Used by: Docker container (docker-compose.yml)
 # For local dev, use start.sh instead.
 
 set -e
 
 echo "================================================"
-echo "  ⚡ Hardware Pipeline — AI Hackathon 2026"
+echo "  ⚡ Silicon to Software (S2S) — AI Hackathon 2026"
 echo "  Production Mode"
 echo "================================================"
 

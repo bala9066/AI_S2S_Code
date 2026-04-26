@@ -1,4 +1,4 @@
-# Hardware Pipeline — Bug Log
+# Silicon to Software (S2S) — Bug Log
 
 > Maintained in `bugs/BUG_LOG.md`. All bugs documented with root cause, fix, and status.
 > History is append-only — resolved bugs are kept for reference.

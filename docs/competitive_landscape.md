@@ -1,9 +1,9 @@
-# Competitive Landscape — Hardware Pipeline for Defense RF Electronics
+# Competitive Landscape — Silicon to Software (S2S) for Defense RF Electronics
 
 **Status:** Draft, April 2026. Prepared for the Great AI Hack-A-Thon 2026
 submission as part of deliverable D1.4 (IMPLEMENTATION_PLAN.md).
 
-**Scope:** This document positions our "Hardware Pipeline" submission
+**Scope:** This document positions our "Silicon to Software (S2S)" submission
 against the adjacent tools, frameworks, and prior art that a judge is
 likely to ask about. It is deliberately company-agnostic; where a category
 of product is named, we describe the class of functionality rather than
@@ -29,7 +29,7 @@ Defense RF and mixed-signal hardware design today is characterised by:
 - **Air-gapped and ITAR-constrained environments:** many defence primes cannot
   use a hosted LLM for some or all of a project's lifecycle.
 
-The Hardware Pipeline addresses those constraints by combining elicitation
+The Silicon to Software (S2S) addresses those constraints by combining elicitation
 (4-round, domain-adaptive), deterministic tooling (cascade validator,
 requirements lock, datasheet verifier, red-team audit), and a clean
 separation between manual and AI phases so that engineers retain authorship
@@ -65,7 +65,7 @@ Polarion ALM, ReqIF-based tools.
 - **What they do not do:** *generate* the first-draft requirement set from a
   subject-matter conversation, recompute derived RF specs, or verify that a
   requirement's cited standard clause actually exists.
-- **Our relationship:** the Hardware Pipeline feeds these tools. Requirements
+- **Our relationship:** the Silicon to Software (S2S) feeds these tools. Requirements
   frozen in P1 (via the SHA-256 `requirements_lock` — see `services/requirements_lock.py`
   and ADR-001) export cleanly as ReqIF or CSV into DOORS/Jama for the formal
   programme baseline. We do not replace the system of record.
@@ -81,7 +81,7 @@ Enterprise, Google Gemini Code Assist, Cursor, Cody.
   design, run deterministic Friis / IIP3 cascade math on the proposed BOM,
   validate citations against a clause database, detect fabricated part numbers,
   or freeze a hashable requirements baseline.
-- **Our relationship:** Hardware Pipeline is an *application-level* system that
+- **Our relationship:** Silicon to Software (S2S) is an *application-level* system that
   can use any of these LLM endpoints under the hood (see ADR-001 on model
   selection and fallback). The value is in the deterministic scaffolding —
   cascade validator, requirements lock, red-team audit — not in the underlying
@@ -142,7 +142,7 @@ Yoni-Da simulation tools.
 
 ## 3. Differentiation summary
 
-| Capability                                | EDA suites | Requirements tools | LLM copilots | LLM frameworks | Standards DBs | RF CAD | **Hardware Pipeline** |
+| Capability                                | EDA suites | Requirements tools | LLM copilots | LLM frameworks | Standards DBs | RF CAD | **Silicon to Software (S2S)** |
 |-------------------------------------------|:----------:|:------------------:|:------------:|:--------------:|:-------------:|:------:|:---------------------:|
 | NL elicitation, 4-round domain-adaptive   |            |                    |   partial    |    partial     |               |        |          yes          |
 | Friis / IIP3 cascade math on BOM          |            |                    |              |                |               |  yes   |          yes          |

@@ -38,7 +38,11 @@
   font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   font-size: 13.5px;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* overflow: hidden clips the aurora ::before/::after (which use
+     inset: -10% / mix-blend-mode) on BOTH axes so they don't add
+     phantom scrollable space below the content. Body still scrolls
+     the page because dashboard-root's height grows with .canvas. */
+  overflow: hidden;
 }
 
 /* Ambient aurora layers — same gradients as the mock, blurred + drifting. */

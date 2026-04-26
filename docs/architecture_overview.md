@@ -1,4 +1,4 @@
-# Hardware Pipeline V2 — Architecture Overview (One Page)
+# Silicon to Software (S2S) V2 — Architecture Overview (One Page)
 
 *A judge-friendly tour of where each defense lives, what evidence it generates,
 and how to reproduce the eval results on a machine that has never touched the

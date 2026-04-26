@@ -1,4 +1,4 @@
-# MASTER PLAN: Hardware Pipeline AI System
+# MASTER PLAN: Silicon to Software (S2S) AI System
 ## Team Code Knights - Data Patterns AI Hack-A-Thon 2026
 ## Full Package: Synopsis + Tech Stack + Implementation
 
@@ -27,7 +27,7 @@ All generated documents follow IEEE standards structure, numbering, and content 
 
 **Problem:** Data Patterns engineers waste 60-80% of time on manual documentation, component selection, compliance checking, and code generation. 35 engineers, ~Rs.39.5L/year lost.
 
-**Goal:** Build "Hardware Pipeline" - an AI-powered system that automates the hardware design lifecycle from natural language requirements to production-ready software drivers.
+**Goal:** Build "Silicon to Software (S2S)" - an AI-powered system that automates the hardware design lifecycle from natural language requirements to production-ready software drivers.
 
 **Constraints:** Air-gapped capable, on-premise, defense-grade IP protection, 2+ month timeline, starting from scratch.
 

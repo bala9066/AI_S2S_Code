@@ -835,7 +835,7 @@ Map all registers from the RDT to the register bus. Implement all FSMs identifie
         v.append(f"// Module  : {module}_top")
         v.append(f"// Project : {project_name}")
         v.append(f"// Clock   : {clk_mhz} MHz ({clk_period} ns period)")
-        v.append(f"// Source  : Hardware Pipeline v2 (auto-generated from GLR)")
+        v.append(f"// Source  : Silicon to Software (S2S) v2 (auto-generated from GLR)")
         v.append(f"// {'='*60}")
         v.append("`timescale 1ns / 1ps")
         v.append("")

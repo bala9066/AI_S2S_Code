@@ -1,5 +1,5 @@
 """
-Orchestrator Agent - Master Controller for the Hardware Pipeline.
+Orchestrator Agent - Master Controller for the Silicon to Software (S2S).
 
 Routes execution through phases: P1 -> P2 -> P3 -> P4 -> P6 -> P7a -> P7 -> P8a -> P8b -> P8c
 (P5 is a manual phase, skipped in automation)

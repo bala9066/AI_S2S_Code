@@ -2,7 +2,7 @@
 
 # Default target — quick reminder of what's available.
 help:
-	@echo "Hardware Pipeline V2 — Makefile targets"
+	@echo "Silicon to Software (S2S) V2 — Makefile targets"
 	@echo ""
 	@echo "  make test              Run the full pytest suite"
 	@echo "  make golden            Run just the golden-scenario regression tests"

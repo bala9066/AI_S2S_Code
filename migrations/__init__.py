@@ -1,5 +1,5 @@
 """
-Lightweight idempotent SQLite migrations for Hardware Pipeline V2.
+Lightweight idempotent SQLite migrations for Silicon to Software (S2S) V2.
 
 We deliberately avoid Alembic — the schema is small, the app is single-tenant
 SQLite, and we want zero new runtime dependencies. Migrations live as .sql

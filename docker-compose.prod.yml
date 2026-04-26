@@ -1,7 +1,7 @@
 version: '3.8'
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Hardware Pipeline — Production Docker Compose (with Nginx + SSL)
+# Silicon to Software (S2S) — Production Docker Compose (with Nginx + SSL)
 #
 # Usage:
 #   docker compose -f docker-compose.prod.yml up -d --build

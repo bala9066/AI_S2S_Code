@@ -53,7 +53,7 @@ class HRSGenerator:
 | 1.0     | {date} | {author} | Initial release     |
 
 ---
-""".format(date=datetime.now().strftime('%Y-%m-%d'), author=meta.get('author', 'Hardware Pipeline AI'))
+""".format(date=datetime.now().strftime('%Y-%m-%d'), author=meta.get('author', 'Silicon to Software (S2S) AI'))
 
     def _section_introduction(self, project_name: str, meta: Dict) -> str:
         return """## 1. Introduction

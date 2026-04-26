@@ -1,7 +1,7 @@
 """
 End-to-End Pipeline Integration Test
 
-Tests the complete hardware pipeline from P1 through P8c with actual agent execution
+Tests the complete silicon to software (s2s) from P1 through P8c with actual agent execution
 (using mocked LLM calls but real agent logic).
 """
 

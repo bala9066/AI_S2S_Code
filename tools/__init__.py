@@ -1,5 +1,5 @@
 """
-Hardware Pipeline - Tools
+Silicon to Software (S2S) - Tools
 Utilities and tools available to agents for component search, scraping, calculations.
 """
 

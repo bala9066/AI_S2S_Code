@@ -1,7 +1,7 @@
 # ADR-002 — Why Four Rounds of Elicitation, Not One
 
 **Status:** Accepted, 2026-04-18.
-**Authors:** Hardware Pipeline team.
+**Authors:** Silicon to Software (S2S) team.
 **Related:** IMPLEMENTATION_PLAN.md (B3.1, A1.1), ADR-001 (model selection),
 `agents/requirements_agent.py`, `agents/red_team_audit.py`,
 `tools/cascade_validator.py`, `services/requirements_lock.py`.
@@ -10,7 +10,7 @@
 
 ## Context
 
-The Hardware Pipeline's Phase 1 must convert a free-form user description
+The Silicon to Software (S2S)'s Phase 1 must convert a free-form user description
 into a frozen, hashable requirements baseline that subsequent phases
 (HRS, compliance, netlist, GLR, SRS, SDD, code review) can consume
 without ambiguity. A naive one-shot "give the LLM the whole problem and

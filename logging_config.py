@@ -1,5 +1,5 @@
 """
-Centralised logging configuration for Hardware Pipeline.
+Centralised logging configuration for Silicon to Software (S2S).
 
 Usage:
     from logging_config import configure_logging

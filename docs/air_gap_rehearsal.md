@@ -4,7 +4,7 @@
 submission under IMPLEMENTATION_PLAN.md D3 (reproducibility + air-gap demo).
 
 **Audience:** Hackathon judges, defence integrators, and programme security
-officers who need to see the Hardware Pipeline run end-to-end with *no
+officers who need to see the Silicon to Software (S2S) run end-to-end with *no
 outbound network access*.
 
 **Scope:** This document is the pre-flight checklist, the rehearsal script,
@@ -18,7 +18,7 @@ deploying organisation.
 
 Defence primes routinely operate inside enclaves with no internet egress.
 Any tool that silently depends on a hosted LLM endpoint or a live datasheet
-fetch is useless in that environment. The Hardware Pipeline was designed so
+fetch is useless in that environment. The Silicon to Software (S2S) was designed so
 that every phase has two operating modes:
 
 - **Connected mode (default):** primary LLM is the current best model on the

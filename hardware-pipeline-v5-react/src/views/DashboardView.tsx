@@ -29,6 +29,10 @@ import '../styles/dashboard.css';
 interface DashboardViewProps {
   onCreate: () => void;
   onLoadProject: (p: Project) => void;
+  /** Show the Load Project modal in the current (dashboard) tab.
+   *  Used as the fallback when window.open is blocked for the
+   *  Projects nav link. */
+  onShowLoadModal: () => void;
 }
 
 interface ProjectAggregate {
@@ -39,7 +43,6 @@ interface ProjectAggregate {
   failed: number;
   running: { id: string; name: string } | null;
   lastUpdated: number;       // ms epoch of the most recent status update
-  firstCompletedAt: number;  // ms epoch of the EARLIEST completion (project start proxy)
   staleIds: string[];        // phases re-flagged stale by /status payload
 }
 
@@ -58,12 +61,18 @@ interface DashboardData {
   dailyFailure: number[];
 }
 
-// Phase color palette mirrors the dashboard mock (iris family).
-const PHASE_COLORS: Record<string, string> = {
-  P1: '#4ef0a8',  P2: '#5ce1ff',  P3: '#ffc65c',  P4: '#b388ff',
-  P5: '#ffb84e',  P6: '#ff5ca8',  P7: '#ffb84e',  P7a: '#5ce1ff',
-  P8a: '#4ef0a8', P8b: '#5ce1ff', P8c: '#b388ff',
-};
+/** Parse the backend's updated_at field as UTC.
+ *  Backend stores naive UTC datetimes (e.g. "2026-04-22T05:44:00.442754")
+ *  with no timezone suffix. JavaScript's Date() treats those as LOCAL
+ *  time, which displays as user-tz-offset hours in the future for any
+ *  timezone east of UTC (5h30m off for IST). Appending 'Z' forces UTC
+ *  parsing. If the backend ever starts sending tz-aware strings (with
+ *  Z, +/-, or offset already), we leave them alone. */
+function parseBackendTs(s: string | undefined): number {
+  if (!s) return NaN;
+  const hasTz = /[Zz]$|[+-]\d{2}:?\d{2}$/.test(s);
+  return new Date(hasTz ? s : s + 'Z').getTime();
+}
 
 function fmtTimeAgo(ms: number): string {
   const delta = Date.now() - ms;
@@ -73,6 +82,24 @@ function fmtTimeAgo(ms: number): string {
   return `${Math.floor(delta / 86_400_000)} d`;
 }
 
+/** "now" for fresh timestamps, "5 min ago" / "2 hr ago" / "1 d ago"
+ *  otherwise. Wraps fmtTimeAgo so "now ago" never renders. */
+function fmtTimeAgoLabel(ms: number): string {
+  const s = fmtTimeAgo(ms);
+  return s === 'now' ? 'now' : `${s} ago`;
+}
+
+/** Format an INR value into Indian denominations.
+ *  Returns { value, unit } so the KpiCard can render the unit
+ *  separately in the smaller emphasis style. */
+function fmtInr(rupees: number): { value: string; unit: string } {
+  const CRORE = 1e7;   // 1,00,00,000
+  const LAKH = 1e5;    // 1,00,000
+  if (rupees >= CRORE) return { value: (rupees / CRORE).toFixed(1), unit: 'Cr' };
+  if (rupees >= LAKH)  return { value: (rupees / LAKH).toFixed(1),  unit: 'L'  };
+  return { value: Math.round(rupees / 1000).toString(), unit: 'K' };
+}
+
 /** KPI values + error-reduction derived from REAL completion counts. */
 function calcKpis(projects: ProjectAggregate[]) {
   const totalDone = projects.reduce((acc, p) => acc + p.done, 0);
@@ -80,8 +107,10 @@ function calcKpis(projects: ProjectAggregate[]) {
   const totalFailed = projects.reduce((acc, p) => acc + p.failed, 0);
   // Time saved: 4.25 hrs/phase (manual-engineering baseline per the P18 plan).
   const hoursSaved = totalDone * 4.25;
-  // Cost impact: hoursSaved × 52 wk × $150/hr (engineering load assumption).
-  const costImpactPerYear = hoursSaved * 52 * 150;
+  // Cost impact: hoursSaved × 52 wk × ₹3000/hr (Indian senior-eng rate).
+  // Output is in INR; UI formats as Crore (1 Cr = 10^7).
+  const INR_RATE = 3000;
+  const costImpactPerYear = hoursSaved * 52 * INR_RATE;
   // Error reduction = (1 - failure_rate) × 100 over phases that ran.
   // Phases that ran = completed + failed; pending phases excluded.
   const ranPhases = totalDone + totalFailed;
@@ -115,7 +144,7 @@ function buildDailySeries(projects: ProjectAggregate[]): { completed: number[]; 
     for (const phase of PHASES) {
       const e = agg.raw[phase.id];
       if (!e || !e.updated_at) continue;
-      const t = new Date(e.updated_at).getTime();
+      const t = parseBackendTs(e.updated_at);
       if (Number.isNaN(t)) continue;
       const ageDays = Math.floor((todayMs - t) / dayMs);
       if (ageDays < 0 || ageDays >= N_DAYS) continue;
@@ -149,12 +178,12 @@ function pickFeatured(projects: ProjectAggregate[]): ProjectAggregate | null {
 
 /** Derive flat event list from all projects' status timestamps. */
 function deriveEvents(projects: ProjectAggregate[]) {
-  const events: { id: string; cls: 'ok' | 'run' | 'warn' | 'info' | 'bad'; ic: string; msg: React.ReactNode; ts: number }[] = [];
+  const events: { id: string; cls: 'ok' | 'run' | 'warn' | 'info' | 'bad'; ic: string; msg: React.ReactNode; ts: number; project: Project }[] = [];
   for (const agg of projects) {
     for (const phase of PHASES) {
       const e = agg.raw[phase.id];
       if (!e || !e.updated_at) continue;
-      const ts = new Date(e.updated_at).getTime();
+      const ts = parseBackendTs(e.updated_at);
       if (Number.isNaN(ts)) continue;
       let cls: 'ok' | 'run' | 'warn' | 'info' | 'bad' = 'info';
       let ic = 'i';
@@ -166,6 +195,7 @@ function deriveEvents(projects: ProjectAggregate[]) {
         id: `${agg.project.id}-${phase.id}-${ts}`,
         cls, ic, ts,
         msg: <><b>{phase.code} {phase.name}</b> · {agg.project.name} · {e.status}</>,
+        project: agg.project,
       });
     }
   }
@@ -254,13 +284,23 @@ function KpiCard({
   );
 }
 
-export default function DashboardView({ onCreate, onLoadProject }: DashboardViewProps) {
+export default function DashboardView({ onCreate, onLoadProject, onShowLoadModal }: DashboardViewProps) {
   const [data, setData] = useState<DashboardData>({
     projects: [], totalDone: 0, totalPhases: 0, totalFailed: 0,
     loading: true, error: null,
     dailyCompletion: new Array(14).fill(0),
     dailyFailure: new Array(14).fill(0),
   });
+  // Tracks the timestamp of the last successful refresh — drives the
+  // "Updated Xs ago" label next to the Refresh button.
+  const [lastRefreshAt, setLastRefreshAt] = useState<number>(0);
+  // Bumps every 15s so fmtTimeAgo recomputes between polls (otherwise
+  // "now" stays stuck for 30s until the next refresh).
+  const [, setNowTick] = useState(0);
+  useEffect(() => {
+    const h = setInterval(() => setNowTick(n => n + 1), 15_000);
+    return () => clearInterval(h);
+  }, []);
 
   const refresh = async () => {
     try {
@@ -288,27 +328,27 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
           staleIds = full.stale_phase_ids || [];
         } catch { /* leave raw empty if a single project errors */ }
 
-        const all = PHASES.map(ph => raw[ph.id]).filter(Boolean) as StatusesRaw[string][];
+        // Only AI (auto) phases count toward Confidence + Pipeline Completion.
+        // Manual phases (currently just P5 PCB Layout) require external EDA
+        // tools and aren't part of the AI pipeline's success rate.
+        const aiPhases = PHASES.filter(ph => !ph.manual);
+        const all = aiPhases.map(ph => raw[ph.id]).filter(Boolean) as StatusesRaw[string][];
         const done = all.filter(e => e.status === 'completed').length;
         const failed = all.filter(e => e.status === 'failed').length;
-        const total = PHASES.length;
+        const total = aiPhases.length;
         const runningEntry = PHASES.find(ph => raw[ph.id]?.status === 'in_progress');
         let lastUpdated = 0;
-        let firstCompletedAt = Number.POSITIVE_INFINITY;
         for (const e of all) {
           if (!e.updated_at) continue;
-          const t = new Date(e.updated_at).getTime();
+          const t = parseBackendTs(e.updated_at);
           if (Number.isNaN(t)) continue;
           if (t > lastUpdated) lastUpdated = t;
-          if (e.status === 'completed' && t < firstCompletedAt) firstCompletedAt = t;
         }
-        if (firstCompletedAt === Number.POSITIVE_INFINITY) firstCompletedAt = 0;
         return {
           project: p,
           raw, done, total, failed,
           running: runningEntry ? { id: runningEntry.id, name: runningEntry.name } : null,
           lastUpdated,
-          firstCompletedAt,
           staleIds,
         };
       }));
@@ -323,6 +363,7 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
         dailyCompletion: series.completed,
         dailyFailure: series.failed,
       });
+      setLastRefreshAt(Date.now());
     } catch (err) {
       setData(d => ({ ...d, loading: false, error: err instanceof Error ? err.message : 'Backend offline' }));
     }
@@ -362,21 +403,48 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
           <div className="brand">
             <div className="orb"></div>
             <div>
-              <div className="wm serif">Hardware <em>Pipeline</em></div>
-              <div className="sub">Holographic Lab · v22</div>
+              <div className="wm serif">Silicon to Software <em>(S2S)</em></div>
             </div>
           </div>
           <div className="menu">
             <span className="active">Dashboard</span>
             <a onClick={() => document.getElementById('dash-phases')?.scrollIntoView({ behavior: 'smooth' })} style={{ cursor: 'pointer' }}>Phases</a>
-            <a onClick={() => document.getElementById('dash-projects')?.scrollIntoView({ behavior: 'smooth' })} style={{ cursor: 'pointer' }}>Projects</a>
+            <a
+              onClick={() => {
+                // Open the Load Project modal in a new tab via ?action=load.
+                // Mirrors the Create flow — keeps the dashboard tab untouched.
+                // Falls back to in-tab modal if the popup is blocked.
+                try {
+                  const w = window.open(
+                    `${window.location.pathname}?action=load`,
+                    '_blank',
+                  );
+                  if (!w) onShowLoadModal();
+                } catch {
+                  onShowLoadModal();
+                }
+              }}
+              style={{ cursor: 'pointer' }}
+            >Projects</a>
             <a onClick={() => document.getElementById('dash-events')?.scrollIntoView({ behavior: 'smooth' })} style={{ cursor: 'pointer' }}>Activity</a>
           </div>
           <div className="actions">
-            <button className="btn" onClick={refresh} title={data.loading ? 'Refreshing…' : `Last refresh: ${new Date().toLocaleTimeString()}`}>
+            {lastRefreshAt > 0 && (
+              <span
+                style={{
+                  fontFamily: "'IBM Plex Mono'", fontSize: 10,
+                  letterSpacing: '0.18em', textTransform: 'uppercase',
+                  color: 'var(--dim2)',
+                }}
+                title={`Last refresh: ${new Date(lastRefreshAt).toLocaleTimeString()}`}
+              >
+                Updated {fmtTimeAgoLabel(lastRefreshAt)}
+              </span>
+            )}
+            <button className="btn" onClick={refresh}>
               {data.loading ? '⟳ Loading…' : '↺ Refresh'}
             </button>
-            <button className="btn btn-iris" onClick={onCreate}>▶ Start new run</button>
+            <button className="btn btn-iris" onClick={onCreate}>▶ Start new project</button>
           </div>
         </div>
 
@@ -394,35 +462,20 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
             <div className="sheen"></div>
             <div className="chiprow">
               {featured ? (
-                <>
-                  <span className="chip">{featured.project.name}</span>
-                  {featured.project.design_type && (
-                    <span className="chip pink">{featured.project.design_type.toUpperCase()}</span>
-                  )}
-                  {featured.project.project_type && (
-                    <span className="chip cyan">{featured.project.project_type.replace('_', ' ').toUpperCase()}</span>
-                  )}
-                  {featured.project.design_scope && (
-                    <span className="chip">{featured.project.design_scope.toUpperCase()}</span>
-                  )}
-                  {featured.staleIds.length > 0 && (
-                    <span className="chip pink">⚠ {featured.staleIds.length} stale</span>
-                  )}
-                  <span className="chip good">
-                    ● {featured.running
-                      ? 'Live'
-                      : featured.done === featured.total
-                        ? 'Complete'
-                        : featured.failed > 0 ? 'Has failures' : 'On Track'}
-                  </span>
-                </>
+                <span className="chip good">
+                  ● {featured.running
+                    ? 'Live'
+                    : featured.done === featured.total
+                      ? 'Complete'
+                      : featured.failed > 0 ? 'Has failures' : 'On Track'}
+                </span>
               ) : (
                 <span className="chip">No projects yet</span>
               )}
             </div>
             <div className="title serif">
               {featured
-                ? <>An <em>{featured.project.name}</em>, designed in a conversation.</>
+                ? <><em>{featured.project.name}</em>, designed in a conversation.</>
                 : <>Hardware design, <em>compressed</em>.</>}
             </div>
             <p className="lead">
@@ -505,17 +558,22 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
                 ? `▲ 0 failures across ${kpis.totalDone} runs`
                 : '— no runs yet'}
           />
-          <KpiCard
-            label="Cost Impact / yr"
-            value={`$${(kpis.costImpactPerYear / 1000).toFixed(0)}`}
-            unit="K"
-            color="#5ce1ff"
-            sparkPoints={normalize(data.dailyCompletion.map(c => c * 4.25 * 52 * 150))}
-            delta={data.totalDone > 0
-              ? `▲ projected · annualised`
-              : '—'}
-            footnote="engineering cost at $150/hr × 52 wk"
-          />
+          {(() => {
+            const cost = fmtInr(kpis.costImpactPerYear);
+            return (
+              <KpiCard
+                label="Cost Impact / yr"
+                value={`₹${cost.value}`}
+                unit={cost.unit}
+                color="#5ce1ff"
+                sparkPoints={normalize(data.dailyCompletion.map(c => c * 4.25 * 52 * 3000))}
+                delta={data.totalDone > 0
+                  ? `▲ projected · annualised`
+                  : '—'}
+                footnote="engineering cost at ₹3000/hr × 52 wk"
+              />
+            );
+          })()}
           <KpiCard
             label="Confidence"
             value={kpis.confidence.toString()}
@@ -539,12 +597,12 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
             </div>
             <div className="meta">
               {kpis.totalDone} done · {data.projects.filter(p => p.running).length} live
-              · {PHASES.filter(p => p.manual).length * (data.projects.length || 1)} manual
+              · {PHASES.filter(p => p.manual).length} manual
             </div>
           </div>
           <div className="phase-grid">
             {PHASES.map(phase => {
-              const phaseColor = PHASE_COLORS[phase.id] || '#b388ff';
+              const phaseColor = phase.color || '#b388ff';
               // Aggregate phase status across all projects (most-recent wins).
               let status: 'completed' | 'in_progress' | 'failed' | 'manual' | 'pending' = 'pending';
               let footMeta: string | null = null;
@@ -594,27 +652,6 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
                 </div>
               );
             })}
-            {/* Extend slot — deferred plugin feature, info-only tile */}
-            <div
-              className="pcard"
-              style={{ ['--c' as never]: '#6b6086', opacity: 0.6 }}
-            >
-              <div className="row">
-                <div
-                  className="mk"
-                  style={{
-                    background: 'transparent',
-                    border: '1px dashed var(--dash-border)',
-                    color: 'var(--dim)',
-                  }}
-                >+</div>
-                <span className="st">Coming soon</span>
-              </div>
-              <div className="name serif">Custom Phase</div>
-              <div className="sub">Plugin slot</div>
-              <div className="bar"><div className="fill" style={{ width: 0 }}></div></div>
-              <div className="foot"><span>—</span><b>—</b></div>
-            </div>
           </div>
         </div>
 
@@ -638,7 +675,7 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
             {data.projects.length === 0 ? (
               <div className="empty">
                 <b>No projects yet.</b>
-                Click "Start new run" above to create your first hardware design.
+                Click "Start new project" above to create your first hardware design.
               </div>
             ) : (
               <div className="flowchain">
@@ -683,10 +720,12 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
                           {' · '}
                           {(agg.project.project_type ?? 'receiver').replace('_', ' ').toUpperCase()}
                           {agg.project.design_scope && agg.project.design_scope !== 'full' && (
-                            <> · scope <span style={{ color: 'var(--iris-c)' }}>{agg.project.design_scope}</span></>
-                          )}
-                          {agg.firstCompletedAt > 0 && (
-                            <> · started {fmtTimeAgo(agg.firstCompletedAt)} ago</>
+                            <>
+                              {' · '}
+                              <span style={{ color: 'var(--iris-c)' }}>
+                                {agg.project.design_scope.toUpperCase().replace('-', ' ')}
+                              </span>
+                            </>
                           )}
                           {isRunning && agg.running && (
                             <> · <span style={{ color: 'var(--iris-a)' }}>
@@ -704,7 +743,7 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
                       <div className="time">
                         <b style={{ color: verdictColor }}>{verdict}</b>
                         <div style={{ marginTop: 4, fontSize: 10, color: 'var(--dim2)' }}>
-                          {agg.lastUpdated > 0 ? `${fmtTimeAgo(agg.lastUpdated)} ago` : '—'}
+                          {agg.lastUpdated > 0 ? fmtTimeAgoLabel(agg.lastUpdated) : '—'}
                         </div>
                       </div>
                     </div>
@@ -727,7 +766,13 @@ export default function DashboardView({ onCreate, onLoadProject }: DashboardView
             {events.length === 0 ? (
               <div className="empty">No activity yet.</div>
             ) : events.map(ev => (
-              <div key={ev.id} className={`event ${ev.cls}`}>
+              <div
+                key={ev.id}
+                className={`event ${ev.cls}`}
+                style={{ cursor: 'pointer' }}
+                onClick={() => handleOpenProject(ev.project)}
+                title={`Open ${ev.project.name} in new tab`}
+              >
                 <div className="ic">{ev.ic}</div>
                 <div className="msg">{ev.msg}</div>
                 <div className="t">{fmtTimeAgo(ev.ts)}</div>

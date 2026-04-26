@@ -1,5 +1,5 @@
 """
-Defense RF receiver domains for Hardware Pipeline V2.
+Defense RF receiver domains for Silicon to Software (S2S) V2.
 
 Each sub-module represents one defense RF sub-domain:
   - radar: fire-control, surveillance, tracking, RWR

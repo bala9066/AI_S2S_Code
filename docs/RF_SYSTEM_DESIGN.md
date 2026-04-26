@@ -489,4 +489,4 @@ FPGA requires proper power sequencing:
 
 *Document Revision: 1.0*
 *Date: February 2026*
-*Author: Hardware Pipeline AI System*
+*Author: Silicon to Software (S2S) AI System*

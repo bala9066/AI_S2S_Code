@@ -1,4 +1,4 @@
-"""Hardware Pipeline - Compliance Rules."""
+"""Silicon to Software (S2S) - Compliance Rules."""
 
 from .rohs_rules import check_component_rohs, get_rohs_summary, ROHS_RESTRICTED
 from .reach_rules import check_component_reach, get_reach_summary, REACH_SVHC

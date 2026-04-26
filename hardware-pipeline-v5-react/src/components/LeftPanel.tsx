@@ -72,7 +72,7 @@ export default function LeftPanel({ phases, selectedIdx, statuses, completedIds,
               DATA PATTERNS · CODE KNIGHTS
             </div>
             <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 17, fontWeight: 800, color: 'var(--text)' }}>
-              Hardware <span style={{ color: 'var(--teal)' }}>Pipeline</span>
+              Silicon to Software <span style={{ color: 'var(--teal)' }}>(S2S)</span>
             </div>
           </button>
 

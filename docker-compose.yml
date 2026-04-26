@@ -1,7 +1,7 @@
 version: '3.8'
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Hardware Pipeline — Docker Compose
+# Silicon to Software (S2S) — Docker Compose
 #
 # Quick start:
 #   cp .env.example .env        # fill in API keys
@@ -33,7 +33,7 @@ services:
       retries: 5
     restart: unless-stopped
 
-  # ── Hardware Pipeline App ───────────────────────────────────────────────────
+  # ── Silicon to Software (S2S) App ───────────────────────────────────────────────────
   app:
     build: .
     ports:

@@ -1,4 +1,4 @@
-# Hardware Pipeline V2 — Complete Technical Component Inventory
+# Silicon to Software (S2S) V2 — Complete Technical Component Inventory
 **Date:** 2026-04-07
 **Purpose:** In-depth analysis of ALL components used (mentioned in PPTX or not)
 

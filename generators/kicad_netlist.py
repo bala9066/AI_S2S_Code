@@ -123,7 +123,7 @@ def netlist_to_kicad(netlist: dict) -> str:
     out.append("  (design")
     out.append(f"    (source {_quote(project + '.sch')})")
     out.append(f"    (date {_quote('')})")
-    out.append(f'    (tool {_quote("Hardware Pipeline v2 (kicad_netlist.py)")})')
+    out.append(f'    (tool {_quote("Silicon to Software (S2S) v2 (kicad_netlist.py)")})')
     out.append("  )")
 
     # ── components ──────────────────────────────────────────────

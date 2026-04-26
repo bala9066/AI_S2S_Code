@@ -1,4 +1,4 @@
-# Week-1 Baseline Evaluation — Hardware Pipeline V2
+# Week-1 Baseline Evaluation — Silicon to Software (S2S) V2
 
 **Date:** 2026-04-18
 **Scenarios:** 30 golden reference designs (radar / EW / satcom / communication)

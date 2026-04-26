@@ -1,6 +1,6 @@
 # API Key Configuration Guide
 
-This guide explains how to configure and test API keys for the Hardware Pipeline AI System.
+This guide explains how to configure and test API keys for the Silicon to Software (S2S) AI System.
 
 ## Required API Keys
 

@@ -1,4 +1,4 @@
-# Hardware Pipeline V2 — Slide Review Notes
+# Silicon to Software (S2S) V2 — Slide Review Notes
 **Date:** 2026-04-07
 **Deck:** HardwarePipeline_FINAL_v3.pptx
 **Status:** Discussion in progress — do not update slides until sign-off
@@ -425,8 +425,8 @@ The "$0 Infrastructure cost" is technically correct because the system runs full
 | Traditional CAD tool licences (Altium + Vivado premium) | ₹5–15L/year |
 | Traditional document authoring tools | ₹50K–2L/year |
 | Cloud LLM inference (if used instead of local) | ~₹500–2,000/project |
-| **Hardware Pipeline V2 — local deployment** | **₹0 cloud infra** |
-| **Hardware Pipeline V2 — with cloud LLM API** | **~₹500/project** |
+| **Silicon to Software (S2S) V2 — local deployment** | **₹0 cloud infra** |
+| **Silicon to Software (S2S) V2 — with cloud LLM API** | **~₹500/project** |
 
 **Better slide messaging:**
 - Change "$0 Infrastructure cost" → "₹0 cloud hosting" (more precise)

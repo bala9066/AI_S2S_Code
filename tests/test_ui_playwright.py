@@ -70,7 +70,7 @@ class TestAppLoads:
     def test_homepage_title(self, page: Page):
         """App loads and shows the main title."""
         # Use first() to handle multiple matching elements
-        expect(page.get_by_role("heading", name="Hardware Pipeline").first).to_be_visible()
+        expect(page.get_by_role("heading", name="Silicon to Software (S2S)").first).to_be_visible()
         print("✅ App loaded successfully")
 
     def test_tab_navigation_visible(self, page: Page):
@@ -93,7 +93,7 @@ class TestAppLoads:
 
     def test_sidebar_visible(self, page: Page):
         """Sidebar loads with system info."""
-        expect(page.locator("text=Hardware Pipeline").first).to_be_visible()
+        expect(page.locator("text=Silicon to Software (S2S)").first).to_be_visible()
         print("✅ Sidebar visible")
 
 
@@ -185,7 +185,7 @@ class TestDesignChatTab:
         _navigate_tab(page, "Design Chat")
         time.sleep(1)
         # Check either the welcome message OR the 'create project' prompt
-        welcome_visible = page.locator("text=Welcome to Hardware Pipeline").is_visible()
+        welcome_visible = page.locator("text=Welcome to Silicon to Software (S2S)").is_visible()
         create_visible = page.locator("text=Create a project first").is_visible()
         assert welcome_visible or create_visible, "Neither welcome nor create prompt visible"
         print("✅ Design Chat shows expected content")

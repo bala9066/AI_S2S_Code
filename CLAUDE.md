@@ -1,4 +1,4 @@
-# Hardware Pipeline V2 — Project Memory
+# Silicon to Software (S2S) V2 — Project Memory
 
 ## Current Status
 - **FastAPI backend** running on `localhost:8000` — serves API + React frontend
@@ -61,7 +61,7 @@ Two modes:
 
 **1. Landing page** (no project loaded)
 - Full-screen, v5 style: dark grid/checkerboard background, glowing teal orb
-- Centered: Hardware Pipeline logo + tagline
+- Centered: Silicon to Software (S2S) logo + tagline
 - Two buttons: `+ Create New Project` | `Load Existing`
 - Subline: `DATA PATTERNS INDIA · GREAT AI HACK-A-THON 2026`
 
@@ -157,7 +157,7 @@ CSS variables in `src/index.css`: `--navy`, `--panel`, `--panel2`, `--panel3`, `
 ## Views / Pages
 
 ### Left Panel (248px, sticky)
-- Top: "DATA PATTERNS · CODE KNIGHTS" label (teal, small caps) + "Hardware Pipeline" logo
+- Top: "DATA PATTERNS · CODE KNIGHTS" label (teal, small caps) + "Silicon to Software (S2S)" logo
 - Phase list: one button per phase, full width, with:
   - Circle icon (phase number, or ✓ if complete, or lock if manual/locked)
   - Phase title + `⚡ AUTO` or `MANUAL` tag
@@ -459,7 +459,7 @@ async def serve_frontend():
 
 ## Branding
 
-- Logo: "Hardware Pipeline" — "Pipeline" in teal `#00c6a7` (Syne font)
+- Logo: "Silicon to Software (S2S)" — "Pipeline" in teal `#00c6a7` (Syne font)
 - Sub-brand: `DATA PATTERNS · CODE KNIGHTS` (teal, 10px, letter-spaced)
 - Hackathon line: `DATA PATTERNS INDIA · GREAT AI HACK-A-THON 2026`
 - Team credits: **NOT included**

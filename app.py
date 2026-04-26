@@ -1,5 +1,5 @@
 """
-Hardware Pipeline — Streamlit UI (Premium Design)
+Silicon to Software (S2S) — Streamlit UI (Premium Design)
 
 Architecture rule: this file contains ONLY rendering code.
 - No agent imports, no asyncio.run(), no direct DB access.
@@ -33,7 +33,7 @@ except ImportError:
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Hardware Pipeline — AI Design Studio",
+    page_title="Silicon to Software (S2S) — AI Design Studio",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -888,7 +888,7 @@ def _reset_chat():
     st.session_state.chat_messages = [{
         "role": "assistant",
         "content": (
-            "👋 **Welcome to Hardware Pipeline!**\n\n"
+            "👋 **Welcome to Silicon to Software (S2S)!**\n\n"
             "Tell me what you want to design — I'll instantly generate a **draft block diagram** "
             "for you to review. No long questionnaires.\n\n"
             "**Examples:**\n"

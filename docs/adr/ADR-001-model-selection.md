@@ -1,4 +1,4 @@
-# ADR-001 — Model Selection for the Hardware Pipeline
+# ADR-001 — Model Selection for the Silicon to Software (S2S)
 
 - **Status:** Accepted
 - **Date:** 2026-04-18

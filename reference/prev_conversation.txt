@@ -5,7 +5,7 @@ As shared from reference exactly same
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  TOPBAR  56px fixed                                                  │
-│  ⚡ Hardware Pipeline  |  tabs: OVERVIEW NEW-PROJECT CHAT PIPELINE  │
+│  ⚡ Silicon to Software (S2S)  |  tabs: OVERVIEW NEW-PROJECT CHAT PIPELINE  │
 │                         DOCUMENTS COMPONENTS NETLIST CODE DASHBOARD  │
 │                                              |  ● Rf_design  ENGINE ●│
 ├─────────────────┬───────────────────────────────────┬───────────────┤

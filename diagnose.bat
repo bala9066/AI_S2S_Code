@@ -3,13 +3,13 @@ setlocal enabledelayedexpansion
 cd /d "%~dp0"
 
 set LOG=diagnose_log.txt
-echo Hardware Pipeline — Diagnostics > %LOG%
+echo Silicon to Software (S2S) — Diagnostics > %LOG%
 echo Run at: %DATE% %TIME% >> %LOG%
 echo. >> %LOG%
 
 echo.
 echo  ============================================================
-echo   Hardware Pipeline — Diagnostics
+echo   Silicon to Software (S2S) — Diagnostics
 echo   Results saved to: diagnose_log.txt
 echo  ============================================================
 echo.

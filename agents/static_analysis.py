@@ -470,7 +470,7 @@ class StaticAnalysisRunner:
         lines += [
             "",
             "---",
-            f"_Analysis performed by Hardware Pipeline v2 using {s['tools_used']}_",
+            f"_Analysis performed by Silicon to Software (S2S) v2 using {s['tools_used']}_",
         ]
 
         return "\n".join(lines)

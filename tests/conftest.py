@@ -1,5 +1,5 @@
 """
-Pytest configuration and shared fixtures for Hardware Pipeline tests.
+Pytest configuration and shared fixtures for Silicon to Software (S2S) tests.
 """
 
 import asyncio
