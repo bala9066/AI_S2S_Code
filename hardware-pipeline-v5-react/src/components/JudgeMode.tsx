@@ -34,6 +34,27 @@ interface VerificationSnapshot {
   part_check_count: number | null;
 }
 
+/** P26 #21 (2026-04-26): the requirements_frozen_at field comes from
+ *  the backend as an ISO-8601 string with microseconds + tz offset
+ *  (e.g. "2026-04-26T08:01:05.354398+00:00"). Display that verbatim
+ *  is wide and unreadable. Render as "26 Apr 2026 · 08:01 UTC". */
+function fmtFrozenAt(iso: string | null): string {
+  if (!iso) return '—';
+  try {
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const dd = String(d.getUTCDate()).padStart(2, '0');
+    const mon = months[d.getUTCMonth()];
+    const yyyy = d.getUTCFullYear();
+    const hh = String(d.getUTCHours()).padStart(2, '0');
+    const mm = String(d.getUTCMinutes()).padStart(2, '0');
+    return `${dd} ${mon} ${yyyy} · ${hh}:${mm} UTC`;
+  } catch {
+    return iso;
+  }
+}
+
 const EMPTY: VerificationSnapshot = {
   project_id: 0,
   requirements_hash: null,
@@ -284,7 +305,7 @@ export default function JudgeMode({ projectId }: Props) {
           />
           <Row
             label="Frozen at"
-            value={snap.requirements_frozen_at || '—'}
+            value={fmtFrozenAt(snap.requirements_frozen_at)}
           />
           <Row
             label="Stale phases"

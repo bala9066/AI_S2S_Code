@@ -232,3 +232,57 @@ def test_default_direction_used_when_block_has_none():
     out_td = sanitize_mermaid_blocks_in_markdown(md, default_direction="TD")
     assert "flowchart LR" in out_lr
     assert "flowchart TD" in out_td
+
+
+# ---------------------------------------------------------------------------
+# P26 #21 — newline-leak regression: a malformed line MUST NOT swallow
+# the next line into its label.
+# ---------------------------------------------------------------------------
+
+
+def test_malformed_line_does_not_swallow_next_line():
+    """User reported (project Test): the trap_mixed_a regex's lazy
+    `[^"\\\\]+?` swallowed newlines, so:
+
+        SMA1[/SMA-F/]
+        LIM1[/Lim / [specify] / IL<1 P+30max\\]
+
+    was parsed as ONE giant SMA1 node spanning both lines (label
+    became "SMA-F/]\\n    LIM1[/Lim / [specify] / IL<1 P+30max").
+    LIM1 then disappeared from the spec entirely, and the rect
+    pattern picked up a truncated `LIM1[/Lim / [specify]`.
+
+    Fix: every label class also excludes `\\n` so lazy matches stay
+    on one line. This test pins that — both nodes must extract with
+    their full labels."""
+    md = (
+        "```mermaid\n"
+        "flowchart TD\n"
+        "    ANT1>\"Ant1-16<br>6-18 GHz\"]\n"
+        "    SMA1[/SMA-F/]\n"
+        "    LIM1[/Lim / [specify] / IL<1 P+30max\\]\n"
+        "    BPF1{{Preselector / BFHKI-7851+ / IL2.5 BW1.9}}\n"
+        "    LIM1 --> BPF1\n"
+        "```\n"
+    )
+    out = sanitize_mermaid_blocks_in_markdown(md)
+    # All 4 nodes survive intact.
+    for nid in ("ANT1", "SMA1", "LIM1", "BPF1"):
+        assert nid in out, f"node {nid} disappeared from output"
+    # LIM1's label MUST contain the full text — `Lim`, `specify`, AND
+    # `P+30max` (the bit that used to get truncated by the rect-pattern
+    # short-match when trap_mixed_a leaked into SMA1's line).
+    import re as _re
+    block = _re.search(r"```mermaid\n([\s\S]+?)\n```", out)
+    assert block is not None
+    rendered = block.group(1)
+    lim_lines = [ln for ln in rendered.splitlines() if "LIM1" in ln and "[" in ln]
+    assert lim_lines, "no LIM1 node-definition line in output"
+    lim_label_line = lim_lines[0]
+    assert "Lim" in lim_label_line
+    assert "specify" in lim_label_line
+    assert "P+30max" in lim_label_line, (
+        f"LIM1 label is truncated — `P+30max` lost: {lim_label_line!r}"
+    )
+    # Edge survives.
+    assert "LIM1 --> BPF1" in rendered

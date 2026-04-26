@@ -316,9 +316,28 @@ def finalize_p1(
 
     blockers = [i for i in rep.issues if i.severity in ("critical", "high")]
     mediums = [i for i in rep.issues if i.severity == "medium"]
+    # P26 #21 (2026-04-26): friendlier timestamp format. Pre-fix the
+    # frozen line read `_(frozen 2026-04-26T08:01:05.354398+00:00)_`
+    # — verbose ISO with microseconds + tz offset that took up half
+    # the chat width. Now formatted as `26 Apr 2026 · 08:01 UTC`
+    # which is concise + still unambiguous (date + minute resolution
+    # + explicit timezone).
+    def _fmt_frozen(ts: object) -> str:
+        try:
+            from datetime import datetime
+            if isinstance(ts, datetime):
+                dt = ts
+            else:
+                # Strip the "+00:00" → use fromisoformat directly.
+                s = str(ts)
+                dt = datetime.fromisoformat(s)
+            return dt.strftime("%d %b %Y · %H:%M UTC")
+        except Exception:
+            return str(ts)
+
     summary_lines = [
         "",
-        f"**Requirements lock:** `{lock.requirements_hash[:12]}…`  _(frozen {lock.frozen_at})_",
+        f"**Requirements lock:** `{lock.requirements_hash[:12]}…`  _(frozen {_fmt_frozen(lock.frozen_at)})_",
         f"**Red-team audit:** {'PASS' if rep.overall_pass else 'FAIL'} "
         f"· {len(blockers)} blocker(s) · {len(mediums)} medium · "
         f"confidence {rep.confidence_score:.2f}",

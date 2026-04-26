@@ -108,19 +108,25 @@ _SHAPE_PATTERNS = [
     (re.compile(r'\b([A-Za-z][A-Za-z0-9_]*)\s*\[\s*"([^"]+)"\s*\]'), "rect_q"),
     # ── Tier 2: UNQUOTED-LABEL variants (label can't contain its own
     # closing delimiter or the quote char). Listed longest-first.
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\[\s*([^\"\]]+?)\s*\]\]"), "subroutine"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\{\{\s*([^\"\}]+?)\s*\}\}"), "hexagon"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\(\(\s*([^\"\)]+?)\s*\)\)"), "circle"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\(\[\s*([^\"\]]+?)\s*\]\)"), "stadium"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\(\s*([^\"\)]+?)\s*\)\]"), "cylinder"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\\\s*([^\"\\]+?)\s*\\\]"), "trapezoid"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[/\s*([^\"/]+?)\s*/\]"), "parallelogram"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[/\s*([^\"\\]+?)\s*\\\]"), "trap_mixed_a"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\\\s*([^\"/]+?)\s*/\]"), "trap_mixed_b"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*>\s*([^\"\]]+?)\s*\]"), "flag"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\{(?!\{)\s*([^\"\}]+?)\s*\}"), "rhombus"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\((?!\()\s*([^\"\)]+?)\s*\)"), "round"),
-    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\s*([^\"\]]+?)\s*\]"), "rect"),
+    # P26 #21 (2026-04-26): every label class also excludes `\n` so a
+    # malformed line can't accidentally swallow the next line. Pre-fix
+    # `SMA1[/SMA-F/]\n    LIM1[/Lim/...\\]` matched as ONE node spanning
+    # 2 lines because the lazy `[^"\\]+?` happily ate the newline +
+    # the LIM1 prefix in search of the closing `\]`. Adding `\n` to
+    # the negation forces lazy matches to stay on one line.
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\[\s*([^\"\]\n]+?)\s*\]\]"), "subroutine"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\{\{\s*([^\"\}\n]+?)\s*\}\}"), "hexagon"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\(\(\s*([^\"\)\n]+?)\s*\)\)"), "circle"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\(\[\s*([^\"\]\n]+?)\s*\]\)"), "stadium"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\(\s*([^\"\)\n]+?)\s*\)\]"), "cylinder"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\\\s*([^\"\\\n]+?)\s*\\\]"), "trapezoid"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[/\s*([^\"/\n]+?)\s*/\]"), "parallelogram"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[/\s*([^\"\\\n]+?)\s*\\\]"), "trap_mixed_a"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\\\s*([^\"/\n]+?)\s*/\]"), "trap_mixed_b"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*>\s*([^\"\]\n]+?)\s*\]"), "flag"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\{(?!\{)\s*([^\"\}\n]+?)\s*\}"), "rhombus"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\((?!\()\s*([^\"\)\n]+?)\s*\)"), "round"),
+    (re.compile(r"\b([A-Za-z][A-Za-z0-9_]*)\s*\[\s*([^\"\]\n]+?)\s*\]"), "rect"),
 ]
 
 # Trailing-shape stripper — used to NORMALISE the text before edge
